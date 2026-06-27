@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
-from mnemosyne.core.models import CTLRecord, CommitBatch, TransitionCandidate, now_utc
+from mnemosyne.core.models import CTLRecord, CommitBatch, TransitionCandidate, ValidationResult, now_utc
 from mnemosyne.core.recovery import (
     ActiveRecoveryPlan,
     ProposalProvider,
@@ -24,6 +24,7 @@ class LocalActiveRecoveryExecution:
     plan: ActiveRecoveryPlan
     records: list[CTLRecord]
     committed: list[CTLRecord]
+    validation_results: list[ValidationResult] = field(default_factory=list)
 
     @property
     def has_committed_records(self) -> bool:
@@ -141,6 +142,78 @@ class LocalActiveRecoveryExecutor:
             records=records,
             committed=committed,
         )
+
+    async def plan_validate_and_commit(
+        self,
+        *,
+        tenant_id: str,
+        tx_group_id: str,
+        batch_id: str,
+        proposal_provider: ProposalProvider,
+        validator: Any,
+        policy: RecoveryPolicy | None = None,
+        workflow_id: str | None = None,
+        binding_id: str | None = None,
+        contexts: dict[str, RecoveryContext] | None = None,
+    ) -> LocalActiveRecoveryExecution:
+        """Plan active recovery, validate each candidate, and commit through CTL.
+
+        Candidates are admitted sequentially because Validator.validate_batch
+        currently rejects duplicate entity/FSM transitions within one batch.
+        Each candidate still passes the normal validation and CTL commit path.
+
+        If validation fails for a candidate, that candidate is not committed.
+        """
+        plan = await self.plan(
+            tenant_id=tenant_id,
+            tx_group_id=tx_group_id,
+            proposal_provider=proposal_provider,
+            policy=policy,
+            workflow_id=workflow_id,
+            binding_id=binding_id,
+            contexts=contexts,
+        )
+
+        if not plan.candidates:
+            return LocalActiveRecoveryExecution(plan=plan, records=[], committed=[])
+
+        records: list[CTLRecord] = []
+        committed: list[CTLRecord] = []
+        validation_results: list[ValidationResult] = []
+
+        for index, candidate in enumerate(plan.candidates, start=1):
+            candidate_batch = CommitBatch(
+                batch_id=f"{batch_id}:{index}",
+                tenant_id=tenant_id,
+                workflow_id=workflow_id,
+                tx_group_id=tx_group_id,
+                candidates=[candidate],
+            )
+
+            validation = await validator.validate_batch(candidate_batch, self.store)
+            validation_results.append(validation)
+
+            if not validation.ok:
+                return LocalActiveRecoveryExecution(
+                    plan=plan,
+                    records=records,
+                    committed=committed,
+                    validation_results=validation_results,
+                )
+
+            candidate_records = await validator.records_from_batch(candidate_batch, self.store)
+            candidate_committed = await self.store.commit_batch(candidate_batch, candidate_records)
+
+            records.extend(candidate_records)
+            committed.extend(candidate_committed)
+
+        return LocalActiveRecoveryExecution(
+            plan=plan,
+            records=records,
+            committed=committed,
+            validation_results=validation_results,
+        )
+
 
     async def _records_from_candidates(
         self,

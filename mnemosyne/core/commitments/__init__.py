@@ -40,6 +40,10 @@ __all__ = [
     "ActiveCommitmentIndex",
     "active_commitment_index_from_store",
     "ctl_record_from_sqlite_row",
+    "COMMITMENT_FSM_VERSION",
+    "build_commitment_fsm_registry",
+    "commitment_fsm_def",
+    "register_commitment_fsm",
 ]
 
 from mnemosyne.core.commitments.candidates import (
@@ -59,4 +63,11 @@ from mnemosyne.core.commitments.index import ActiveCommitmentIndex
 from mnemosyne.core.commitments.store_index import (
     active_commitment_index_from_store,
     ctl_record_from_sqlite_row,
+)
+
+from mnemosyne.core.commitments.fsm import (
+    COMMITMENT_FSM_VERSION,
+    build_commitment_fsm_registry,
+    commitment_fsm_def,
+    register_commitment_fsm,
 )

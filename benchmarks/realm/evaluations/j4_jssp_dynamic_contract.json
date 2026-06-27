@@ -1,0 +1,52 @@
+{
+  "actionable_events": [
+    {
+      "distribution": "Uniform(0, 3)",
+      "event_id": "j4-stochastic-operation-delay-1",
+      "existing_jssp_substrate": "contract_only",
+      "maps_to": [],
+      "revealed_at": null,
+      "type": "stochastic_operation_delay"
+    },
+    {
+      "event_id": "j4-material-unavailability-2",
+      "existing_jssp_substrate": "requires_extension",
+      "maps_to": [],
+      "materials_examples": [
+        "C-X",
+        "F"
+      ],
+      "type": "material_unavailability"
+    }
+  ],
+  "case_id": "J4",
+  "case_path": "benchmarks/realm/cases/j4_jssp_complex_dynamic.json",
+  "claims": {
+    "durable_logs_claimed": false,
+    "executable_dynamic_contract": true,
+    "full_recovery_claimed": false,
+    "production_runtime_claimed": false
+  },
+  "disruption_types": [
+    "stochastic_operation_delay",
+    "material_unavailability"
+  ],
+  "extension_requirements": [
+    "material_unavailability requires material/resource commitment and repair substrate"
+  ],
+  "family": "jssp",
+  "has_machine_breakdown": false,
+  "has_material_unavailability": true,
+  "has_stochastic_delay": true,
+  "metrics": [
+    "realized_makespan",
+    "adaptivity",
+    "material_feasibility",
+    "machine_capacity_satisfaction"
+  ],
+  "mode": "dynamic",
+  "objective": "Minimize realized makespan under delays and material availability.",
+  "readiness": "requires_material_recovery_extension",
+  "schema_version": "realm_jssp_dynamic_contract.v1",
+  "short_name": "JSSP-complex-dynamic"
+}

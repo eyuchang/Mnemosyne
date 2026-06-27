@@ -1,0 +1,121 @@
+{
+  "cases": [
+    {
+      "actionable_events": [
+        {
+          "distribution": "Uniform(0, 2)",
+          "event_id": "j2-stochastic-operation-delay-1",
+          "existing_jssp_substrate": "contract_only",
+          "maps_to": [],
+          "revealed_at": "operation_start",
+          "type": "stochastic_operation_delay"
+        },
+        {
+          "event_id": "j2-machine-breakdown-2",
+          "existing_jssp_substrate": "supported",
+          "machine": "MachineA",
+          "maps_to": [
+            "mnemosyne.benchmarks.jssp_disruptions",
+            "mnemosyne.benchmarks.jssp_disruption_commitments",
+            "mnemosyne.benchmarks.jssp_recovery_proposals",
+            "mnemosyne.benchmarks.jssp_repair_admission"
+          ],
+          "type": "machine_breakdown",
+          "unavailable_end": 6,
+          "unavailable_start": 4
+        }
+      ],
+      "case_id": "J2",
+      "case_path": "benchmarks/realm/cases/j2_jssp_simple_dynamic.json",
+      "claims": {
+        "durable_logs_claimed": false,
+        "executable_dynamic_contract": true,
+        "full_recovery_claimed": false,
+        "production_runtime_claimed": false
+      },
+      "disruption_types": [
+        "stochastic_operation_delay",
+        "machine_breakdown_example"
+      ],
+      "extension_requirements": [],
+      "family": "jssp",
+      "has_machine_breakdown": true,
+      "has_material_unavailability": false,
+      "has_stochastic_delay": true,
+      "metrics": [
+        "realized_makespan",
+        "reactivity",
+        "precedence_satisfaction",
+        "machine_capacity_satisfaction"
+      ],
+      "mode": "dynamic",
+      "objective": "Minimize realized makespan under dynamic delays.",
+      "readiness": "ready_for_existing_machine_breakdown_recovery",
+      "schema_version": "realm_jssp_dynamic_contract.v1",
+      "short_name": "JSSP-simple-dynamic"
+    },
+    {
+      "actionable_events": [
+        {
+          "distribution": "Uniform(0, 3)",
+          "event_id": "j4-stochastic-operation-delay-1",
+          "existing_jssp_substrate": "contract_only",
+          "maps_to": [],
+          "revealed_at": null,
+          "type": "stochastic_operation_delay"
+        },
+        {
+          "event_id": "j4-material-unavailability-2",
+          "existing_jssp_substrate": "requires_extension",
+          "maps_to": [],
+          "materials_examples": [
+            "C-X",
+            "F"
+          ],
+          "type": "material_unavailability"
+        }
+      ],
+      "case_id": "J4",
+      "case_path": "benchmarks/realm/cases/j4_jssp_complex_dynamic.json",
+      "claims": {
+        "durable_logs_claimed": false,
+        "executable_dynamic_contract": true,
+        "full_recovery_claimed": false,
+        "production_runtime_claimed": false
+      },
+      "disruption_types": [
+        "stochastic_operation_delay",
+        "material_unavailability"
+      ],
+      "extension_requirements": [
+        "material_unavailability requires material/resource commitment and repair substrate"
+      ],
+      "family": "jssp",
+      "has_machine_breakdown": false,
+      "has_material_unavailability": true,
+      "has_stochastic_delay": true,
+      "metrics": [
+        "realized_makespan",
+        "adaptivity",
+        "material_feasibility",
+        "machine_capacity_satisfaction"
+      ],
+      "mode": "dynamic",
+      "objective": "Minimize realized makespan under delays and material availability.",
+      "readiness": "requires_material_recovery_extension",
+      "schema_version": "realm_jssp_dynamic_contract.v1",
+      "short_name": "JSSP-complex-dynamic"
+    }
+  ],
+  "non_goals": [
+    "Do not claim full J4 recovery before material recovery substrate exists.",
+    "Do not claim production-runtime durable recovery in R6.8.",
+    "Do not treat stochastic delay distributions as realized schedules without an explicit realization policy."
+  ],
+  "schema_version": "realm_jssp_dynamic_contracts_report.v1",
+  "summary": {
+    "case_count": 2,
+    "existing_substrate_ready_count": 1,
+    "requires_extension_count": 1
+  }
+}

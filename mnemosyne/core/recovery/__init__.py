@@ -26,4 +26,15 @@ __all__ = [
     "orchestrate_recovery",
     "RecoveryLoopResult",
     "run_bounded_recovery_loop",
+    "ActiveRecoveryPlan",
+    "ProposalProvider",
+    "plan_recovery_from_index",
+    "plan_recovery_from_store",
 ]
+
+from mnemosyne.core.recovery.service import (
+    ActiveRecoveryPlan,
+    ProposalProvider,
+    plan_recovery_from_index,
+    plan_recovery_from_store,
+)

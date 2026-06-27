@@ -43,6 +43,7 @@ def orchestrate_recovery(
     rid: str | None = None,
     op_id: str | None = None,
     dependency_rid: str | None = None,
+    commitment_state_before: str | None = None,
     rejection_evidence_extra: dict[str, Any] | None = None,
 ) -> RecoveryOrchestrationResult:
     """Turn a fired commitment recovery attempt into a CTL candidate.
@@ -69,6 +70,7 @@ def orchestrate_recovery(
             commitment_id=commitment.commitment_id,
             proposal_ref=proposal.proposal_ref,
             proposal_scope=proposal.proposal_scope,
+            state_before=commitment_state_before or CommitmentStatus.FIRED.value,
             workflow_id=workflow_id,
             binding_id=binding_id,
             rid=rid,
@@ -87,7 +89,7 @@ def orchestrate_recovery(
         commitment_id=commitment.commitment_id,
         rejection_code=check.decision.value,
         rejection_evidence=evidence,
-        state_before=CommitmentStatus.FIRED.value,
+        state_before=commitment_state_before or CommitmentStatus.FIRED.value,
         workflow_id=workflow_id,
         binding_id=binding_id,
         rid=rid,

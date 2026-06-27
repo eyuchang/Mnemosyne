@@ -1,0 +1,77 @@
+{
+  "generated_evaluations": [
+    {
+      "name": "P6 static evaluation",
+      "path": "benchmarks/realm/evaluations/p6_thanksgiving_static_eval.json"
+    },
+    {
+      "name": "P9 dynamic evaluation",
+      "path": "benchmarks/realm/evaluations/p9_thanksgiving_dynamic_eval.json"
+    },
+    {
+      "name": "P9 recovery trace",
+      "path": "benchmarks/realm/evaluations/p9_thanksgiving_recovery_trace.json"
+    }
+  ],
+  "generated_recovery_artifacts": [
+    {
+      "name": "P9 commitments",
+      "path": "benchmarks/realm/recovery/p9_thanksgiving_commitments.json"
+    },
+    {
+      "name": "P9 wakeups",
+      "path": "benchmarks/realm/recovery/p9_thanksgiving_wakeups.json"
+    },
+    {
+      "name": "P9 repair proposals",
+      "path": "benchmarks/realm/recovery/p9_thanksgiving_repair_proposals.json"
+    },
+    {
+      "name": "P9 repair admissions",
+      "path": "benchmarks/realm/recovery/p9_thanksgiving_repair_admissions.json"
+    },
+    {
+      "name": "P9 recovery lineage",
+      "path": "benchmarks/realm/recovery/p9_thanksgiving_recovery_lineage.json"
+    }
+  ],
+  "generated_reports": [
+    {
+      "name": "P6/P9 executable benchmark report",
+      "path": "benchmarks/realm/reports/thanksgiving_p6_p9_report.md"
+    },
+    {
+      "name": "P9 recovery trace report",
+      "path": "benchmarks/realm/reports/thanksgiving_p9_recovery_trace_report.md"
+    },
+    {
+      "name": "Thanksgiving suite index report",
+      "path": "benchmarks/realm/reports/thanksgiving_suite_report.md"
+    }
+  ],
+  "generated_solutions": [
+    {
+      "name": "P6 static baseline",
+      "path": "benchmarks/realm/solutions/p6_thanksgiving_static_baseline.json"
+    },
+    {
+      "name": "P9 dynamic repair baseline",
+      "path": "benchmarks/realm/solutions/p9_thanksgiving_dynamic_repair_baseline.json"
+    }
+  ],
+  "limitations": [
+    "The suite uses deterministic feasible baselines.",
+    "Optimality is not yet proven.",
+    "The recovery trace models the Mnemosyne recovery pattern but does not yet call core CTL mutation APIs."
+  ],
+  "schema_version": "thanksgiving_suite_report.v1",
+  "suite_id": "thanksgiving_p6_p9_suite",
+  "summary": {
+    "admitted_repair_count": 1,
+    "optimality_status": "feasible_not_proven_optimal",
+    "p6_feasible": true,
+    "p9_feasible_after_repair": true,
+    "proposal_count": 1,
+    "wakeup_count": 2
+  }
+}

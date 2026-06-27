@@ -17,6 +17,11 @@ from mnemosyne.core.models import (
 )
 from mnemosyne.core.recovery.events import RecoveryEvent
 from mnemosyne.core.replay import replay_state_view
+from mnemosyne.core.store_capabilities import (
+    STORE_SCHEMA_ID,
+    STORE_SCHEMA_VERSION,
+    StoreCapabilityReport,
+)
 
 
 def _dt(value: datetime) -> str:
@@ -47,6 +52,14 @@ class SQLiteStore:
         self.conn.executescript(
             """
             PRAGMA foreign_keys = ON;
+
+            CREATE TABLE IF NOT EXISTS store_schema_metadata (
+                schema_id TEXT PRIMARY KEY,
+                schema_version TEXT NOT NULL,
+                store_type TEXT NOT NULL,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            );
 
             CREATE TABLE IF NOT EXISTS commands (
                 command_id TEXT PRIMARY KEY,
@@ -197,7 +210,52 @@ class SQLiteStore:
             );
             """
         )
+        self.conn.execute(
+            """
+            INSERT INTO store_schema_metadata
+            (
+                schema_id,
+                schema_version,
+                store_type,
+                created_at,
+                updated_at
+            )
+            VALUES (?, ?, ?, datetime('now'), datetime('now'))
+            ON CONFLICT(schema_id) DO UPDATE SET
+                schema_version = excluded.schema_version,
+                updated_at = datetime('now')
+            """,
+            (STORE_SCHEMA_ID, STORE_SCHEMA_VERSION, "SQLiteStore"),
+        )
         self.conn.commit()
+
+    async def get_store_schema_version(self) -> str:
+        row = self.conn.execute(
+            """
+            SELECT schema_version
+            FROM store_schema_metadata
+            WHERE schema_id = ?
+            """,
+            (STORE_SCHEMA_ID,),
+        ).fetchone()
+        return str(row["schema_version"]) if row else STORE_SCHEMA_VERSION
+
+    async def get_store_capability_report(self) -> StoreCapabilityReport:
+        return StoreCapabilityReport(
+            store_type="SQLiteStore",
+            schema_id=STORE_SCHEMA_ID,
+            schema_version=await self.get_store_schema_version(),
+            durable_recovery_events=True,
+            idempotent_recovery_events=True,
+            deterministic_recovery_replay_order=True,
+            supports_restart_persistence=self.path != ":memory:",
+            supports_postgres_conformance_target=False,
+            notes=(
+                "SQLiteStore is the local durable conformance target.",
+                "PostgreSQL conformance remains future R7 work.",
+                "Kubernetes, Temporal, and production runtime are outside R7.5.",
+            ),
+        )
 
     async def append_command(self, command: Command) -> Command:
         async with self._lock:

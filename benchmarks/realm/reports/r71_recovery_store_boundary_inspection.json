@@ -44,6 +44,16 @@
       ]
     },
     {
+      "path": "mnemosyne/core/store_capabilities.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "sqlite",
+          "text": "STORE_SCHEMA_ID = \"mnemosyne.store.sqlite\""
+        }
+      ]
+    },
+    {
       "path": "mnemosyne/runtime/kernel_admission.py",
       "sites": [
         {
@@ -754,6 +764,17 @@
       "recovery_related": false
     },
     {
+      "coupling_site_count": 1,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "path": "mnemosyne/core/store_capabilities.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
       "coupling_site_count": 0,
       "imports": [],
       "path": "mnemosyne/runtime/__init__.py",
@@ -1023,6 +1044,9 @@
       "path": "mnemosyne/benchmarks/jssp_schedule_admission.py"
     },
     {
+      "path": "mnemosyne/core/store_capabilities.py"
+    },
+    {
       "path": "mnemosyne/runtime/admission.py"
     },
     {
@@ -1064,9 +1088,9 @@
   ],
   "schema_version": "r7_recovery_store_boundary_inspection.v1",
   "summary": {
-    "coupling_site_count": 100,
+    "coupling_site_count": 101,
     "decision": "ready_for_store_protocol_refactor",
-    "inspected_file_count": 32,
-    "recovery_related_file_count": 27
+    "inspected_file_count": 33,
+    "recovery_related_file_count": 28
   }
 }

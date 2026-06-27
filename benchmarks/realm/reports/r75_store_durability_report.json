@@ -1,0 +1,152 @@
+{
+  "capability_reports": {
+    "first_store": {
+      "deterministic_recovery_replay_order": true,
+      "durable_recovery_events": true,
+      "idempotent_recovery_events": true,
+      "notes": [
+        "SQLiteStore is the local durable conformance target.",
+        "PostgreSQL conformance remains future R7 work.",
+        "Kubernetes, Temporal, and production runtime are outside R7.5."
+      ],
+      "schema_id": "mnemosyne.store.sqlite",
+      "schema_version": "1.0",
+      "store_type": "SQLiteStore",
+      "supports_postgres_conformance_target": false,
+      "supports_restart_persistence": true
+    },
+    "reopened_store": {
+      "deterministic_recovery_replay_order": true,
+      "durable_recovery_events": true,
+      "idempotent_recovery_events": true,
+      "notes": [
+        "SQLiteStore is the local durable conformance target.",
+        "PostgreSQL conformance remains future R7 work.",
+        "Kubernetes, Temporal, and production runtime are outside R7.5."
+      ],
+      "schema_id": "mnemosyne.store.sqlite",
+      "schema_version": "1.0",
+      "store_type": "SQLiteStore",
+      "supports_postgres_conformance_target": false,
+      "supports_restart_persistence": true
+    }
+  },
+  "claims": {
+    "distributed_storage_claimed": false,
+    "durable_recovery_event_reopen_claimed": true,
+    "idempotent_retry_after_reopen_claimed": true,
+    "kubernetes_claimed": false,
+    "postgres_claimed": false,
+    "production_runtime_claimed": false,
+    "replay_after_reopen_claimed": true,
+    "sqlite_restart_persistence_claimed": true,
+    "sqlite_schema_metadata_claimed": true,
+    "temporal_claimed": false
+  },
+  "limitations": [
+    "R7.5 proves file-backed SQLite restart persistence for recovery events.",
+    "R7.5 records schema metadata and capability reporting.",
+    "R7.5 does not implement PostgreSQL.",
+    "R7.5 does not claim distributed storage, Kubernetes, Temporal, or production-runtime recovery."
+  ],
+  "replay_report": {
+    "duplicate_event_count": 0,
+    "recovery_count": 1,
+    "recovery_id": "recovery-r75",
+    "replayed_event_count": 2,
+    "states": [
+      {
+        "checkpoint": {
+          "duplicate_event_count": 0,
+          "idempotency_keys": [
+            "r75-idem-1",
+            "r75-idem-2"
+          ],
+          "last_sequence_no": 2,
+          "recovery_id": "recovery-r75",
+          "replayed_event_count": 2,
+          "tenant_id": "tenant-r75"
+        },
+        "duplicate_event_count": 0,
+        "duplicate_events": [],
+        "event_counts": {
+          "commitment_fired": 1,
+          "proposal_package_created": 1
+        },
+        "events": [
+          {
+            "causality_key": null,
+            "created_at": "2026-01-01T00:00:01+00:00",
+            "event_id": "r75-event-1",
+            "event_type": "commitment_fired",
+            "idempotency_key": "r75-idem-1",
+            "payload": {
+              "commitment_id": "commitment-r75"
+            },
+            "recovery_id": "recovery-r75",
+            "schema_id": "core.recovery_event",
+            "schema_version": "1.0",
+            "sequence_no": 1,
+            "tenant_id": "tenant-r75",
+            "workflow_id": "workflow-r75"
+          },
+          {
+            "causality_key": null,
+            "created_at": "2026-01-01T00:00:02+00:00",
+            "event_id": "r75-event-2",
+            "event_type": "proposal_package_created",
+            "idempotency_key": "r75-idem-2",
+            "payload": {
+              "proposal_package_id": "package-r75"
+            },
+            "recovery_id": "recovery-r75",
+            "schema_id": "core.recovery_event",
+            "schema_version": "1.0",
+            "sequence_no": 2,
+            "tenant_id": "tenant-r75",
+            "workflow_id": "workflow-r75"
+          }
+        ],
+        "last_sequence_no": 2,
+        "payloads_by_type": {
+          "commitment_fired": [
+            {
+              "commitment_id": "commitment-r75"
+            }
+          ],
+          "proposal_package_created": [
+            {
+              "proposal_package_id": "package-r75"
+            }
+          ]
+        },
+        "recovery_id": "recovery-r75",
+        "replayed_event_count": 2,
+        "tenant_id": "tenant-r75",
+        "terminal_event_seen": false,
+        "workflow_id": "workflow-r75"
+      }
+    ],
+    "tenant_id": "tenant-r75",
+    "workflow_id": "workflow-r75"
+  },
+  "schema_version": "r75_store_durability_report.v1",
+  "summary": {
+    "decision": "sqlite_store_durability_and_migration_readiness_established",
+    "duplicate_result_event_id": "r75-event-1",
+    "event_count_after_duplicate_retry": 2,
+    "idempotent_retry_after_reopen_verified": true,
+    "reopened_event_ids": [
+      "r75-event-1",
+      "r75-event-2"
+    ],
+    "replay_after_reopen_verified": true,
+    "replay_sequence": [
+      "r75-event-1",
+      "r75-event-2"
+    ],
+    "restart_persistence_verified": true,
+    "store_schema_id": "mnemosyne.store.sqlite",
+    "store_schema_version": "1.0"
+  }
+}

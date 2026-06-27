@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Inspected files: 32
-- Recovery-related files: 27
-- Coupling sites: 100
+- Inspected files: 33
+- Recovery-related files: 28
+- Coupling sites: 101
 - Decision: `ready_for_store_protocol_refactor`
 
 ## R7.1 Purpose
@@ -29,6 +29,7 @@ R7.1 does not claim Postgres support, distributed storage, Kubernetes deployment
 - `mnemosyne/benchmarks/jssp_recovery_proposals.py`
 - `mnemosyne/benchmarks/jssp_repair_admission.py`
 - `mnemosyne/benchmarks/jssp_schedule_admission.py`
+- `mnemosyne/core/store_capabilities.py`
 - `mnemosyne/runtime/admission.py`
 - `mnemosyne/runtime/command_handler.py`
 - `mnemosyne/runtime/commands.py`
@@ -55,6 +56,10 @@ R7.1 does not claim Postgres support, distributed storage, Kubernetes deployment
 ### `mnemosyne/api/recovery.py`
 
 - L120: `commit(` — `execution = await executor.plan_validate_and_commit(`
+
+### `mnemosyne/core/store_capabilities.py`
+
+- L7: `sqlite` — `STORE_SCHEMA_ID = "mnemosyne.store.sqlite"`
 
 ### `mnemosyne/runtime/kernel_admission.py`
 

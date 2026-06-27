@@ -1,0 +1,228 @@
+{
+  "case_id": "local-p1-compatible-campus-tour-static-001",
+  "official_realm_bench": false,
+  "provenance": {
+    "source": "local_p1_compatible_fixture",
+    "note": "Local P1-compatible Campus Tour oracle trace. Not an official REALM-Bench fixture or score.",
+    "created_for_stage": "1.6R-P1A-Verified"
+  },
+  "tenant_id": "tenant:realm-p1-campus-tour",
+  "workflow_id": "workflow:realm-p1-campus-tour-static-001",
+  "entity_id": "campus_tour:P1-STATIC-001",
+  "binding_id": "binding:P1-STATIC-001",
+  "fsm": "CampusTourFSM",
+  "app_id": "campus_tour",
+  "schema_id": "campus_tour.transition",
+  "realm_bench": {
+    "benchmark_family": "REALM-Bench-compatible-local",
+    "problem_id": "P1",
+    "problem_name": "Campus Tour / CT-static compatible local fixture",
+    "stage": "P1A oracle trace replay with feasibility-gated verdict",
+    "claim": "Represent, validate, replay, commit, and report a P1-compatible Campus Tour execution trace. This is not a solver result and not an official REALM-Bench score.",
+    "start_location": "S",
+    "end_location": "S",
+    "start_time": "09:00",
+    "deadline": "17:00",
+    "visit_duration_minutes": 30,
+    "locations": {
+      "S": "Student Center",
+      "D": "Dormitory",
+      "A": "Auditorium",
+      "B": "Lab Building",
+      "L": "Library"
+    },
+    "time_windows": {
+      "L": {
+        "not_before": "10:00"
+      },
+      "B": {
+        "not_before": "09:00",
+        "not_after": "16:00"
+      }
+    },
+    "travel_edges": [
+      {
+        "from": "S",
+        "to": "D",
+        "minutes": 10
+      },
+      {
+        "from": "D",
+        "to": "A",
+        "minutes": 15
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "minutes": 15
+      },
+      {
+        "from": "B",
+        "to": "L",
+        "minutes": 20
+      },
+      {
+        "from": "L",
+        "to": "S",
+        "minutes": 10
+      }
+    ],
+    "route": [
+      {
+        "location_id": "S",
+        "arrive": "09:00",
+        "depart": "09:00",
+        "visit": false
+      },
+      {
+        "location_id": "D",
+        "arrive": "09:10",
+        "depart": "09:40",
+        "visit": true
+      },
+      {
+        "location_id": "A",
+        "arrive": "09:55",
+        "depart": "10:25",
+        "visit": true
+      },
+      {
+        "location_id": "B",
+        "arrive": "10:40",
+        "depart": "11:10",
+        "visit": true
+      },
+      {
+        "location_id": "L",
+        "arrive": "11:30",
+        "depart": "12:00",
+        "visit": true
+      },
+      {
+        "location_id": "S",
+        "arrive": "12:10",
+        "depart": "12:10",
+        "visit": false
+      }
+    ],
+    "oracle": {
+      "route": [
+        "S",
+        "D",
+        "A",
+        "B",
+        "L",
+        "S"
+      ],
+      "finish_time": "12:10",
+      "total_travel_minutes": 70,
+      "total_visit_minutes": 120,
+      "total_minutes": 190
+    }
+  },
+  "expected": {
+    "feasible": true,
+    "should_commit": true,
+    "route": [
+      "S",
+      "D",
+      "A",
+      "B",
+      "L",
+      "S"
+    ],
+    "finish_time": "12:10",
+    "total_travel_minutes": 70,
+    "total_visit_minutes": 120,
+    "total_minutes": 190,
+    "final_state": "completed",
+    "total_records": 5,
+    "effective_records": 5,
+    "ineffective_records": 0,
+    "outbox_rows": 0,
+    "state_version": 5
+  },
+  "steps": [
+    {
+      "step_id": "visit_dorm",
+      "state_before": "not_started",
+      "state_after": "visited_dorm",
+      "action_type": "visit_dorm",
+      "attrs_after": {
+        "location_id": "D",
+        "location_name": "Dormitory",
+        "arrive": "09:10",
+        "depart": "09:40",
+        "visit_minutes": 30
+      }
+    },
+    {
+      "step_id": "visit_auditorium",
+      "state_before": "visited_dorm",
+      "state_after": "visited_auditorium",
+      "action_type": "visit_auditorium",
+      "depends_on": [
+        "visit_dorm"
+      ],
+      "attrs_after": {
+        "location_id": "A",
+        "location_name": "Auditorium",
+        "arrive": "09:55",
+        "depart": "10:25",
+        "visit_minutes": 30
+      }
+    },
+    {
+      "step_id": "visit_lab",
+      "state_before": "visited_auditorium",
+      "state_after": "visited_lab",
+      "action_type": "visit_lab",
+      "depends_on": [
+        "visit_auditorium"
+      ],
+      "attrs_after": {
+        "location_id": "B",
+        "location_name": "Lab Building",
+        "arrive": "10:40",
+        "depart": "11:10",
+        "visit_minutes": 30,
+        "window_not_after": "16:00"
+      }
+    },
+    {
+      "step_id": "visit_library",
+      "state_before": "visited_lab",
+      "state_after": "visited_library",
+      "action_type": "visit_library",
+      "depends_on": [
+        "visit_lab"
+      ],
+      "attrs_after": {
+        "location_id": "L",
+        "location_name": "Library",
+        "arrive": "11:30",
+        "depart": "12:00",
+        "visit_minutes": 30,
+        "window_not_before": "10:00"
+      }
+    },
+    {
+      "step_id": "return_to_student_center",
+      "state_before": "visited_library",
+      "state_after": "completed",
+      "action_type": "return_to_student_center",
+      "depends_on": [
+        "visit_library"
+      ],
+      "attrs_after": {
+        "location_id": "S",
+        "location_name": "Student Center",
+        "arrive": "12:10",
+        "depart": "12:10",
+        "finish_time": "12:10",
+        "deadline": "17:00",
+        "total_minutes": 190
+      }
+    }
+  ]
+}

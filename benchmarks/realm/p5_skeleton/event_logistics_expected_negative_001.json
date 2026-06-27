@@ -1,0 +1,29 @@
+{
+  "case_id": "p5_event_logistics_expected_negative_001",
+  "family": "P5",
+  "description": "Skeleton expected-negative event logistics case with venue-capacity violation.",
+  "expected_negative": true,
+  "expected_rejection_reason": "VENUE_CAPACITY_EXCEEDED",
+  "app_id": "event_logistics",
+  "schema_id": "event_logistics.transition",
+  "realm_bench": {
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p5_event_logistics_negative_001",
+    "entity_id": "entity:p5_event_logistics_negative_001",
+    "binding_id": "binding:p5_event_logistics_negative_001",
+    "fsm": "skeleton.p5.event_logistics"
+  },
+  "steps": [
+    {
+      "step_id": "reserve_over_capacity_venue",
+      "state_before": "not_started",
+      "state_after": "invalid_reservation",
+      "action_type": "reserve_over_capacity_venue",
+      "attrs_after": {
+        "venue_id": "small_room",
+        "capacity": 40,
+        "guest_count": 120
+      }
+    }
+  ]
+}

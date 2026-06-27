@@ -1,0 +1,47 @@
+{
+  "case_id": "p5_event_logistics_001",
+  "family": "P5",
+  "description": "Skeleton feasible wedding/reunion logistics case.",
+  "expected_negative": false,
+  "app_id": "event_logistics",
+  "schema_id": "event_logistics.transition",
+  "realm_bench": {
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p5_event_logistics_001",
+    "entity_id": "entity:p5_event_logistics_001",
+    "binding_id": "binding:p5_event_logistics_001",
+    "fsm": "skeleton.p5.event_logistics"
+  },
+  "steps": [
+    {
+      "step_id": "reserve_venue",
+      "state_before": "not_started",
+      "state_after": "venue_reserved",
+      "action_type": "reserve_venue",
+      "attrs_after": {
+        "venue_id": "venue_main_hall"
+      }
+    },
+    {
+      "step_id": "schedule_catering",
+      "state_before": "venue_reserved",
+      "state_after": "catering_scheduled",
+      "action_type": "schedule_catering",
+      "depends_on": ["reserve_venue"],
+      "attrs_after": {
+        "vendor_id": "caterer_1",
+        "guest_count": 120
+      }
+    },
+    {
+      "step_id": "complete_event_plan",
+      "state_before": "catering_scheduled",
+      "state_after": "completed",
+      "action_type": "complete_event_plan",
+      "depends_on": ["schedule_catering"],
+      "attrs_after": {
+        "final_state": "completed"
+      }
+    }
+  ]
+}

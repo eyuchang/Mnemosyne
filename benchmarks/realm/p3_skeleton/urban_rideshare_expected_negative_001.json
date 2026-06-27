@@ -1,0 +1,29 @@
+{
+  "case_id": "p3_urban_rideshare_expected_negative_001",
+  "family": "P3",
+  "description": "Skeleton expected-negative ride-sharing case with capacity violation.",
+  "expected_negative": true,
+  "expected_rejection_reason": "VEHICLE_CAPACITY_EXCEEDED",
+  "app_id": "urban_rideshare",
+  "schema_id": "urban_rideshare.transition",
+  "realm_bench": {
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p3_urban_rideshare_negative_001",
+    "entity_id": "entity:p3_urban_rideshare_negative_001",
+    "binding_id": "binding:p3_urban_rideshare_negative_001",
+    "fsm": "skeleton.p3.urban_rideshare"
+  },
+  "steps": [
+    {
+      "step_id": "assign_over_capacity_vehicle",
+      "state_before": "not_started",
+      "state_after": "invalid_assignment",
+      "action_type": "assign_over_capacity_vehicle",
+      "attrs_after": {
+        "vehicle_id": "vehicle_1",
+        "capacity": 2,
+        "assigned_riders": 3
+      }
+    }
+  ]
+}

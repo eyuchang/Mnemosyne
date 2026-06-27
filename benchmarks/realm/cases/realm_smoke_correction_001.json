@@ -1,0 +1,44 @@
+{
+    "case_id": "realm-smoke-correction-001",
+    "tenant_id": "tenant:realm-runner-correction",
+    "workflow_id": "workflow:realm-runner-correction-001",
+    "entity_id": "itinerary:REALM-RUNNER-CORRECTION-001",
+    "binding_id": "binding:REALM-RUNNER-CORRECTION-001",
+    "fsm": "ItineraryFSM",
+    "app_id": "travel",
+    "schema_id": "travel.transition",
+    "steps": [
+      {
+        "step_id": "hold_flight",
+        "state_before": "draft",
+        "state_after": "flight_held",
+        "action_type": "hold_flight",
+        "attrs_after": {
+          "flight": "UA100",
+          "destination": "Kyoto"
+        },
+        "emit_outbox": true,
+        "outbox_provider": "airline",
+        "outbox_effect_type": "hold_flight"
+      },
+      {
+        "step_id": "cancel_flight",
+        "state_before": "flight_held",
+        "state_after": "cancelled",
+        "action_type": "cancel",
+        "attrs_after": {
+          "cancelled": true,
+          "reason": "benchmark_correction"
+        },
+        "depends_on": [
+          "hold_flight"
+        ],
+        "compensates": [
+          "hold_flight"
+        ],
+        "emit_outbox": true,
+        "outbox_provider": "airline",
+        "outbox_effect_type": "cancel_flight"
+      }
+    ]
+  }

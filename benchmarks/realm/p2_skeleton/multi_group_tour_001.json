@@ -1,0 +1,50 @@
+{
+  "case_id": "p2_multi_group_tour_001",
+  "family": "P2",
+  "description": "Skeleton feasible multi-group campus tour case.",
+  "expected_negative": false,
+  "app_id": "multi_group_tour",
+  "schema_id": "multi_group_tour.transition",
+  "realm_bench": {
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p2_multi_group_tour_001",
+    "entity_id": "entity:p2_multi_group_tour_001",
+    "binding_id": "binding:p2_multi_group_tour_001",
+    "fsm": "skeleton.p2.multi_group_tour"
+  },
+  "steps": [
+    {
+      "step_id": "assign_groups",
+      "state_before": "not_started",
+      "state_after": "groups_assigned",
+      "action_type": "assign_groups",
+      "attrs_after": {
+        "group_count": 2,
+        "groups": ["group_a", "group_b"]
+      }
+    },
+    {
+      "step_id": "schedule_routes",
+      "state_before": "groups_assigned",
+      "state_after": "routes_scheduled",
+      "action_type": "schedule_routes",
+      "depends_on": ["assign_groups"],
+      "attrs_after": {
+        "routes": {
+          "group_a": ["S", "D", "A", "S"],
+          "group_b": ["S", "B", "L", "S"]
+        }
+      }
+    },
+    {
+      "step_id": "complete_tours",
+      "state_before": "routes_scheduled",
+      "state_after": "completed",
+      "action_type": "complete_tours",
+      "depends_on": ["schedule_routes"],
+      "attrs_after": {
+        "final_state": "completed"
+      }
+    }
+  ]
+}

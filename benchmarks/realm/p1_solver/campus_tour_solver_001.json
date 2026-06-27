@@ -1,0 +1,150 @@
+{
+  "case_id": "local-p1-compatible-campus-tour-solver-001",
+  "official_realm_bench": false,
+  "provenance": {
+    "source": "local_p1_compatible_solver_fixture",
+    "note": "Local P1-compatible Campus Tour solver fixture. Not an official REALM-Bench fixture or score.",
+    "created_for_stage": "1.6R-P1B"
+  },
+  "tenant_id": "tenant:realm-p1-campus-tour-solver",
+  "workflow_id": "workflow:realm-p1-campus-tour-solver-001",
+  "entity_id": "campus_tour:P1-SOLVER-001",
+  "binding_id": "binding:P1-SOLVER-001",
+  "fsm": "CampusTourFSM",
+  "app_id": "campus_tour",
+  "schema_id": "campus_tour.transition",
+  "realm_bench": {
+    "benchmark_family": "REALM-Bench-compatible-local",
+    "problem_id": "P1",
+    "problem_name": "Campus Tour / CT-static compatible local solver fixture",
+    "stage": "P1B solver-derived route",
+    "claim": "Derive a feasible P1-compatible Campus Tour route from constraints, then commit the discovered plan through Mnemosyne. This is not an official REALM-Bench score.",
+    "start_location": "S",
+    "end_location": "S",
+    "start_time": "09:00",
+    "deadline": "17:00",
+    "visit_duration_minutes": 30,
+    "must_visit_locations": [
+      "D",
+      "A",
+      "B",
+      "L"
+    ],
+    "bidirectional_travel_edges": true,
+    "locations": {
+      "S": "Student Center",
+      "D": "Dormitory",
+      "A": "Auditorium",
+      "B": "Lab Building",
+      "L": "Library"
+    },
+    "time_windows": {
+      "L": {
+        "not_before": "10:00"
+      },
+      "B": {
+        "not_before": "09:00",
+        "not_after": "16:00"
+      }
+    },
+    "travel_edges": [
+      {
+        "from": "S",
+        "to": "D",
+        "minutes": 10
+      },
+      {
+        "from": "S",
+        "to": "A",
+        "minutes": 35
+      },
+      {
+        "from": "S",
+        "to": "B",
+        "minutes": 45
+      },
+      {
+        "from": "S",
+        "to": "L",
+        "minutes": 10
+      },
+      {
+        "from": "D",
+        "to": "A",
+        "minutes": 15
+      },
+      {
+        "from": "D",
+        "to": "B",
+        "minutes": 35
+      },
+      {
+        "from": "D",
+        "to": "L",
+        "minutes": 55
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "minutes": 15
+      },
+      {
+        "from": "A",
+        "to": "L",
+        "minutes": 40
+      },
+      {
+        "from": "B",
+        "to": "L",
+        "minutes": 20
+      }
+    ],
+    "action_templates": {
+      "D": {
+        "step_id": "visit_dorm",
+        "state_before": "not_started",
+        "state_after": "visited_dorm",
+        "action_type": "visit_dorm"
+      },
+      "A": {
+        "step_id": "visit_auditorium",
+        "state_before": "visited_dorm",
+        "state_after": "visited_auditorium",
+        "action_type": "visit_auditorium"
+      },
+      "B": {
+        "step_id": "visit_lab",
+        "state_before": "visited_auditorium",
+        "state_after": "visited_lab",
+        "action_type": "visit_lab"
+      },
+      "L": {
+        "step_id": "visit_library",
+        "state_before": "visited_lab",
+        "state_after": "visited_library",
+        "action_type": "visit_library"
+      },
+      "return": {
+        "step_id": "return_to_student_center",
+        "state_before": "visited_library",
+        "state_after": "completed",
+        "action_type": "return_to_student_center"
+      }
+    },
+    "visit_order_constraints": [
+      [
+        "D",
+        "A"
+      ],
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "L"
+      ]
+    ]
+  },
+  "steps": []
+}

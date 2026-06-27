@@ -1,0 +1,35 @@
+{
+  "app_id": "campus_tour",
+  "case_id": "p1_external_bad_deadline_001",
+  "external_solution": {
+    "feasible": true,
+    "finish_time": "12:10",
+    "metrics": {
+      "note": "R2.6B expected-negative external proposal fixture",
+      "source": "fixture"
+    },
+    "objective_name": "minimize_total_minutes",
+    "objective_value": 190,
+    "optimality_status": "external_claim",
+    "route": [
+      "S",
+      "D",
+      "A",
+      "B",
+      "L",
+      "S"
+    ],
+    "solver_id": "external_json_solver",
+    "solver_version": "0.1",
+    "total_minutes": 190
+  },
+  "realm_bench": {
+    "binding_id": "binding:p1_external_bad_deadline",
+    "deadline": "11:00",
+    "entity_id": "entity:p1_external_bad_deadline",
+    "fsm": "CampusTourFSM",
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p1_external_bad_deadline"
+  },
+  "schema_id": "campus_tour.transition"
+}

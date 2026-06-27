@@ -1,0 +1,35 @@
+{
+  "app_id": "campus_tour",
+  "case_id": "p1_external_campus_tour_001",
+  "external_solution": {
+    "feasible": true,
+    "finish_time": "12:10",
+    "metrics": {
+      "note": "R2.6A external optimizer boundary smoke fixture",
+      "source": "fixture"
+    },
+    "objective_name": "minimize_total_minutes",
+    "objective_value": 190,
+    "optimality_status": "external_claim",
+    "route": [
+      "S",
+      "D",
+      "A",
+      "B",
+      "L",
+      "S"
+    ],
+    "solver_id": "external_json_solver",
+    "solver_version": "0.1",
+    "total_minutes": 190
+  },
+  "realm_bench": {
+    "binding_id": "binding:p1_external",
+    "deadline": "17:00",
+    "entity_id": "entity:p1_external",
+    "fsm": "CampusTourFSM",
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p1_external"
+  },
+  "schema_id": "campus_tour.transition"
+}

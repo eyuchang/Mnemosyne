@@ -1,0 +1,38 @@
+[project]
+name = "mnemosyne-phase0"
+version = "0.1.0"
+description = "Phase 0 scaffold for Mnemosyne/ALAS production architecture"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.6",
+  "mypy>=1.10",
+]
+temporal = [
+  "temporalio>=1.29,<2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+  "unit: fast, deterministic, local tests safe for the default public suite",
+  "integration: tests requiring broader integration surfaces",
+  "long_horizon: many-step CTL, compensation, supersession, or stress-like transaction tests",
+  "research: book, paper, benchmark, or evidence-generation tests",
+  "external: tests requiring external APIs, LLMs, solvers, providers, or services",
+  "temporal: tests requiring Temporal SDK or a Temporal server",
+  "realm: REALM benchmark smoke, research, or evaluation tests",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true

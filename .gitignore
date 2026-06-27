@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+.env
+.env.*
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local generated outputs
+out/
+outputs/
+figs/
+review_exports/
+
+# Local temporary experiment files
+tmp/
+
+# local Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# local environments
+.venv/
+venv/
+
+# generated/paper outputs
+outputs/
+runs/
+
+# archives
+*.zip
+*.tar.gz
+results/paper/
+reports/paper/

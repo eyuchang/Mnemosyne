@@ -1,0 +1,52 @@
+{
+    "case_id": "realm-smoke-confirm-001",
+    "tenant_id": "tenant:realm-runner-confirm",
+    "workflow_id": "workflow:realm-runner-confirm-001",
+    "entity_id": "itinerary:REALM-RUNNER-CONFIRM-001",
+    "binding_id": "binding:REALM-RUNNER-CONFIRM-001",
+    "fsm": "ItineraryFSM",
+    "app_id": "travel",
+    "schema_id": "travel.transition",
+    "steps": [
+      {
+        "step_id": "hold_flight",
+        "state_before": "draft",
+        "state_after": "flight_held",
+        "action_type": "hold_flight",
+        "attrs_after": {
+          "flight": "UA200",
+          "destination": "Berlin"
+        },
+        "emit_outbox": true,
+        "outbox_provider": "airline",
+        "outbox_effect_type": "hold_flight"
+      },
+      {
+        "step_id": "hold_hotel",
+        "state_before": "flight_held",
+        "state_after": "hotel_held",
+        "action_type": "hold_hotel",
+        "attrs_after": {
+          "hotel": "Berlin Central Inn"
+        },
+        "depends_on": [
+          "hold_flight"
+        ],
+        "emit_outbox": true,
+        "outbox_provider": "hotel",
+        "outbox_effect_type": "hold_hotel"
+      },
+      {
+        "step_id": "confirm_trip",
+        "state_before": "hotel_held",
+        "state_after": "confirmed",
+        "action_type": "confirm",
+        "attrs_after": {
+          "confirmed": true
+        },
+        "depends_on": [
+          "hold_hotel"
+        ]
+      }
+    ]
+  }

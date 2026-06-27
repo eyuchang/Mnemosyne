@@ -1,0 +1,28 @@
+{
+  "case_id": "p2_multi_group_tour_expected_negative_001",
+  "family": "P2",
+  "description": "Skeleton expected-negative multi-group tour case with an impossible shared guide constraint.",
+  "expected_negative": true,
+  "expected_rejection_reason": "GUIDE_DOUBLE_BOOKED",
+  "app_id": "multi_group_tour",
+  "schema_id": "multi_group_tour.transition",
+  "realm_bench": {
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p2_multi_group_tour_negative_001",
+    "entity_id": "entity:p2_multi_group_tour_negative_001",
+    "binding_id": "binding:p2_multi_group_tour_negative_001",
+    "fsm": "skeleton.p2.multi_group_tour"
+  },
+  "steps": [
+    {
+      "step_id": "assign_shared_guide",
+      "state_before": "not_started",
+      "state_after": "invalid_assignment",
+      "action_type": "assign_shared_guide",
+      "attrs_after": {
+        "guide_id": "guide_1",
+        "conflict": "same guide assigned to overlapping tours"
+      }
+    }
+  ]
+}

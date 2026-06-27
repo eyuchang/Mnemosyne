@@ -1,0 +1,47 @@
+{
+  "case_id": "p3_urban_rideshare_001",
+  "family": "P3",
+  "description": "Skeleton feasible urban ride-sharing dispatch case.",
+  "expected_negative": false,
+  "app_id": "urban_rideshare",
+  "schema_id": "urban_rideshare.transition",
+  "realm_bench": {
+    "tenant_id": "tenant:realm",
+    "workflow_id": "workflow:p3_urban_rideshare_001",
+    "entity_id": "entity:p3_urban_rideshare_001",
+    "binding_id": "binding:p3_urban_rideshare_001",
+    "fsm": "skeleton.p3.urban_rideshare"
+  },
+  "steps": [
+    {
+      "step_id": "receive_requests",
+      "state_before": "not_started",
+      "state_after": "requests_received",
+      "action_type": "receive_requests",
+      "attrs_after": {
+        "request_count": 2
+      }
+    },
+    {
+      "step_id": "assign_vehicle",
+      "state_before": "requests_received",
+      "state_after": "vehicle_assigned",
+      "action_type": "assign_vehicle",
+      "depends_on": ["receive_requests"],
+      "attrs_after": {
+        "vehicle_id": "vehicle_1",
+        "assigned_requests": ["rider_a", "rider_b"]
+      }
+    },
+    {
+      "step_id": "complete_rides",
+      "state_before": "vehicle_assigned",
+      "state_after": "completed",
+      "action_type": "complete_rides",
+      "depends_on": ["assign_vehicle"],
+      "attrs_after": {
+        "final_state": "completed"
+      }
+    }
+  ]
+}

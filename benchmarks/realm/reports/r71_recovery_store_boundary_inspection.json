@@ -1,0 +1,1022 @@
+{
+  "claims": {
+    "inspection_only": true,
+    "kubernetes_claimed": false,
+    "postgres_claimed": false,
+    "production_runtime_claimed": false,
+    "store_protocol_refactor_claimed": false,
+    "temporal_claimed": false
+  },
+  "coupling_sites": [
+    {
+      "path": "mnemosyne/api/audit.py",
+      "sites": [
+        {
+          "line": 17,
+          "term": "sqlite",
+          "text": "from mnemosyne.core.commitments.store_index import ctl_record_from_sqlite_row"
+        },
+        {
+          "line": 205,
+          "term": "execute(",
+          "text": "rows = store.conn.execute("
+        },
+        {
+          "line": 207,
+          "term": "SELECT ",
+          "text": "SELECT *"
+        },
+        {
+          "line": 215,
+          "term": "sqlite",
+          "text": "return [ctl_record_from_sqlite_row(row) for row in rows]"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery.py",
+      "sites": [
+        {
+          "line": 120,
+          "term": "commit(",
+          "text": "execution = await executor.plan_validate_and_commit("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/runtime/kernel_admission.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "sqlite",
+          "text": "from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository"
+        },
+        {
+          "line": 6,
+          "term": "SQLite",
+          "text": "from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository"
+        },
+        {
+          "line": 35,
+          "term": "commit(",
+          "text": "def commit(self, request: KernelCommitRequest) -> KernelCommitResult:"
+        },
+        {
+          "line": 55,
+          "term": "SQLite",
+          "text": "def __init__(self, repo: SQLiteRuntimeRepository, committer: KernelCommitter):"
+        },
+        {
+          "line": 59,
+          "term": "commit(",
+          "text": "def reject_before_commit("
+        },
+        {
+          "line": 135,
+          "term": "commit(",
+          "text": "kernel_result = self.committer.commit(request)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/runtime/persistence.py",
+      "sites": [
+        {
+          "line": 3,
+          "term": "sqlite",
+          "text": "import sqlite3"
+        },
+        {
+          "line": 3,
+          "term": "sqlite3",
+          "text": "import sqlite3"
+        },
+        {
+          "line": 162,
+          "term": "SQLite",
+          "text": "\"\"\"SQLite persistence boundary for R4 runtime metadata."
+        },
+        {
+          "line": 171,
+          "term": "sqlite",
+          "text": "def connect(self) -> sqlite3.Connection:"
+        },
+        {
+          "line": 171,
+          "term": "sqlite3",
+          "text": "def connect(self) -> sqlite3.Connection:"
+        },
+        {
+          "line": 175,
+          "term": "sqlite",
+          "text": "conn = sqlite3.connect(str(self.db_path))"
+        },
+        {
+          "line": 175,
+          "term": "sqlite3",
+          "text": "conn = sqlite3.connect(str(self.db_path))"
+        },
+        {
+          "line": 176,
+          "term": "sqlite",
+          "text": "conn.row_factory = sqlite3.Row"
+        },
+        {
+          "line": 176,
+          "term": "sqlite3",
+          "text": "conn.row_factory = sqlite3.Row"
+        },
+        {
+          "line": 177,
+          "term": "execute(",
+          "text": "conn.execute(\"PRAGMA foreign_keys = ON\")"
+        },
+        {
+          "line": 183,
+          "term": "commit(",
+          "text": "conn.commit()"
+        },
+        {
+          "line": 187,
+          "term": "execute(",
+          "text": "rows = conn.execute("
+        },
+        {
+          "line": 188,
+          "term": "sqlite",
+          "text": "\"SELECT name FROM sqlite_master WHERE type = 'table'\""
+        },
+        {
+          "line": 188,
+          "term": "SELECT ",
+          "text": "\"SELECT name FROM sqlite_master WHERE type = 'table'\""
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/runtime/r4_kernel_admission_demo.py",
+      "sites": [
+        {
+          "line": 13,
+          "term": "sqlite",
+          "text": "from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository"
+        },
+        {
+          "line": 13,
+          "term": "SQLite",
+          "text": "from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository"
+        },
+        {
+          "line": 28,
+          "term": "commit(",
+          "text": "def commit(self, request: KernelCommitRequest) -> KernelCommitResult:"
+        },
+        {
+          "line": 33,
+          "term": "SQLite",
+          "text": "def seed_base(repo: SQLiteRuntimeRepository) -> dict[str, str]:"
+        },
+        {
+          "line": 87,
+          "term": "SQLite",
+          "text": "def submit_case(repo: SQLiteRuntimeRepository, ids: dict[str, str], case_id: str) -> str:"
+        },
+        {
+          "line": 160,
+          "term": "sqlite",
+          "text": "db_path = Path(db_path) if db_path is not None else RESULTS_DIR / \"kernel_admission_001.sqlite3\""
+        },
+        {
+          "line": 160,
+          "term": "sqlite3",
+          "text": "db_path = Path(db_path) if db_path is not None else RESULTS_DIR / \"kernel_admission_001.sqlite3\""
+        },
+        {
+          "line": 164,
+          "term": "SQLite",
+          "text": "repo = SQLiteRuntimeRepository(db_path)"
+        },
+        {
+          "line": 222,
+          "term": "commit(",
+          "text": "adapter.reject_before_commit("
+        },
+        {
+          "line": 307,
+          "term": "sqlite",
+          "text": "if db_path.name == \"kernel_admission_001.sqlite3\" and db_path.exists():"
+        },
+        {
+          "line": 307,
+          "term": "sqlite3",
+          "text": "if db_path.name == \"kernel_admission_001.sqlite3\" and db_path.exists():"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/runtime/r4_recovery_demo.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "sqlite",
+          "text": "from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository"
+        },
+        {
+          "line": 7,
+          "term": "SQLite",
+          "text": "from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository"
+        },
+        {
+          "line": 17,
+          "term": "SQLite",
+          "text": "def seed_runtime(repo: SQLiteRuntimeRepository) -> dict[str, str]:"
+        },
+        {
+          "line": 112,
+          "term": "SQLite",
+          "text": "def snapshot(repo: SQLiteRuntimeRepository, ids: dict[str, str]) -> dict[str, Any]:"
+        },
+        {
+          "line": 199,
+          "term": "sqlite",
+          "text": "db_path = Path(db_path) if db_path is not None else RESULTS_DIR / \"runtime_recovery_001.sqlite3\""
+        },
+        {
+          "line": 199,
+          "term": "sqlite3",
+          "text": "db_path = Path(db_path) if db_path is not None else RESULTS_DIR / \"runtime_recovery_001.sqlite3\""
+        },
+        {
+          "line": 204,
+          "term": "SQLite",
+          "text": "repo1 = SQLiteRuntimeRepository(db_path)"
+        },
+        {
+          "line": 209,
+          "term": "SQLite",
+          "text": "# the same durable SQLite database."
+        },
+        {
+          "line": 210,
+          "term": "SQLite",
+          "text": "repo2 = SQLiteRuntimeRepository(db_path)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/runtime/sqlite_repository.py",
+      "sites": [
+        {
+          "line": 4,
+          "term": "sqlite",
+          "text": "import sqlite3"
+        },
+        {
+          "line": 4,
+          "term": "sqlite3",
+          "text": "import sqlite3"
+        },
+        {
+          "line": 22,
+          "term": "sqlite",
+          "text": "def _row_to_dict(row: sqlite3.Row | None) -> dict[str, Any] | None:"
+        },
+        {
+          "line": 22,
+          "term": "sqlite3",
+          "text": "def _row_to_dict(row: sqlite3.Row | None) -> dict[str, Any] | None:"
+        },
+        {
+          "line": 37,
+          "term": "SQLite",
+          "text": "class SQLiteRuntimeRepository:"
+        },
+        {
+          "line": 49,
+          "term": "sqlite",
+          "text": "def connect(self) -> sqlite3.Connection:"
+        },
+        {
+          "line": 49,
+          "term": "sqlite3",
+          "text": "def connect(self) -> sqlite3.Connection:"
+        },
+        {
+          "line": 63,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 65,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_workflows ("
+        },
+        {
+          "line": 82,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 83,
+          "term": "SELECT ",
+          "text": "\"SELECT * FROM runtime_workflows WHERE workflow_id = ?\","
+        },
+        {
+          "line": 101,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 103,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_workflow_bindings ("
+        },
+        {
+          "line": 123,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 124,
+          "term": "SELECT ",
+          "text": "\"SELECT * FROM runtime_workflow_bindings WHERE binding_id = ?\","
+        },
+        {
+          "line": 139,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 141,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_agents ("
+        },
+        {
+          "line": 157,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 158,
+          "term": "SELECT ",
+          "text": "\"SELECT * FROM runtime_agents WHERE agent_id = ?\","
+        },
+        {
+          "line": 178,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 180,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_agent_bindings ("
+        },
+        {
+          "line": 202,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 203,
+          "term": "SELECT ",
+          "text": "\"SELECT * FROM runtime_agent_bindings WHERE agent_binding_id = ?\","
+        },
+        {
+          "line": 225,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 227,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_proposals ("
+        },
+        {
+          "line": 263,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 264,
+          "term": "SELECT ",
+          "text": "\"SELECT * FROM runtime_proposals WHERE proposal_id = ?\","
+        },
+        {
+          "line": 271,
+          "term": "execute(",
+          "text": "rows = conn.execute("
+        },
+        {
+          "line": 273,
+          "term": "SELECT ",
+          "text": "SELECT * FROM runtime_proposals"
+        },
+        {
+          "line": 283,
+          "term": "execute(",
+          "text": "rows = conn.execute("
+        },
+        {
+          "line": 285,
+          "term": "SELECT ",
+          "text": "SELECT * FROM runtime_proposals"
+        },
+        {
+          "line": 316,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 318,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_admission_decisions ("
+        },
+        {
+          "line": 341,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 343,
+          "term": "UPDATE ",
+          "text": "UPDATE runtime_proposals"
+        },
+        {
+          "line": 371,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 372,
+          "term": "SELECT ",
+          "text": "\"SELECT * FROM runtime_admission_decisions WHERE decision_id = ?\","
+        },
+        {
+          "line": 379,
+          "term": "execute(",
+          "text": "row = conn.execute("
+        },
+        {
+          "line": 381,
+          "term": "SELECT ",
+          "text": "SELECT * FROM runtime_admission_decisions"
+        },
+        {
+          "line": 417,
+          "term": "sqlite",
+          "text": "conn: sqlite3.Connection,"
+        },
+        {
+          "line": 417,
+          "term": "sqlite3",
+          "text": "conn: sqlite3.Connection,"
+        },
+        {
+          "line": 431,
+          "term": "execute(",
+          "text": "conn.execute("
+        },
+        {
+          "line": 433,
+          "term": "INSERT ",
+          "text": "INSERT INTO runtime_trace_events ("
+        },
+        {
+          "line": 460,
+          "term": "SELECT ",
+          "text": "query = \"SELECT rowid AS _rowid, * FROM runtime_trace_events\""
+        },
+        {
+          "line": 478,
+          "term": "execute(",
+          "text": "rows = conn.execute(query, params).fetchall()"
+        },
+        {
+          "line": 484,
+          "term": "execute(",
+          "text": "proposal_count = conn.execute("
+        },
+        {
+          "line": 485,
+          "term": "SELECT ",
+          "text": "\"SELECT COUNT(*) AS n FROM runtime_proposals\""
+        },
+        {
+          "line": 487,
+          "term": "execute(",
+          "text": "decision_count = conn.execute("
+        },
+        {
+          "line": 488,
+          "term": "SELECT ",
+          "text": "\"SELECT COUNT(*) AS n FROM runtime_admission_decisions\""
+        },
+        {
+          "line": 490,
+          "term": "execute(",
+          "text": "accepted_count = conn.execute("
+        },
+        {
+          "line": 491,
+          "term": "SELECT ",
+          "text": "\"SELECT COUNT(*) AS n FROM runtime_admission_decisions WHERE decision = 'accepted'\""
+        },
+        {
+          "line": 493,
+          "term": "execute(",
+          "text": "rejected_count = conn.execute("
+        },
+        {
+          "line": 494,
+          "term": "SELECT ",
+          "text": "\"SELECT COUNT(*) AS n FROM runtime_admission_decisions WHERE decision = 'rejected'\""
+        },
+        {
+          "line": 496,
+          "term": "execute(",
+          "text": "trace_event_count = conn.execute("
+        },
+        {
+          "line": 497,
+          "term": "SELECT ",
+          "text": "\"SELECT COUNT(*) AS n FROM runtime_trace_events\""
+        }
+      ]
+    }
+  ],
+  "inspected_files": [
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "mnemosyne.api.audit",
+        "mnemosyne.api.commitments",
+        "mnemosyne.api.proposal_packages",
+        "mnemosyne.api.recovery",
+        "mnemosyne.api.reports"
+      ],
+      "path": "mnemosyne/api/__init__.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 4,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "mnemosyne.core.commitments",
+        "mnemosyne.core.commitments.store_index",
+        "mnemosyne.core.models",
+        "mnemosyne.core.protocols.recovery_store",
+        "mnemosyne.core.recovery",
+        "typing"
+      ],
+      "path": "mnemosyne/api/audit.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.core.commitments",
+        "mnemosyne.core.models",
+        "mnemosyne.core.protocols.recovery_store",
+        "mnemosyne.core.validation",
+        "typing",
+        "uuid"
+      ],
+      "path": "mnemosyne/api/commitments.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.api.commitments",
+        "mnemosyne.core.commitments",
+        "mnemosyne.core.models",
+        "mnemosyne.core.recovery",
+        "typing",
+        "uuid"
+      ],
+      "path": "mnemosyne/api/proposal_packages.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 1,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.api.commitments",
+        "mnemosyne.core.models",
+        "mnemosyne.core.recovery",
+        "mnemosyne.runtime.local",
+        "typing"
+      ],
+      "path": "mnemosyne/api/recovery.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "json",
+        "mnemosyne.api.audit",
+        "pathlib",
+        "typing"
+      ],
+      "path": "mnemosyne/api/reports.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.api.commitments",
+        "mnemosyne.benchmarks.jssp_disruptions",
+        "mnemosyne.core.commitments",
+        "typing"
+      ],
+      "path": "mnemosyne/benchmarks/jssp_disruption_commitments.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "path": "mnemosyne/benchmarks/jssp_disruptions.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.api.proposal_packages",
+        "mnemosyne.benchmarks.jssp_disruption_commitments",
+        "mnemosyne.benchmarks.jssp_disruptions",
+        "mnemosyne.benchmarks.jssp_schedule_admission",
+        "mnemosyne.core.models",
+        "typing"
+      ],
+      "path": "mnemosyne/benchmarks/jssp_recovery_proposals.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.api.commitments",
+        "mnemosyne.benchmarks.jssp_recovery_proposals",
+        "mnemosyne.core.models",
+        "typing"
+      ],
+      "path": "mnemosyne/benchmarks/jssp_repair_admission.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.benchmarks.jssp_disruptions",
+        "mnemosyne.core.models",
+        "typing"
+      ],
+      "path": "mnemosyne/benchmarks/jssp_schedule_admission.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [],
+      "path": "mnemosyne/core/__init__.py",
+      "protocols": [],
+      "recovery_related": false
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [],
+      "path": "mnemosyne/runtime/__init__.py",
+      "protocols": [],
+      "recovery_related": false
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.models",
+        "mnemosyne.runtime.proposals",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/admission.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.commands",
+        "mnemosyne.runtime.session",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/command_handler.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.models",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/commands.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "json",
+        "mnemosyne.runtime.models",
+        "mnemosyne.runtime.session",
+        "pathlib",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/demo.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 6,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.sqlite_repository",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/kernel_admission.py",
+      "protocols": [
+        "Protocol"
+      ],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/models.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 14,
+      "imports": [
+        "__future__",
+        "pathlib",
+        "sqlite3",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/persistence.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.models",
+        "mnemosyne.runtime.registry"
+      ],
+      "path": "mnemosyne/runtime/proposals.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "mnemosyne.core.protocols"
+      ],
+      "path": "mnemosyne/runtime/protocols.py",
+      "protocols": [],
+      "recovery_related": false
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "json",
+        "mnemosyne.runtime.command_handler",
+        "mnemosyne.runtime.commands",
+        "mnemosyne.runtime.models",
+        "pathlib",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/r3_runner.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 11,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "json",
+        "mnemosyne.runtime.kernel_admission",
+        "mnemosyne.runtime.sqlite_repository",
+        "pathlib",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/r4_kernel_admission_demo.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 9,
+      "imports": [
+        "__future__",
+        "json",
+        "mnemosyne.runtime.sqlite_repository",
+        "pathlib",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/r4_recovery_demo.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.models"
+      ],
+      "path": "mnemosyne/runtime/registry.py",
+      "protocols": [],
+      "recovery_related": false
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.runtime.admission",
+        "mnemosyne.runtime.models",
+        "mnemosyne.runtime.proposals",
+        "mnemosyne.runtime.registry",
+        "typing"
+      ],
+      "path": "mnemosyne/runtime/session.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 55,
+      "imports": [
+        "__future__",
+        "json",
+        "mnemosyne.runtime.persistence",
+        "pathlib",
+        "sqlite3",
+        "typing",
+        "uuid"
+      ],
+      "path": "mnemosyne/runtime/sqlite_repository.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [],
+      "path": "mnemosyne/store/__init__.py",
+      "protocols": [],
+      "recovery_related": false
+    }
+  ],
+  "protocol_mentions": [
+    {
+      "path": "mnemosyne/runtime/kernel_admission.py",
+      "protocols": [
+        "Protocol"
+      ]
+    }
+  ],
+  "recommended_refactor_targets": [
+    "Define an explicit RecoveryStore protocol for active commitments, proposal packages, recovery lineage, and recovery events.",
+    "Keep SQLiteStore as the first protocol-conformance implementation.",
+    "Move direct audit/recovery persistence assumptions behind protocol methods before adding PostgreSQL.",
+    "Add fail-closed tests for missing recovery store capabilities.",
+    "Add a durable append-only recovery event log only after the protocol boundary is explicit."
+  ],
+  "recovery_related_files": [
+    {
+      "path": "mnemosyne/api/__init__.py"
+    },
+    {
+      "path": "mnemosyne/api/audit.py"
+    },
+    {
+      "path": "mnemosyne/api/commitments.py"
+    },
+    {
+      "path": "mnemosyne/api/proposal_packages.py"
+    },
+    {
+      "path": "mnemosyne/api/recovery.py"
+    },
+    {
+      "path": "mnemosyne/api/reports.py"
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_disruption_commitments.py"
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_disruptions.py"
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_recovery_proposals.py"
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_repair_admission.py"
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_schedule_admission.py"
+    },
+    {
+      "path": "mnemosyne/runtime/admission.py"
+    },
+    {
+      "path": "mnemosyne/runtime/command_handler.py"
+    },
+    {
+      "path": "mnemosyne/runtime/commands.py"
+    },
+    {
+      "path": "mnemosyne/runtime/demo.py"
+    },
+    {
+      "path": "mnemosyne/runtime/kernel_admission.py"
+    },
+    {
+      "path": "mnemosyne/runtime/models.py"
+    },
+    {
+      "path": "mnemosyne/runtime/persistence.py"
+    },
+    {
+      "path": "mnemosyne/runtime/proposals.py"
+    },
+    {
+      "path": "mnemosyne/runtime/r3_runner.py"
+    },
+    {
+      "path": "mnemosyne/runtime/r4_kernel_admission_demo.py"
+    },
+    {
+      "path": "mnemosyne/runtime/r4_recovery_demo.py"
+    },
+    {
+      "path": "mnemosyne/runtime/session.py"
+    },
+    {
+      "path": "mnemosyne/runtime/sqlite_repository.py"
+    }
+  ],
+  "schema_version": "r7_recovery_store_boundary_inspection.v1",
+  "summary": {
+    "coupling_site_count": 100,
+    "decision": "ready_for_store_protocol_refactor",
+    "inspected_file_count": 29,
+    "recovery_related_file_count": 24
+  }
+}

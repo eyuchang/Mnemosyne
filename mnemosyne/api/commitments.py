@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from typing import Any
 from uuid import uuid4
 
+from mnemosyne.core.protocols.recovery_store import require_recovery_store
 from mnemosyne.core.commitments import (
     ActiveCommitment,
     ActiveCommitmentIndex,
@@ -226,6 +227,8 @@ async def admit_active_commitment(
     op_id: str | None = None,
     dependency_rid: str | None = None,
 ) -> CommitmentApiResult:
+
+    store = require_recovery_store(store)
     candidate = make_commitment_admitted_candidate(
         tenant_id=tenant_id,
         tx_group_id=tx_group_id,

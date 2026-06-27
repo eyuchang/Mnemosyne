@@ -38,6 +38,8 @@ __all__ = [
     "make_commitment_admitted_candidate",
     "make_commitment_rejected_candidate",
     "ActiveCommitmentIndex",
+    "active_commitment_index_from_store",
+    "ctl_record_from_sqlite_row",
 ]
 
 from mnemosyne.core.commitments.candidates import (
@@ -53,3 +55,8 @@ from mnemosyne.core.commitments.candidates import (
 )
 
 from mnemosyne.core.commitments.index import ActiveCommitmentIndex
+
+from mnemosyne.core.commitments.store_index import (
+    active_commitment_index_from_store,
+    ctl_record_from_sqlite_row,
+)

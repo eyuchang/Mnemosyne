@@ -553,6 +553,7 @@
         "mnemosyne.api.proposal_packages",
         "mnemosyne.api.recovery",
         "mnemosyne.api.recovery_events",
+        "mnemosyne.api.recovery_replay",
         "mnemosyne.api.reports"
       ],
       "path": "mnemosyne/api/__init__.py",
@@ -633,6 +634,19 @@
         "typing"
       ],
       "path": "mnemosyne/api/recovery_events.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.core.protocols.recovery_store",
+        "mnemosyne.core.recovery.replay",
+        "typing"
+      ],
+      "path": "mnemosyne/api/recovery_replay.py",
       "protocols": [],
       "recovery_related": true
     },
@@ -972,6 +986,9 @@
       "path": "mnemosyne/api/recovery_events.py"
     },
     {
+      "path": "mnemosyne/api/recovery_replay.py"
+    },
+    {
       "path": "mnemosyne/api/reports.py"
     },
     {
@@ -1033,7 +1050,7 @@
   "summary": {
     "coupling_site_count": 100,
     "decision": "ready_for_store_protocol_refactor",
-    "inspected_file_count": 30,
-    "recovery_related_file_count": 25
+    "inspected_file_count": 31,
+    "recovery_related_file_count": 26
   }
 }

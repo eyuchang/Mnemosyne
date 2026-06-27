@@ -8,6 +8,10 @@
 - Recovery wakeups: 2
 - Recovery proposals: 1
 - Admitted repairs: 1
+- API-bound registered commitments: 4
+- API-bound fired commitments: 2
+- API-bound proposal packages: 1
+- API-bound admitted repairs: 1
 - Optimality status: feasible_not_proven_optimal
 
 ## Generated reports
@@ -15,6 +19,7 @@
 - P6/P9 executable benchmark report: `benchmarks/realm/reports/thanksgiving_p6_p9_report.md`
 - P9 recovery trace report: `benchmarks/realm/reports/thanksgiving_p9_recovery_trace_report.md`
 - Thanksgiving suite index report: `benchmarks/realm/reports/thanksgiving_suite_report.md`
+- P9 API-bound recovery report: `benchmarks/realm/reports/thanksgiving_api_bound_recovery_report.md`
 
 ## Generated solution artifacts
 
@@ -26,6 +31,10 @@
 - P6 static evaluation: `benchmarks/realm/evaluations/p6_thanksgiving_static_eval.json`
 - P9 dynamic evaluation: `benchmarks/realm/evaluations/p9_thanksgiving_dynamic_eval.json`
 - P9 recovery trace: `benchmarks/realm/evaluations/p9_thanksgiving_recovery_trace.json`
+
+## Generated API-bound artifacts
+
+- P9 API-bound recovery: `benchmarks/realm/api_bound/p9_thanksgiving_api_bound_recovery.json`
 
 ## Generated recovery lifecycle artifacts
 
@@ -42,10 +51,13 @@
 - The P9 repair is triggered at 10:00, when the delay notice arrives.
 - The repair does not wait until James's original 13:00 arrival.
 - The recovery trace exposes commitments, wakeups, repair proposal, admission, and lineage.
+- The API-bound recovery runner exercises real Mnemosyne commitment, proposal package, admission, and audit APIs.
 
 ## Current limitations
 
 - The suite uses deterministic feasible baselines.
 - Optimality is not yet proven.
-- The recovery trace models the Mnemosyne recovery pattern but does not yet call core CTL mutation APIs.
+- The deterministic recovery trace models the Mnemosyne recovery pattern as inspectable artifacts.
+- The API-bound recovery runner calls real Mnemosyne APIs using a local SQLiteStore.
+- Durable production runtime binding is still future work.
 

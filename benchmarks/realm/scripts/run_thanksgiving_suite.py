@@ -12,6 +12,7 @@ if str(ROOT) not in sys.path:
 
 from benchmarks.realm.scripts.run_thanksgiving_benchmark import run_benchmark
 from benchmarks.realm.scripts.run_thanksgiving_recovery_trace import run_recovery_trace
+from benchmarks.realm.scripts.run_thanksgiving_api_bound_recovery import run_api_bound_recovery
 
 REALM_ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,6 +26,10 @@ class ThanksgivingSuiteResult:
     wakeup_count: int
     proposal_count: int
     admitted_repair_count: int
+    api_bound_registered_commitments: int
+    api_bound_fired_commitments: int
+    api_bound_proposal_packages: int
+    api_bound_admitted_repairs: int
 
 
 def _write_json(path: Path, value: dict[str, Any]) -> None:
@@ -45,6 +50,10 @@ def _render_markdown(report: dict[str, Any]) -> str:
     lines.append(f"- Recovery wakeups: {report['summary']['wakeup_count']}")
     lines.append(f"- Recovery proposals: {report['summary']['proposal_count']}")
     lines.append(f"- Admitted repairs: {report['summary']['admitted_repair_count']}")
+    lines.append(f"- API-bound registered commitments: {report['summary']['api_bound_registered_commitments']}")
+    lines.append(f"- API-bound fired commitments: {report['summary']['api_bound_fired_commitments']}")
+    lines.append(f"- API-bound proposal packages: {report['summary']['api_bound_proposal_packages']}")
+    lines.append(f"- API-bound admitted repairs: {report['summary']['api_bound_admitted_repairs']}")
     lines.append(f"- Optimality status: {report['summary']['optimality_status']}")
     lines.append("")
 
@@ -66,6 +75,12 @@ def _render_markdown(report: dict[str, Any]) -> str:
         lines.append(f"- {item['name']}: `{item['path']}`")
     lines.append("")
 
+    lines.append("## Generated API-bound artifacts")
+    lines.append("")
+    for item in report["generated_api_bound_artifacts"]:
+        lines.append(f"- {item['name']}: `{item['path']}`")
+    lines.append("")
+
     lines.append("## Generated recovery lifecycle artifacts")
     lines.append("")
     for item in report["generated_recovery_artifacts"]:
@@ -79,6 +94,7 @@ def _render_markdown(report: dict[str, Any]) -> str:
     lines.append("- The P9 repair is triggered at 10:00, when the delay notice arrives.")
     lines.append("- The repair does not wait until James's original 13:00 arrival.")
     lines.append("- The recovery trace exposes commitments, wakeups, repair proposal, admission, and lineage.")
+    lines.append("- The API-bound recovery runner exercises real Mnemosyne commitment, proposal package, admission, and audit APIs.")
     lines.append("")
 
     lines.append("## Current limitations")
@@ -95,6 +111,7 @@ def run_suite(output_root: str | Path | None = None) -> ThanksgivingSuiteResult:
 
     benchmark = run_benchmark(root)
     recovery = run_recovery_trace(root)
+    api_bound = run_api_bound_recovery(root)
 
     suite_report = {
         "schema_version": "thanksgiving_suite_report.v1",
@@ -106,6 +123,10 @@ def run_suite(output_root: str | Path | None = None) -> ThanksgivingSuiteResult:
             "proposal_count": recovery.proposal_count,
             "admitted_repair_count": recovery.admitted_repair_count,
             "optimality_status": "feasible_not_proven_optimal",
+            "api_bound_registered_commitments": api_bound.registered_commitments,
+            "api_bound_fired_commitments": api_bound.fired_commitments,
+            "api_bound_proposal_packages": api_bound.proposal_packages,
+            "api_bound_admitted_repairs": api_bound.admitted_repairs,
         },
         "generated_reports": [
             {
@@ -119,6 +140,10 @@ def run_suite(output_root: str | Path | None = None) -> ThanksgivingSuiteResult:
             {
                 "name": "Thanksgiving suite index report",
                 "path": "benchmarks/realm/reports/thanksgiving_suite_report.md",
+            },
+            {
+                "name": "P9 API-bound recovery report",
+                "path": "benchmarks/realm/reports/thanksgiving_api_bound_recovery_report.md",
             },
         ],
         "generated_solutions": [
@@ -143,6 +168,12 @@ def run_suite(output_root: str | Path | None = None) -> ThanksgivingSuiteResult:
             {
                 "name": "P9 recovery trace",
                 "path": "benchmarks/realm/evaluations/p9_thanksgiving_recovery_trace.json",
+            },
+        ],
+        "generated_api_bound_artifacts": [
+            {
+                "name": "P9 API-bound recovery",
+                "path": "benchmarks/realm/api_bound/p9_thanksgiving_api_bound_recovery.json",
             },
         ],
         "generated_recovery_artifacts": [
@@ -170,7 +201,9 @@ def run_suite(output_root: str | Path | None = None) -> ThanksgivingSuiteResult:
         "limitations": [
             "The suite uses deterministic feasible baselines.",
             "Optimality is not yet proven.",
-            "The recovery trace models the Mnemosyne recovery pattern but does not yet call core CTL mutation APIs.",
+            "The deterministic recovery trace models the Mnemosyne recovery pattern as inspectable artifacts.",
+        "The API-bound recovery runner calls real Mnemosyne APIs using a local SQLiteStore.",
+        "Durable production runtime binding is still future work.",
         ],
     }
 
@@ -194,6 +227,10 @@ def run_suite(output_root: str | Path | None = None) -> ThanksgivingSuiteResult:
         wakeup_count=recovery.wakeup_count,
         proposal_count=recovery.proposal_count,
         admitted_repair_count=recovery.admitted_repair_count,
+        api_bound_registered_commitments=api_bound.registered_commitments,
+        api_bound_fired_commitments=api_bound.fired_commitments,
+        api_bound_proposal_packages=api_bound.proposal_packages,
+        api_bound_admitted_repairs=api_bound.admitted_repairs,
     )
 
 
@@ -206,6 +243,10 @@ def main() -> None:
     print(f"wakeups: {result.wakeup_count}")
     print(f"proposals: {result.proposal_count}")
     print(f"admitted_repairs: {result.admitted_repair_count}")
+    print(f"api_bound_registered_commitments: {result.api_bound_registered_commitments}")
+    print(f"api_bound_fired_commitments: {result.api_bound_fired_commitments}")
+    print(f"api_bound_proposal_packages: {result.api_bound_proposal_packages}")
+    print(f"api_bound_admitted_repairs: {result.api_bound_admitted_repairs}")
     for name, path in sorted(result.files.items()):
         print(f"{name}: {path}")
 

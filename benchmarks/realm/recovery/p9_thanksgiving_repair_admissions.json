@@ -1,0 +1,30 @@
+{
+  "admissions": [
+    {
+      "admission_boundary": "domain_validated_repair",
+      "admission_id": "p9-admit-reassign-grandma-to-sarah",
+      "admitted_at": "10:00",
+      "proposal_id": "p9-proposal-reassign-grandma-to-sarah",
+      "status": "admitted",
+      "validation_checks": [
+        {
+          "evidence": "Repair is triggered at 10:00 when delay notice arrives.",
+          "name": "repair_triggered_at_notice_time",
+          "passed": true
+        },
+        {
+          "evidence": "Grandma pickup is reassigned from James to Sarah.",
+          "name": "pickup_assignment_repaired",
+          "passed": true
+        },
+        {
+          "evidence": "All family members home by 17:30 and dinner ready at 18:00.",
+          "name": "dinner_deadline_preserved",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "case_id": "P9",
+  "schema_version": "thanksgiving_recovery_admissions.v1"
+}

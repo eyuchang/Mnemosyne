@@ -18,6 +18,7 @@ from mnemosyne.benchmarks.jssp_recovery_proposals import (
     emit_recovery_proposals_for_disruption,
     proposal_scope_for_disrupted_operation,
     recovery_package_for_disrupted_operation,
+    repair_candidate_for_disrupted_operation,
     repair_details_for_disrupted_operation,
 )
 from mnemosyne.benchmarks.jssp_schedule_admission import (
@@ -103,11 +104,46 @@ def test_jssp_recovery_proposal_scope_is_dependency_bounded_and_details_are_iner
     assert details["original_start"] == 4
     assert details["original_end"] == 7
     assert details["candidate_start_not_before"] == 9
+    assert details["candidate_start"] == 9
+    assert details["candidate_end"] == 12
     assert details["repair_intent"] == "reschedule_after_machine_recovers"
     assert details["domain_mutation"] is False
 
 
-def test_jssp_recovery_package_is_stable():
+def test_jssp_repair_candidate_is_concrete_domain_candidate_but_inert():
+    schedule = make_jssp_3x3_baseline_schedule()
+    disruption = make_machine_breakdown_for_3x3_smoke()
+
+    item = DisruptedOperation(
+        scheduled_operation=schedule.operations_by_machine("M1")[1],
+        disruption=disruption,
+        reason="operation_overlaps_machine_unavailability",
+    )
+
+    candidate = repair_candidate_for_disrupted_operation(
+        tenant_id=T,
+        tx_group_id=G,
+        workflow_id=W,
+        schedule=schedule,
+        disruption=disruption,
+        disrupted_operation=item,
+        candidate_start=9,
+    )
+
+    assert candidate.rid == "rid:jssp:jssp-3x3-smoke:repair-candidate:J3-O2"
+    assert candidate.eid == "jssp:jssp-3x3-smoke:operation:J3:O2"
+    assert candidate.fsm == "JobOpFSM"
+    assert candidate.state_before == "scheduled"
+    assert candidate.state_after == "scheduled"
+    assert candidate.action_type == "reschedule"
+    assert candidate.metadata["domain_mutation"] is False
+    assert candidate.extension["attrs_after"]["start"] == 9
+    assert candidate.extension["attrs_after"]["end"] == 12
+    assert candidate.extension["attrs_after"]["duration"] == 3
+    assert candidate.extension["attrs_after"]["repair_domain_mutation"] is False
+
+
+def test_jssp_recovery_package_is_stable_and_contains_inert_repair_candidate():
     schedule = make_jssp_3x3_baseline_schedule()
     disruption = make_machine_breakdown_for_3x3_smoke()
 
@@ -118,10 +154,14 @@ def test_jssp_recovery_package_is_stable():
     )
 
     package = recovery_package_for_disrupted_operation(
+        tenant_id=T,
+        tx_group_id=G,
+        workflow_id=W,
         schedule=schedule,
         disruption=disruption,
         disrupted_operation=item,
         created_from_record_id="rid:jssp:breakdown-fire:J3-O2",
+        candidate_start=9,
     )
 
     assert package.package_id == "pkg:jssp:jssp-3x3-smoke:repair:J3-O2"
@@ -129,8 +169,16 @@ def test_jssp_recovery_package_is_stable():
     assert package.commitment_id == "jssp:jssp-3x3-smoke:commitment:J3:O2:machine:M1"
     assert package.proposal_scope["entity_id"] == "jssp:jssp-3x3-smoke:operation:J3:O2"
     assert package.validator_context["repair_details"]["domain_mutation"] is False
-    assert package.validator_context["repair_details"]["candidate_start_not_before"] == 9
+    assert package.validator_context["repair_details"]["candidate_start"] == 9
+    assert package.validator_context["repair_details"]["candidate_end"] == 12
     assert package.created_from_record_id == "rid:jssp:breakdown-fire:J3-O2"
+
+    assert package.is_inert
+    assert package.candidate_rids == [
+        "rid:jssp:jssp-3x3-smoke:repair-candidate:J3-O2"
+    ]
+    assert len(package.proposed_domain_candidates) == 1
+    assert package.proposed_domain_candidates[0].action_type == "reschedule"
 
 
 @pytest.mark.asyncio
@@ -159,6 +207,18 @@ async def test_jssp_recovery_proposals_move_fired_commitments_to_proposed(store,
         "proposal:jssp:jssp-3x3-smoke:repair:J3-O2",
         "proposal:jssp:jssp-3x3-smoke:repair:J2-O3",
     ]
+    assert batch.candidate_rids == [
+        "rid:jssp:jssp-3x3-smoke:repair-candidate:J3-O2",
+        "rid:jssp:jssp-3x3-smoke:repair-candidate:J2-O3",
+    ]
+
+    first_candidate = batch.proposals[0].package.proposed_domain_candidates[0]
+    second_candidate = batch.proposals[1].package.proposed_domain_candidates[0]
+
+    assert first_candidate.extension["attrs_after"]["start"] == 9
+    assert first_candidate.extension["attrs_after"]["end"] == 12
+    assert second_candidate.extension["attrs_after"]["start"] == 12
+    assert second_candidate.extension["attrs_after"]["end"] == 16
 
     statuses = await active_commitment_statuses(
         store=store,
@@ -269,6 +329,7 @@ async def test_jssp_recovery_proposal_noops_when_no_commitments_fired(store, val
     assert batch.proposals == []
     assert batch.package_ids == []
     assert batch.proposal_refs == []
+    assert batch.candidate_rids == []
 
     statuses = await active_commitment_statuses(
         store=store,

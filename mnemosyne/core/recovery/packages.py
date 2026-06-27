@@ -109,3 +109,63 @@ def proposal_package_contains_only_domain_candidates(
     """Packages should carry domain repair candidates, not commitment FSM records."""
 
     return all(candidate.fsm != commitment_fsm for candidate in package.proposed_domain_candidates)
+
+
+PROPOSAL_PACKAGE_PAYLOAD_KEY = "proposal_package"
+
+
+def proposal_package_reference_to_dict(package: RecoveryProposalPackage) -> dict[str, Any]:
+    """Return the commitment-event-safe reference to a proposal package.
+
+    This intentionally includes candidate RIDs, not full domain candidate objects.
+    The commitment event records that a package was proposed; it does not admit
+    the package's domain candidates.
+    """
+
+    return {
+        "package_id": package.package_id,
+        "commitment_id": package.commitment_id,
+        "proposal_ref": package.proposal_ref,
+        "proposal_scope": dict(package.proposal_scope),
+        "candidate_rids": package.candidate_rids,
+        "candidate_count": len(package.proposed_domain_candidates),
+        "rationale": package.rationale,
+        "created_from_record_id": package.created_from_record_id,
+        "created_by": package.created_by,
+    }
+
+
+def proposal_package_reference_from_dict(data: dict[str, Any]) -> dict[str, Any]:
+    """Normalize a package reference recovered from a commitment event payload."""
+
+    return {
+        "package_id": data["package_id"],
+        "commitment_id": data["commitment_id"],
+        "proposal_ref": data["proposal_ref"],
+        "proposal_scope": dict(data.get("proposal_scope", {})),
+        "candidate_rids": list(data.get("candidate_rids", [])),
+        "candidate_count": int(data.get("candidate_count", len(data.get("candidate_rids", [])))),
+        "rationale": data.get("rationale"),
+        "created_from_record_id": data.get("created_from_record_id"),
+        "created_by": data.get("created_by"),
+    }
+
+
+def proposal_package_event_payload(package: RecoveryProposalPackage) -> dict[str, Any]:
+    """Payload for a commitment_proposal_emitted event backed by a package."""
+
+    return {
+        "proposal_ref": package.proposal_ref,
+        "proposal_scope": dict(package.proposal_scope),
+        "rationale": package.rationale,
+        PROPOSAL_PACKAGE_PAYLOAD_KEY: proposal_package_reference_to_dict(package),
+    }
+
+
+def proposal_package_reference_from_event_payload(payload: dict[str, Any]) -> dict[str, Any] | None:
+    """Extract a proposal-package reference from a commitment event payload."""
+
+    raw = payload.get(PROPOSAL_PACKAGE_PAYLOAD_KEY)
+    if raw is None:
+        return None
+    return proposal_package_reference_from_dict(raw)

@@ -48,3 +48,11 @@ from mnemosyne.core.recovery.packages import (
     transition_candidate_from_dict,
     transition_candidate_to_dict,
 )
+
+from mnemosyne.core.recovery.packages import (
+    PROPOSAL_PACKAGE_PAYLOAD_KEY,
+    proposal_package_event_payload,
+    proposal_package_reference_from_dict,
+    proposal_package_reference_from_event_payload,
+    proposal_package_reference_to_dict,
+)

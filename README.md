@@ -1,226 +1,207 @@
-# Mnemosyne Phase 0 / Stage 1 Scaffold
+# Mnemosyne Product
 
-This repository contains the local correctness foundation for the ALAS / SagaLLM / Mnemosyne production build.
+Mnemosyne is the product runtime for ALAS-style transactional agent memory.
 
-The current implementation pins the contracts needed before full Temporal, Postgres, OR-Tools, LLM, and external provider integrations are added.
+The current system is built around a correctness kernel:
 
-The main design principle is:
+    CommitBatch -> Validator -> Store -> CTL -> StateView
 
-Mnemosyne / ALAS preserves durable transactional memory while exposing a coherent current operational state.
+The core design rule is:
 
----
+    Solvers, agents, runtimes, and workflows may propose or orchestrate.
+    CTL/store remains committed truth.
+    StateView remains current effective truth.
 
-## Current status
+## Current milestone
 
-Stage 0 is closed.
+Current verified milestone:
 
-Stage 1 runtime preparation has started.
+    R4.8: Temporal active recovery boundary
 
-Current implementation status:
+The project has now completed the following product checkpoints:
 
-- Stage 0 local correctness foundation: complete
-- Stage 1.0 runtime boundary preparation: complete
-- Stage 1.1 optional Temporal dependency guard: in progress
-- Temporal runtime adapter: stubbed, not functional yet
-- Production Postgres store: schema draft only
-- OR-Tools / LLM / external provider integrations: not added yet
+    r4.5-active-commitments
+    r4.6-runtime-active-recovery
+    r4.7-recovery-proposal-packages
+    r4.8-temporal-active-recovery-boundary
 
-The standard local test suite is fast, deterministic, and does not require external services.
+Current full local suite:
 
----
+    179 passed, 24 skipped
 
-## What the current implementation includes
+## Implemented architecture
 
-- Pure, domain-independent `mnemosyne/core/`
-- First-class `Command`, `ExternalEvent`, `TransitionCandidate`, `CommitBatch`, `CTLRecord`, `OutboxIntent`, and `StateView` models
-- Action-typed FSM registry
-- Validator over log-grounded `StateView` and effective dependencies
-- SQLite store for local/unit tests
-- CTL, command, event, inbox, outbox, projection, and effective-record tables
-- Postgres schema draft with tenant-scoped idempotency and production table shapes
-- App registry plus rideshare, travel, and JSSP plug-ins
-- Deterministic `LocalRuntimeDriver`
-- Stubbed `TemporalRuntimeDriver`
-- Store protocol alignment tests
-- Runtime protocol alignment tests
-- End-to-end local persistence tests
-- Compensation and supersession projection tests
-- Optional Temporal dependency policy and guards
+### Local correctness kernel
 
----
+Implemented:
 
-## Source-of-truth contract
+- CommitBatch
+- TransitionCandidate
+- CTLRecord
+- Validator
+- SQLite-backed Store
+- CTL append
+- StateView projection
+- effective-history view
+- full-history view
+- compensation handling
+- fail-closed compensation invariants
+- op_id logical idempotency
+- inbox/event-log idempotency
+- outbox staging
 
-The system separates orchestration from domain truth.
+Current source-of-truth rule:
 
-The source-of-truth contract is:
+    CTL/store owns committed truth.
+    StateView owns current effective truth.
+    Inbox deduplicates external events.
+    Event log records observed causes.
+    Outbox stages external side effects.
 
-- CTL is the source of truth for committed state.
-- Event log is the source of truth for observed causes.
-- Inbox is the external-event dedupe boundary.
-- Outbox is the external side-effect boundary.
-- StateView is the public API for current effective state.
-- Runtime engines orchestrate workflows but do not own domain truth.
+### Active commitment memory
 
-This rule applies to both the current local runtime and the future Temporal runtime.
+R4.5 added CTL-resident active commitments.
 
----
+Implemented:
 
-## Local runtime
+- ActiveCommitment
+- CommitmentEvent
+- commitment lifecycle records
+- CTL serialization through extension fields
+- replay-derived active commitment index
+- store-backed active commitment index
+- bounded recursive recovery loop
+- recovery policy
+- recovery orchestration
+- recovery admission boundary
 
-The current implementation runs locally without external services.
+Core invariant:
 
-By default, the system uses:
+    A fired commitment may wake recovery,
+    but it cannot mutate domain state directly.
 
-- `SQLiteStore` for local durable state
-- `LocalRuntimeDriver` for deterministic local workflow orchestration
-- no external workflow server
-- no Temporal dependency
-- no Postgres server
-- no external provider APIs
+    Only separately admitted domain CTL records mutate domain state.
 
-The local runtime is intended for deterministic development, testing, and contract hardening.
+### Runtime active recovery
 
----
+R4.6 added runtime-level active recovery.
 
-## Optional Temporal runtime support
+Implemented:
 
-Temporal support is planned as a future runtime option.
+- LocalActiveRecoveryExecutor
+- runtime planning from CTL-derived active commitment index
+- commitment-FSM-only recovery execution
+- admission-validated recovery execution through Validator
+- R4.6 runtime recovery demo
 
-Temporal will be used only as an orchestration engine. It will not become the source of domain truth.
+Core invariant:
 
-Temporal-specific code is isolated under:
+    Runtime recovery may update commitment state,
+    but it may not mutate domain state directly.
 
-`mnemosyne/runtime/temporal/`
+### Recovery proposal packages
 
-The optional Temporal SDK dependency can be installed with:
+R4.7 added first-class recovery proposal packages.
 
-`python -m pip install -e ".[temporal]"`
+Implemented:
 
-This is not required for the standard local test suite.
+- RecoveryProposalPackage
+- package serialization helpers
+- package references in commitment event payloads
+- package-backed commitment proposal candidates
+- package admission-boundary tests
+- R4.7 proposal package demo
 
-The standard test command remains:
+Core invariant:
 
-`python -m pytest -q`
+    A recovery proposal package may contain proposed domain candidates,
+    but those candidates are not committed truth.
 
-Current Temporal status:
+    Commitment events record package references.
+    Domain state changes still require separate domain CTL admission.
 
-- `TemporalRuntimeDriver` exists as a stub.
-- It exposes the runtime API shape.
-- It checks whether the Temporal SDK is installed.
-- It raises a clear error if `temporalio` is missing.
-- It still raises `NotImplementedError` for actual workflow operations because real Temporal integration has not been implemented yet.
+### Temporal active recovery boundary
 
-Temporal integration tests will be added separately once the Temporal adapter becomes functional.
+R4.8 added a Temporal-style active recovery activity boundary.
 
-See:
+Implemented:
 
-`docs/STAGE1_PLAN.md`
+- Temporal active recovery activity boundary
+- ActiveRecoveryActivityResult
+- commitment-FSM-only recovery commits through activity boundary
+- validation and CTL commit behind activity boundary
+- retry/idempotency tests
+- R4.8 Temporal active recovery demo
 
----
+Core invariant:
 
-## Long-horizon transaction tests
+    Temporal workflow code remains orchestration-only.
 
-Mnemosyne / ALAS is designed to support long-horizon transactional memory.
+    Active recovery planning, validation, and CTL commit happen through an
+    activity boundary.
 
-Long-horizon tests exercise many-step CTL histories, compensation chains, supersession chains, StateView reconstruction, local-log ordering, and outbox/idempotency behavior.
+    Temporal active recovery may update commitment state,
+    but it may not mutate domain state directly.
 
-These tests are important for:
+## Benchmark and solver path
 
-- research validation
-- book evidence
-- stress testing
-- benchmark design
-- confidence in long-running planning scenarios
+The repository also includes local deterministic benchmark and solver infrastructure.
 
-They are intentionally not part of the default public test run.
+Implemented:
 
-The default test command remains:
+- REALM-style local fixture runner
+- BenchmarkCase
+- BenchmarkRunResult
+- JSON/JSONL result serialization
+- P1-compatible Campus Tour fixtures
+- P1 brute-force Campus Tour solver
+- SolverCertificate
+- PlanProposal
+- SolverResult
+- BenchmarkSolver protocol
+- solver registry
+- proposal conflict preflight
+- stale-world reconciliation preflight
 
-`python -m pytest -q`
+Architectural rule:
 
-Future long-horizon tests should be marked explicitly and run opt-in:
+    Solvers may propose certified plans.
+    Mnemosyne validates and commits admitted truth.
 
-`python -m pytest -q -m long_horizon`
+## Not yet production-complete
 
-Policy:
+Important future production work remains:
 
-- keep default tests fast, local, and deterministic
-- keep long-horizon tests visible in the repository
-- exclude long-horizon tests from default public test runs
-- use long-horizon tests for research, book evidence, stress testing, and nightly validation
-
-See:
-
-`docs/LONG_HORIZON_TEST_POLICY.md`
-
----
-
-## Testing
-
-Run the standard local test suite:
-
-`python -m pytest -q`
-
-The standard suite should remain:
-
-- fast
-- deterministic
-- local
-- free of external services
-- suitable for public release
-- suitable for contributor smoke checks
-
-The standard suite should not require:
-
-- Temporal server
-- Postgres server
-- OR-Tools
-- LLM APIs
-- external provider APIs
-- long-running stress tests
-
-Optional future test groups may include:
-
-- `long_horizon`
-- `research`
-- `temporal`
-- `integration`
-- `external`
-
----
-
-## Development docs
-
-Important design and planning documents:
-
-- `docs/STAGE0_CLOSEOUT.md`
-- `docs/STAGE1_PLAN.md`
-- `docs/LONG_HORIZON_TEST_POLICY.md`
-- `PHASE0_CONTRACT.md`
-- `DEVELOPMENT_LOG.md`
-
----
-
-## Architecture status
-
-The repository is stable as a local correctness kernel.
-
-It is not production-ready yet.
-
-Production readiness still requires:
-
-- functional Temporal adapter
-- production Postgres store
+- real Temporal SDK adapter
+- real Temporal workers
+- PostgresStore behind the Store protocol
 - migrations
 - worker-safe inbox processing
 - worker-safe outbox claiming
 - provider adapters
-- real compensation execution
-- observability
+- external OR solver adapters
+- observability and audit reports
 - deployment documentation
 - integration and stress tests
 
-The current implementation should be understood as:
+## Development status
 
-A local, deterministic Mnemosyne / ALAS correctness kernel with CTL, event memory, inbox/outbox durability, StateView projection, compensation representation, store protocol alignment, and local runtime boundary tests.
+The repository is currently best described as:
+
+    A local, deterministic Mnemosyne / ALAS product kernel with CTL-resident
+    active memory, validated runtime recovery, inert recovery proposal packages,
+    and Temporal-safe activity boundaries.
+
+It is not yet a deployed production system.
+
+## Current recommended next stage
+
+Next recommended stage:
+
+    R5.0 product API and audit surface
+
+Purpose:
+
+    expose stable product-facing APIs for commitments, recovery, proposal
+    packages, and audit views without requiring application code to touch
+    internal CTL/recovery modules directly.

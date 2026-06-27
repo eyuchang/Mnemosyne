@@ -29,10 +29,33 @@ __all__ = [
     "RecoveryApiExecution",
     "plan_active_recovery",
     "validate_and_commit_active_recovery",
+    "ProposalPackageApiResult",
+    "create_recovery_proposal_package",
+    "emit_package_backed_proposal",
+    "make_package_backed_proposal_candidate",
+    "package_event_payload",
+    "package_from_dict",
+    "package_reference_from_event_payload",
+    "package_to_dict",
+    "package_to_reference",
+    "validate_recovery_proposal_package",
 ]
 
 from mnemosyne.api.recovery import (
     RecoveryApiExecution,
     plan_active_recovery,
     validate_and_commit_active_recovery,
+)
+
+from mnemosyne.api.proposal_packages import (
+    ProposalPackageApiResult,
+    create_recovery_proposal_package,
+    emit_package_backed_proposal,
+    make_package_backed_proposal_candidate,
+    package_event_payload,
+    package_from_dict,
+    package_reference_from_event_payload,
+    package_to_dict,
+    package_to_reference,
+    validate_recovery_proposal_package,
 )

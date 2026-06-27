@@ -31,30 +31,35 @@
         {
           "line": 43,
           "term": "api",
+          "text": "from mnemosyne.api.recovery_admission import ("
+        },
+        {
+          "line": 48,
+          "term": "api",
           "text": "from mnemosyne.api.recovery_events import ("
         },
         {
-          "line": 47,
+          "line": 52,
           "term": "api",
           "text": "recovery_event_api_result_to_dict,"
         },
         {
-          "line": 50,
+          "line": 55,
           "term": "api",
           "text": "from mnemosyne.api.recovery import ("
         },
         {
-          "line": 55,
+          "line": 60,
           "term": "api",
           "text": "from mnemosyne.api.reports import ("
         },
         {
-          "line": 71,
+          "line": 79,
           "term": "api",
           "text": "\"recovery_replay_api_result_to_dict\","
         },
         {
-          "line": 75,
+          "line": 83,
           "term": "api",
           "text": "\"recovery_event_api_result_to_dict\","
         }
@@ -102,6 +107,71 @@
           "line": 6,
           "term": "api",
           "text": "from mnemosyne.api.commitments import default_commitment_validator"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_admission.py",
+      "sites": [
+        {
+          "line": 5,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import CommitmentApiResult, admit_active_commitment"
+        },
+        {
+          "line": 10,
+          "term": "public",
+          "text": "\"\"\"Raised when public recovery admission is attempted without validation.\"\"\""
+        },
+        {
+          "line": 14,
+          "term": "closed",
+          "text": "\"\"\"Fail closed unless a validator is explicitly supplied."
+        },
+        {
+          "line": 16,
+          "term": "public",
+          "text": "R7.4 makes validator presence mandatory at the public recovery-admission"
+        },
+        {
+          "line": 17,
+          "term": "boundary",
+          "text": "boundary. Deeper validator capability checks can be hardened in later R7.4"
+        },
+        {
+          "line": 18,
+          "term": "boundary",
+          "text": "commits without weakening this boundary."
+        },
+        {
+          "line": 43,
+          "term": "boundary",
+          "text": "\"\"\"Public validated recovery-admission boundary."
+        },
+        {
+          "line": 45,
+          "term": "public",
+          "text": "This function is the R7.4 public mutation path for admitting active"
+        },
+        {
+          "line": 46,
+          "term": "fail",
+          "text": "commitments after recovery. It fails closed unless:"
+        },
+        {
+          "line": 46,
+          "term": "closed",
+          "text": "commitments after recovery. It fails closed unless:"
+        },
+        {
+          "line": 47,
+          "term": "boundary",
+          "text": "- the store satisfies the recovery-store boundary, and"
+        },
+        {
+          "line": 50,
+          "term": "boundary",
+          "text": "It delegates to the existing admission substrate after boundary checks."
         }
       ]
     },
@@ -532,11 +602,11 @@
   },
   "inspected_files": [
     {
-      "boundary_site_count": 11,
+      "boundary_site_count": 12,
       "functions": [],
       "mutation_site_count": 2,
       "path": "mnemosyne/api/__init__.py",
-      "validation_site_count": 6
+      "validation_site_count": 10
     },
     {
       "boundary_site_count": 0,
@@ -869,6 +939,24 @@
       "mutation_site_count": 0,
       "path": "mnemosyne/api/recovery.py",
       "validation_site_count": 8
+    },
+    {
+      "boundary_site_count": 12,
+      "functions": [
+        {
+          "async": false,
+          "line": 13,
+          "name": "require_recovery_validator"
+        },
+        {
+          "async": true,
+          "line": 28,
+          "name": "admit_validated_active_commitment"
+        }
+      ],
+      "mutation_site_count": 2,
+      "path": "mnemosyne/api/recovery_admission.py",
+      "validation_site_count": 16
     },
     {
       "boundary_site_count": 2,
@@ -2385,7 +2473,7 @@
           "text": "admit_active_commitment,"
         },
         {
-          "line": 87,
+          "line": 95,
           "term": "admit_active_commitment",
           "text": "\"admit_active_commitment\","
         }
@@ -2403,6 +2491,21 @@
           "line": 215,
           "term": "admit_active_commitment",
           "text": "async def admit_active_commitment("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_admission.py",
+      "sites": [
+        {
+          "line": 5,
+          "term": "admit_active_commitment",
+          "text": "from mnemosyne.api.commitments import CommitmentApiResult, admit_active_commitment"
+        },
+        {
+          "line": 56,
+          "term": "admit_active_commitment",
+          "text": "return await admit_active_commitment("
         }
       ]
     },
@@ -2788,9 +2891,9 @@
   "schema_version": "r74_validated_admission_boundary_inspection.v1",
   "summary": {
     "decision": "ready_for_validated_admission_boundary_hardening",
-    "inspected_file_count": 42,
-    "mutation_site_count": 67,
-    "validator_site_count": 181
+    "inspected_file_count": 43,
+    "mutation_site_count": 69,
+    "validator_site_count": 201
   },
   "validation_sites": [
     {
@@ -2807,22 +2910,42 @@
           "text": "validate_recovery_proposal_package,"
         },
         {
-          "line": 53,
+          "line": 45,
+          "term": "validate",
+          "text": "admit_validated_active_commitment,"
+        },
+        {
+          "line": 46,
+          "term": "validator",
+          "text": "require_recovery_validator,"
+        },
+        {
+          "line": 58,
           "term": "validate",
           "text": "validate_and_commit_active_recovery,"
         },
         {
-          "line": 94,
+          "line": 76,
+          "term": "validate",
+          "text": "\"admit_validated_active_commitment\","
+        },
+        {
+          "line": 77,
+          "term": "validator",
+          "text": "\"require_recovery_validator\","
+        },
+        {
+          "line": 102,
           "term": "validator",
           "text": "\"default_commitment_validator\","
         },
         {
-          "line": 119,
+          "line": 127,
           "term": "validate",
           "text": "\"validate_and_commit_active_recovery\","
         },
         {
-          "line": 120,
+          "line": 128,
           "term": "validate",
           "text": "\"validate_recovery_proposal_package\","
         }
@@ -3045,6 +3168,91 @@
           "line": 125,
           "term": "validator",
           "text": "validator=validator or default_commitment_validator(),"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_admission.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "require_recovery_store",
+          "text": "from mnemosyne.core.protocols.recovery_store import require_recovery_store"
+        },
+        {
+          "line": 13,
+          "term": "validator",
+          "text": "def require_recovery_validator(validator: Any | None) -> Any:"
+        },
+        {
+          "line": 14,
+          "term": "validator",
+          "text": "\"\"\"Fail closed unless a validator is explicitly supplied."
+        },
+        {
+          "line": 16,
+          "term": "validator",
+          "text": "R7.4 makes validator presence mandatory at the public recovery-admission"
+        },
+        {
+          "line": 17,
+          "term": "validator",
+          "text": "boundary. Deeper validator capability checks can be hardened in later R7.4"
+        },
+        {
+          "line": 21,
+          "term": "validator",
+          "text": "if validator is None:"
+        },
+        {
+          "line": 23,
+          "term": "validator",
+          "text": "\"validated recovery admission requires an explicit validator\""
+        },
+        {
+          "line": 23,
+          "term": "validate",
+          "text": "\"validated recovery admission requires an explicit validator\""
+        },
+        {
+          "line": 25,
+          "term": "validator",
+          "text": "return validator"
+        },
+        {
+          "line": 28,
+          "term": "validate",
+          "text": "async def admit_validated_active_commitment("
+        },
+        {
+          "line": 35,
+          "term": "validator",
+          "text": "validator: Any,"
+        },
+        {
+          "line": 43,
+          "term": "validate",
+          "text": "\"\"\"Public validated recovery-admission boundary."
+        },
+        {
+          "line": 48,
+          "term": "validator",
+          "text": "- an explicit validator is supplied."
+        },
+        {
+          "line": 53,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store)"
+        },
+        {
+          "line": 54,
+          "term": "validator",
+          "text": "validator = require_recovery_validator(validator)"
+        },
+        {
+          "line": 64,
+          "term": "validator",
+          "text": "validator=validator,"
         }
       ]
     },

@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Inspected files: 42
-- Mutation sites: 67
-- Validation sites: 181
+- Inspected files: 43
+- Mutation sites: 69
+- Validation sites: 201
 - Decision: `ready_for_validated_admission_boundary_hardening`
 
 ## Purpose
@@ -18,12 +18,17 @@ This inspection commit does not change mutation semantics. It identifies the adm
 ### `mnemosyne/api/__init__.py`
 
 - L13: `admit_active_commitment` — `admit_active_commitment,`
-- L87: `admit_active_commitment` — `"admit_active_commitment",`
+- L95: `admit_active_commitment` — `"admit_active_commitment",`
 
 ### `mnemosyne/api/commitments.py`
 
 - L103: `commit_batch` — `committed = await store.commit_batch(batch, records)`
 - L215: `admit_active_commitment` — `async def admit_active_commitment(`
+
+### `mnemosyne/api/recovery_admission.py`
+
+- L5: `admit_active_commitment` — `from mnemosyne.api.commitments import CommitmentApiResult, admit_active_commitment`
+- L56: `admit_active_commitment` — `return await admit_active_commitment(`
 
 ### `mnemosyne/benchmarks/jssp_repair_admission.py`
 
@@ -127,10 +132,14 @@ This inspection commit does not change mutation semantics. It identifies the adm
 
 - L15: `validator` — `default_commitment_validator,`
 - L35: `validate` — `validate_recovery_proposal_package,`
-- L53: `validate` — `validate_and_commit_active_recovery,`
-- L94: `validator` — `"default_commitment_validator",`
-- L119: `validate` — `"validate_and_commit_active_recovery",`
-- L120: `validate` — `"validate_recovery_proposal_package",`
+- L45: `validate` — `admit_validated_active_commitment,`
+- L46: `validator` — `require_recovery_validator,`
+- L58: `validate` — `validate_and_commit_active_recovery,`
+- L76: `validate` — `"admit_validated_active_commitment",`
+- L77: `validator` — `"require_recovery_validator",`
+- L102: `validator` — `"default_commitment_validator",`
+- L127: `validate` — `"validate_and_commit_active_recovery",`
+- L128: `validate` — `"validate_recovery_proposal_package",`
 
 ### `mnemosyne/api/audit.py`
 
@@ -183,6 +192,25 @@ This inspection commit does not change mutation semantics. It identifies the adm
 - L113: `validate` — `"""Plan, validate, and commit active recovery through the product API.`
 - L120: `validate` — `execution = await executor.plan_validate_and_commit(`
 - L125: `validator` — `validator=validator or default_commitment_validator(),`
+
+### `mnemosyne/api/recovery_admission.py`
+
+- L6: `require_recovery_store` — `from mnemosyne.core.protocols.recovery_store import require_recovery_store`
+- L13: `validator` — `def require_recovery_validator(validator: Any | None) -> Any:`
+- L14: `validator` — `"""Fail closed unless a validator is explicitly supplied.`
+- L16: `validator` — `R7.4 makes validator presence mandatory at the public recovery-admission`
+- L17: `validator` — `boundary. Deeper validator capability checks can be hardened in later R7.4`
+- L21: `validator` — `if validator is None:`
+- L23: `validator` — `"validated recovery admission requires an explicit validator"`
+- L23: `validate` — `"validated recovery admission requires an explicit validator"`
+- L25: `validator` — `return validator`
+- L28: `validate` — `async def admit_validated_active_commitment(`
+- L35: `validator` — `validator: Any,`
+- L43: `validate` — `"""Public validated recovery-admission boundary.`
+- L48: `validator` — `- an explicit validator is supplied.`
+- L53: `require_recovery_store` — `store = require_recovery_store(store)`
+- L54: `validator` — `validator = require_recovery_validator(validator)`
+- L64: `validator` — `validator=validator,`
 
 ### `mnemosyne/api/recovery_events.py`
 

@@ -2,8 +2,8 @@
 
 ## Summary
 
-- Inspected files: 31
-- Recovery-related files: 26
+- Inspected files: 32
+- Recovery-related files: 27
 - Coupling sites: 100
 - Decision: `ready_for_store_protocol_refactor`
 
@@ -20,6 +20,7 @@ R7.1 does not claim Postgres support, distributed storage, Kubernetes deployment
 - `mnemosyne/api/commitments.py`
 - `mnemosyne/api/proposal_packages.py`
 - `mnemosyne/api/recovery.py`
+- `mnemosyne/api/recovery_admission.py`
 - `mnemosyne/api/recovery_events.py`
 - `mnemosyne/api/recovery_replay.py`
 - `mnemosyne/api/reports.py`

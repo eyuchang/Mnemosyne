@@ -1,0 +1,672 @@
+{
+  "baseline": {
+    "affected_operations": [
+      {
+        "blocked_material": "C-X",
+        "duration": 2,
+        "end": 5,
+        "job_id": "J1",
+        "machine": "M3",
+        "material_event_id": "realm-j4:material-unavailable:C-X:4-8",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J1:O2",
+        "operation_index": 2,
+        "start": 3
+      },
+      {
+        "blocked_material": "C-X",
+        "duration": 1,
+        "end": 6,
+        "job_id": "J2",
+        "machine": "M3",
+        "material_event_id": "realm-j4:material-unavailable:C-X:4-8",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J2:O2",
+        "operation_index": 2,
+        "start": 5
+      },
+      {
+        "blocked_material": "C-X",
+        "duration": 2,
+        "end": 8,
+        "job_id": "J3",
+        "machine": "M3",
+        "material_event_id": "realm-j4:material-unavailable:C-X:4-8",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J3:O2",
+        "operation_index": 2,
+        "start": 6
+      },
+      {
+        "blocked_material": "C-X",
+        "duration": 4,
+        "end": 9,
+        "job_id": "J1",
+        "machine": "M4",
+        "material_event_id": "realm-j4:material-unavailable:C-X:4-8",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J1:O3",
+        "operation_index": 3,
+        "start": 5
+      },
+      {
+        "blocked_material": "F",
+        "duration": 4,
+        "end": 9,
+        "job_id": "J1",
+        "machine": "M4",
+        "material_event_id": "realm-j4:material-unavailable:F:6-10",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J1:O3",
+        "operation_index": 3,
+        "start": 5
+      },
+      {
+        "blocked_material": "F",
+        "duration": 5,
+        "end": 14,
+        "job_id": "J2",
+        "machine": "M4",
+        "material_event_id": "realm-j4:material-unavailable:F:6-10",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J2:O3",
+        "operation_index": 3,
+        "start": 9
+      }
+    ],
+    "initial_makespan": 29,
+    "initial_schedule": [
+      {
+        "duration": 3,
+        "end": 3,
+        "job_id": "J1",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J1:O1",
+        "operation_index": 1,
+        "start": 0
+      },
+      {
+        "duration": 4,
+        "end": 4,
+        "job_id": "J2",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J2:O1",
+        "operation_index": 1,
+        "start": 0
+      },
+      {
+        "duration": 3,
+        "end": 6,
+        "job_id": "J3",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J3:O1",
+        "operation_index": 1,
+        "start": 3
+      },
+      {
+        "duration": 2,
+        "end": 8,
+        "job_id": "J4",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J4:O1",
+        "operation_index": 1,
+        "start": 6
+      },
+      {
+        "duration": 4,
+        "end": 8,
+        "job_id": "J5",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J5:O1",
+        "operation_index": 1,
+        "start": 4
+      },
+      {
+        "duration": 2,
+        "end": 10,
+        "job_id": "J6",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J6:O1",
+        "operation_index": 1,
+        "start": 8
+      },
+      {
+        "duration": 2,
+        "end": 5,
+        "job_id": "J1",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J1:O2",
+        "operation_index": 2,
+        "start": 3
+      },
+      {
+        "duration": 1,
+        "end": 6,
+        "job_id": "J2",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J2:O2",
+        "operation_index": 2,
+        "start": 5
+      },
+      {
+        "duration": 2,
+        "end": 8,
+        "job_id": "J3",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J3:O2",
+        "operation_index": 2,
+        "start": 6
+      },
+      {
+        "duration": 3,
+        "end": 11,
+        "job_id": "J4",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J4:O2",
+        "operation_index": 2,
+        "start": 8
+      },
+      {
+        "duration": 1,
+        "end": 9,
+        "job_id": "J5",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J5:O2",
+        "operation_index": 2,
+        "start": 8
+      },
+      {
+        "duration": 3,
+        "end": 14,
+        "job_id": "J6",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J6:O2",
+        "operation_index": 2,
+        "start": 11
+      },
+      {
+        "duration": 4,
+        "end": 9,
+        "job_id": "J1",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J1:O3",
+        "operation_index": 3,
+        "start": 5
+      },
+      {
+        "duration": 5,
+        "end": 14,
+        "job_id": "J2",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J2:O3",
+        "operation_index": 3,
+        "start": 9
+      },
+      {
+        "duration": 4,
+        "end": 18,
+        "job_id": "J3",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J3:O3",
+        "operation_index": 3,
+        "start": 14
+      },
+      {
+        "duration": 2,
+        "end": 13,
+        "job_id": "J4",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J4:O3",
+        "operation_index": 3,
+        "start": 11
+      },
+      {
+        "duration": 5,
+        "end": 23,
+        "job_id": "J5",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J5:O3",
+        "operation_index": 3,
+        "start": 18
+      },
+      {
+        "duration": 2,
+        "end": 16,
+        "job_id": "J6",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J6:O3",
+        "operation_index": 3,
+        "start": 14
+      },
+      {
+        "duration": 3,
+        "end": 26,
+        "job_id": "J4",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J4:O4",
+        "operation_index": 4,
+        "start": 23
+      },
+      {
+        "duration": 3,
+        "end": 29,
+        "job_id": "J6",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J6:O4",
+        "operation_index": 4,
+        "start": 26
+      }
+    ],
+    "operation_count": 20,
+    "repaired_makespan": 34,
+    "repaired_schedule": [
+      {
+        "duration": 3,
+        "end": 3,
+        "job_id": "J1",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J1:O1",
+        "operation_index": 1,
+        "start": 0
+      },
+      {
+        "duration": 4,
+        "end": 4,
+        "job_id": "J2",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J2:O1",
+        "operation_index": 1,
+        "start": 0
+      },
+      {
+        "duration": 3,
+        "end": 6,
+        "job_id": "J3",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J3:O1",
+        "operation_index": 1,
+        "start": 3
+      },
+      {
+        "duration": 2,
+        "end": 8,
+        "job_id": "J4",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J4:O1",
+        "operation_index": 1,
+        "start": 6
+      },
+      {
+        "duration": 4,
+        "end": 8,
+        "job_id": "J5",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J5:O1",
+        "operation_index": 1,
+        "start": 4
+      },
+      {
+        "duration": 2,
+        "end": 10,
+        "job_id": "J6",
+        "machine": "M1",
+        "materials": [
+          "RM-S"
+        ],
+        "operation_id": "J6:O1",
+        "operation_index": 1,
+        "start": 8
+      },
+      {
+        "duration": 2,
+        "end": 10,
+        "job_id": "J1",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J1:O2",
+        "operation_index": 2,
+        "start": 8
+      },
+      {
+        "duration": 1,
+        "end": 11,
+        "job_id": "J2",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J2:O2",
+        "operation_index": 2,
+        "start": 10
+      },
+      {
+        "duration": 2,
+        "end": 13,
+        "job_id": "J3",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J3:O2",
+        "operation_index": 2,
+        "start": 11
+      },
+      {
+        "duration": 3,
+        "end": 11,
+        "job_id": "J4",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J4:O2",
+        "operation_index": 2,
+        "start": 8
+      },
+      {
+        "duration": 1,
+        "end": 14,
+        "job_id": "J5",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J5:O2",
+        "operation_index": 2,
+        "start": 13
+      },
+      {
+        "duration": 3,
+        "end": 14,
+        "job_id": "J6",
+        "machine": "M2",
+        "materials": [
+          "RM-A"
+        ],
+        "operation_id": "J6:O2",
+        "operation_index": 2,
+        "start": 11
+      },
+      {
+        "duration": 4,
+        "end": 14,
+        "job_id": "J1",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J1:O3",
+        "operation_index": 3,
+        "start": 10
+      },
+      {
+        "duration": 5,
+        "end": 19,
+        "job_id": "J2",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J2:O3",
+        "operation_index": 3,
+        "start": 14
+      },
+      {
+        "duration": 4,
+        "end": 23,
+        "job_id": "J3",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J3:O3",
+        "operation_index": 3,
+        "start": 19
+      },
+      {
+        "duration": 2,
+        "end": 16,
+        "job_id": "J4",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J4:O3",
+        "operation_index": 3,
+        "start": 14
+      },
+      {
+        "duration": 5,
+        "end": 28,
+        "job_id": "J5",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J5:O3",
+        "operation_index": 3,
+        "start": 23
+      },
+      {
+        "duration": 2,
+        "end": 18,
+        "job_id": "J6",
+        "machine": "M3",
+        "materials": [
+          "C-X"
+        ],
+        "operation_id": "J6:O3",
+        "operation_index": 3,
+        "start": 16
+      },
+      {
+        "duration": 3,
+        "end": 31,
+        "job_id": "J4",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J4:O4",
+        "operation_index": 4,
+        "start": 28
+      },
+      {
+        "duration": 3,
+        "end": 34,
+        "job_id": "J6",
+        "machine": "M4",
+        "materials": [
+          "C-X",
+          "F"
+        ],
+        "operation_id": "J6:O4",
+        "operation_index": 4,
+        "start": 31
+      }
+    ]
+  },
+  "baseline_kind": "deterministic_material_resource_recovery",
+  "case_digest": "13419b30646d42dc",
+  "case_id": "J4",
+  "claims": {
+    "active_commitment_memory_claimed": false,
+    "api_bound_recovery_claimed": false,
+    "benchmark_local_recovery_claimed": true,
+    "durable_logs_claimed": false,
+    "global_optimality_claimed": false,
+    "j4_material_recovery_claimed": true,
+    "material_resource_substrate_claimed": true,
+    "production_runtime_claimed": false
+  },
+  "evaluation": {
+    "constraint_checks": {
+      "affected_operations_detected": true,
+      "case_file_loaded": true,
+      "machine_capacity_satisfaction": true,
+      "material_availability_satisfaction": true,
+      "material_events_realized": true,
+      "material_policy_defined": true,
+      "operation_templates_expanded": true,
+      "precedence_satisfaction": true,
+      "repair_does_not_reduce_makespan": true
+    },
+    "feasible_after_repair": true,
+    "optimality_status": "feasible_not_proven_optimal"
+  },
+  "limitations": [
+    "This is a deterministic benchmark-local material recovery substrate.",
+    "The J4 case provides material examples but no outage windows or bill-of-materials mapping; R6.9 makes those assumptions explicit.",
+    "This commit does not bind material recovery to active commitment memory.",
+    "This commit does not claim production-runtime durable recovery."
+  ],
+  "material_events": [
+    {
+      "event_id": "realm-j4:material-unavailable:C-X:4-8",
+      "material": "C-X",
+      "source": "r69_deterministic_realization",
+      "type": "material_unavailability",
+      "unavailable_end": 8,
+      "unavailable_start": 4
+    },
+    {
+      "event_id": "realm-j4:material-unavailable:F:6-10",
+      "material": "F",
+      "source": "r69_deterministic_realization",
+      "type": "material_unavailability",
+      "unavailable_end": 10,
+      "unavailable_start": 6
+    }
+  ],
+  "material_policy": {
+    "machine_to_materials": {
+      "M1": [
+        "RM-S"
+      ],
+      "M2": [
+        "RM-A"
+      ],
+      "M3": [
+        "C-X"
+      ],
+      "M4": [
+        "C-X",
+        "F"
+      ]
+    },
+    "note": "J4 names material-unavailability examples but not per-operation bills of material; R6.9 makes this benchmark-local policy explicit.",
+    "policy_id": "r69_j4_material_policy.v1",
+    "source_case_materials": [
+      "RM-S",
+      "RM-A",
+      "C-X",
+      "C-Y",
+      "F"
+    ]
+  },
+  "schema_version": "realm_jssp_j4_material_recovery_baseline.v1",
+  "source_case_path": "benchmarks/realm/cases/j4_jssp_complex_dynamic.json"
+}

@@ -1,0 +1,95 @@
+{
+  "capability_report": {
+    "deterministic_recovery_replay_order": true,
+    "durable_recovery_events": true,
+    "idempotent_recovery_events": true,
+    "notes": [
+      "R7.8 implements the live PostgreSQL adapter surface.",
+      "Live PostgreSQL execution remains opt-in.",
+      "Live use requires MNEMOSYNE_POSTGRES_DATABASE_URL."
+    ],
+    "schema_id": "mnemosyne.store.sqlite",
+    "schema_version": "1.0",
+    "store_type": "PostgresStore",
+    "supports_postgres_conformance_target": true,
+    "supports_restart_persistence": true
+  },
+  "claims": {
+    "default_ci_postgres_free_claimed": true,
+    "distributed_storage_claimed": false,
+    "kubernetes_claimed": false,
+    "live_postgres_env_opt_in_claimed": true,
+    "postgres_conformance_fake_connection_claimed": true,
+    "postgres_event_append_claimed": true,
+    "postgres_event_list_claimed": true,
+    "postgres_idempotent_retry_claimed": true,
+    "postgres_recovery_event_adapter_claimed": true,
+    "postgres_schema_initialization_claimed": true,
+    "production_runtime_claimed": false,
+    "real_postgres_service_required_in_default_ci": false,
+    "temporal_claimed": false
+  },
+  "conformance_observation": {
+    "case": {
+      "expected_schema_id": "mnemosyne.store.sqlite",
+      "expected_schema_version": "1.0",
+      "expects_restart_persistence": true,
+      "live_dependency_required": false,
+      "notes": [],
+      "store_name": "PostgresStore"
+    },
+    "checks": {
+      "capability_reports_durable_events": true,
+      "capability_reports_idempotency": true,
+      "capability_reports_replay_order": true,
+      "deterministic_list_order": true,
+      "deterministic_replay_order": true,
+      "idempotent_duplicate_retry": true,
+      "restart_persistence_expectation_matches": true,
+      "schema_id_matches": true,
+      "schema_version_matches": true
+    },
+    "details": {
+      "duplicate_result_event_id": "conformance-event-1",
+      "event_ids": [
+        "conformance-event-1",
+        "conformance-event-2"
+      ],
+      "replay_event_ids": [
+        "conformance-event-1",
+        "conformance-event-2"
+      ],
+      "schema_id": "mnemosyne.store.sqlite",
+      "schema_version": "1.0",
+      "store_type": "PostgresStore",
+      "supports_postgres_conformance_target": true,
+      "supports_restart_persistence": true
+    },
+    "passed": true
+  },
+  "limitations": [
+    "R7.8 implements the PostgreSQL recovery-event adapter surface.",
+    "Default CI uses fake connection tests and does not require a PostgreSQL service.",
+    "Real live PostgreSQL conformance remains gated by MNEMOSYNE_POSTGRES_DATABASE_URL.",
+    "R7.8 does not claim Kubernetes, Temporal, or production-runtime recovery."
+  ],
+  "schema_statement_count": 5,
+  "schema_version": "r78_postgres_live_adapter_report.v1",
+  "summary": {
+    "adapter_event_count": 2,
+    "conformance_passed": true,
+    "decision": "opt_in_postgres_recovery_event_adapter_established",
+    "default_ci_safe": true,
+    "duplicate_result_event_id": "r78-event-1",
+    "event_ids": [
+      "r78-event-1",
+      "r78-event-2"
+    ],
+    "postgres_database_url_env": "MNEMOSYNE_POSTGRES_DATABASE_URL",
+    "replay_event_ids": [
+      "r78-event-1",
+      "r78-event-2"
+    ],
+    "schema_version": "1.0"
+  }
+}

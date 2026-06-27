@@ -28,4 +28,19 @@ __all__ = [
     "event_from_extension",
     "is_commitment_extension",
     "extract_commitment_events_from_ctl_records",
+    "COMMITMENT_FSM",
+    "COMMITMENT_SCHEMA_ID",
+    "commitment_entity_id",
+    "make_register_commitment_candidate",
+    "make_fire_commitment_candidate",
+    "make_discharge_commitment_candidate",
 ]
+
+from mnemosyne.core.commitments.candidates import (
+    COMMITMENT_FSM,
+    COMMITMENT_SCHEMA_ID,
+    commitment_entity_id,
+    make_register_commitment_candidate,
+    make_fire_commitment_candidate,
+    make_discharge_commitment_candidate,
+)

@@ -34,6 +34,12 @@ from mnemosyne.api.proposal_packages import (
     package_to_reference,
     validate_recovery_proposal_package,
 )
+from mnemosyne.api.recovery_replay import (
+    RecoveryReplayApiResult,
+    recovery_replay_api_result_to_dict,
+    recovery_replay_state_to_report_dict,
+    replay_recovery_events_from_store,
+)
 from mnemosyne.api.recovery_events import (
     RecoveryEventApiResult,
     append_recovery_event,
@@ -61,6 +67,10 @@ from mnemosyne.api.reports import (
 )
 
 __all__ = [
+    "RecoveryReplayApiResult",
+    "recovery_replay_api_result_to_dict",
+    "recovery_replay_state_to_report_dict",
+    "replay_recovery_events_from_store",
     "recovery_events_to_dicts",
     "recovery_event_api_result_to_dict",
     "list_recovery_events",

@@ -1,0 +1,85 @@
+{
+  "capability_reports": {
+    "default": {
+      "deterministic_recovery_replay_order": true,
+      "durable_recovery_events": true,
+      "idempotent_recovery_events": true,
+      "notes": [
+        "SQLiteStore is the local durable conformance target.",
+        "PostgreSQL conformance remains future R7 work.",
+        "Kubernetes, Temporal, and production runtime are outside R7.5."
+      ],
+      "schema_id": "mnemosyne.store.sqlite",
+      "schema_version": "1.0",
+      "store_type": "SQLiteStore",
+      "supports_postgres_conformance_target": false,
+      "supports_restart_persistence": false
+    },
+    "postgres": {
+      "deterministic_recovery_replay_order": true,
+      "durable_recovery_events": true,
+      "idempotent_recovery_events": true,
+      "notes": [
+        "R7.7 defines the optional PostgreSQL adapter skeleton.",
+        "Live PostgreSQL persistence is not implemented yet.",
+        "Live use requires MNEMOSYNE_POSTGRES_DATABASE_URL."
+      ],
+      "schema_id": "mnemosyne.store.sqlite",
+      "schema_version": "1.0",
+      "store_type": "PostgresStore",
+      "supports_postgres_conformance_target": true,
+      "supports_restart_persistence": true
+    }
+  },
+  "claims": {
+    "default_ci_postgres_free_claimed": true,
+    "distributed_storage_claimed": false,
+    "kubernetes_claimed": false,
+    "live_postgres_persistence_claimed": false,
+    "postgres_adapter_skeleton_claimed": true,
+    "postgres_configuration_boundary_claimed": true,
+    "postgres_live_conformance_claimed": false,
+    "production_runtime_claimed": false,
+    "sqlite_default_claimed": true,
+    "store_factory_claimed": true,
+    "temporal_claimed": false
+  },
+  "environment": {
+    "postgres_database_url_env": "MNEMOSYNE_POSTGRES_DATABASE_URL",
+    "sqlite_path_env": "MNEMOSYNE_SQLITE_PATH",
+    "store_backend_env": "MNEMOSYNE_STORE_BACKEND"
+  },
+  "factory_configs": {
+    "default": {
+      "backend": "sqlite",
+      "normalized_backend": "sqlite",
+      "postgres_database_url_present": false,
+      "require_configured_postgres": false,
+      "sqlite_path": null
+    },
+    "postgres": {
+      "backend": "postgres",
+      "normalized_backend": "postgres",
+      "postgres_database_url_present": true,
+      "require_configured_postgres": false,
+      "sqlite_path": null
+    }
+  },
+  "limitations": [
+    "R7.7 provides the PostgreSQL adapter skeleton and store factory.",
+    "R7.7 does not implement live PostgreSQL persistence.",
+    "R7.7 does not claim live PostgreSQL conformance.",
+    "Default CI remains SQLite-only."
+  ],
+  "schema_version": "r77_postgres_adapter_skeleton_report.v1",
+  "summary": {
+    "decision": "optional_postgres_adapter_skeleton_and_factory_established",
+    "default_backend": "sqlite",
+    "default_ci_safe": true,
+    "default_store_type": "SQLiteStore",
+    "postgres_backend": "postgres",
+    "postgres_configured": true,
+    "postgres_redacted_database_url": "postgresql://***:***@localhost:5432/mnemosyne",
+    "postgres_store_type": "PostgresStore"
+  }
+}

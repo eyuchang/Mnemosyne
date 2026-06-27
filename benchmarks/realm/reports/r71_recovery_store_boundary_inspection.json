@@ -552,6 +552,61 @@
           "text": "\"SELECT COUNT(*) AS n FROM runtime_trace_events\""
         }
       ]
+    },
+    {
+      "path": "mnemosyne/store/factory.py",
+      "sites": [
+        {
+          "line": 13,
+          "term": "sqlite",
+          "text": "from mnemosyne.store.sqlite.store import SQLiteStore"
+        },
+        {
+          "line": 13,
+          "term": "SQLite",
+          "text": "from mnemosyne.store.sqlite.store import SQLiteStore"
+        },
+        {
+          "line": 19,
+          "term": "sqlite",
+          "text": "SQLITE_BACKEND = \"sqlite\""
+        },
+        {
+          "line": 30,
+          "term": "sqlite",
+          "text": "sqlite_path: str | Path | None = None"
+        },
+        {
+          "line": 46,
+          "term": "sqlite",
+          "text": "sqlite_path=source.get(SQLITE_PATH_ENV),"
+        },
+        {
+          "line": 56,
+          "term": "sqlite",
+          "text": "if resolved.sqlite_path:"
+        },
+        {
+          "line": 57,
+          "term": "sqlite",
+          "text": "return SQLiteStore(Path(resolved.sqlite_path))"
+        },
+        {
+          "line": 57,
+          "term": "SQLite",
+          "text": "return SQLiteStore(Path(resolved.sqlite_path))"
+        },
+        {
+          "line": 58,
+          "term": "SQLite",
+          "text": "return SQLiteStore()"
+        },
+        {
+          "line": 75,
+          "term": "sqlite",
+          "text": "\"sqlite_path\": str(config.sqlite_path) if config.sqlite_path is not None else None,"
+        }
+      ]
     }
   ],
   "inspected_files": [
@@ -999,6 +1054,21 @@
       "path": "mnemosyne/store/__init__.py",
       "protocols": [],
       "recovery_related": false
+    },
+    {
+      "coupling_site_count": 10,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "mnemosyne.store.postgres",
+        "mnemosyne.store.sqlite.store",
+        "os",
+        "pathlib",
+        "typing"
+      ],
+      "path": "mnemosyne/store/factory.py",
+      "protocols": [],
+      "recovery_related": false
     }
   ],
   "protocol_mentions": [
@@ -1107,9 +1177,9 @@
   ],
   "schema_version": "r7_recovery_store_boundary_inspection.v1",
   "summary": {
-    "coupling_site_count": 101,
+    "coupling_site_count": 111,
     "decision": "ready_for_store_protocol_refactor",
-    "inspected_file_count": 34,
+    "inspected_file_count": 35,
     "recovery_related_file_count": 29
   }
 }

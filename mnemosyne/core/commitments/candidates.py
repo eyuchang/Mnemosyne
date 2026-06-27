@@ -35,16 +35,18 @@ def make_register_commitment_candidate(
     rid: str | None = None,
     op_id: str | None = None,
 ) -> TransitionCandidate:
+    final_rid = rid or _rid("acr-register", commitment.commitment_id)
+
     event = CommitmentEvent(
         event_type=CommitmentEventType.REGISTERED,
         commitment_id=commitment.commitment_id,
         payload={"commitment": commitment},
-        record_id=rid,
+        record_id=final_rid,
         workflow_id=workflow_id,
     )
 
     return TransitionCandidate(
-        rid=rid or _rid("acr-register", commitment.commitment_id),
+        rid=final_rid,
         tenant_id=tenant_id,
         tx_group_id=tx_group_id,
         eid=commitment_entity_id(commitment.commitment_id),
@@ -79,16 +81,18 @@ def make_fire_commitment_candidate(
     op_id: str | None = None,
     dependency_rid: str | None = None,
 ) -> TransitionCandidate:
+    final_rid = rid or _rid("acr-fire", commitment_id)
+
     event = CommitmentEvent(
         event_type=CommitmentEventType.FIRED,
         commitment_id=commitment_id,
         payload={"reason": reason},
-        record_id=rid,
+        record_id=final_rid,
         workflow_id=workflow_id,
     )
 
     return TransitionCandidate(
-        rid=rid or _rid("acr-fire", commitment_id),
+        rid=final_rid,
         tenant_id=tenant_id,
         tx_group_id=tx_group_id,
         eid=commitment_entity_id(commitment_id),
@@ -123,16 +127,18 @@ def make_discharge_commitment_candidate(
     op_id: str | None = None,
     dependency_rid: str | None = None,
 ) -> TransitionCandidate:
+    final_rid = rid or _rid("acr-discharge", commitment_id)
+
     event = CommitmentEvent(
         event_type=CommitmentEventType.DISCHARGED,
         commitment_id=commitment_id,
         payload={"reason": reason},
-        record_id=rid,
+        record_id=final_rid,
         workflow_id=workflow_id,
     )
 
     return TransitionCandidate(
-        rid=rid or _rid("acr-discharge", commitment_id),
+        rid=final_rid,
         tenant_id=tenant_id,
         tx_group_id=tx_group_id,
         eid=commitment_entity_id(commitment_id),

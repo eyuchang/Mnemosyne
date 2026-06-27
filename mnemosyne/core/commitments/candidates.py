@@ -159,3 +159,157 @@ def make_discharge_commitment_candidate(
         fsm_version="1.0",
         op_id=op_id,
     )
+
+def make_commitment_proposal_candidate(
+    *,
+    tenant_id: str,
+    tx_group_id: str,
+    commitment_id: str,
+    proposal_ref: str,
+    workflow_id: str | None = None,
+    binding_id: str | None = None,
+    proposal_scope: dict | None = None,
+    rid: str | None = None,
+    op_id: str | None = None,
+    dependency_rid: str | None = None,
+) -> TransitionCandidate:
+    final_rid = rid or _rid("acr-proposal", commitment_id)
+
+    event = CommitmentEvent(
+        event_type=CommitmentEventType.PROPOSAL_EMITTED,
+        commitment_id=commitment_id,
+        payload={
+            "proposal_ref": proposal_ref,
+            "proposal_scope": proposal_scope or {},
+        },
+        record_id=final_rid,
+        workflow_id=workflow_id,
+    )
+
+    return TransitionCandidate(
+        rid=final_rid,
+        tenant_id=tenant_id,
+        tx_group_id=tx_group_id,
+        eid=commitment_entity_id(commitment_id),
+        fsm=COMMITMENT_FSM,
+        state_before=CommitmentStatus.FIRED.value,
+        state_after=CommitmentStatus.PROPOSED.value,
+        action_type=CommitmentEventType.PROPOSAL_EMITTED.value,
+        workflow_id=workflow_id,
+        binding_id=binding_id,
+        triggers=[dependency_rid] if dependency_rid else [],
+        dependencies=[dependency_rid] if dependency_rid else [],
+        extension=event_to_extension(event),
+        metadata={
+            "commitment_id": commitment_id,
+            "proposal_ref": proposal_ref,
+        },
+        app_id=COMMITMENT_APP_ID,
+        app_version="1.0",
+        schema_id=COMMITMENT_SCHEMA_ID,
+        schema_version=COMMITMENT_SCHEMA_VERSION,
+        fsm_version="1.0",
+        op_id=op_id,
+    )
+
+
+def make_commitment_admitted_candidate(
+    *,
+    tenant_id: str,
+    tx_group_id: str,
+    commitment_id: str,
+    admitted_record_ids: list[str],
+    workflow_id: str | None = None,
+    binding_id: str | None = None,
+    rid: str | None = None,
+    op_id: str | None = None,
+    dependency_rid: str | None = None,
+) -> TransitionCandidate:
+    final_rid = rid or _rid("acr-admitted", commitment_id)
+
+    event = CommitmentEvent(
+        event_type=CommitmentEventType.ADMITTED,
+        commitment_id=commitment_id,
+        payload={"admitted_record_ids": admitted_record_ids},
+        record_id=final_rid,
+        workflow_id=workflow_id,
+    )
+
+    return TransitionCandidate(
+        rid=final_rid,
+        tenant_id=tenant_id,
+        tx_group_id=tx_group_id,
+        eid=commitment_entity_id(commitment_id),
+        fsm=COMMITMENT_FSM,
+        state_before=CommitmentStatus.PROPOSED.value,
+        state_after=CommitmentStatus.ADMITTED.value,
+        action_type=CommitmentEventType.ADMITTED.value,
+        workflow_id=workflow_id,
+        binding_id=binding_id,
+        triggers=[dependency_rid] if dependency_rid else [],
+        dependencies=[dependency_rid] if dependency_rid else [],
+        extension=event_to_extension(event),
+        metadata={
+            "commitment_id": commitment_id,
+            "admitted_record_ids": admitted_record_ids,
+        },
+        app_id=COMMITMENT_APP_ID,
+        app_version="1.0",
+        schema_id=COMMITMENT_SCHEMA_ID,
+        schema_version=COMMITMENT_SCHEMA_VERSION,
+        fsm_version="1.0",
+        op_id=op_id,
+    )
+
+
+def make_commitment_rejected_candidate(
+    *,
+    tenant_id: str,
+    tx_group_id: str,
+    commitment_id: str,
+    rejection_code: str,
+    rejection_evidence: dict | None = None,
+    workflow_id: str | None = None,
+    binding_id: str | None = None,
+    rid: str | None = None,
+    op_id: str | None = None,
+    dependency_rid: str | None = None,
+) -> TransitionCandidate:
+    final_rid = rid or _rid("acr-rejected", commitment_id)
+
+    event = CommitmentEvent(
+        event_type=CommitmentEventType.REJECTED,
+        commitment_id=commitment_id,
+        payload={
+            "rejection_code": rejection_code,
+            "rejection_evidence": rejection_evidence or {},
+        },
+        record_id=final_rid,
+        workflow_id=workflow_id,
+    )
+
+    return TransitionCandidate(
+        rid=final_rid,
+        tenant_id=tenant_id,
+        tx_group_id=tx_group_id,
+        eid=commitment_entity_id(commitment_id),
+        fsm=COMMITMENT_FSM,
+        state_before=CommitmentStatus.PROPOSED.value,
+        state_after=CommitmentStatus.REJECTED.value,
+        action_type=CommitmentEventType.REJECTED.value,
+        workflow_id=workflow_id,
+        binding_id=binding_id,
+        triggers=[dependency_rid] if dependency_rid else [],
+        dependencies=[dependency_rid] if dependency_rid else [],
+        extension=event_to_extension(event),
+        metadata={
+            "commitment_id": commitment_id,
+            "rejection_code": rejection_code,
+        },
+        app_id=COMMITMENT_APP_ID,
+        app_version="1.0",
+        schema_id=COMMITMENT_SCHEMA_ID,
+        schema_version=COMMITMENT_SCHEMA_VERSION,
+        fsm_version="1.0",
+        op_id=op_id,
+    )

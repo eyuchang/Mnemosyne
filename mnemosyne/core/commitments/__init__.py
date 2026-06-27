@@ -34,6 +34,9 @@ __all__ = [
     "make_register_commitment_candidate",
     "make_fire_commitment_candidate",
     "make_discharge_commitment_candidate",
+    "make_commitment_proposal_candidate",
+    "make_commitment_admitted_candidate",
+    "make_commitment_rejected_candidate",
 ]
 
 from mnemosyne.core.commitments.candidates import (
@@ -43,4 +46,7 @@ from mnemosyne.core.commitments.candidates import (
     make_register_commitment_candidate,
     make_fire_commitment_candidate,
     make_discharge_commitment_candidate,
+    make_commitment_proposal_candidate,
+    make_commitment_admitted_candidate,
+    make_commitment_rejected_candidate,
 )

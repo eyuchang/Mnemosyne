@@ -40,6 +40,11 @@ from mnemosyne.api.recovery_replay import (
     recovery_replay_state_to_report_dict,
     replay_recovery_events_from_store,
 )
+from mnemosyne.api.recovery_admission import (
+    ValidatedRecoveryAdmissionError,
+    admit_validated_active_commitment,
+    require_recovery_validator,
+)
 from mnemosyne.api.recovery_events import (
     RecoveryEventApiResult,
     append_recovery_event,
@@ -67,6 +72,9 @@ from mnemosyne.api.reports import (
 )
 
 __all__ = [
+    "ValidatedRecoveryAdmissionError",
+    "admit_validated_active_commitment",
+    "require_recovery_validator",
     "RecoveryReplayApiResult",
     "recovery_replay_api_result_to_dict",
     "recovery_replay_state_to_report_dict",

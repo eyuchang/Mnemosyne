@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "explicit_validator": {
+      "ok": true,
+      "validator_type": "DummyValidator"
+    },
+    "missing_store": {
+      "error_type": "RecoveryStoreCapabilityError",
+      "message": "store does not satisfy RecoveryStore capability boundary; missing methods: get_record, get_entity_history, get_full_entity_history, get_state_view, get_by_op_id, commit_batch, append_recovery_event, list_recovery_events",
+      "ok": true
+    },
+    "missing_validator": {
+      "error_type": "ValidatedRecoveryAdmissionError",
+      "message": "validated recovery admission requires an explicit validator",
+      "ok": true
+    }
+  },
+  "claims": {
+    "invalid_store_fails_closed_claimed": true,
+    "kubernetes_claimed": false,
+    "low_level_substrate_removed_claimed": false,
+    "missing_validator_fails_closed_claimed": true,
+    "postgres_claimed": false,
+    "production_runtime_claimed": false,
+    "temporal_claimed": false,
+    "validated_public_admission_boundary_claimed": true
+  },
+  "limitations": [
+    "R7.4 establishes the validated public admission boundary.",
+    "R7.4 does not remove every lower-level substrate helper.",
+    "Callers should use admit_validated_active_commitment for public recovery admission.",
+    "R7.4 does not claim PostgreSQL, Kubernetes, Temporal, or production-runtime execution."
+  ],
+  "public_api": {
+    "store_guard": "mnemosyne.core.protocols.recovery_store.require_recovery_store",
+    "validated_entrypoint": "mnemosyne.api.recovery_admission.admit_validated_active_commitment",
+    "validator_guard": "mnemosyne.api.recovery_admission.require_recovery_validator"
+  },
+  "schema_version": "r74_validated_admission_report.v1",
+  "summary": {
+    "decision": "validated_public_admission_boundary_established",
+    "explicit_validator_accepted": true,
+    "missing_store_rejected": true,
+    "missing_validator_rejected": true,
+    "public_boundary": "admit_validated_active_commitment"
+  }
+}

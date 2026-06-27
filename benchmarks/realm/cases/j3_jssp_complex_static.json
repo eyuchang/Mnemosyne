@@ -1,0 +1,128 @@
+{
+  "case_id": "J3",
+  "constraints": [
+    "Operations must follow job-specific order.",
+    "Each machine can process only one job at a time.",
+    "Required materials must be available before operation starts."
+  ],
+  "description": "Enhanced static JSSP with more jobs, machines, and material constraints.",
+  "disruptions": [],
+  "entities": {
+    "jobs": [
+      "J1",
+      "J2",
+      "J3",
+      "J4",
+      "J5",
+      "J6"
+    ],
+    "machines": [
+      "M1 Lathe",
+      "M2 Mill",
+      "M3 Drill",
+      "M4 Assembly"
+    ],
+    "materials": [
+      "RM-S",
+      "RM-A",
+      "C-X",
+      "C-Y",
+      "F"
+    ],
+    "operation_templates": [
+      {
+        "jobs": [
+          "J1",
+          "J3"
+        ],
+        "materials": {
+          "C-X": 1,
+          "F": 2,
+          "RM-S": 1
+        },
+        "operations": [
+          {
+            "duration": 3,
+            "machine": "M1"
+          },
+          {
+            "duration": 2,
+            "machine": "M3"
+          },
+          {
+            "duration": 4,
+            "machine": "M4"
+          }
+        ]
+      },
+      {
+        "jobs": [
+          "J2",
+          "J5"
+        ],
+        "materials": {
+          "C-Y": 1,
+          "F": 3,
+          "RM-A": 1
+        },
+        "operations": [
+          {
+            "duration": 4,
+            "machine": "M2"
+          },
+          {
+            "duration": 1,
+            "machine": "M3"
+          },
+          {
+            "duration": 5,
+            "machine": "M4"
+          }
+        ]
+      },
+      {
+        "jobs": [
+          "J4",
+          "J6"
+        ],
+        "materials": {
+          "C-X": 1,
+          "C-Y": 1,
+          "F": 4,
+          "RM-S": 1
+        },
+        "operations": [
+          {
+            "duration": 2,
+            "machine": "M1"
+          },
+          {
+            "duration": 3,
+            "machine": "M2"
+          },
+          {
+            "duration": 2,
+            "machine": "M3"
+          },
+          {
+            "duration": 3,
+            "machine": "M4"
+          }
+        ]
+      }
+    ]
+  },
+  "family": "jssp",
+  "metrics": [
+    "makespan",
+    "material_feasibility",
+    "machine_capacity_satisfaction",
+    "precedence_satisfaction"
+  ],
+  "mode": "static",
+  "name": "JSSP Large-scale",
+  "objective": "Minimize makespan under resource, precedence, and material constraints.",
+  "short_name": "JSSP-complex-static",
+  "source_table": "Table 11",
+  "tier": 3
+}

@@ -1,0 +1,81 @@
+{
+  "case_id": "P7",
+  "constraints": [
+    "Transportation mode and capacity constraints.",
+    "Delivery prioritization constraints.",
+    "Airport overflow handling constraints."
+  ],
+  "description": "Allocate and route relief resources across supply nodes, distribution centers, hospitals, and fuel stations under priority constraints.",
+  "disruptions": [
+    {
+      "description": "Unpredictable donation arrivals.",
+      "type": "donation_arrival"
+    },
+    {
+      "description": "Road blockages requiring rerouting.",
+      "type": "road_blockage"
+    },
+    {
+      "description": "Emergency hospital demands.",
+      "type": "emergency_hospital_demand"
+    },
+    {
+      "description": "Fuel shortage delays.",
+      "type": "fuel_shortage_delay"
+    }
+  ],
+  "entities": {
+    "critical_nodes": [
+      "H1",
+      "H2",
+      "FS"
+    ],
+    "demand_nodes": [
+      "DC1",
+      "DC2",
+      "DC3"
+    ],
+    "resources": [
+      {
+        "capacity_tons": 4,
+        "resource": "truck",
+        "travel_time_minutes": 120
+      },
+      {
+        "capacity_tons": 1,
+        "resource": "helicopter",
+        "travel_time_minutes": 30
+      }
+    ],
+    "supply_nodes": [
+      {
+        "description": "central warehouse",
+        "node_id": "CW"
+      },
+      {
+        "capacity_tons": 5,
+        "description": "airport",
+        "node_id": "AP"
+      }
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "deadline_satisfaction",
+    "resource_distribution",
+    "priority_satisfaction",
+    "capacity_satisfaction"
+  ],
+  "mode": "static",
+  "name": "Disaster Relief Logistics",
+  "objective": "Schedule resource distribution, transportation, and delivery priorities while satisfying deadlines and capacities.",
+  "requirements": [
+    "Deliver food and water to distribution centers by 8 PM.",
+    "Deliver medicine to hospitals within 6 hours.",
+    "Refuel fuel station by noon.",
+    "Clear airport overflow beyond 5 tons immediately."
+  ],
+  "short_name": "DL-static",
+  "source_table": "Table 7",
+  "tier": 3
+}

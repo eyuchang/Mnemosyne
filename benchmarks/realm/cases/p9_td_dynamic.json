@@ -1,0 +1,37 @@
+{
+  "case_id": "P9",
+  "constraints": [
+    "Original P6 cooking and pickup constraints remain active.",
+    "Flight delay notice may arrive before the originally expected arrival time."
+  ],
+  "description": "Thanksgiving dinner planning extended with flight delays requiring coordinated recovery.",
+  "disruptions": [
+    {
+      "description": "James learns at 10 AM EST that his 1 PM BOS arrival is delayed to 4 PM.",
+      "new_arrival_time": "16:00",
+      "notice_time_est": "10:00",
+      "original_arrival_time": "13:00",
+      "person": "James",
+      "type": "flight_delay"
+    }
+  ],
+  "extends": "P6",
+  "family": "planning",
+  "metrics": [
+    "early_replanning",
+    "on_time_dinner",
+    "pickup_recovery",
+    "cooking_supervision"
+  ],
+  "mode": "dynamic",
+  "name": "Thanksgiving with Disruptions",
+  "objective": "Use early delay notice to recover the dinner, pickup, and supervision plan before the original arrival time.",
+  "requirements": [
+    "React when delay notice is received, not only at the original arrival time.",
+    "Re-optimize travel and dinner plan using the available notice window.",
+    "Maintain Thanksgiving dinner readiness and pickup feasibility."
+  ],
+  "short_name": "TD-dynamic",
+  "source_section": "3.9",
+  "tier": 4
+}

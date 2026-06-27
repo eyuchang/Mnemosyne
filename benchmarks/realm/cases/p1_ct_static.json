@@ -1,0 +1,58 @@
+{
+  "case_id": "P1",
+  "constraints": [
+    "Lab Building is available only from 9 AM to 4 PM.",
+    "Library can be visited only after 10 AM.",
+    "All visits must fit within the tour horizon."
+  ],
+  "description": "Single-agent campus navigation with time windows and spatial constraints.",
+  "disruptions": [],
+  "entities": {
+    "group_size": 20,
+    "location_symbols": [
+      "S",
+      "L",
+      "B",
+      "A",
+      "D"
+    ],
+    "locations": [
+      "Student Center",
+      "Library",
+      "Lab Building",
+      "Auditorium",
+      "Dormitory"
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "total_tour_time",
+    "visit_coverage",
+    "constraint_satisfaction"
+  ],
+  "mode": "static",
+  "name": "Campus Tour",
+  "objective": "Minimize total tour time while visiting all required locations.",
+  "requirements": [
+    "Start time is given.",
+    "Each location requires a 30-minute visit.",
+    "Tour starts and ends at Student Center.",
+    "All locations must be visited.",
+    "Tour must complete by 5 PM."
+  ],
+  "short_name": "CT-static",
+  "source_table": "Table 1",
+  "tier": 1,
+  "travel_times_minutes": {
+    "A-D": 20,
+    "B-A": 15,
+    "B-D": 25,
+    "L-A": 25,
+    "L-B": 10,
+    "L-D": 20,
+    "S-A": 20,
+    "S-B": 15,
+    "S-D": 15,
+    "S-L": 10
+  }
+}

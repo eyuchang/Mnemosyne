@@ -3,7 +3,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-CASE_PATH = Path(__file__).parent / "fixtures" / "realm_bench_cases.json"
+from benchmarks.realm.adapters.realm_case_loader import REALM_CASE_FIXTURE
+
+CASE_PATH = REALM_CASE_FIXTURE
 
 
 def _fixture() -> dict:
@@ -91,3 +93,39 @@ def test_realm_bench_jssp_cases_have_machine_operation_specs():
 
     assert cases["J2"]["disruptions"]
     assert cases["J4"]["disruptions"]
+
+
+
+def test_realm_bench_cases_are_available_as_per_case_files():
+    data = _fixture()
+    case_dir = CASE_PATH.parent
+
+    expected_files = [
+        "p1_ct_static.json",
+        "p2_mct_static.json",
+        "p3_urs_static.json",
+        "p4_urs_dynamic.json",
+        "p5_wr_static.json",
+        "p6_td_static.json",
+        "p7_dl_static.json",
+        "p8_wr_dynamic.json",
+        "p9_td_dynamic.json",
+        "p10_gsc_static_dynamic.json",
+        "j1_jssp_simple_static.json",
+        "j2_jssp_simple_dynamic.json",
+        "j3_jssp_complex_static.json",
+        "j4_jssp_complex_dynamic.json",
+    ]
+
+    available_files = {path.name for path in case_dir.glob("*.json")}
+    required_files = {"realm_bench_cases.json", *expected_files}
+
+    # The public cases directory may contain auxiliary smoke or example JSON
+    # files. The canonical REALM-Bench requirement is that all 14 extracted
+    # case files are present and exactly match the aggregate fixture.
+    assert required_files.issubset(available_files)
+
+    by_id = {case["case_id"]: case for case in data["cases"]}
+    for filename in expected_files:
+        case = json.loads((case_dir / filename).read_text(encoding="utf-8"))
+        assert case == by_id[case["case_id"]]

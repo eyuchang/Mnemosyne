@@ -2,7 +2,7 @@
 
 ## Current checkpoint
 
-The repository is clean through the R4.8 product recovery milestone.
+The repository is clean through the R5.0 product API and audit surface milestone.
 
 Current verified state:
 
@@ -12,10 +12,11 @@ Current verified state:
 - R4.6 runtime active recovery complete
 - R4.7 recovery proposal packages complete
 - R4.8 Temporal active recovery boundary complete
+- R5.0 product API and audit surface complete
 
 Current full local suite:
 
-`179 passed, 24 skipped`
+`198 passed, 24 skipped`
 
 Completed product milestone tags:
 
@@ -23,8 +24,9 @@ Completed product milestone tags:
 - `r4.6-runtime-active-recovery`
 - `r4.7-recovery-proposal-packages`
 - `r4.8-temporal-active-recovery-boundary`
+- R5.0 branch milestone: product API and audit surface
 
-The project now has a stable local foundation for deterministic CTL, StateView, inbox/outbox, compensation, supersession, solver proposals, stale-world reconciliation, active commitments, runtime recovery, recovery proposal packages, and Temporal-safe active recovery boundaries.
+The project now has a stable local foundation for deterministic CTL, StateView, inbox/outbox, compensation, supersession, solver proposals, stale-world reconciliation, active commitments, runtime recovery, recovery proposal packages, and Temporal-safe active recovery boundaries, and product-facing APIs for commitments, recovery, proposal packages, and audit lineage.
 
 ---
 
@@ -299,7 +301,7 @@ The production percentage remains lower because deployment-scale components are 
 
 Proceed to:
 
-### R5.0 — Product API and audit surface
+### R5.1 — Product reporting and CLI surface
 
 Purpose:
 
@@ -317,4 +319,4 @@ Recommended near-term tasks:
 
 The next step should likely be:
 
-`R5.0 product API and audit surface`
+`R5.1 product reporting and CLI surface`

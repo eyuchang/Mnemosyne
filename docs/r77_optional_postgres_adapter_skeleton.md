@@ -35,3 +35,18 @@ R7.7 does not claim:
 - Kubernetes deployment,
 - Temporal execution,
 - production-runtime recovery execution.
+
+## Store factory
+
+R7.7 also adds an optional store factory:
+
+- `StoreFactoryConfig`
+- `store_factory_config_from_env`
+- `create_store`
+- `MNEMOSYNE_STORE_BACKEND`
+- `MNEMOSYNE_SQLITE_PATH`
+
+The default backend remains SQLite.
+
+PostgreSQL selection is explicit through `MNEMOSYNE_STORE_BACKEND=postgres` or `StoreFactoryConfig(backend="postgres")`.
+

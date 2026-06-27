@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Inspected files: 34
+- Inspected files: 35
 - Recovery-related files: 29
-- Coupling sites: 101
+- Coupling sites: 111
 - Decision: `ready_for_store_protocol_refactor`
 
 ## R7.1 Purpose
@@ -171,6 +171,19 @@ R7.1 does not claim Postgres support, distributed storage, Kubernetes deployment
 - L494: `SELECT ` — `"SELECT COUNT(*) AS n FROM runtime_admission_decisions WHERE decision = 'rejected'"`
 - L496: `execute(` — `trace_event_count = conn.execute(`
 - L497: `SELECT ` — `"SELECT COUNT(*) AS n FROM runtime_trace_events"`
+
+### `mnemosyne/store/factory.py`
+
+- L13: `sqlite` — `from mnemosyne.store.sqlite.store import SQLiteStore`
+- L13: `SQLite` — `from mnemosyne.store.sqlite.store import SQLiteStore`
+- L19: `sqlite` — `SQLITE_BACKEND = "sqlite"`
+- L30: `sqlite` — `sqlite_path: str | Path | None = None`
+- L46: `sqlite` — `sqlite_path=source.get(SQLITE_PATH_ENV),`
+- L56: `sqlite` — `if resolved.sqlite_path:`
+- L57: `sqlite` — `return SQLiteStore(Path(resolved.sqlite_path))`
+- L57: `SQLite` — `return SQLiteStore(Path(resolved.sqlite_path))`
+- L58: `SQLite` — `return SQLiteStore()`
+- L75: `sqlite` — `"sqlite_path": str(config.sqlite_path) if config.sqlite_path is not None else None,`
 
 ## Protocol Mentions
 

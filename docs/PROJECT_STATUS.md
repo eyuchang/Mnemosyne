@@ -17,7 +17,7 @@ Current verified state:
 
 Current full local suite:
 
-`228 passed, 24 skipped`
+`235 passed, 24 skipped`
 
 Completed product milestone tags:
 
@@ -351,10 +351,54 @@ Core invariant:
 
 Validation:
 
-    228 passed, 24 skipped
+    235 passed, 24 skipped
 
 Next recommended milestones:
 
     R6.1 selected JSSP repair admission
     R7.0 production runtime hardening
     R8.0 external solver/provider integration
+
+
+---
+
+## R6.1 JSSP selected repair admission complete
+
+R6.1 closes the selected-repair semantic loop after R6.0 disruptive planning.
+
+Implemented path:
+
+    baseline schedule
+    -> admitted CTL schedule records
+    -> active commitments
+    -> machine breakdown
+    -> affected commitments fired
+    -> concrete repair candidates packaged
+    -> selected repair candidates admitted through domain CTL
+    -> selected schedule StateViews mutate
+    -> corresponding commitments finalized as admitted
+
+Core invariant:
+
+    Recovery may propose.
+    Product or policy may select.
+    Domain CTL must admit.
+    Only admitted domain CTL records mutate schedule truth.
+    Commitment finalization is a separate commitment-FSM transition.
+
+Observed R6.1 state:
+
+    J3:O2 changes from 4-7 to 9-12
+    J2:O3 changes from 7-11 to 12-16
+    7 commitments remain live
+    2 commitments become admitted
+    unresolved commitment count drops from 9 to 7
+    recovery lineage contains 4 rows
+
+Validation:
+
+    235 passed, 24 skipped
+
+Next required checkpoint:
+
+    Code review before starting R7.0 production runtime hardening.

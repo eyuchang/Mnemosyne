@@ -1,4 +1,10 @@
 {
+  "generated_api_bound_artifacts": [
+    {
+      "name": "P9 API-bound recovery",
+      "path": "benchmarks/realm/api_bound/p9_thanksgiving_api_bound_recovery.json"
+    }
+  ],
   "generated_evaluations": [
     {
       "name": "P6 static evaluation",
@@ -47,6 +53,10 @@
     {
       "name": "Thanksgiving suite index report",
       "path": "benchmarks/realm/reports/thanksgiving_suite_report.md"
+    },
+    {
+      "name": "P9 API-bound recovery report",
+      "path": "benchmarks/realm/reports/thanksgiving_api_bound_recovery_report.md"
     }
   ],
   "generated_solutions": [
@@ -62,12 +72,18 @@
   "limitations": [
     "The suite uses deterministic feasible baselines.",
     "Optimality is not yet proven.",
-    "The recovery trace models the Mnemosyne recovery pattern but does not yet call core CTL mutation APIs."
+    "The deterministic recovery trace models the Mnemosyne recovery pattern as inspectable artifacts.",
+    "The API-bound recovery runner calls real Mnemosyne APIs using a local SQLiteStore.",
+    "Durable production runtime binding is still future work."
   ],
   "schema_version": "thanksgiving_suite_report.v1",
   "suite_id": "thanksgiving_p6_p9_suite",
   "summary": {
     "admitted_repair_count": 1,
+    "api_bound_admitted_repairs": 1,
+    "api_bound_fired_commitments": 2,
+    "api_bound_proposal_packages": 1,
+    "api_bound_registered_commitments": 4,
     "optimality_status": "feasible_not_proven_optimal",
     "p6_feasible": true,
     "p9_feasible_after_repair": true,

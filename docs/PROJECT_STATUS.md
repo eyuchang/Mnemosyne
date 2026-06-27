@@ -17,7 +17,7 @@ Current verified state:
 
 Current full local suite:
 
-`210 passed, 24 skipped`
+`228 passed, 24 skipped`
 
 Completed product milestone tags:
 
@@ -322,3 +322,39 @@ Recommended near-term tasks:
 The next step should likely be:
 
 `R6.0 disruptive planning benchmark layer`
+
+
+---
+
+## R6.0 JSSP disruptive planning benchmark layer complete
+
+R6.0 adds the first disruptive-planning benchmark path for JSSP.
+
+The implemented path is:
+
+    baseline schedule
+    -> admitted CTL schedule records
+    -> active commitments
+    -> machine breakdown
+    -> affected commitments fired
+    -> concrete repair candidates packaged
+    -> recovery lineage audited
+    -> schedule StateView remains unchanged
+
+Core invariant:
+
+    A disruption does not directly rewrite the plan.
+    A disruption wakes commitments.
+    Recovery proposes repair.
+    Audit explains lineage.
+    Only a separately admitted domain CTL record may mutate schedule truth.
+
+Validation:
+
+    228 passed, 24 skipped
+
+Next recommended milestones:
+
+    R6.1 selected JSSP repair admission
+    R7.0 production runtime hardening
+    R8.0 external solver/provider integration

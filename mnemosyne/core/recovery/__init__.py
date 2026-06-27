@@ -56,3 +56,7 @@ from mnemosyne.core.recovery.packages import (
     proposal_package_reference_from_event_payload,
     proposal_package_reference_to_dict,
 )
+
+from mnemosyne.core.recovery.package_candidates import (
+    make_package_proposal_candidate,
+)

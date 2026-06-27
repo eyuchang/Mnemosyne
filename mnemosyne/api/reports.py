@@ -56,7 +56,10 @@ def recovery_lineage_rows_to_dicts(
 def unresolved_commitment_report_to_dict(
     report: UnresolvedCommitmentReport,
 ) -> dict[str, Any]:
-    return to_jsonable(report)
+    data = to_jsonable(report)
+    data["count"] = report.count
+    data["commitment_ids"] = report.commitment_ids
+    return data
 
 
 def _fmt(value: Any) -> str:

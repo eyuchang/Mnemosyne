@@ -17,6 +17,7 @@ from mnemosyne.api.reports import (
     render_recovery_lineage_markdown,
     render_unresolved_commitments_markdown,
     to_jsonable,
+    unresolved_commitment_report_to_dict,
     write_json_report,
     write_markdown_report,
 )
@@ -120,7 +121,11 @@ def render_report(
             rows=rows,
         )
         if output_format == "json":
-            return json.dumps(to_jsonable(report), indent=2, sort_keys=True) + "\n"
+            return json.dumps(
+                unresolved_commitment_report_to_dict(report),
+                indent=2,
+                sort_keys=True,
+            ) + "\n"
         return render_unresolved_commitments_markdown(
             report,
             title=title or "Unresolved Commitments",

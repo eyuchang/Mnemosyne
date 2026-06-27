@@ -21,6 +21,7 @@ async def test_r61_jssp_repair_admission_demo_exports_reports(tmp_path: Path):
     ]
     assert result.repair_committed_rids == result.repair_candidate_rids
     assert result.unresolved_before_repair == 9
+    assert result.unresolved_after_domain_repair == 9
     assert result.unresolved_after_finalization == 7
     assert result.live_commitment_count == 7
     assert result.admitted_commitment_count == 2

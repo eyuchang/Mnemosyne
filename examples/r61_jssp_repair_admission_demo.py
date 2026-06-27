@@ -38,7 +38,8 @@ from mnemosyne.benchmarks.jssp_recovery_proposals import (
     emit_recovery_proposals_for_disruption,
 )
 from mnemosyne.benchmarks.jssp_repair_admission import (
-    admit_and_finalize_repair_candidates_from_proposal_batch,
+    admit_repair_candidates_from_proposal_batch,
+    finalize_commitments_for_repair_admission,
 )
 from mnemosyne.benchmarks.jssp_schedule_admission import (
     JSSP_FSM_ID,
@@ -158,18 +159,33 @@ async def run_demo(
         workflow_id=W,
     )
 
-    repair_admission, finalization = await admit_and_finalize_repair_candidates_from_proposal_batch(
+    repair_admission = await admit_repair_candidates_from_proposal_batch(
         store=store,
         validator=validator,
         tenant_id=T,
-        repair_tx_group_id="tx:r61-jssp-demo:repair-admission",
-        finalize_tx_group_id="tx:r61-jssp-demo:commitment-finalization",
+        tx_group_id="tx:r61-jssp-demo:repair-admission",
         workflow_id=W,
         proposal_batch=proposal_batch,
     )
 
     if not repair_admission.ok:
         raise RuntimeError("repair admission failed")
+
+    unresolved_after_domain_repair = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+
+    finalization = await finalize_commitments_for_repair_admission(
+        store=store,
+        tenant_id=T,
+        tx_group_id="tx:r61-jssp-demo:commitment-finalization",
+        workflow_id=W,
+        proposal_batch=proposal_batch,
+        repair_admission=repair_admission,
+    )
+
     if not finalization.ok:
         raise RuntimeError("commitment finalization failed")
 
@@ -245,7 +261,7 @@ async def run_demo(
         repair_committed_rids=repair_admission.committed_rids,
         finalized_commitment_ids=finalization.commitment_ids,
         unresolved_before_repair=unresolved_before.count,
-        unresolved_after_domain_repair=9,
+        unresolved_after_domain_repair=unresolved_after_domain_repair.count,
         unresolved_after_finalization=unresolved_after_finalization.count,
         live_commitment_count=live_count,
         admitted_commitment_count=admitted_count,
@@ -269,6 +285,7 @@ def main() -> None:
     print(f"repair_committed_rids: {result.repair_committed_rids}")
     print(f"finalized_commitment_ids: {result.finalized_commitment_ids}")
     print(f"unresolved_before_repair: {result.unresolved_before_repair}")
+    print(f"unresolved_after_domain_repair: {result.unresolved_after_domain_repair}")
     print(f"unresolved_after_finalization: {result.unresolved_after_finalization}")
     print(f"live_commitment_count: {result.live_commitment_count}")
     print(f"admitted_commitment_count: {result.admitted_commitment_count}")

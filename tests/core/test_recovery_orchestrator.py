@@ -83,6 +83,7 @@ def test_scope_denied_recovery_emits_rejected_commitment_candidate():
     assert candidate.eid == "commitment:c1"
     assert candidate.fsm == "mnemosyne.commitment"
     assert candidate.action_type == "commitment_rejected"
+    assert candidate.state_before == CommitmentStatus.FIRED.value
     assert candidate.state_after == CommitmentStatus.REJECTED.value
 
     event = event_from_extension(candidate.extension)

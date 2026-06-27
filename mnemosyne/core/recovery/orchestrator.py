@@ -6,6 +6,7 @@ from typing import Any
 from mnemosyne.core.commitments import (
     ActiveCommitment,
     CommitmentEventType,
+    CommitmentStatus,
     make_commitment_proposal_candidate,
     make_commitment_rejected_candidate,
 )
@@ -86,6 +87,7 @@ def orchestrate_recovery(
         commitment_id=commitment.commitment_id,
         rejection_code=check.decision.value,
         rejection_evidence=evidence,
+        state_before=CommitmentStatus.FIRED.value,
         workflow_id=workflow_id,
         binding_id=binding_id,
         rid=rid,

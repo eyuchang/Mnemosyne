@@ -15,6 +15,7 @@ from mnemosyne.core.models import (
     OutboxIntent,
     StateView,
 )
+from mnemosyne.core.recovery.events import RecoveryEvent
 from mnemosyne.core.replay import replay_state_view
 
 
@@ -74,6 +75,31 @@ class SQLiteStore:
                 timestamp TEXT NOT NULL,
                 UNIQUE(tenant_id, event_id)
             );
+
+            CREATE TABLE IF NOT EXISTS recovery_events (
+                log_position INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_id TEXT NOT NULL,
+                tenant_id TEXT NOT NULL,
+                workflow_id TEXT,
+                recovery_id TEXT NOT NULL,
+                sequence_no INTEGER NOT NULL,
+                event_type TEXT NOT NULL,
+                idempotency_key TEXT NOT NULL,
+                causality_key TEXT,
+                payload TEXT NOT NULL,
+                schema_id TEXT NOT NULL,
+                schema_version TEXT NOT NULL,
+                created_at TEXT NOT NULL,
+                UNIQUE(tenant_id, event_id),
+                UNIQUE(tenant_id, idempotency_key),
+                UNIQUE(tenant_id, recovery_id, sequence_no)
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_recovery_events_recovery
+                ON recovery_events(tenant_id, recovery_id, sequence_no);
+
+            CREATE INDEX IF NOT EXISTS idx_recovery_events_workflow
+                ON recovery_events(tenant_id, workflow_id, log_position);
 
             CREATE TABLE IF NOT EXISTS event_inbox (
                 inbox_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -240,6 +266,98 @@ class SQLiteStore:
             )
             self.conn.commit()
         return event
+
+    async def append_recovery_event(self, event: RecoveryEvent) -> RecoveryEvent:
+        """Append or dedupe a durable recovery lifecycle event."""
+
+        async with self._lock:
+            existing = self.conn.execute(
+                """
+                SELECT *
+                FROM recovery_events
+                WHERE tenant_id = ?
+                  AND idempotency_key = ?
+                """,
+                (event.tenant_id, event.idempotency_key),
+            ).fetchone()
+
+            if existing:
+                return self._row_to_recovery_event(existing)
+
+            self.conn.execute(
+                """
+                INSERT INTO recovery_events
+                (
+                    event_id,
+                    tenant_id,
+                    workflow_id,
+                    recovery_id,
+                    sequence_no,
+                    event_type,
+                    idempotency_key,
+                    causality_key,
+                    payload,
+                    schema_id,
+                    schema_version,
+                    created_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    event.event_id,
+                    event.tenant_id,
+                    event.workflow_id,
+                    event.recovery_id,
+                    event.sequence_no,
+                    event.event_type,
+                    event.idempotency_key,
+                    event.causality_key,
+                    json.dumps(event.payload),
+                    event.schema_id,
+                    event.schema_version,
+                    _dt(event.created_at),
+                ),
+            )
+            self.conn.commit()
+
+        return event
+
+    async def list_recovery_events(
+        self,
+        tenant_id: str,
+        *,
+        workflow_id: str | None = None,
+        recovery_id: str | None = None,
+        event_type: str | None = None,
+    ) -> list[RecoveryEvent]:
+        """List durable recovery events in deterministic replay order."""
+
+        clauses = ["tenant_id = ?"]
+        params: list[Any] = [tenant_id]
+
+        if workflow_id is not None:
+            clauses.append("workflow_id = ?")
+            params.append(workflow_id)
+
+        if recovery_id is not None:
+            clauses.append("recovery_id = ?")
+            params.append(recovery_id)
+
+        if event_type is not None:
+            clauses.append("event_type = ?")
+            params.append(event_type)
+
+        rows = self.conn.execute(
+            f"""
+            SELECT *
+            FROM recovery_events
+            WHERE {' AND '.join(clauses)}
+            ORDER BY recovery_id ASC, sequence_no ASC, log_position ASC
+            """,
+            tuple(params),
+        ).fetchall()
+
+        return [self._row_to_recovery_event(row) for row in rows]
 
     async def record_inbox_event(self, event: ExternalEvent) -> ExternalEvent:
         """Record an inbound event once, deduped by tenant/source/dedupe_key."""
@@ -710,6 +828,22 @@ class SQLiteStore:
                     raise ValueError(
                         f"effective record {record.rid} depends on ineffective record {dep}"
                     )
+
+    def _row_to_recovery_event(self, row: sqlite3.Row) -> RecoveryEvent:
+        return RecoveryEvent(
+            event_id=row["event_id"],
+            tenant_id=row["tenant_id"],
+            workflow_id=row["workflow_id"],
+            recovery_id=row["recovery_id"],
+            sequence_no=int(row["sequence_no"]),
+            event_type=row["event_type"],
+            idempotency_key=row["idempotency_key"],
+            causality_key=row["causality_key"],
+            payload=_loads(row["payload"]) or {},
+            schema_id=row["schema_id"],
+            schema_version=row["schema_version"],
+            created_at=datetime.fromisoformat(row["created_at"]),
+        )
 
     def _row_to_record(self, row: sqlite3.Row) -> CTLRecord:
         return CTLRecord(

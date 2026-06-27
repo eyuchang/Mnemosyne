@@ -572,7 +572,7 @@
         {
           "kind": "function",
           "name": "require_recovery_store",
-          "signature": "(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'"
+          "signature": "(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch', 'append_recovery_event', 'list_recovery_events')) -> 'T'"
         }
       ]
     },
@@ -756,7 +756,7 @@
         {
           "kind": "function",
           "name": "require_recovery_store",
-          "signature": "(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'"
+          "signature": "(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch', 'append_recovery_event', 'list_recovery_events')) -> 'T'"
         }
       ]
     }

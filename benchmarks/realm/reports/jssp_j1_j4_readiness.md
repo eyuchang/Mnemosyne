@@ -186,7 +186,7 @@
 | `make_register_commitment_candidate` | function | `(*, tenant_id: 'str', tx_group_id: 'str', commitment: 'ActiveCommitment', workflow_id: 'str | None' = None, binding_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None) -> 'TransitionCandidate'` |
 | `register_active_commitment` | function | `(*, store: 'Any', tenant_id: 'str', tx_group_id: 'str', commitment: 'ActiveCommitment', workflow_id: 'str | None' = None, binding_id: 'str | None' = None, validator: 'Validator | None' = None, batch_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None) -> 'CommitmentApiResult'` |
 | `reject_active_commitment` | function | `(*, store: 'Any', tenant_id: 'str', tx_group_id: 'str', commitment_id: 'str', rejection_code: 'str', rejection_evidence: 'dict | None' = None, state_before: 'str | None' = None, workflow_id: 'str | None' = None, binding_id: 'str | None' = None, validator: 'Validator | None' = None, batch_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None, dependency_rid: 'str | None' = None) -> 'CommitmentApiResult'` |
-| `require_recovery_store` | function | `(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'` |
+| `require_recovery_store` | function | `(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch', 'append_recovery_event', 'list_recovery_events')) -> 'T'` |
 
 ### `mnemosyne.api.proposal_packages`
 
@@ -236,7 +236,7 @@
 | `commitment_entity_id` | function | `(commitment_id: 'str') -> 'str'` |
 | `list_unresolved_commitments` | function | `(*, store: 'Any', tenant_id: 'str', workflow_id: 'str | None' = None) -> 'UnresolvedCommitmentReport'` |
 | `proposal_package_reference_from_event_payload` | function | `(payload: 'dict[str, Any]') -> 'dict[str, Any] | None'` |
-| `require_recovery_store` | function | `(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'` |
+| `require_recovery_store` | function | `(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch', 'append_recovery_event', 'list_recovery_events')) -> 'T'` |
 
 ## Recommended Next Steps
 

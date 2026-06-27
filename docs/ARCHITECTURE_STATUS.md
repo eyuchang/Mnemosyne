@@ -45,7 +45,7 @@ Completed product tags:
 
 Current full local suite:
 
-`235 passed, 24 skipped`
+`237 passed, 24 skipped`
 
 ---
 
@@ -489,7 +489,7 @@ Core invariant:
 
 Validation:
 
-    235 passed, 24 skipped
+    237 passed, 24 skipped
 
 Next recommended milestones:
 
@@ -535,8 +535,45 @@ Observed R6.1 state:
 
 Validation:
 
-    235 passed, 24 skipped
+    237 passed, 24 skipped
 
 Next required checkpoint:
 
     Code review before starting R7.0 production runtime hardening.
+
+
+---
+
+## R6.2 review hardening complete
+
+R6.2 records the post-R6.1 external code review and adds targeted negative coverage.
+
+External review result:
+
+    Critical issues: none
+    Primary source-of-truth invariant: holds
+    Architecture: ready for R7.0 after documented hardening blockers are addressed
+
+R6.2 test additions:
+
+    invalid selected repair candidate fails closed
+    invalid repair admission commits no records
+    affected StateViews remain unchanged after failed repair admission
+    unresolved commitment count remains 9 after failed repair admission
+    empty selected repair candidate set is a no-op
+
+R6.2 demo correction:
+
+    R6.1 repair admission demo now measures the intermediate state directly:
+        9 unresolved before domain repair
+        9 unresolved after domain repair
+        7 unresolved after commitment finalization
+
+Validation:
+
+    237 passed, 24 skipped
+
+R7.0 must start with:
+
+    audit/report portability behind store protocol
+    enforced validated admission as the public mutation boundary

@@ -1,0 +1,46 @@
+{
+  "case_id": "P9",
+  "checks": [
+    {
+      "evidence": "Repair trigger is 10:00, the delay notice time.",
+      "name": "reacted_at_notice_time",
+      "passed": true
+    },
+    {
+      "evidence": "Repair is planned before James's original 13:00 arrival time.",
+      "name": "did_not_wait_until_original_arrival",
+      "passed": true
+    },
+    {
+      "evidence": "Grandma pickup is reassigned from James to Sarah.",
+      "name": "pickup_repaired",
+      "passed": true
+    },
+    {
+      "evidence": "Latest family arrival is James at 17:30, before the 18:00 deadline.",
+      "name": "all_family_home_by_dinner",
+      "passed": true
+    },
+    {
+      "evidence": "Turkey ends at 13:00 and side dishes end at 18:00.",
+      "name": "dinner_ready_by_deadline",
+      "passed": true
+    },
+    {
+      "evidence": "Cooking, pickup, and dinner deadline constraints remain active.",
+      "name": "original_static_constraints_preserved",
+      "passed": true
+    }
+  ],
+  "evaluation_id": "p9_thanksgiving_dynamic_eval",
+  "feasible": true,
+  "objective_value": {
+    "delay_minutes": 180,
+    "dinner_ready_time": "18:00",
+    "latest_family_home_time": "17:30",
+    "repair_trigger_time": "10:00"
+  },
+  "optimality_status": "feasible_not_proven_optimal",
+  "schema_version": "realm_evaluation.v1",
+  "solution_id": "p9_thanksgiving_dynamic_repair_baseline"
+}

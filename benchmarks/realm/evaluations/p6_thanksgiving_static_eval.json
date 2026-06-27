@@ -1,0 +1,34 @@
+{
+  "case_id": "P6",
+  "checks": [
+    {
+      "evidence": "Sarah supervises turkey at home from 09:00 to 13:00.",
+      "name": "turkey_supervision_continuity",
+      "passed": true
+    },
+    {
+      "evidence": "James brings Grandma home by 15:00; Sarah brings Emily home by 15:30.",
+      "name": "pickup_completion",
+      "passed": true
+    },
+    {
+      "evidence": "Latest family arrival is 15:30, before the 18:00 deadline.",
+      "name": "all_family_home_by_dinner",
+      "passed": true
+    },
+    {
+      "evidence": "Turkey ends at 13:00 and side dishes end at 18:00.",
+      "name": "dinner_ready_by_deadline",
+      "passed": true
+    }
+  ],
+  "evaluation_id": "p6_thanksgiving_static_eval",
+  "feasible": true,
+  "objective_value": {
+    "dinner_ready_time": "18:00",
+    "latest_family_home_time": "15:30"
+  },
+  "optimality_status": "feasible_not_proven_optimal",
+  "schema_version": "realm_evaluation.v1",
+  "solution_id": "p6_thanksgiving_static_baseline"
+}

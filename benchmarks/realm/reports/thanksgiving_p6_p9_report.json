@@ -1,0 +1,267 @@
+{
+  "benchmark_id": "thanksgiving_p6_p9",
+  "cases": [
+    "P6",
+    "P9"
+  ],
+  "p6_static": {
+    "evaluation": {
+      "case_id": "P6",
+      "checks": [
+        {
+          "evidence": "Sarah supervises turkey at home from 09:00 to 13:00.",
+          "name": "turkey_supervision_continuity",
+          "passed": true
+        },
+        {
+          "evidence": "James brings Grandma home by 15:00; Sarah brings Emily home by 15:30.",
+          "name": "pickup_completion",
+          "passed": true
+        },
+        {
+          "evidence": "Latest family arrival is 15:30, before the 18:00 deadline.",
+          "name": "all_family_home_by_dinner",
+          "passed": true
+        },
+        {
+          "evidence": "Turkey ends at 13:00 and side dishes end at 18:00.",
+          "name": "dinner_ready_by_deadline",
+          "passed": true
+        }
+      ],
+      "evaluation_id": "p6_thanksgiving_static_eval",
+      "feasible": true,
+      "objective_value": {
+        "dinner_ready_time": "18:00",
+        "latest_family_home_time": "15:30"
+      },
+      "optimality_status": "feasible_not_proven_optimal",
+      "schema_version": "realm_evaluation.v1",
+      "solution_id": "p6_thanksgiving_static_baseline"
+    },
+    "problem": {
+      "case_id": "P6",
+      "description": "Thanksgiving dinner planning with arrivals, pickups, cooking, travel times, and 18:00 dinner deadline."
+    },
+    "solution": {
+      "authoring_mode": "human_authored",
+      "case_id": "P6",
+      "case_short_name": "TD-static",
+      "notes": [
+        "Turkey is completed before Sarah leaves for BOS.",
+        "James uses rental car to pick up Grandma.",
+        "Sarah picks up Emily from BOS.",
+        "Side dishes finish exactly at the 18:00 dinner deadline."
+      ],
+      "objective": "All family members home and dinner ready by 18:00.",
+      "optimality_status": "feasible_not_proven_optimal",
+      "plan": {
+        "cooking": [
+          {
+            "assigned_to": "Sarah",
+            "duration_minutes": 240,
+            "end": "13:00",
+            "location": "home",
+            "start": "09:00",
+            "supervision": "continuous",
+            "task": "turkey"
+          },
+          {
+            "assigned_to": "Sarah",
+            "duration_minutes": 120,
+            "end": "18:00",
+            "location": "home",
+            "start": "16:00",
+            "supervision": "not_required",
+            "task": "side_dishes"
+          }
+        ],
+        "final_state": {
+          "all_family_home_by": "15:30",
+          "dinner_ready_at": "18:00"
+        },
+        "transportation": [
+          {
+            "action": "land_BOS_and_rent_car",
+            "end": "13:30",
+            "person": "James",
+            "start": "13:00"
+          },
+          {
+            "action": "pickup_Grandma",
+            "end": "15:00",
+            "passengers": [
+              "Grandma"
+            ],
+            "person": "James",
+            "route": "BOS-Grandma-home",
+            "start": "13:30"
+          },
+          {
+            "action": "pickup_Emily",
+            "end": "15:30",
+            "passengers": [
+              "Emily"
+            ],
+            "person": "Sarah",
+            "route": "home-BOS-home",
+            "start": "13:30"
+          },
+          {
+            "action": "drive_from_NY_to_home",
+            "arrival": "15:00",
+            "person": "Michael"
+          }
+        ]
+      },
+      "schema_version": "realm_solution.v1",
+      "solution_id": "p6_thanksgiving_static_baseline",
+      "solution_type": "deterministic_baseline"
+    }
+  },
+  "p9_dynamic": {
+    "evaluation": {
+      "case_id": "P9",
+      "checks": [
+        {
+          "evidence": "Repair trigger is 10:00, the delay notice time.",
+          "name": "reacted_at_notice_time",
+          "passed": true
+        },
+        {
+          "evidence": "Repair is planned before James's original 13:00 arrival time.",
+          "name": "did_not_wait_until_original_arrival",
+          "passed": true
+        },
+        {
+          "evidence": "Grandma pickup is reassigned from James to Sarah.",
+          "name": "pickup_repaired",
+          "passed": true
+        },
+        {
+          "evidence": "Latest family arrival is James at 17:30, before the 18:00 deadline.",
+          "name": "all_family_home_by_dinner",
+          "passed": true
+        },
+        {
+          "evidence": "Turkey ends at 13:00 and side dishes end at 18:00.",
+          "name": "dinner_ready_by_deadline",
+          "passed": true
+        },
+        {
+          "evidence": "Cooking, pickup, and dinner deadline constraints remain active.",
+          "name": "original_static_constraints_preserved",
+          "passed": true
+        }
+      ],
+      "evaluation_id": "p9_thanksgiving_dynamic_eval",
+      "feasible": true,
+      "objective_value": {
+        "delay_minutes": 180,
+        "dinner_ready_time": "18:00",
+        "latest_family_home_time": "17:30",
+        "repair_trigger_time": "10:00"
+      },
+      "optimality_status": "feasible_not_proven_optimal",
+      "schema_version": "realm_evaluation.v1",
+      "solution_id": "p9_thanksgiving_dynamic_repair_baseline"
+    },
+    "problem": {
+      "case_id": "P9",
+      "description": "Thanksgiving disruption case where James's flight delay is known at 10:00."
+    },
+    "solution": {
+      "authoring_mode": "human_authored",
+      "case_id": "P9",
+      "case_short_name": "TD-dynamic",
+      "disruption": {
+        "delay_minutes": 180,
+        "early_notice_minutes": 180,
+        "new_arrival_time": "16:00",
+        "notice_time_est": "10:00",
+        "original_arrival_time": "13:00",
+        "person": "James"
+      },
+      "notes": [
+        "The repair is triggered at 10:00 when the delay notice arrives.",
+        "The repair does not wait until James's original 13:00 arrival time.",
+        "Grandma pickup is reassigned from James to Sarah.",
+        "Dinner remains feasible by 18:00."
+      ],
+      "objective": "React to James's delay at notice time while preserving dinner by 18:00.",
+      "optimality_status": "feasible_not_proven_optimal",
+      "plan": {
+        "cooking": [
+          {
+            "assigned_to": "Sarah",
+            "duration_minutes": 240,
+            "end": "13:00",
+            "location": "home",
+            "start": "09:00",
+            "supervision": "continuous",
+            "task": "turkey"
+          },
+          {
+            "assigned_to": "Sarah",
+            "duration_minutes": 120,
+            "end": "18:00",
+            "location": "home",
+            "start": "16:00",
+            "supervision": "not_required",
+            "task": "side_dishes"
+          }
+        ],
+        "final_state": {
+          "all_family_home_by": "17:30",
+          "dinner_ready_at": "18:00"
+        },
+        "transportation": [
+          {
+            "action": "pickup_Emily_then_Grandma",
+            "end": "16:00",
+            "passengers": [
+              "Emily",
+              "Grandma"
+            ],
+            "person": "Sarah",
+            "route": "home-BOS-Grandma-home",
+            "start": "13:30"
+          },
+          {
+            "action": "delayed_land_BOS_and_rent_car_then_drive_home",
+            "end": "17:30",
+            "person": "James",
+            "start": "16:00"
+          },
+          {
+            "action": "drive_from_NY_to_home",
+            "arrival": "15:00",
+            "person": "Michael"
+          }
+        ]
+      },
+      "repair": {
+        "changed_assignments": [
+          {
+            "after": "Sarah",
+            "before": "James",
+            "reason": "James now lands too late to complete Grandma pickup before dinner.",
+            "task": "Grandma pickup"
+          }
+        ],
+        "repair_trigger_time": "10:00"
+      },
+      "schema_version": "realm_solution.v1",
+      "solution_id": "p9_thanksgiving_dynamic_repair_baseline",
+      "solution_type": "deterministic_repair_baseline"
+    }
+  },
+  "result_summary": {
+    "p6_feasible": true,
+    "p6_optimality_status": "feasible_not_proven_optimal",
+    "p9_feasible": true,
+    "p9_optimality_status": "feasible_not_proven_optimal",
+    "report_type": "executable_deterministic_baseline"
+  },
+  "schema_version": "thanksgiving_p6_p9_benchmark_report.v1"
+}

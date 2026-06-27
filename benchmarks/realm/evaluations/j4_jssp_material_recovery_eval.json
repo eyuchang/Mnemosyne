@@ -1,0 +1,15 @@
+{
+  "constraint_checks": {
+    "affected_operations_detected": true,
+    "case_file_loaded": true,
+    "machine_capacity_satisfaction": true,
+    "material_availability_satisfaction": true,
+    "material_events_realized": true,
+    "material_policy_defined": true,
+    "operation_templates_expanded": true,
+    "precedence_satisfaction": true,
+    "repair_does_not_reduce_makespan": true
+  },
+  "feasible_after_repair": true,
+  "optimality_status": "feasible_not_proven_optimal"
+}

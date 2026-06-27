@@ -776,6 +776,22 @@
     },
     {
       "coupling_site_count": 0,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "mnemosyne.core.protocols.recovery_store",
+        "mnemosyne.core.recovery.events",
+        "mnemosyne.core.recovery.replay",
+        "mnemosyne.core.store_capabilities",
+        "typing"
+      ],
+      "path": "mnemosyne/core/store_conformance.py",
+      "protocols": [],
+      "recovery_related": true
+    },
+    {
+      "coupling_site_count": 0,
       "imports": [],
       "path": "mnemosyne/runtime/__init__.py",
       "protocols": [],
@@ -1047,6 +1063,9 @@
       "path": "mnemosyne/core/store_capabilities.py"
     },
     {
+      "path": "mnemosyne/core/store_conformance.py"
+    },
+    {
       "path": "mnemosyne/runtime/admission.py"
     },
     {
@@ -1090,7 +1109,7 @@
   "summary": {
     "coupling_site_count": 101,
     "decision": "ready_for_store_protocol_refactor",
-    "inspected_file_count": 33,
-    "recovery_related_file_count": 28
+    "inspected_file_count": 34,
+    "recovery_related_file_count": 29
   }
 }

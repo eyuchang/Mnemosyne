@@ -2415,6 +2415,34 @@
       "boundary_site_count": 0,
       "functions": [
         {
+          "async": true,
+          "line": 15,
+          "name": "test_sqlite_store_passes_recovery_store_conformance_contract"
+        },
+        {
+          "async": true,
+          "line": 34,
+          "name": "test_file_backed_sqlite_store_passes_restart_persistence_expectation"
+        },
+        {
+          "async": true,
+          "line": 48,
+          "name": "test_recovery_store_conformance_observation_serializes_to_dict"
+        },
+        {
+          "async": true,
+          "line": 63,
+          "name": "test_recovery_store_conformance_detects_schema_version_mismatch"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_store_conformance_contract.py",
+      "validation_site_count": 5
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
           "async": false,
           "line": 28,
           "name": "record_from_candidate"
@@ -2891,9 +2919,9 @@
   "schema_version": "r74_validated_admission_boundary_inspection.v1",
   "summary": {
     "decision": "ready_for_validated_admission_boundary_hardening",
-    "inspected_file_count": 43,
+    "inspected_file_count": 44,
     "mutation_site_count": 69,
-    "validator_site_count": 201
+    "validator_site_count": 206
   },
   "validation_sites": [
     {
@@ -4003,6 +4031,36 @@
           "line": 70,
           "term": "require_recovery_store",
           "text": "require_recovery_store(store)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_conformance_contract.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "RecoveryStore",
+          "text": "RecoveryStoreConformanceCase,"
+        },
+        {
+          "line": 18,
+          "term": "RecoveryStore",
+          "text": "RecoveryStoreConformanceCase(store_name=\"SQLiteStore\"),"
+        },
+        {
+          "line": 37,
+          "term": "RecoveryStore",
+          "text": "RecoveryStoreConformanceCase("
+        },
+        {
+          "line": 51,
+          "term": "RecoveryStore",
+          "text": "RecoveryStoreConformanceCase(store_name=\"SQLiteStore\"),"
+        },
+        {
+          "line": 66,
+          "term": "RecoveryStore",
+          "text": "RecoveryStoreConformanceCase("
         }
       ]
     },

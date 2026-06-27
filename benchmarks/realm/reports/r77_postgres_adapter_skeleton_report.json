@@ -20,8 +20,8 @@
       "durable_recovery_events": true,
       "idempotent_recovery_events": true,
       "notes": [
-        "R7.7 defines the optional PostgreSQL adapter skeleton.",
-        "Live PostgreSQL persistence is not implemented yet.",
+        "R7.8 implements the live PostgreSQL adapter surface.",
+        "Live PostgreSQL execution remains opt-in.",
         "Live use requires MNEMOSYNE_POSTGRES_DATABASE_URL."
       ],
       "schema_id": "mnemosyne.store.sqlite",

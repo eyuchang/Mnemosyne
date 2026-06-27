@@ -60,17 +60,16 @@ async def test_postgres_store_reports_future_conformance_capability_without_live
     assert report.schema_version == STORE_SCHEMA_VERSION
     assert report.supports_restart_persistence is True
     assert report.supports_postgres_conformance_target is True
-    assert "Live PostgreSQL persistence is not implemented yet." in report.notes
+    assert "R7.8 implements the live PostgreSQL adapter surface." in report.notes
+    assert "Live PostgreSQL execution remains opt-in." in report.notes
 
 
 @pytest.mark.asyncio
-async def test_postgres_store_recovery_event_methods_are_not_live_implemented_yet():
-    store = PostgresStore(
-        PostgresStoreConfig(database_url="postgresql://user:secret@localhost:5432/mnemosyne")
-    )
+async def test_postgres_store_recovery_event_methods_fail_closed_when_not_configured():
+    store = PostgresStore(PostgresStoreConfig(database_url=None))
 
-    with pytest.raises(NotImplementedError):
+    with pytest.raises(PostgresStoreNotConfiguredError):
         await store.append_recovery_event(object())
 
-    with pytest.raises(NotImplementedError):
+    with pytest.raises(PostgresStoreNotConfiguredError):
         await store.list_recovery_events("tenant")

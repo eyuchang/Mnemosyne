@@ -1,0 +1,3832 @@
+{
+  "boundary_sites": [
+    {
+      "path": "mnemosyne/api/__init__.py",
+      "sites": [
+        {
+          "line": 1,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import ("
+        },
+        {
+          "line": 11,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import ("
+        },
+        {
+          "line": 25,
+          "term": "api",
+          "text": "from mnemosyne.api.proposal_packages import ("
+        },
+        {
+          "line": 37,
+          "term": "api",
+          "text": "from mnemosyne.api.recovery_replay import ("
+        },
+        {
+          "line": 39,
+          "term": "api",
+          "text": "recovery_replay_api_result_to_dict,"
+        },
+        {
+          "line": 43,
+          "term": "api",
+          "text": "from mnemosyne.api.recovery_events import ("
+        },
+        {
+          "line": 47,
+          "term": "api",
+          "text": "recovery_event_api_result_to_dict,"
+        },
+        {
+          "line": 50,
+          "term": "api",
+          "text": "from mnemosyne.api.recovery import ("
+        },
+        {
+          "line": 55,
+          "term": "api",
+          "text": "from mnemosyne.api.reports import ("
+        },
+        {
+          "line": 71,
+          "term": "api",
+          "text": "\"recovery_replay_api_result_to_dict\","
+        },
+        {
+          "line": 75,
+          "term": "api",
+          "text": "\"recovery_event_api_result_to_dict\","
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/commitments.py",
+      "sites": [
+        {
+          "line": 79,
+          "term": "fail",
+          "text": "It fails closed: if validation fails, nothing is committed."
+        },
+        {
+          "line": 79,
+          "term": "closed",
+          "text": "It fails closed: if validation fails, nothing is committed."
+        },
+        {
+          "line": 85,
+          "term": "api",
+          "text": "batch_id=batch_id or _batch_id(\"batch:commitment-api\", candidate),"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/proposal_packages.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import CommitmentApiResult, commit_commitment_candidate, default_commitment_validator"
+        },
+        {
+          "line": 82,
+          "term": "closed",
+          "text": "\"\"\"Fail closed if a proposal package violates product API boundaries.\"\"\""
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import default_commitment_validator"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_events.py",
+      "sites": [
+        {
+          "line": 24,
+          "term": "boundary",
+          "text": "\"\"\"Append or dedupe a durable recovery event through the store boundary.\"\"\""
+        },
+        {
+          "line": 61,
+          "term": "api",
+          "text": "def recovery_event_api_result_to_dict(result: RecoveryEventApiResult) -> dict[str, Any]:"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_replay.py",
+      "sites": [
+        {
+          "line": 62,
+          "term": "api",
+          "text": "def recovery_replay_api_result_to_dict(result: RecoveryReplayApiResult) -> dict[str, Any]:"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/reports.py",
+      "sites": [
+        {
+          "line": 9,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import ("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_disruption_commitments.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import ("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_recovery_proposals.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "api",
+          "text": "from mnemosyne.api.proposal_packages import ("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_repair_admission.py",
+      "sites": [
+        {
+          "line": 203,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import admit_active_commitment"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/core/validation/validator.py",
+      "sites": [
+        {
+          "line": 60,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(ValidationCode.UNKNOWN_FSM.value, {\"fsm\": candidate.fsm}))"
+        },
+        {
+          "line": 61,
+          "term": "fail",
+          "text": "return ValidationResult.fail(errors)"
+        },
+        {
+          "line": 66,
+          "term": "fail",
+          "text": "ConstraintResult.fail("
+        },
+        {
+          "line": 80,
+          "term": "fail",
+          "text": "ConstraintResult.fail("
+        },
+        {
+          "line": 94,
+          "term": "fail",
+          "text": "ConstraintResult.fail("
+        },
+        {
+          "line": 108,
+          "term": "fail",
+          "text": "ConstraintResult.fail(ValidationCode.DEPENDENCY_NOT_EFFECTIVE.value, {\"dependencies\": bad_deps})"
+        },
+        {
+          "line": 113,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(ValidationCode.TRIGGER_MISSING.value, {\"triggers\": missing_triggers}))"
+        },
+        {
+          "line": 127,
+          "term": "fail",
+          "text": "return ValidationResult.fail(errors)"
+        },
+        {
+          "line": 136,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(\"TENANT_MISMATCH\", {\"rid\": candidate.rid}))"
+        },
+        {
+          "line": 138,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(\"TX_GROUP_MISMATCH\", {\"rid\": candidate.rid}))"
+        },
+        {
+          "line": 141,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(\"DUPLICATE_ENTITY_IN_BATCH\", {\"key\": key}))"
+        },
+        {
+          "line": 149,
+          "term": "fail",
+          "text": "ConstraintResult.fail("
+        },
+        {
+          "line": 157,
+          "term": "fail",
+          "text": "return ValidationResult.fail(errors)"
+        },
+        {
+          "line": 161,
+          "term": "closed",
+          "text": "\"\"\"Fail-closed compensation consistency (BL-2 / IM-5)."
+        },
+        {
+          "line": 184,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(\"COMPENSATION_TARGET_MISSING\", {\"rid\": old}))"
+        },
+        {
+          "line": 186,
+          "term": "fail",
+          "text": "errors.append(ConstraintResult.fail(\"COMPENSATION_TARGET_NOT_EFFECTIVE\", {\"rid\": old}))"
+        },
+        {
+          "line": 192,
+          "term": "fail",
+          "text": "ConstraintResult.fail("
+        },
+        {
+          "line": 216,
+          "term": "fail",
+          "text": "ConstraintResult.fail("
+        }
+      ]
+    },
+    {
+      "path": "tests/benchmarks/test_jssp_repair_admission.py",
+      "sites": [
+        {
+          "line": 241,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import audit_active_commitments, list_unresolved_commitments"
+        },
+        {
+          "line": 338,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import audit_active_commitments, list_unresolved_commitments"
+        },
+        {
+          "line": 379,
+          "term": "fail",
+          "text": "async def test_invalid_repair_candidate_fails_closed_without_mutating_stateviews("
+        },
+        {
+          "line": 379,
+          "term": "closed",
+          "text": "async def test_invalid_repair_candidate_fails_closed_without_mutating_stateviews("
+        },
+        {
+          "line": 383,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import list_unresolved_commitments"
+        },
+        {
+          "line": 468,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import list_unresolved_commitments"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_admission_boundary.py",
+      "sites": [
+        {
+          "line": 24,
+          "term": "boundary",
+          "text": "T = \"tenant:recovery-boundary\""
+        },
+        {
+          "line": 25,
+          "term": "boundary",
+          "text": "W = \"workflow:recovery-boundary\""
+        },
+        {
+          "line": 26,
+          "term": "boundary",
+          "text": "G = \"tx:recovery-boundary\""
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_api_store_boundary.py",
+      "sites": [
+        {
+          "line": 5,
+          "term": "api",
+          "text": "from mnemosyne.api.audit import ("
+        },
+        {
+          "line": 10,
+          "term": "api",
+          "text": "from mnemosyne.api.commitments import admit_active_commitment"
+        },
+        {
+          "line": 19,
+          "term": "fail",
+          "text": "async def test_audit_active_commitments_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 19,
+          "term": "closed",
+          "text": "async def test_audit_active_commitments_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 27,
+          "term": "boundary",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        },
+        {
+          "line": 31,
+          "term": "fail",
+          "text": "async def test_list_unresolved_commitments_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 31,
+          "term": "closed",
+          "text": "async def test_list_unresolved_commitments_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 39,
+          "term": "boundary",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        },
+        {
+          "line": 43,
+          "term": "fail",
+          "text": "async def test_audit_recovery_lineage_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 43,
+          "term": "closed",
+          "text": "async def test_audit_recovery_lineage_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 51,
+          "term": "boundary",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        },
+        {
+          "line": 55,
+          "term": "fail",
+          "text": "async def test_admit_active_commitment_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 55,
+          "term": "closed",
+          "text": "async def test_admit_active_commitment_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 66,
+          "term": "boundary",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_event_api.py",
+      "sites": [
+        {
+          "line": 5,
+          "term": "api",
+          "text": "from mnemosyne.api.recovery_events import ("
+        },
+        {
+          "line": 8,
+          "term": "api",
+          "text": "recovery_event_api_result_to_dict,"
+        },
+        {
+          "line": 40,
+          "term": "api",
+          "text": "async def test_append_recovery_event_api_appends_event():"
+        },
+        {
+          "line": 49,
+          "term": "api",
+          "text": "result_dict = recovery_event_api_result_to_dict(result)"
+        },
+        {
+          "line": 55,
+          "term": "api",
+          "text": "async def test_append_recovery_event_api_returns_existing_on_idempotent_retry():"
+        },
+        {
+          "line": 69,
+          "term": "api",
+          "text": "async def test_list_recovery_events_api_filters_and_serializes_events():"
+        },
+        {
+          "line": 106,
+          "term": "api",
+          "text": "async def test_recovery_event_api_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 106,
+          "term": "fail",
+          "text": "async def test_recovery_event_api_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 106,
+          "term": "closed",
+          "text": "async def test_recovery_event_api_fails_closed_without_recovery_store():"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_replay_api.py",
+      "sites": [
+        {
+          "line": 5,
+          "term": "api",
+          "text": "from mnemosyne.api.recovery_events import append_recovery_event"
+        },
+        {
+          "line": 6,
+          "term": "api",
+          "text": "from mnemosyne.api.recovery_replay import ("
+        },
+        {
+          "line": 7,
+          "term": "api",
+          "text": "recovery_replay_api_result_to_dict,"
+        },
+        {
+          "line": 98,
+          "term": "api",
+          "text": "report = recovery_replay_api_result_to_dict(result)"
+        },
+        {
+          "line": 144,
+          "term": "api",
+          "text": "async def test_recovery_replay_api_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 144,
+          "term": "fail",
+          "text": "async def test_recovery_replay_api_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 144,
+          "term": "closed",
+          "text": "async def test_recovery_replay_api_fails_closed_without_recovery_store():"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_service.py",
+      "sites": [
+        {
+          "line": 186,
+          "term": "fail",
+          "text": "rejection_evidence={\"reason\": \"first_repair_failed\"},"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_capability_guard.py",
+      "sites": [
+        {
+          "line": 45,
+          "term": "fail",
+          "text": "def test_empty_store_fails_closed_with_all_required_methods_missing():"
+        },
+        {
+          "line": 45,
+          "term": "closed",
+          "text": "def test_empty_store_fails_closed_with_all_required_methods_missing():"
+        },
+        {
+          "line": 54,
+          "term": "boundary",
+          "text": "assert \"RecoveryStore capability boundary\" in message"
+        },
+        {
+          "line": 59,
+          "term": "boundary",
+          "text": "def test_read_only_store_can_satisfy_read_boundary_but_not_write_or_event_boundary():"
+        }
+      ]
+    }
+  ],
+  "claims": {
+    "inspection_only": true,
+    "kubernetes_claimed": false,
+    "mutation_bypass_prevented_claimed": false,
+    "postgres_claimed": false,
+    "production_runtime_claimed": false,
+    "temporal_claimed": false,
+    "validated_admission_hardening_claimed": false
+  },
+  "inspected_files": [
+    {
+      "boundary_site_count": 11,
+      "functions": [],
+      "mutation_site_count": 2,
+      "path": "mnemosyne/api/__init__.py",
+      "validation_site_count": 6
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 92,
+          "name": "count"
+        },
+        {
+          "async": false,
+          "line": 96,
+          "name": "commitment_ids"
+        },
+        {
+          "async": false,
+          "line": 100,
+          "name": "_status_value"
+        },
+        {
+          "async": false,
+          "line": 108,
+          "name": "_commitment_id_from_record"
+        },
+        {
+          "async": false,
+          "line": 124,
+          "name": "_payload_from_record"
+        },
+        {
+          "async": false,
+          "line": 131,
+          "name": "_package_reference_from_payload"
+        },
+        {
+          "async": false,
+          "line": 143,
+          "name": "_proposal_ref_from_payload"
+        },
+        {
+          "async": false,
+          "line": 155,
+          "name": "_package_id_from_payload"
+        },
+        {
+          "async": false,
+          "line": 162,
+          "name": "_admitted_record_ids_from_payload"
+        },
+        {
+          "async": false,
+          "line": 169,
+          "name": "_rejection_code_from_payload"
+        },
+        {
+          "async": false,
+          "line": 181,
+          "name": "_commitment_records_from_store"
+        },
+        {
+          "async": false,
+          "line": 218,
+          "name": "_records_by_commitment"
+        },
+        {
+          "async": false,
+          "line": 225,
+          "name": "_audit_row_from_commitment"
+        },
+        {
+          "async": true,
+          "line": 251,
+          "name": "audit_active_commitments"
+        },
+        {
+          "async": true,
+          "line": 290,
+          "name": "list_unresolved_commitments"
+        },
+        {
+          "async": true,
+          "line": 317,
+          "name": "audit_commitment_lineage"
+        },
+        {
+          "async": true,
+          "line": 351,
+          "name": "audit_recovery_lineage"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/api/audit.py",
+      "validation_site_count": 5
+    },
+    {
+      "boundary_site_count": 3,
+      "functions": [
+        {
+          "async": false,
+          "line": 39,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 43,
+          "name": "committed_rids"
+        },
+        {
+          "async": false,
+          "line": 47,
+          "name": "committed_action_types"
+        },
+        {
+          "async": false,
+          "line": 51,
+          "name": "committed_fsms"
+        },
+        {
+          "async": false,
+          "line": 55,
+          "name": "committed_only_commitment_fsm"
+        },
+        {
+          "async": false,
+          "line": 59,
+          "name": "default_commitment_validator"
+        },
+        {
+          "async": false,
+          "line": 65,
+          "name": "_batch_id"
+        },
+        {
+          "async": true,
+          "line": 69,
+          "name": "commit_commitment_candidate"
+        },
+        {
+          "async": true,
+          "line": 114,
+          "name": "register_active_commitment"
+        },
+        {
+          "async": true,
+          "line": 145,
+          "name": "fire_active_commitment"
+        },
+        {
+          "async": true,
+          "line": 180,
+          "name": "discharge_active_commitment"
+        },
+        {
+          "async": true,
+          "line": 215,
+          "name": "admit_active_commitment"
+        },
+        {
+          "async": true,
+          "line": 252,
+          "name": "reject_active_commitment"
+        },
+        {
+          "async": true,
+          "line": 291,
+          "name": "load_active_commitments"
+        },
+        {
+          "async": true,
+          "line": 304,
+          "name": "get_active_commitment_status"
+        },
+        {
+          "async": true,
+          "line": 319,
+          "name": "list_live_active_commitments"
+        },
+        {
+          "async": true,
+          "line": 340,
+          "name": "list_live_active_commitment_ids"
+        }
+      ],
+      "mutation_site_count": 2,
+      "path": "mnemosyne/api/commitments.py",
+      "validation_site_count": 21
+    },
+    {
+      "boundary_site_count": 2,
+      "functions": [
+        {
+          "async": false,
+          "line": 30,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 34,
+          "name": "committed_rids"
+        },
+        {
+          "async": false,
+          "line": 38,
+          "name": "committed_action_types"
+        },
+        {
+          "async": false,
+          "line": 42,
+          "name": "committed_only_commitment_fsm"
+        },
+        {
+          "async": false,
+          "line": 46,
+          "name": "create_recovery_proposal_package"
+        },
+        {
+          "async": false,
+          "line": 77,
+          "name": "validate_recovery_proposal_package"
+        },
+        {
+          "async": false,
+          "line": 91,
+          "name": "package_to_reference"
+        },
+        {
+          "async": false,
+          "line": 95,
+          "name": "package_to_dict"
+        },
+        {
+          "async": false,
+          "line": 99,
+          "name": "package_from_dict"
+        },
+        {
+          "async": false,
+          "line": 103,
+          "name": "package_event_payload"
+        },
+        {
+          "async": false,
+          "line": 107,
+          "name": "package_reference_from_event_payload"
+        },
+        {
+          "async": false,
+          "line": 111,
+          "name": "make_package_backed_proposal_candidate"
+        },
+        {
+          "async": true,
+          "line": 149,
+          "name": "emit_package_backed_proposal"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/api/proposal_packages.py",
+      "validation_site_count": 6
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 28,
+          "name": "plan"
+        },
+        {
+          "async": false,
+          "line": 32,
+          "name": "records"
+        },
+        {
+          "async": false,
+          "line": 36,
+          "name": "committed"
+        },
+        {
+          "async": false,
+          "line": 40,
+          "name": "validation_results"
+        },
+        {
+          "async": false,
+          "line": 44,
+          "name": "has_committed_records"
+        },
+        {
+          "async": false,
+          "line": 48,
+          "name": "committed_rids"
+        },
+        {
+          "async": false,
+          "line": 52,
+          "name": "committed_fsms"
+        },
+        {
+          "async": false,
+          "line": 56,
+          "name": "committed_action_types"
+        },
+        {
+          "async": false,
+          "line": 60,
+          "name": "committed_only_commitment_fsm"
+        },
+        {
+          "async": false,
+          "line": 64,
+          "name": "validation_ok"
+        },
+        {
+          "async": false,
+          "line": 68,
+          "name": "skipped"
+        },
+        {
+          "async": true,
+          "line": 72,
+          "name": "plan_active_recovery"
+        },
+        {
+          "async": true,
+          "line": 100,
+          "name": "validate_and_commit_active_recovery"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/api/recovery.py",
+      "validation_site_count": 8
+    },
+    {
+      "boundary_site_count": 2,
+      "functions": [
+        {
+          "async": true,
+          "line": 19,
+          "name": "append_recovery_event"
+        },
+        {
+          "async": true,
+          "line": 37,
+          "name": "list_recovery_events"
+        },
+        {
+          "async": false,
+          "line": 57,
+          "name": "recovery_events_to_dicts"
+        },
+        {
+          "async": false,
+          "line": 61,
+          "name": "recovery_event_api_result_to_dict"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/api/recovery_events.py",
+      "validation_site_count": 3
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 23,
+          "name": "recovery_count"
+        },
+        {
+          "async": false,
+          "line": 27,
+          "name": "replayed_event_count"
+        },
+        {
+          "async": false,
+          "line": 31,
+          "name": "duplicate_event_count"
+        },
+        {
+          "async": true,
+          "line": 35,
+          "name": "replay_recovery_events_from_store"
+        },
+        {
+          "async": false,
+          "line": 62,
+          "name": "recovery_replay_api_result_to_dict"
+        },
+        {
+          "async": false,
+          "line": 74,
+          "name": "recovery_replay_state_to_report_dict"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/api/recovery_replay.py",
+      "validation_site_count": 2
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 17,
+          "name": "to_jsonable"
+        },
+        {
+          "async": false,
+          "line": 38,
+          "name": "active_commitment_audit_rows_to_dicts"
+        },
+        {
+          "async": false,
+          "line": 44,
+          "name": "commitment_lineage_rows_to_dicts"
+        },
+        {
+          "async": false,
+          "line": 50,
+          "name": "recovery_lineage_rows_to_dicts"
+        },
+        {
+          "async": false,
+          "line": 56,
+          "name": "unresolved_commitment_report_to_dict"
+        },
+        {
+          "async": false,
+          "line": 65,
+          "name": "_fmt"
+        },
+        {
+          "async": false,
+          "line": 81,
+          "name": "_cell"
+        },
+        {
+          "async": false,
+          "line": 85,
+          "name": "_table"
+        },
+        {
+          "async": false,
+          "line": 97,
+          "name": "render_active_commitment_audit_markdown"
+        },
+        {
+          "async": false,
+          "line": 144,
+          "name": "render_unresolved_commitments_markdown"
+        },
+        {
+          "async": false,
+          "line": 190,
+          "name": "render_commitment_lineage_markdown"
+        },
+        {
+          "async": false,
+          "line": 236,
+          "name": "render_recovery_lineage_markdown"
+        },
+        {
+          "async": false,
+          "line": 284,
+          "name": "write_json_report"
+        },
+        {
+          "async": false,
+          "line": 294,
+          "name": "write_markdown_report"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/api/reports.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 45,
+          "name": "affected_operation_keys"
+        },
+        {
+          "async": false,
+          "line": 49,
+          "name": "fired_commitment_ids"
+        },
+        {
+          "async": false,
+          "line": 53,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 57,
+          "name": "active_commitment_for_scheduled_operation"
+        },
+        {
+          "async": true,
+          "line": 83,
+          "name": "register_schedule_commitments"
+        },
+        {
+          "async": true,
+          "line": 123,
+          "name": "signal_machine_breakdown"
+        },
+        {
+          "async": true,
+          "line": 175,
+          "name": "active_commitment_statuses"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/benchmarks/jssp_disruption_commitments.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 16,
+          "name": "key"
+        },
+        {
+          "async": false,
+          "line": 27,
+          "name": "job_id"
+        },
+        {
+          "async": false,
+          "line": 31,
+          "name": "operation_id"
+        },
+        {
+          "async": false,
+          "line": 35,
+          "name": "machine_id"
+        },
+        {
+          "async": false,
+          "line": 39,
+          "name": "duration"
+        },
+        {
+          "async": false,
+          "line": 43,
+          "name": "key"
+        },
+        {
+          "async": false,
+          "line": 46,
+          "name": "overlaps"
+        },
+        {
+          "async": false,
+          "line": 49,
+          "name": "to_attrs"
+        },
+        {
+          "async": false,
+          "line": 67,
+          "name": "makespan"
+        },
+        {
+          "async": false,
+          "line": 73,
+          "name": "operation_keys"
+        },
+        {
+          "async": false,
+          "line": 76,
+          "name": "operations_by_machine"
+        },
+        {
+          "async": false,
+          "line": 82,
+          "name": "operations_by_job"
+        },
+        {
+          "async": false,
+          "line": 88,
+          "name": "to_attrs"
+        },
+        {
+          "async": false,
+          "line": 105,
+          "name": "duration"
+        },
+        {
+          "async": false,
+          "line": 108,
+          "name": "to_attrs"
+        },
+        {
+          "async": false,
+          "line": 126,
+          "name": "key"
+        },
+        {
+          "async": false,
+          "line": 130,
+          "name": "commitment_id"
+        },
+        {
+          "async": false,
+          "line": 136,
+          "name": "to_attrs"
+        },
+        {
+          "async": false,
+          "line": 151,
+          "name": "commitment_id_for_operation"
+        },
+        {
+          "async": false,
+          "line": 162,
+          "name": "dependency_scope_for_operation"
+        },
+        {
+          "async": false,
+          "line": 177,
+          "name": "schedule_entity_id"
+        },
+        {
+          "async": false,
+          "line": 181,
+          "name": "validate_baseline_schedule"
+        },
+        {
+          "async": false,
+          "line": 234,
+          "name": "affected_operations"
+        },
+        {
+          "async": false,
+          "line": 253,
+          "name": "make_jssp_3x3_baseline_schedule"
+        },
+        {
+          "async": false,
+          "line": 268,
+          "name": "op"
+        },
+        {
+          "async": false,
+          "line": 292,
+          "name": "make_machine_breakdown_for_3x3_smoke"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/benchmarks/jssp_disruptions.py",
+      "validation_site_count": 1
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 47,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 51,
+          "name": "candidate_rids"
+        },
+        {
+          "async": false,
+          "line": 54,
+          "name": "package_dict"
+        },
+        {
+          "async": false,
+          "line": 65,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 69,
+          "name": "proposal_refs"
+        },
+        {
+          "async": false,
+          "line": 73,
+          "name": "package_ids"
+        },
+        {
+          "async": false,
+          "line": 77,
+          "name": "commitment_ids"
+        },
+        {
+          "async": false,
+          "line": 81,
+          "name": "operation_keys"
+        },
+        {
+          "async": false,
+          "line": 85,
+          "name": "candidate_rids"
+        },
+        {
+          "async": false,
+          "line": 93,
+          "name": "_safe_operation_key"
+        },
+        {
+          "async": false,
+          "line": 97,
+          "name": "proposal_scope_for_disrupted_operation"
+        },
+        {
+          "async": false,
+          "line": 112,
+          "name": "repair_details_for_disrupted_operation"
+        },
+        {
+          "async": false,
+          "line": 146,
+          "name": "repair_candidate_for_disrupted_operation"
+        },
+        {
+          "async": false,
+          "line": 226,
+          "name": "recovery_package_for_disrupted_operation"
+        },
+        {
+          "async": true,
+          "line": 282,
+          "name": "emit_recovery_proposals_for_disruption"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/benchmarks/jssp_recovery_proposals.py",
+      "validation_site_count": 3
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 19,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 27,
+          "name": "selected_rids"
+        },
+        {
+          "async": false,
+          "line": 31,
+          "name": "committed_rids"
+        },
+        {
+          "async": false,
+          "line": 35,
+          "name": "committed_entity_ids"
+        },
+        {
+          "async": false,
+          "line": 39,
+          "name": "repair_candidates_from_proposal_batch"
+        },
+        {
+          "async": false,
+          "line": 56,
+          "name": "selected_repair_commit_batch"
+        },
+        {
+          "async": true,
+          "line": 83,
+          "name": "admit_selected_repair_candidates"
+        },
+        {
+          "async": true,
+          "line": 132,
+          "name": "admit_repair_candidates_from_proposal_batch"
+        },
+        {
+          "async": false,
+          "line": 167,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 176,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 180,
+          "name": "commitment_ids"
+        },
+        {
+          "async": false,
+          "line": 184,
+          "name": "admitted_record_ids"
+        },
+        {
+          "async": true,
+          "line": 192,
+          "name": "finalize_commitments_for_repair_admission"
+        },
+        {
+          "async": true,
+          "line": 243,
+          "name": "admit_and_finalize_repair_candidates_from_proposal_batch"
+        }
+      ],
+      "mutation_site_count": 20,
+      "path": "mnemosyne/benchmarks/jssp_repair_admission.py",
+      "validation_site_count": 10
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 35,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 44,
+          "name": "committed_rids"
+        },
+        {
+          "async": false,
+          "line": 48,
+          "name": "committed_entity_ids"
+        },
+        {
+          "async": false,
+          "line": 52,
+          "name": "committed_only_jssp_schedule_fsm"
+        },
+        {
+          "async": false,
+          "line": 56,
+          "name": "schedule_operation_candidate"
+        },
+        {
+          "async": false,
+          "line": 112,
+          "name": "baseline_schedule_candidates"
+        },
+        {
+          "async": false,
+          "line": 141,
+          "name": "baseline_schedule_commit_batch"
+        },
+        {
+          "async": true,
+          "line": 165,
+          "name": "admit_baseline_schedule"
+        }
+      ],
+      "mutation_site_count": 3,
+      "path": "mnemosyne/benchmarks/jssp_schedule_admission.py",
+      "validation_site_count": 10
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/__init__.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 12,
+          "name": "_now"
+        },
+        {
+          "async": false,
+          "line": 38,
+          "name": "__post_init__"
+        },
+        {
+          "async": false,
+          "line": 53,
+          "name": "recovery_event_to_dict"
+        },
+        {
+          "async": false,
+          "line": 70,
+          "name": "recovery_event_from_dict"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/events.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 26,
+          "name": "candidates"
+        },
+        {
+          "async": false,
+          "line": 30,
+          "name": "allowed"
+        },
+        {
+          "async": false,
+          "line": 34,
+          "name": "run_bounded_recovery_loop"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/loop.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 29,
+          "name": "allowed"
+        },
+        {
+          "async": false,
+          "line": 33,
+          "name": "orchestrate_recovery"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/orchestrator.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 20,
+          "name": "make_package_proposal_candidate"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/package_candidates.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 30,
+          "name": "candidate_rids"
+        },
+        {
+          "async": false,
+          "line": 34,
+          "name": "is_inert"
+        },
+        {
+          "async": false,
+          "line": 38,
+          "name": "to_recovery_proposal"
+        },
+        {
+          "async": false,
+          "line": 46,
+          "name": "transition_candidate_to_dict"
+        },
+        {
+          "async": false,
+          "line": 50,
+          "name": "transition_candidate_from_dict"
+        },
+        {
+          "async": false,
+          "line": 56,
+          "name": "proposal_package_to_dict"
+        },
+        {
+          "async": false,
+          "line": 73,
+          "name": "proposal_package_from_dict"
+        },
+        {
+          "async": false,
+          "line": 90,
+          "name": "proposal_package_scope_is_within"
+        },
+        {
+          "async": false,
+          "line": 104,
+          "name": "proposal_package_contains_only_domain_candidates"
+        },
+        {
+          "async": false,
+          "line": 117,
+          "name": "proposal_package_reference_to_dict"
+        },
+        {
+          "async": false,
+          "line": 138,
+          "name": "proposal_package_reference_from_dict"
+        },
+        {
+          "async": false,
+          "line": 154,
+          "name": "proposal_package_event_payload"
+        },
+        {
+          "async": false,
+          "line": 165,
+          "name": "proposal_package_reference_from_event_payload"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/packages.py",
+      "validation_site_count": 3
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 47,
+          "name": "ok"
+        },
+        {
+          "async": false,
+          "line": 51,
+          "name": "_scope_contains"
+        },
+        {
+          "async": false,
+          "line": 66,
+          "name": "check_recovery_allowed"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/policy.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 41,
+          "name": "replayed_event_count"
+        },
+        {
+          "async": false,
+          "line": 45,
+          "name": "duplicate_event_count"
+        },
+        {
+          "async": false,
+          "line": 49,
+          "name": "last_sequence_no"
+        },
+        {
+          "async": false,
+          "line": 53,
+          "name": "_event_sort_key"
+        },
+        {
+          "async": false,
+          "line": 57,
+          "name": "replay_recovery_events"
+        },
+        {
+          "async": false,
+          "line": 130,
+          "name": "recovery_replay_state_to_dict"
+        },
+        {
+          "async": false,
+          "line": 160,
+          "name": "recovery_replay_states_to_dicts"
+        }
+      ],
+      "mutation_site_count": 1,
+      "path": "mnemosyne/core/recovery/replay.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 32,
+          "name": "has_candidates"
+        },
+        {
+          "async": false,
+          "line": 36,
+          "name": "plan_recovery_from_index"
+        },
+        {
+          "async": true,
+          "line": 96,
+          "name": "plan_recovery_from_store"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/recovery/service.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/validation/__init__.py",
+      "validation_site_count": 1
+    },
+    {
+      "boundary_site_count": 18,
+      "functions": [
+        {
+          "async": false,
+          "line": 30,
+          "name": "register"
+        },
+        {
+          "async": false,
+          "line": 33,
+          "name": "get"
+        },
+        {
+          "async": false,
+          "line": 38,
+          "name": "validate"
+        },
+        {
+          "async": false,
+          "line": 43,
+          "name": "__init__"
+        },
+        {
+          "async": true,
+          "line": 57,
+          "name": "validate_candidate"
+        },
+        {
+          "async": true,
+          "line": 130,
+          "name": "validate_batch"
+        },
+        {
+          "async": true,
+          "line": 160,
+          "name": "_check_effectiveness"
+        },
+        {
+          "async": true,
+          "line": 222,
+          "name": "records_from_batch"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "mnemosyne/core/validation/validator.py",
+      "validation_site_count": 26
+    },
+    {
+      "boundary_site_count": 6,
+      "functions": [
+        {
+          "async": true,
+          "line": 34,
+          "name": "_seed_recovery_proposal_batch"
+        },
+        {
+          "async": false,
+          "line": 80,
+          "name": "_candidate_windows"
+        },
+        {
+          "async": true,
+          "line": 92,
+          "name": "test_selects_all_repair_candidates_from_proposal_batch"
+        },
+        {
+          "async": true,
+          "line": 119,
+          "name": "test_selects_subset_of_repair_candidates_by_operation_key"
+        },
+        {
+          "async": true,
+          "line": 136,
+          "name": "test_selected_repair_commit_batch_is_domain_ctl_batch"
+        },
+        {
+          "async": true,
+          "line": 159,
+          "name": "test_admitting_selected_repair_candidates_mutates_only_selected_stateviews"
+        },
+        {
+          "async": true,
+          "line": 237,
+          "name": "test_finalizing_repaired_commitments_marks_selected_commitments_admitted"
+        },
+        {
+          "async": true,
+          "line": 337,
+          "name": "test_admit_and_finalize_repair_candidates_one_step_helper"
+        },
+        {
+          "async": true,
+          "line": 379,
+          "name": "test_invalid_repair_candidate_fails_closed_without_mutating_stateviews"
+        },
+        {
+          "async": true,
+          "line": 464,
+          "name": "test_empty_repair_candidate_selection_is_noop_without_mutating_stateviews"
+        }
+      ],
+      "mutation_site_count": 18,
+      "path": "tests/benchmarks/test_jssp_repair_admission.py",
+      "validation_site_count": 23
+    },
+    {
+      "boundary_site_count": 3,
+      "functions": [
+        {
+          "async": false,
+          "line": 32,
+          "name": "record_from_candidate"
+        },
+        {
+          "async": false,
+          "line": 63,
+          "name": "domain_record"
+        },
+        {
+          "async": false,
+          "line": 94,
+          "name": "batch"
+        },
+        {
+          "async": false,
+          "line": 104,
+          "name": "commitment"
+        },
+        {
+          "async": true,
+          "line": 114,
+          "name": "test_recovery_proposal_does_not_mutate_domain_state"
+        },
+        {
+          "async": true,
+          "line": 179,
+          "name": "test_domain_state_changes_only_when_domain_repair_record_is_committed"
+        },
+        {
+          "async": true,
+          "line": 277,
+          "name": "test_rejected_recovery_leaves_domain_state_unchanged"
+        }
+      ],
+      "mutation_site_count": 6,
+      "path": "tests/core/test_recovery_admission_boundary.py",
+      "validation_site_count": 4
+    },
+    {
+      "boundary_site_count": 14,
+      "functions": [
+        {
+          "async": true,
+          "line": 19,
+          "name": "test_audit_active_commitments_fails_closed_without_recovery_store"
+        },
+        {
+          "async": true,
+          "line": 31,
+          "name": "test_list_unresolved_commitments_fails_closed_without_recovery_store"
+        },
+        {
+          "async": true,
+          "line": 43,
+          "name": "test_audit_recovery_lineage_fails_closed_without_recovery_store"
+        },
+        {
+          "async": true,
+          "line": 55,
+          "name": "test_admit_active_commitment_fails_closed_without_recovery_store"
+        }
+      ],
+      "mutation_site_count": 4,
+      "path": "tests/core/test_recovery_api_store_boundary.py",
+      "validation_site_count": 9
+    },
+    {
+      "boundary_site_count": 9,
+      "functions": [
+        {
+          "async": false,
+          "line": 20,
+          "name": "_event"
+        },
+        {
+          "async": true,
+          "line": 40,
+          "name": "test_append_recovery_event_api_appends_event"
+        },
+        {
+          "async": true,
+          "line": 55,
+          "name": "test_append_recovery_event_api_returns_existing_on_idempotent_retry"
+        },
+        {
+          "async": true,
+          "line": 69,
+          "name": "test_list_recovery_events_api_filters_and_serializes_events"
+        },
+        {
+          "async": true,
+          "line": 106,
+          "name": "test_recovery_event_api_fails_closed_without_recovery_store"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_event_api.py",
+      "validation_site_count": 3
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": true,
+          "line": 10,
+          "name": "test_sqlite_recovery_event_log_appends_and_lists_in_replay_order"
+        },
+        {
+          "async": true,
+          "line": 48,
+          "name": "test_sqlite_recovery_event_log_dedupes_by_idempotency_key"
+        },
+        {
+          "async": true,
+          "line": 81,
+          "name": "test_sqlite_recovery_event_log_persists_across_store_instances"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_event_log.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 14,
+          "name": "test_recovery_event_round_trips_through_dict"
+        },
+        {
+          "async": false,
+          "line": 44,
+          "name": "test_recovery_event_requires_identity_fields"
+        },
+        {
+          "async": false,
+          "line": 59,
+          "name": "test_recovery_event_sequence_must_be_positive"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_event_model.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 15,
+          "name": "commitment"
+        },
+        {
+          "async": false,
+          "line": 24,
+          "name": "test_recovery_loop_stops_on_first_allowed_proposal"
+        },
+        {
+          "async": false,
+          "line": 46,
+          "name": "test_recovery_loop_retries_after_scope_rejection_and_then_proposes"
+        },
+        {
+          "async": false,
+          "line": 76,
+          "name": "test_recovery_loop_stops_when_attempt_limit_is_reached"
+        },
+        {
+          "async": false,
+          "line": 103,
+          "name": "test_recovery_loop_stops_when_depth_is_exceeded"
+        },
+        {
+          "async": false,
+          "line": 124,
+          "name": "test_recovery_loop_never_emits_domain_transition_candidates"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_loop.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 19,
+          "name": "test_allowed_recovery_emits_commitment_proposal_candidate_only"
+        },
+        {
+          "async": false,
+          "line": 57,
+          "name": "test_scope_denied_recovery_emits_rejected_commitment_candidate"
+        },
+        {
+          "async": false,
+          "line": 96,
+          "name": "test_attempt_limit_denied_recovery_emits_rejected_candidate"
+        },
+        {
+          "async": false,
+          "line": 126,
+          "name": "test_rejected_orchestrated_recovery_keeps_commitment_live_after_replay"
+        },
+        {
+          "async": false,
+          "line": 172,
+          "name": "test_orchestrator_never_targets_domain_entity_directly"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_orchestrator.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 11,
+          "name": "test_recovery_allowed_when_depth_attempt_and_scope_are_valid"
+        },
+        {
+          "async": false,
+          "line": 33,
+          "name": "test_recovery_denied_when_depth_exceeds_policy"
+        },
+        {
+          "async": false,
+          "line": 55,
+          "name": "test_recovery_denied_when_attempts_exceed_policy"
+        },
+        {
+          "async": false,
+          "line": 77,
+          "name": "test_recovery_denied_when_proposal_scope_escapes_commitment_scope"
+        },
+        {
+          "async": false,
+          "line": 99,
+          "name": "test_empty_proposal_scope_is_allowed_as_non_mutating_wakeup"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_policy.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 34,
+          "name": "batch"
+        },
+        {
+          "async": false,
+          "line": 44,
+          "name": "domain_candidate"
+        },
+        {
+          "async": false,
+          "line": 73,
+          "name": "domain_record"
+        },
+        {
+          "async": false,
+          "line": 104,
+          "name": "commitment"
+        },
+        {
+          "async": false,
+          "line": 113,
+          "name": "package"
+        },
+        {
+          "async": true,
+          "line": 130,
+          "name": "seed_fired_commitment"
+        },
+        {
+          "async": false,
+          "line": 157,
+          "name": "test_package_proposal_candidate_records_reference_not_domain_candidates"
+        },
+        {
+          "async": false,
+          "line": 185,
+          "name": "test_package_proposal_candidate_rejects_out_of_scope_package"
+        },
+        {
+          "async": false,
+          "line": 204,
+          "name": "test_package_proposal_candidate_rejects_commitment_fsm_candidates_inside_package"
+        },
+        {
+          "async": true,
+          "line": 231,
+          "name": "test_committing_package_proposal_candidate_does_not_mutate_domain_state"
+        }
+      ],
+      "mutation_site_count": 3,
+      "path": "tests/core/test_recovery_proposal_package_candidates.py",
+      "validation_site_count": 9
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 19,
+          "name": "domain_candidate"
+        },
+        {
+          "async": false,
+          "line": 48,
+          "name": "package"
+        },
+        {
+          "async": false,
+          "line": 65,
+          "name": "test_proposal_package_reference_contains_rids_not_domain_candidates"
+        },
+        {
+          "async": false,
+          "line": 78,
+          "name": "test_proposal_package_event_payload_embeds_package_reference"
+        },
+        {
+          "async": false,
+          "line": 91,
+          "name": "test_proposal_package_reference_round_trips_through_commitment_event_extension"
+        },
+        {
+          "async": false,
+          "line": 114,
+          "name": "test_commitment_event_payload_does_not_admit_domain_candidate_truth"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_proposal_package_events.py",
+      "validation_site_count": 3
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 13,
+          "name": "domain_candidate"
+        },
+        {
+          "async": false,
+          "line": 42,
+          "name": "commitment_candidate"
+        },
+        {
+          "async": false,
+          "line": 71,
+          "name": "package"
+        },
+        {
+          "async": false,
+          "line": 85,
+          "name": "test_recovery_proposal_package_is_inert_and_tracks_candidate_rids"
+        },
+        {
+          "async": false,
+          "line": 93,
+          "name": "test_recovery_proposal_package_converts_to_recovery_proposal"
+        },
+        {
+          "async": false,
+          "line": 101,
+          "name": "test_recovery_proposal_package_round_trips_through_dict"
+        },
+        {
+          "async": false,
+          "line": 118,
+          "name": "test_recovery_proposal_package_scope_must_be_within_dependency_scope"
+        },
+        {
+          "async": false,
+          "line": 137,
+          "name": "test_recovery_proposal_package_contains_only_domain_candidates"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_proposal_packages.py",
+      "validation_site_count": 6
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 10,
+          "name": "_event"
+        },
+        {
+          "async": false,
+          "line": 30,
+          "name": "test_replay_recovery_events_reconstructs_state_in_sequence_order"
+        },
+        {
+          "async": false,
+          "line": 71,
+          "name": "test_replay_recovery_events_is_idempotent_for_duplicate_event_id_and_key"
+        },
+        {
+          "async": false,
+          "line": 103,
+          "name": "test_replay_recovery_events_groups_multiple_recoveries"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_replay.py",
+      "validation_site_count": 0
+    },
+    {
+      "boundary_site_count": 7,
+      "functions": [
+        {
+          "async": false,
+          "line": 19,
+          "name": "_event"
+        },
+        {
+          "async": true,
+          "line": 40,
+          "name": "test_replay_recovery_events_from_store_reconstructs_state"
+        },
+        {
+          "async": true,
+          "line": 79,
+          "name": "test_replay_recovery_events_from_store_serializes_report"
+        },
+        {
+          "async": true,
+          "line": 108,
+          "name": "test_replay_recovery_events_from_store_filters_by_recovery_id"
+        },
+        {
+          "async": true,
+          "line": 144,
+          "name": "test_recovery_replay_api_fails_closed_without_recovery_store"
+        }
+      ],
+      "mutation_site_count": 0,
+      "path": "tests/core/test_recovery_replay_api.py",
+      "validation_site_count": 2
+    },
+    {
+      "boundary_site_count": 1,
+      "functions": [
+        {
+          "async": false,
+          "line": 29,
+          "name": "record_from_candidate"
+        },
+        {
+          "async": false,
+          "line": 60,
+          "name": "batch"
+        },
+        {
+          "async": false,
+          "line": 70,
+          "name": "commitment"
+        },
+        {
+          "async": false,
+          "line": 79,
+          "name": "provider"
+        },
+        {
+          "async": true,
+          "line": 89,
+          "name": "test_service_plans_recovery_for_fired_commitment_from_store_index"
+        },
+        {
+          "async": true,
+          "line": 133,
+          "name": "test_service_skips_live_commitment_that_has_not_fired"
+        },
+        {
+          "async": true,
+          "line": 163,
+          "name": "test_service_retries_from_rejected_commitment_state"
+        },
+        {
+          "async": true,
+          "line": 216,
+          "name": "test_service_skips_already_proposed_commitment_to_avoid_duplicate_proposal"
+        }
+      ],
+      "mutation_site_count": 4,
+      "path": "tests/core/test_recovery_service.py",
+      "validation_site_count": 2
+    },
+    {
+      "boundary_site_count": 4,
+      "functions": [
+        {
+          "async": true,
+          "line": 22,
+          "name": "get_record"
+        },
+        {
+          "async": true,
+          "line": 25,
+          "name": "get_entity_history"
+        },
+        {
+          "async": true,
+          "line": 28,
+          "name": "get_full_entity_history"
+        },
+        {
+          "async": true,
+          "line": 31,
+          "name": "get_state_view"
+        },
+        {
+          "async": true,
+          "line": 34,
+          "name": "get_by_op_id"
+        },
+        {
+          "async": false,
+          "line": 38,
+          "name": "test_sqlite_store_passes_recovery_store_capability_guard"
+        },
+        {
+          "async": false,
+          "line": 45,
+          "name": "test_empty_store_fails_closed_with_all_required_methods_missing"
+        },
+        {
+          "async": false,
+          "line": 59,
+          "name": "test_read_only_store_can_satisfy_read_boundary_but_not_write_or_event_boundary"
+        }
+      ],
+      "mutation_site_count": 1,
+      "path": "tests/core/test_recovery_store_capability_guard.py",
+      "validation_site_count": 11
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 28,
+          "name": "record_from_candidate"
+        },
+        {
+          "async": false,
+          "line": 59,
+          "name": "batch"
+        },
+        {
+          "async": true,
+          "line": 70,
+          "name": "test_allowed_recovery_orchestration_persists_as_proposed_commitment_state"
+        },
+        {
+          "async": true,
+          "line": 147,
+          "name": "test_denied_recovery_orchestration_persists_as_rejected_commitment_state"
+        }
+      ],
+      "mutation_site_count": 2,
+      "path": "tests/core/test_recovery_store_persistence.py",
+      "validation_site_count": 2
+    },
+    {
+      "boundary_site_count": 0,
+      "functions": [
+        {
+          "async": false,
+          "line": 18,
+          "name": "test_sqlite_store_satisfies_recovery_store_protocols"
+        },
+        {
+          "async": false,
+          "line": 27,
+          "name": "test_recovery_store_protocol_surface_is_explicit_and_minimal"
+        },
+        {
+          "async": false,
+          "line": 45,
+          "name": "test_sqlite_store_exposes_required_recovery_methods"
+        }
+      ],
+      "mutation_site_count": 1,
+      "path": "tests/core/test_recovery_store_protocol.py",
+      "validation_site_count": 2
+    }
+  ],
+  "mutation_sites": [
+    {
+      "path": "mnemosyne/api/__init__.py",
+      "sites": [
+        {
+          "line": 13,
+          "term": "admit_active_commitment",
+          "text": "admit_active_commitment,"
+        },
+        {
+          "line": 87,
+          "term": "admit_active_commitment",
+          "text": "\"admit_active_commitment\","
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/commitments.py",
+      "sites": [
+        {
+          "line": 103,
+          "term": "commit_batch",
+          "text": "committed = await store.commit_batch(batch, records)"
+        },
+        {
+          "line": 215,
+          "term": "admit_active_commitment",
+          "text": "async def admit_active_commitment("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_repair_admission.py",
+      "sites": [
+        {
+          "line": 56,
+          "term": "commit_batch",
+          "text": "def selected_repair_commit_batch("
+        },
+        {
+          "line": 93,
+          "term": "commit_batch",
+          "text": "batch = selected_repair_commit_batch("
+        },
+        {
+          "line": 121,
+          "term": "commit_batch",
+          "text": "committed = await store.commit_batch(batch, records)"
+        },
+        {
+          "line": 132,
+          "term": "admit_repair",
+          "text": "async def admit_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 173,
+          "term": "finalize",
+          "text": "finalized: list[JSSPFinalizedRepairCommitment]"
+        },
+        {
+          "line": 177,
+          "term": "finalize",
+          "text": "return all(item.ok for item in self.finalized)"
+        },
+        {
+          "line": 181,
+          "term": "finalize",
+          "text": "return [item.commitment_id for item in self.finalized]"
+        },
+        {
+          "line": 187,
+          "term": "finalize",
+          "text": "for item in self.finalized"
+        },
+        {
+          "line": 192,
+          "term": "finalize",
+          "text": "async def finalize_commitments_for_repair_admission("
+        },
+        {
+          "line": 203,
+          "term": "admit_active_commitment",
+          "text": "from mnemosyne.api.commitments import admit_active_commitment"
+        },
+        {
+          "line": 206,
+          "term": "finalize",
+          "text": "finalized: list[JSSPFinalizedRepairCommitment] = []"
+        },
+        {
+          "line": 220,
+          "term": "admit_active_commitment",
+          "text": "result = await admit_active_commitment("
+        },
+        {
+          "line": 231,
+          "term": "finalize",
+          "text": "finalized.append("
+        },
+        {
+          "line": 240,
+          "term": "finalize",
+          "text": "return JSSPRepairCommitmentFinalization(finalized=finalized)"
+        },
+        {
+          "line": 243,
+          "term": "admit_and_finalize",
+          "text": "async def admit_and_finalize_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 243,
+          "term": "finalize",
+          "text": "async def admit_and_finalize_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 249,
+          "term": "finalize",
+          "text": "finalize_tx_group_id: str,"
+        },
+        {
+          "line": 255,
+          "term": "admit_repair",
+          "text": "repair_admission = await admit_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 266,
+          "term": "finalize",
+          "text": "finalization = await finalize_commitments_for_repair_admission("
+        },
+        {
+          "line": 269,
+          "term": "finalize",
+          "text": "tx_group_id=finalize_tx_group_id,"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_schedule_admission.py",
+      "sites": [
+        {
+          "line": 141,
+          "term": "commit_batch",
+          "text": "def baseline_schedule_commit_batch("
+        },
+        {
+          "line": 179,
+          "term": "commit_batch",
+          "text": "batch = baseline_schedule_commit_batch("
+        },
+        {
+          "line": 211,
+          "term": "commit_batch",
+          "text": "committed = await store.commit_batch(batch, records)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/core/recovery/replay.py",
+      "sites": [
+        {
+          "line": 12,
+          "term": "finalize",
+          "text": "\"commitment_finalized\","
+        }
+      ]
+    },
+    {
+      "path": "tests/benchmarks/test_jssp_repair_admission.py",
+      "sites": [
+        {
+          "line": 19,
+          "term": "admit_repair",
+          "text": "admit_repair_candidates_from_proposal_batch,"
+        },
+        {
+          "line": 22,
+          "term": "commit_batch",
+          "text": "selected_repair_commit_batch,"
+        },
+        {
+          "line": 136,
+          "term": "commit_batch",
+          "text": "async def test_selected_repair_commit_batch_is_domain_ctl_batch(store, validator):"
+        },
+        {
+          "line": 140,
+          "term": "commit_batch",
+          "text": "batch = selected_repair_commit_batch("
+        },
+        {
+          "line": 188,
+          "term": "admit_repair",
+          "text": "repair_admission = await admit_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 243,
+          "term": "admit_and_finalize",
+          "text": "admit_and_finalize_repair_candidates_from_proposal_batch,"
+        },
+        {
+          "line": 243,
+          "term": "finalize",
+          "text": "admit_and_finalize_repair_candidates_from_proposal_batch,"
+        },
+        {
+          "line": 244,
+          "term": "finalize",
+          "text": "finalize_commitments_for_repair_admission,"
+        },
+        {
+          "line": 256,
+          "term": "admit_repair",
+          "text": "repair_admission = await admit_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 272,
+          "term": "repair admission",
+          "text": "# Domain repair admission mutates schedule truth, but commitment finalization"
+        },
+        {
+          "line": 276,
+          "term": "finalize",
+          "text": "finalization = await finalize_commitments_for_repair_admission("
+        },
+        {
+          "line": 337,
+          "term": "admit_and_finalize",
+          "text": "async def test_admit_and_finalize_repair_candidates_one_step_helper(store, validator):"
+        },
+        {
+          "line": 337,
+          "term": "finalize",
+          "text": "async def test_admit_and_finalize_repair_candidates_one_step_helper(store, validator):"
+        },
+        {
+          "line": 340,
+          "term": "admit_and_finalize",
+          "text": "admit_and_finalize_repair_candidates_from_proposal_batch,"
+        },
+        {
+          "line": 340,
+          "term": "finalize",
+          "text": "admit_and_finalize_repair_candidates_from_proposal_batch,"
+        },
+        {
+          "line": 345,
+          "term": "admit_and_finalize",
+          "text": "repair_admission, finalization = await admit_and_finalize_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 345,
+          "term": "finalize",
+          "text": "repair_admission, finalization = await admit_and_finalize_repair_candidates_from_proposal_batch("
+        },
+        {
+          "line": 350,
+          "term": "finalize",
+          "text": "finalize_tx_group_id=\"tx:r61-jssp:commitment-finalization\","
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_admission_boundary.py",
+      "sites": [
+        {
+          "line": 124,
+          "term": "commit_batch",
+          "text": "await store.commit_batch(batch(\"batch:domain-initial\", []), [initial_domain])"
+        },
+        {
+          "line": 153,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 183,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 238,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 281,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 330,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_api_store_boundary.py",
+      "sites": [
+        {
+          "line": 10,
+          "term": "admit_active_commitment",
+          "text": "from mnemosyne.api.commitments import admit_active_commitment"
+        },
+        {
+          "line": 55,
+          "term": "admit_active_commitment",
+          "text": "async def test_admit_active_commitment_fails_closed_without_recovery_store():"
+        },
+        {
+          "line": 57,
+          "term": "admit_active_commitment",
+          "text": "await admit_active_commitment("
+        },
+        {
+          "line": 67,
+          "term": "commit_batch",
+          "text": "assert \"commit_batch\" in str(exc.value)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_proposal_package_candidates.py",
+      "sites": [
+        {
+          "line": 148,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 234,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 264,
+          "term": "commit_batch",
+          "text": "committed = await store.commit_batch(candidate_batch, records)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_service.py",
+      "sites": [
+        {
+          "line": 108,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 145,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 192,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        },
+        {
+          "line": 244,
+          "term": "commit_batch",
+          "text": "await store.commit_batch("
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_capability_guard.py",
+      "sites": [
+        {
+          "line": 72,
+          "term": "commit_batch",
+          "text": "assert \"commit_batch\" in str(exc.value)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_persistence.py",
+      "sites": [
+        {
+          "line": 119,
+          "term": "commit_batch",
+          "text": "await store.commit_batch(batch(candidates), records)"
+        },
+        {
+          "line": 196,
+          "term": "commit_batch",
+          "text": "await store.commit_batch(batch(candidates), records)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_protocol.py",
+      "sites": [
+        {
+          "line": 35,
+          "term": "commit_batch",
+          "text": "assert RECOVERY_WRITE_METHODS == (\"commit_batch\",)"
+        }
+      ]
+    }
+  ],
+  "recommended_hardening_targets": [
+    "Identify public recovery admission APIs that mutate committed state.",
+    "Ensure mutation APIs require a validator or validated admission context.",
+    "Fail closed when validator capability is missing.",
+    "Keep low-level commit helpers available only as internal substrate helpers.",
+    "Add tests proving invalid repairs cannot be admitted through the public boundary.",
+    "Add tests proving recovery replay/event-log APIs remain read-only and do not mutate domain truth."
+  ],
+  "schema_version": "r74_validated_admission_boundary_inspection.v1",
+  "summary": {
+    "decision": "ready_for_validated_admission_boundary_hardening",
+    "inspected_file_count": 42,
+    "mutation_site_count": 67,
+    "validator_site_count": 181
+  },
+  "validation_sites": [
+    {
+      "path": "mnemosyne/api/__init__.py",
+      "sites": [
+        {
+          "line": 15,
+          "term": "validator",
+          "text": "default_commitment_validator,"
+        },
+        {
+          "line": 35,
+          "term": "validate",
+          "text": "validate_recovery_proposal_package,"
+        },
+        {
+          "line": 53,
+          "term": "validate",
+          "text": "validate_and_commit_active_recovery,"
+        },
+        {
+          "line": 94,
+          "term": "validator",
+          "text": "\"default_commitment_validator\","
+        },
+        {
+          "line": 119,
+          "term": "validate",
+          "text": "\"validate_and_commit_active_recovery\","
+        },
+        {
+          "line": 120,
+          "term": "validate",
+          "text": "\"validate_recovery_proposal_package\","
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/audit.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "require_recovery_store",
+          "text": "from mnemosyne.core.protocols.recovery_store import RECOVERY_READ_METHODS, require_recovery_store"
+        },
+        {
+          "line": 190,
+          "term": "validate",
+          "text": "This is read-only. It does not validate, commit, mutate CTL, or execute"
+        },
+        {
+          "line": 258,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store, required_methods=RECOVERY_READ_METHODS)"
+        },
+        {
+          "line": 297,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store, required_methods=RECOVERY_READ_METHODS)"
+        },
+        {
+          "line": 359,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store, required_methods=RECOVERY_READ_METHODS)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/commitments.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "require_recovery_store",
+          "text": "from mnemosyne.core.protocols.recovery_store import require_recovery_store"
+        },
+        {
+          "line": 20,
+          "term": "ValidationResult",
+          "text": "from mnemosyne.core.models import CTLRecord, CommitBatch, TransitionCandidate, ValidationResult"
+        },
+        {
+          "line": 34,
+          "term": "ValidationResult",
+          "text": "validation: ValidationResult"
+        },
+        {
+          "line": 59,
+          "term": "validator",
+          "text": "def default_commitment_validator() -> Validator:"
+        },
+        {
+          "line": 60,
+          "term": "validator",
+          "text": "\"\"\"Build the default validator for commitment-FSM API calls.\"\"\""
+        },
+        {
+          "line": 73,
+          "term": "validator",
+          "text": "validator: Validator | None = None,"
+        },
+        {
+          "line": 82,
+          "term": "validator",
+          "text": "validator = validator or default_commitment_validator()"
+        },
+        {
+          "line": 92,
+          "term": "validator",
+          "text": "validation = await validator.validate_batch(batch, store)"
+        },
+        {
+          "line": 92,
+          "term": "validate",
+          "text": "validation = await validator.validate_batch(batch, store)"
+        },
+        {
+          "line": 102,
+          "term": "validator",
+          "text": "records = await validator.records_from_batch(batch, store)"
+        },
+        {
+          "line": 122,
+          "term": "validator",
+          "text": "validator: Validator | None = None,"
+        },
+        {
+          "line": 140,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 154,
+          "term": "validator",
+          "text": "validator: Validator | None = None,"
+        },
+        {
+          "line": 175,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 189,
+          "term": "validator",
+          "text": "validator: Validator | None = None,"
+        },
+        {
+          "line": 210,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 224,
+          "term": "validator",
+          "text": "validator: Validator | None = None,"
+        },
+        {
+          "line": 231,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store)"
+        },
+        {
+          "line": 247,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 263,
+          "term": "validator",
+          "text": "validator: Validator | None = None,"
+        },
+        {
+          "line": 286,
+          "term": "validator",
+          "text": "validator=validator,"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/proposal_packages.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "validator",
+          "text": "from mnemosyne.api.commitments import CommitmentApiResult, commit_commitment_candidate, default_commitment_validator"
+        },
+        {
+          "line": 54,
+          "term": "validator",
+          "text": "validator_context: dict[str, Any] | None = None,"
+        },
+        {
+          "line": 71,
+          "term": "validator",
+          "text": "validator_context=dict(validator_context or {}),"
+        },
+        {
+          "line": 77,
+          "term": "validate",
+          "text": "def validate_recovery_proposal_package("
+        },
+        {
+          "line": 160,
+          "term": "validator",
+          "text": "validator: Any | None = None,"
+        },
+        {
+          "line": 189,
+          "term": "validator",
+          "text": "validator=validator or default_commitment_validator(),"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "validator",
+          "text": "from mnemosyne.api.commitments import default_commitment_validator"
+        },
+        {
+          "line": 7,
+          "term": "ValidationResult",
+          "text": "from mnemosyne.core.models import CTLRecord, ValidationResult"
+        },
+        {
+          "line": 40,
+          "term": "ValidationResult",
+          "text": "def validation_results(self) -> list[ValidationResult]:"
+        },
+        {
+          "line": 100,
+          "term": "validate",
+          "text": "async def validate_and_commit_active_recovery("
+        },
+        {
+          "line": 107,
+          "term": "validator",
+          "text": "validator: Any | None = None,"
+        },
+        {
+          "line": 113,
+          "term": "validate",
+          "text": "\"\"\"Plan, validate, and commit active recovery through the product API."
+        },
+        {
+          "line": 120,
+          "term": "validate",
+          "text": "execution = await executor.plan_validate_and_commit("
+        },
+        {
+          "line": 125,
+          "term": "validator",
+          "text": "validator=validator or default_commitment_validator(),"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_events.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "require_recovery_store",
+          "text": "from mnemosyne.core.protocols.recovery_store import require_recovery_store"
+        },
+        {
+          "line": 26,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store)"
+        },
+        {
+          "line": 47,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/api/recovery_replay.py",
+      "sites": [
+        {
+          "line": 6,
+          "term": "require_recovery_store",
+          "text": "from mnemosyne.core.protocols.recovery_store import require_recovery_store"
+        },
+        {
+          "line": 45,
+          "term": "require_recovery_store",
+          "text": "store = require_recovery_store(store)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_disruptions.py",
+      "sites": [
+        {
+          "line": 181,
+          "term": "validate",
+          "text": "def validate_baseline_schedule("
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_recovery_proposals.py",
+      "sites": [
+        {
+          "line": 221,
+          "term": "validator",
+          "text": "validator_id=None,"
+        },
+        {
+          "line": 222,
+          "term": "validator",
+          "text": "validator_version=None,"
+        },
+        {
+          "line": 269,
+          "term": "validator",
+          "text": "validator_context={"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_repair_admission.py",
+      "sites": [
+        {
+          "line": 7,
+          "term": "ValidationResult",
+          "text": "from mnemosyne.core.models import CTLRecord, CommitBatch, TransitionCandidate, ValidationResult"
+        },
+        {
+          "line": 14,
+          "term": "ValidationResult",
+          "text": "validation: ValidationResult | None"
+        },
+        {
+          "line": 86,
+          "term": "validator",
+          "text": "validator: Any,"
+        },
+        {
+          "line": 110,
+          "term": "validator",
+          "text": "validation = await validator.validate_batch(batch, store)"
+        },
+        {
+          "line": 110,
+          "term": "validate",
+          "text": "validation = await validator.validate_batch(batch, store)"
+        },
+        {
+          "line": 120,
+          "term": "validator",
+          "text": "records = await validator.records_from_batch(batch, store)"
+        },
+        {
+          "line": 135,
+          "term": "validator",
+          "text": "validator: Any,"
+        },
+        {
+          "line": 150,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 246,
+          "term": "validator",
+          "text": "validator: Any,"
+        },
+        {
+          "line": 257,
+          "term": "validator",
+          "text": "validator=validator,"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/benchmarks/jssp_schedule_admission.py",
+      "sites": [
+        {
+          "line": 11,
+          "term": "validate",
+          "text": "validate_baseline_schedule,"
+        },
+        {
+          "line": 13,
+          "term": "ValidationResult",
+          "text": "from mnemosyne.core.models import CTLRecord, CommitBatch, TransitionCandidate, ValidationResult"
+        },
+        {
+          "line": 30,
+          "term": "ValidationResult",
+          "text": "validation: ValidationResult | None"
+        },
+        {
+          "line": 107,
+          "term": "validator",
+          "text": "validator_id=None,"
+        },
+        {
+          "line": 108,
+          "term": "validator",
+          "text": "validator_version=None,"
+        },
+        {
+          "line": 168,
+          "term": "validator",
+          "text": "validator: Any,"
+        },
+        {
+          "line": 188,
+          "term": "validate",
+          "text": "schedule_violations = validate_baseline_schedule(schedule)"
+        },
+        {
+          "line": 199,
+          "term": "validator",
+          "text": "validation = await validator.validate_batch(batch, store)"
+        },
+        {
+          "line": 199,
+          "term": "validate",
+          "text": "validation = await validator.validate_batch(batch, store)"
+        },
+        {
+          "line": 210,
+          "term": "validator",
+          "text": "records = await validator.records_from_batch(batch, store)"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/core/recovery/packages.py",
+      "sites": [
+        {
+          "line": 25,
+          "term": "validator",
+          "text": "validator_context: dict[str, Any] = field(default_factory=dict)"
+        },
+        {
+          "line": 67,
+          "term": "validator",
+          "text": "\"validator_context\": dict(package.validator_context),"
+        },
+        {
+          "line": 84,
+          "term": "validator",
+          "text": "validator_context=dict(data.get(\"validator_context\", {})),"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/core/validation/__init__.py",
+      "sites": [
+        {
+          "line": 1,
+          "term": "validator",
+          "text": "from .validator import ConstraintFn, ConstraintKey, ConstraintRegistry, NoopSchemaValidator, Validator"
+        }
+      ]
+    },
+    {
+      "path": "mnemosyne/core/validation/validator.py",
+      "sites": [
+        {
+          "line": 15,
+          "term": "ValidationResult",
+          "text": "ValidationResult,"
+        },
+        {
+          "line": 38,
+          "term": "validate",
+          "text": "def validate(self, schema_id: str, schema_version: str, payload: dict[str, Any]) -> ValidationResult:"
+        },
+        {
+          "line": 38,
+          "term": "ValidationResult",
+          "text": "def validate(self, schema_id: str, schema_version: str, payload: dict[str, Any]) -> ValidationResult:"
+        },
+        {
+          "line": 39,
+          "term": "ValidationResult",
+          "text": "return ValidationResult.pass_()"
+        },
+        {
+          "line": 47,
+          "term": "validator",
+          "text": "schema_validator: SchemaValidator | None = None,"
+        },
+        {
+          "line": 48,
+          "term": "validator",
+          "text": "validator_id: str = \"core.validator\","
+        },
+        {
+          "line": 49,
+          "term": "validator",
+          "text": "validator_version: str = \"1.0\","
+        },
+        {
+          "line": 53,
+          "term": "validator",
+          "text": "self.schema_validator = schema_validator or NoopSchemaValidator()"
+        },
+        {
+          "line": 54,
+          "term": "validator",
+          "text": "self.validator_id = validator_id"
+        },
+        {
+          "line": 55,
+          "term": "validator",
+          "text": "self.validator_version = validator_version"
+        },
+        {
+          "line": 57,
+          "term": "validate",
+          "text": "async def validate_candidate(self, candidate: TransitionCandidate, store: Store) -> ValidationResult:"
+        },
+        {
+          "line": 57,
+          "term": "ValidationResult",
+          "text": "async def validate_candidate(self, candidate: TransitionCandidate, store: Store) -> ValidationResult:"
+        },
+        {
+          "line": 61,
+          "term": "ValidationResult",
+          "text": "return ValidationResult.fail(errors)"
+        },
+        {
+          "line": 115,
+          "term": "validator",
+          "text": "schema_result = self.schema_validator.validate(candidate.schema_id, candidate.schema_version, candidate.extension)"
+        },
+        {
+          "line": 115,
+          "term": "validate",
+          "text": "schema_result = self.schema_validator.validate(candidate.schema_id, candidate.schema_version, candidate.extension)"
+        },
+        {
+          "line": 127,
+          "term": "ValidationResult",
+          "text": "return ValidationResult.fail(errors)"
+        },
+        {
+          "line": 128,
+          "term": "validator",
+          "text": "return ValidationResult(ok=True, validator_id=self.validator_id, validator_version=self.validator_version)"
+        },
+        {
+          "line": 128,
+          "term": "ValidationResult",
+          "text": "return ValidationResult(ok=True, validator_id=self.validator_id, validator_version=self.validator_version)"
+        },
+        {
+          "line": 130,
+          "term": "validate",
+          "text": "async def validate_batch(self, batch: CommitBatch, store: Store) -> ValidationResult:"
+        },
+        {
+          "line": 130,
+          "term": "ValidationResult",
+          "text": "async def validate_batch(self, batch: CommitBatch, store: Store) -> ValidationResult:"
+        },
+        {
+          "line": 143,
+          "term": "validate",
+          "text": "result = await self.validate_candidate(candidate, store)"
+        },
+        {
+          "line": 157,
+          "term": "ValidationResult",
+          "text": "return ValidationResult.fail(errors)"
+        },
+        {
+          "line": 158,
+          "term": "validator",
+          "text": "return ValidationResult(ok=True, validator_id=self.validator_id, validator_version=self.validator_version)"
+        },
+        {
+          "line": 158,
+          "term": "ValidationResult",
+          "text": "return ValidationResult(ok=True, validator_id=self.validator_id, validator_version=self.validator_version)"
+        },
+        {
+          "line": 255,
+          "term": "validator",
+          "text": "validator_id=self.validator_id,"
+        },
+        {
+          "line": 256,
+          "term": "validator",
+          "text": "validator_version=self.validator_version,"
+        }
+      ]
+    },
+    {
+      "path": "tests/benchmarks/test_jssp_repair_admission.py",
+      "sites": [
+        {
+          "line": 34,
+          "term": "validator",
+          "text": "async def _seed_recovery_proposal_batch(store, validator):"
+        },
+        {
+          "line": 40,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 92,
+          "term": "validator",
+          "text": "async def test_selects_all_repair_candidates_from_proposal_batch(store, validator):"
+        },
+        {
+          "line": 93,
+          "term": "validator",
+          "text": "schedule, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 119,
+          "term": "validator",
+          "text": "async def test_selects_subset_of_repair_candidates_by_operation_key(store, validator):"
+        },
+        {
+          "line": 120,
+          "term": "validator",
+          "text": "_, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 136,
+          "term": "validator",
+          "text": "async def test_selected_repair_commit_batch_is_domain_ctl_batch(store, validator):"
+        },
+        {
+          "line": 137,
+          "term": "validator",
+          "text": "_, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 161,
+          "term": "validator",
+          "text": "validator,"
+        },
+        {
+          "line": 163,
+          "term": "validator",
+          "text": "schedule, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 190,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 239,
+          "term": "validator",
+          "text": "validator,"
+        },
+        {
+          "line": 247,
+          "term": "validator",
+          "text": "schedule, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 258,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 337,
+          "term": "validator",
+          "text": "async def test_admit_and_finalize_repair_candidates_one_step_helper(store, validator):"
+        },
+        {
+          "line": 343,
+          "term": "validator",
+          "text": "_, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 347,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 381,
+          "term": "validator",
+          "text": "validator,"
+        },
+        {
+          "line": 385,
+          "term": "validator",
+          "text": "schedule, proposal_batch = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 419,
+          "term": "validator",
+          "text": "validator=validator,"
+        },
+        {
+          "line": 466,
+          "term": "validator",
+          "text": "validator,"
+        },
+        {
+          "line": 470,
+          "term": "validator",
+          "text": "schedule, _ = await _seed_recovery_proposal_batch(store, validator)"
+        },
+        {
+          "line": 492,
+          "term": "validator",
+          "text": "validator=validator,"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_admission_boundary.py",
+      "sites": [
+        {
+          "line": 57,
+          "term": "validator",
+          "text": "validator_id=candidate.validator_id,"
+        },
+        {
+          "line": 58,
+          "term": "validator",
+          "text": "validator_version=candidate.validator_version,"
+        },
+        {
+          "line": 88,
+          "term": "validator",
+          "text": "validator_id=\"test.validator\","
+        },
+        {
+          "line": 89,
+          "term": "validator",
+          "text": "validator_version=\"1.0\","
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_api_store_boundary.py",
+      "sites": [
+        {
+          "line": 11,
+          "term": "RecoveryStore",
+          "text": "from mnemosyne.core.protocols.recovery_store import RecoveryStoreCapabilityError"
+        },
+        {
+          "line": 20,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError) as exc:"
+        },
+        {
+          "line": 27,
+          "term": "RecoveryStore",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        },
+        {
+          "line": 32,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError) as exc:"
+        },
+        {
+          "line": 39,
+          "term": "RecoveryStore",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        },
+        {
+          "line": 44,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError) as exc:"
+        },
+        {
+          "line": 51,
+          "term": "RecoveryStore",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        },
+        {
+          "line": 56,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError) as exc:"
+        },
+        {
+          "line": 66,
+          "term": "RecoveryStore",
+          "text": "assert \"RecoveryStore capability boundary\" in str(exc.value)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_event_api.py",
+      "sites": [
+        {
+          "line": 11,
+          "term": "RecoveryStore",
+          "text": "from mnemosyne.core.protocols.recovery_store import RecoveryStoreCapabilityError"
+        },
+        {
+          "line": 107,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError):"
+        },
+        {
+          "line": 113,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError):"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_proposal_package_candidates.py",
+      "sites": [
+        {
+          "line": 68,
+          "term": "validator",
+          "text": "validator_id=None,"
+        },
+        {
+          "line": 69,
+          "term": "validator",
+          "text": "validator_version=None,"
+        },
+        {
+          "line": 98,
+          "term": "validator",
+          "text": "validator_id=\"test.validator\","
+        },
+        {
+          "line": 99,
+          "term": "validator",
+          "text": "validator_version=\"1.0\","
+        },
+        {
+          "line": 124,
+          "term": "validator",
+          "text": "validator_context={\"source\": \"runtime\"},"
+        },
+        {
+          "line": 257,
+          "term": "validator",
+          "text": "validator = Validator(build_commitment_fsm_registry())"
+        },
+        {
+          "line": 259,
+          "term": "validator",
+          "text": "validation = await validator.validate_batch(candidate_batch, store)"
+        },
+        {
+          "line": 259,
+          "term": "validate",
+          "text": "validation = await validator.validate_batch(candidate_batch, store)"
+        },
+        {
+          "line": 263,
+          "term": "validator",
+          "text": "records = await validator.records_from_batch(candidate_batch, store)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_proposal_package_events.py",
+      "sites": [
+        {
+          "line": 43,
+          "term": "validator",
+          "text": "validator_id=None,"
+        },
+        {
+          "line": 44,
+          "term": "validator",
+          "text": "validator_version=None,"
+        },
+        {
+          "line": 59,
+          "term": "validator",
+          "text": "validator_context={\"source\": \"runtime\"},"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_proposal_packages.py",
+      "sites": [
+        {
+          "line": 37,
+          "term": "validator",
+          "text": "validator_id=None,"
+        },
+        {
+          "line": 38,
+          "term": "validator",
+          "text": "validator_version=None,"
+        },
+        {
+          "line": 66,
+          "term": "validator",
+          "text": "validator_id=None,"
+        },
+        {
+          "line": 67,
+          "term": "validator",
+          "text": "validator_version=None,"
+        },
+        {
+          "line": 79,
+          "term": "validator",
+          "text": "validator_context={\"source\": \"runtime\"},"
+        },
+        {
+          "line": 111,
+          "term": "validator",
+          "text": "assert restored.validator_context == pkg.validator_context"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_replay_api.py",
+      "sites": [
+        {
+          "line": 10,
+          "term": "RecoveryStore",
+          "text": "from mnemosyne.core.protocols.recovery_store import RecoveryStoreCapabilityError"
+        },
+        {
+          "line": 145,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError):"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_service.py",
+      "sites": [
+        {
+          "line": 54,
+          "term": "validator",
+          "text": "validator_id=candidate.validator_id,"
+        },
+        {
+          "line": 55,
+          "term": "validator",
+          "text": "validator_version=candidate.validator_version,"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_capability_guard.py",
+      "sites": [
+        {
+          "line": 10,
+          "term": "RecoveryStore",
+          "text": "RecoveryStoreCapabilityError,"
+        },
+        {
+          "line": 12,
+          "term": "require_recovery_store",
+          "text": "require_recovery_store,"
+        },
+        {
+          "line": 21,
+          "term": "RecoveryStore",
+          "text": "class ReadOnlyRecoveryStore:"
+        },
+        {
+          "line": 42,
+          "term": "require_recovery_store",
+          "text": "assert require_recovery_store(store) is store"
+        },
+        {
+          "line": 50,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError) as exc:"
+        },
+        {
+          "line": 51,
+          "term": "require_recovery_store",
+          "text": "require_recovery_store(store)"
+        },
+        {
+          "line": 54,
+          "term": "RecoveryStore",
+          "text": "assert \"RecoveryStore capability boundary\" in message"
+        },
+        {
+          "line": 60,
+          "term": "RecoveryStore",
+          "text": "store = ReadOnlyRecoveryStore()"
+        },
+        {
+          "line": 67,
+          "term": "require_recovery_store",
+          "text": "assert require_recovery_store(store, required_methods=RECOVERY_READ_METHODS) is store"
+        },
+        {
+          "line": 69,
+          "term": "RecoveryStore",
+          "text": "with pytest.raises(RecoveryStoreCapabilityError) as exc:"
+        },
+        {
+          "line": 70,
+          "term": "require_recovery_store",
+          "text": "require_recovery_store(store)"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_persistence.py",
+      "sites": [
+        {
+          "line": 53,
+          "term": "validator",
+          "text": "validator_id=candidate.validator_id,"
+        },
+        {
+          "line": 54,
+          "term": "validator",
+          "text": "validator_version=candidate.validator_version,"
+        }
+      ]
+    },
+    {
+      "path": "tests/core/test_recovery_store_protocol.py",
+      "sites": [
+        {
+          "line": 12,
+          "term": "RecoveryStore",
+          "text": "RecoveryStore,"
+        },
+        {
+          "line": 24,
+          "term": "RecoveryStore",
+          "text": "assert isinstance(store, RecoveryStore)"
+        }
+      ]
+    }
+  ]
+}

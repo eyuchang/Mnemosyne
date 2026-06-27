@@ -34,6 +34,13 @@ from mnemosyne.api.proposal_packages import (
     package_to_reference,
     validate_recovery_proposal_package,
 )
+from mnemosyne.api.recovery_events import (
+    RecoveryEventApiResult,
+    append_recovery_event,
+    list_recovery_events,
+    recovery_event_api_result_to_dict,
+    recovery_events_to_dicts,
+)
 from mnemosyne.api.recovery import (
     RecoveryApiExecution,
     plan_active_recovery,
@@ -54,6 +61,11 @@ from mnemosyne.api.reports import (
 )
 
 __all__ = [
+    "recovery_events_to_dicts",
+    "recovery_event_api_result_to_dict",
+    "list_recovery_events",
+    "append_recovery_event",
+    "RecoveryEventApiResult",
     "ActiveCommitmentAuditRow",
     "CommitmentApiResult",
     "CommitmentLineageRow",

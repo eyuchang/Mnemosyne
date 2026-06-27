@@ -229,3 +229,144 @@ async def test_admitting_selected_repair_candidates_mutates_only_selected_statev
     assert after_j1.version == 1
     assert after_j1.attrs["start"] == 0
     assert after_j1.attrs["end"] == 3
+
+
+@pytest.mark.asyncio
+async def test_finalizing_repaired_commitments_marks_selected_commitments_admitted(
+    store,
+    validator,
+):
+    from mnemosyne.api.audit import audit_active_commitments, list_unresolved_commitments
+    from mnemosyne.benchmarks.jssp_repair_admission import (
+        admit_and_finalize_repair_candidates_from_proposal_batch,
+        finalize_commitments_for_repair_admission,
+    )
+
+    schedule, proposal_batch = await _seed_recovery_proposal_batch(store, validator)
+
+    unresolved_before = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved_before.count == 9
+
+    repair_admission = await admit_repair_candidates_from_proposal_batch(
+        store=store,
+        validator=validator,
+        tenant_id=T,
+        tx_group_id="tx:r61-jssp:repair-admission",
+        workflow_id=W,
+        proposal_batch=proposal_batch,
+    )
+    assert repair_admission.ok
+
+    unresolved_after_domain_repair = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+
+    # Domain repair admission mutates schedule truth, but commitment finalization
+    # is a separate commitment-FSM admission step.
+    assert unresolved_after_domain_repair.count == 9
+
+    finalization = await finalize_commitments_for_repair_admission(
+        store=store,
+        tenant_id=T,
+        tx_group_id="tx:r61-jssp:commitment-finalization",
+        workflow_id=W,
+        proposal_batch=proposal_batch,
+        repair_admission=repair_admission,
+    )
+
+    assert finalization.ok
+    assert finalization.admitted_record_ids == [
+        "rid:jssp:jssp-3x3-smoke:repair-candidate:J3-O2",
+        "rid:jssp:jssp-3x3-smoke:repair-candidate:J2-O3",
+    ]
+    assert finalization.commitment_ids == proposal_batch.commitment_ids
+
+    active_rows = await audit_active_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+
+    admitted = {
+        row.commitment_id
+        for row in active_rows
+        if row.status == "admitted"
+    }
+    live = {
+        row.commitment_id
+        for row in active_rows
+        if row.status == "live"
+    }
+
+    assert admitted == set(proposal_batch.commitment_ids)
+    assert len(live) == 7
+
+    unresolved_after_finalization = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved_after_finalization.count == 7
+
+    after_j3 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J3:O2"),
+        JSSP_FSM_ID,
+    )
+    after_j2 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J2:O3"),
+        JSSP_FSM_ID,
+    )
+
+    assert after_j3.attrs["start"] == 9
+    assert after_j3.attrs["end"] == 12
+    assert after_j2.attrs["start"] == 12
+    assert after_j2.attrs["end"] == 16
+
+
+@pytest.mark.asyncio
+async def test_admit_and_finalize_repair_candidates_one_step_helper(store, validator):
+    from mnemosyne.api.audit import audit_active_commitments, list_unresolved_commitments
+    from mnemosyne.benchmarks.jssp_repair_admission import (
+        admit_and_finalize_repair_candidates_from_proposal_batch,
+    )
+
+    _, proposal_batch = await _seed_recovery_proposal_batch(store, validator)
+
+    repair_admission, finalization = await admit_and_finalize_repair_candidates_from_proposal_batch(
+        store=store,
+        validator=validator,
+        tenant_id=T,
+        repair_tx_group_id="tx:r61-jssp:repair-admission",
+        finalize_tx_group_id="tx:r61-jssp:commitment-finalization",
+        workflow_id=W,
+        proposal_batch=proposal_batch,
+    )
+
+    assert repair_admission.ok
+    assert finalization.ok
+    assert repair_admission.committed_rids == finalization.admitted_record_ids
+
+    active_rows = await audit_active_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert {
+        row.status
+        for row in active_rows
+    } == {"live", "admitted"}
+
+    unresolved = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved.count == 7

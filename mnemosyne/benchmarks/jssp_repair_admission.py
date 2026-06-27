@@ -154,3 +154,122 @@ async def admit_repair_candidates_from_proposal_batch(
         selected_candidates=selected,
         batch_id=batch_id,
     )
+
+
+@dataclass(frozen=True)
+class JSSPFinalizedRepairCommitment:
+    operation_key: str
+    commitment_id: str
+    admitted_record_ids: list[str]
+    result: Any
+
+    @property
+    def ok(self) -> bool:
+        return self.result.ok
+
+
+@dataclass(frozen=True)
+class JSSPRepairCommitmentFinalization:
+    finalized: list[JSSPFinalizedRepairCommitment]
+
+    @property
+    def ok(self) -> bool:
+        return all(item.ok for item in self.finalized)
+
+    @property
+    def commitment_ids(self) -> list[str]:
+        return [item.commitment_id for item in self.finalized]
+
+    @property
+    def admitted_record_ids(self) -> list[str]:
+        return [
+            rid
+            for item in self.finalized
+            for rid in item.admitted_record_ids
+        ]
+
+
+async def finalize_commitments_for_repair_admission(
+    *,
+    store: Any,
+    tenant_id: str,
+    tx_group_id: str,
+    workflow_id: str,
+    proposal_batch: JSSPRecoveryProposalBatch,
+    repair_admission: JSSPSelectedRepairAdmission,
+    rid_prefix: str | None = None,
+    batch_prefix: str | None = None,
+) -> JSSPRepairCommitmentFinalization:
+    from mnemosyne.api.commitments import admit_active_commitment
+
+    committed_rids = set(repair_admission.committed_rids)
+    finalized: list[JSSPFinalizedRepairCommitment] = []
+
+    for proposal in proposal_batch.proposals:
+        admitted_record_ids = [
+            rid
+            for rid in proposal.candidate_rids
+            if rid in committed_rids
+        ]
+
+        if not admitted_record_ids:
+            continue
+
+        safe_key = proposal.operation_key.replace(":", "-")
+
+        result = await admit_active_commitment(
+            store=store,
+            tenant_id=tenant_id,
+            tx_group_id=tx_group_id,
+            workflow_id=workflow_id,
+            commitment_id=proposal.commitment_id,
+            admitted_record_ids=admitted_record_ids,
+            rid=f"{rid_prefix or 'rid:jssp:commitment-admitted'}:{safe_key}",
+            batch_id=f"{batch_prefix or 'batch:jssp:commitment-admitted'}:{safe_key}",
+        )
+
+        finalized.append(
+            JSSPFinalizedRepairCommitment(
+                operation_key=proposal.operation_key,
+                commitment_id=proposal.commitment_id,
+                admitted_record_ids=admitted_record_ids,
+                result=result,
+            )
+        )
+
+    return JSSPRepairCommitmentFinalization(finalized=finalized)
+
+
+async def admit_and_finalize_repair_candidates_from_proposal_batch(
+    *,
+    store: Any,
+    validator: Any,
+    tenant_id: str,
+    repair_tx_group_id: str,
+    finalize_tx_group_id: str,
+    workflow_id: str,
+    proposal_batch: JSSPRecoveryProposalBatch,
+    operation_keys: list[str] | None = None,
+    repair_batch_id: str | None = None,
+) -> tuple[JSSPSelectedRepairAdmission, JSSPRepairCommitmentFinalization]:
+    repair_admission = await admit_repair_candidates_from_proposal_batch(
+        store=store,
+        validator=validator,
+        tenant_id=tenant_id,
+        tx_group_id=repair_tx_group_id,
+        workflow_id=workflow_id,
+        proposal_batch=proposal_batch,
+        operation_keys=operation_keys,
+        batch_id=repair_batch_id,
+    )
+
+    finalization = await finalize_commitments_for_repair_admission(
+        store=store,
+        tenant_id=tenant_id,
+        tx_group_id=finalize_tx_group_id,
+        workflow_id=workflow_id,
+        proposal_batch=proposal_batch,
+        repair_admission=repair_admission,
+    )
+
+    return repair_admission, finalization

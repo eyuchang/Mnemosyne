@@ -747,3 +747,60 @@ Limitation:
 
     R6.6 models the Mnemosyne recovery pattern as deterministic benchmark artifacts.
     It does not yet call core CTL mutation APIs directly.
+
+
+---
+
+## R6.7 Thanksgiving API-bound recovery complete
+
+R6.7 binds the Thanksgiving P9 recovery benchmark to real Mnemosyne APIs.
+
+Added runner:
+
+    benchmarks/realm/scripts/run_thanksgiving_api_bound_recovery.py
+
+Added API surface inspector:
+
+    benchmarks/realm/scripts/inspect_thanksgiving_api_binding_surface.py
+
+Generated reports:
+
+    benchmarks/realm/reports/thanksgiving_api_binding_surface.md
+    benchmarks/realm/reports/thanksgiving_api_bound_recovery_report.md
+    benchmarks/realm/reports/thanksgiving_suite_report.md
+
+Generated API-bound artifact:
+
+    benchmarks/realm/api_bound/p9_thanksgiving_api_bound_recovery.json
+
+The API-bound runner exercises:
+
+    SQLiteStore
+    register_active_commitment
+    fire_active_commitment
+    create_recovery_proposal_package
+    emit_package_backed_proposal
+    admit_active_commitment
+    get_active_commitment_status
+    audit_active_commitments
+    audit_commitment_lineage
+    audit_recovery_lineage
+    list_unresolved_commitments
+
+Current result:
+
+    registered commitments: 4
+    fired commitments: 2
+    proposal packages: 1
+    admitted repairs: 1
+    feasible after repair: True
+    optimality status: feasible_not_proven_optimal
+
+Validation:
+
+    265 passed, 24 skipped
+
+Limitation:
+
+    R6.7 uses local SQLiteStore and deterministic benchmark repair.
+    Durable production runtime binding remains future work.

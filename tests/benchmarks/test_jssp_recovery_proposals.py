@@ -9,6 +9,7 @@ from mnemosyne.benchmarks.jssp_disruption_commitments import (
     signal_machine_breakdown,
 )
 from mnemosyne.benchmarks.jssp_disruptions import (
+    DisruptedOperation,
     make_jssp_3x3_baseline_schedule,
     make_machine_breakdown_for_3x3_smoke,
     schedule_entity_id,
@@ -17,6 +18,7 @@ from mnemosyne.benchmarks.jssp_recovery_proposals import (
     emit_recovery_proposals_for_disruption,
     proposal_scope_for_disrupted_operation,
     recovery_package_for_disrupted_operation,
+    repair_details_for_disrupted_operation,
 )
 from mnemosyne.benchmarks.jssp_schedule_admission import (
     JSSP_FSM_ID,
@@ -28,7 +30,6 @@ W = "workflow:r60-jssp"
 G = "tx:r60-jssp"
 
 
-@pytest.mark.asyncio
 async def _seed_disrupted_schedule(store, validator):
     schedule = make_jssp_3x3_baseline_schedule()
     disruption = make_machine_breakdown_for_3x3_smoke()
@@ -65,15 +66,12 @@ async def _seed_disrupted_schedule(store, validator):
     return schedule, disruption, registrations, signal
 
 
-def test_jssp_recovery_proposal_scope_is_inert_and_stable():
+def test_jssp_recovery_proposal_scope_is_dependency_bounded_and_details_are_inert():
     schedule = make_jssp_3x3_baseline_schedule()
     disruption = make_machine_breakdown_for_3x3_smoke()
-    disrupted = schedule.operations_by_machine("M1")[1]
-
-    from mnemosyne.benchmarks.jssp_disruptions import DisruptedOperation
 
     item = DisruptedOperation(
-        scheduled_operation=disrupted,
+        scheduled_operation=schedule.operations_by_machine("M1")[1],
         disruption=disruption,
         reason="operation_overlaps_machine_unavailability",
     )
@@ -83,22 +81,35 @@ def test_jssp_recovery_proposal_scope_is_inert_and_stable():
         disruption=disruption,
         disrupted_operation=item,
     )
+    details = repair_details_for_disrupted_operation(
+        schedule=schedule,
+        disruption=disruption,
+        disrupted_operation=item,
+    )
 
-    assert scope["case_id"] == "jssp-3x3-smoke"
-    assert scope["operation_key"] == "J3:O2"
-    assert scope["machine_id"] == "M1"
-    assert scope["original_start"] == 4
-    assert scope["original_end"] == 7
-    assert scope["candidate_start_not_before"] == 9
-    assert scope["repair_intent"] == "reschedule_after_machine_recovers"
-    assert scope["domain_mutation"] is False
+    assert scope == {
+        "case_id": "jssp-3x3-smoke",
+        "job_id": "J3",
+        "operation_id": "O2",
+        "machine_id": "M1",
+        "operation_key": "J3:O2",
+        "schedule_entity_id": "jssp:jssp-3x3-smoke:operation:J3:O2",
+        "entity_id": "jssp:jssp-3x3-smoke:operation:J3:O2",
+    }
+
+    assert details["case_id"] == "jssp-3x3-smoke"
+    assert details["operation_key"] == "J3:O2"
+    assert details["machine_id"] == "M1"
+    assert details["original_start"] == 4
+    assert details["original_end"] == 7
+    assert details["candidate_start_not_before"] == 9
+    assert details["repair_intent"] == "reschedule_after_machine_recovers"
+    assert details["domain_mutation"] is False
 
 
 def test_jssp_recovery_package_is_stable():
     schedule = make_jssp_3x3_baseline_schedule()
     disruption = make_machine_breakdown_for_3x3_smoke()
-
-    from mnemosyne.benchmarks.jssp_disruptions import DisruptedOperation
 
     item = DisruptedOperation(
         scheduled_operation=schedule.operations_by_machine("M1")[1],
@@ -116,7 +127,9 @@ def test_jssp_recovery_package_is_stable():
     assert package.package_id == "pkg:jssp:jssp-3x3-smoke:repair:J3-O2"
     assert package.proposal_ref == "proposal:jssp:jssp-3x3-smoke:repair:J3-O2"
     assert package.commitment_id == "jssp:jssp-3x3-smoke:commitment:J3:O2:machine:M1"
-    assert package.proposal_scope["domain_mutation"] is False
+    assert package.proposal_scope["entity_id"] == "jssp:jssp-3x3-smoke:operation:J3:O2"
+    assert package.validator_context["repair_details"]["domain_mutation"] is False
+    assert package.validator_context["repair_details"]["candidate_start_not_before"] == 9
     assert package.created_from_record_id == "rid:jssp:breakdown-fire:J3-O2"
 
 
@@ -190,7 +203,6 @@ async def test_jssp_recovery_proposals_move_fired_commitments_to_proposed(store,
     assert [row.package_id for row in lineage] == batch.package_ids
     assert [row.proposal_ref for row in lineage] == batch.proposal_refs
 
-    # Recovery proposals are inert. They must not mutate the admitted schedule.
     for scheduled_operation in schedule.operations:
         state_view = await store.get_state_view(
             T,

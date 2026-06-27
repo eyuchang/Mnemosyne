@@ -17,6 +17,7 @@ from mnemosyne.benchmarks.jssp_disruptions import (
     DisruptedOperation,
     JSSPBaselineSchedule,
     MachineBreakdown,
+    dependency_scope_for_operation,
 )
 
 
@@ -76,6 +77,21 @@ def proposal_scope_for_disrupted_operation(
     disrupted_operation: DisruptedOperation,
 ) -> dict[str, Any]:
     scheduled = disrupted_operation.scheduled_operation
+    scope = dependency_scope_for_operation(
+        case_id=schedule.case_id,
+        operation=scheduled,
+    )
+    scope["entity_id"] = scope["schedule_entity_id"]
+    return scope
+
+
+def repair_details_for_disrupted_operation(
+    *,
+    schedule: JSSPBaselineSchedule,
+    disruption: MachineBreakdown,
+    disrupted_operation: DisruptedOperation,
+) -> dict[str, Any]:
+    scheduled = disrupted_operation.scheduled_operation
 
     return {
         "case_id": schedule.case_id,
@@ -122,6 +138,13 @@ def recovery_package_for_disrupted_operation(
             "Propose an inert rescheduling repair package; do not mutate "
             "domain schedule state until a separate domain CTL admission."
         ),
+        validator_context={
+            "repair_details": repair_details_for_disrupted_operation(
+                schedule=schedule,
+                disruption=disruption,
+                disrupted_operation=disrupted_operation,
+            )
+        },
         created_from_record_id=created_from_record_id,
         created_by=created_by,
     )

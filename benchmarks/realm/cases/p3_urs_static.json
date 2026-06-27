@@ -1,0 +1,102 @@
+{
+  "case_id": "P3",
+  "constraints": [
+    "Vehicle capacity is two passengers.",
+    "All passenger airport deadlines must be met."
+  ],
+  "description": "Vehicle-passenger matching with capacity and airport-arrival deadlines.",
+  "disruptions": [],
+  "entities": {
+    "airport": "G",
+    "airport_name": "BOS",
+    "locations": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+    ],
+    "requests": [
+      {
+        "arrival_deadline": "08:45",
+        "destination": "G",
+        "pickup": "A",
+        "request_id": "r1"
+      },
+      {
+        "arrival_deadline": "08:50",
+        "destination": "G",
+        "pickup": "B",
+        "request_id": "r2"
+      },
+      {
+        "arrival_deadline": "08:55",
+        "destination": "G",
+        "pickup": "C",
+        "request_id": "r3"
+      },
+      {
+        "arrival_deadline": "09:00",
+        "destination": "G",
+        "pickup": "D",
+        "request_id": "r4"
+      }
+    ],
+    "urban_locations": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "vehicles": [
+      {
+        "capacity": 2,
+        "initial_location": "A",
+        "vehicle_id": "k1"
+      },
+      {
+        "capacity": 2,
+        "initial_location": "C",
+        "vehicle_id": "k2"
+      },
+      {
+        "capacity": 2,
+        "initial_location": "E",
+        "vehicle_id": "k3"
+      }
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "on_time_performance",
+    "total_distance",
+    "capacity_satisfaction"
+  ],
+  "mode": "static",
+  "name": "Urban Ride-Sharing",
+  "objective": "Assign vehicles and pickup times to deliver all passengers to BOS on time while reducing distance and inefficiency.",
+  "requirements": [
+    "Dispatcher determines pickup times from a feasible schedule.",
+    "Pickup times must allow vehicle travel to pickup point and then airport arrival by deadline."
+  ],
+  "short_name": "URS-static",
+  "source_table": "Table 3",
+  "tier": 2,
+  "travel_model": {
+    "airport_distances_km": {
+      "A-G": 35,
+      "B-G": 33,
+      "C-G": 36,
+      "D-G": 34,
+      "E-G": 32,
+      "F-G": 31
+    },
+    "airport_speed_kmh": 100,
+    "urban_pair_distance_km": 10,
+    "urban_speed_kmh": 60
+  }
+}

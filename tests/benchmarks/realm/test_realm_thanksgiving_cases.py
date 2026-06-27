@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from tests.benchmarks.realm_thanksgiving_cases import (
+from benchmarks.realm.adapters.thanksgiving_cases import (
     thanksgiving_dynamic_scenario,
     thanksgiving_static_scenario,
 )

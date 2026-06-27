@@ -1,0 +1,95 @@
+{
+  "case_id": "P4",
+  "constraints": [
+    "Vehicle capacity is two passengers.",
+    "Passenger airport deadlines must be satisfied if feasible."
+  ],
+  "description": "Urban ride-sharing with traffic delays and route changes requiring real-time replanning.",
+  "disruptions": [
+    {
+      "description": "Airport route traffic delay.",
+      "type": "traffic_delay"
+    },
+    {
+      "description": "Certain local road closure.",
+      "type": "road_closure"
+    }
+  ],
+  "entities": {
+    "passengers": [
+      {
+        "arrival_deadline": "08:30",
+        "destination": "airport",
+        "passenger_id": "p1"
+      },
+      {
+        "arrival_deadline": "09:00",
+        "destination": "airport",
+        "passenger_id": "p2"
+      },
+      {
+        "arrival_deadline": "09:30",
+        "destination": "airport",
+        "passenger_id": "p3"
+      },
+      {
+        "arrival_deadline": "09:45",
+        "destination": "airport",
+        "passenger_id": "p4"
+      },
+      {
+        "arrival_deadline": "09:45",
+        "destination": "airport",
+        "passenger_id": "p5"
+      }
+    ],
+    "vehicles": [
+      {
+        "capacity": 2,
+        "initial_location": "city_center",
+        "vehicle_id": "v1"
+      },
+      {
+        "capacity": 2,
+        "initial_location": "city_center",
+        "vehicle_id": "v2"
+      },
+      {
+        "capacity": 2,
+        "initial_location": "city_center",
+        "vehicle_id": "v3"
+      }
+    ]
+  },
+  "extends": "P3",
+  "family": "planning",
+  "metrics": [
+    "on_time_performance",
+    "total_vehicle_travel_time",
+    "disruption_adaptation"
+  ],
+  "mode": "dynamic",
+  "name": "Urban Ride-Sharing with Disruptions",
+  "objective": "Minimize total vehicle travel time while meeting passenger deadlines under disruptions.",
+  "requirements": [
+    "Respond to traffic delays and road closures.",
+    "Maintain capacity and deadline feasibility after replanning."
+  ],
+  "short_name": "URS-dynamic",
+  "source_table": "Table 4",
+  "tier": 4,
+  "travel_model": {
+    "between_pickups_minutes": [
+      20,
+      30
+    ],
+    "city_center_to_pickup_minutes": [
+      15,
+      30
+    ],
+    "pickup_to_airport_minutes": [
+      45,
+      60
+    ]
+  }
+}

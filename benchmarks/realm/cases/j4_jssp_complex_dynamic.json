@@ -1,0 +1,127 @@
+{
+  "case_id": "J4",
+  "constraints": [
+    "Operations must respect job-specific order.",
+    "Machines are exclusive-use and non-preemptive.",
+    "Materials must be present and available before operation start.",
+    "Schedule must react to real-time delays and shortages."
+  ],
+  "description": "Enhanced JSSP with stochastic delays and material disruptions requiring adaptive rescheduling.",
+  "disruptions": [
+    {
+      "distribution": "Uniform(0, 3)",
+      "type": "stochastic_operation_delay"
+    },
+    {
+      "description": "Materials may become temporarily unavailable.",
+      "materials_examples": [
+        "C-X",
+        "F"
+      ],
+      "type": "material_unavailability"
+    }
+  ],
+  "entities": {
+    "jobs": [
+      "J1",
+      "J2",
+      "J3",
+      "J4",
+      "J5",
+      "J6"
+    ],
+    "machines": [
+      "M1 Lathe",
+      "M2 Mill",
+      "M3 Drill",
+      "M4 Assembly"
+    ],
+    "materials": [
+      "RM-S",
+      "RM-A",
+      "C-X",
+      "C-Y",
+      "F"
+    ],
+    "operation_templates": [
+      {
+        "jobs": [
+          "J1",
+          "J3"
+        ],
+        "operations": [
+          {
+            "duration": 3,
+            "machine": "M1"
+          },
+          {
+            "duration": 2,
+            "machine": "M3"
+          },
+          {
+            "duration": 4,
+            "machine": "M4"
+          }
+        ]
+      },
+      {
+        "jobs": [
+          "J2",
+          "J5"
+        ],
+        "operations": [
+          {
+            "duration": 4,
+            "machine": "M2"
+          },
+          {
+            "duration": 1,
+            "machine": "M3"
+          },
+          {
+            "duration": 5,
+            "machine": "M4"
+          }
+        ]
+      },
+      {
+        "jobs": [
+          "J4",
+          "J6"
+        ],
+        "operations": [
+          {
+            "duration": 2,
+            "machine": "M1"
+          },
+          {
+            "duration": 3,
+            "machine": "M2"
+          },
+          {
+            "duration": 2,
+            "machine": "M3"
+          },
+          {
+            "duration": 3,
+            "machine": "M4"
+          }
+        ]
+      }
+    ]
+  },
+  "extends": "J3",
+  "family": "jssp",
+  "metrics": [
+    "realized_makespan",
+    "adaptivity",
+    "material_feasibility",
+    "machine_capacity_satisfaction"
+  ],
+  "mode": "dynamic",
+  "name": "JSSP Large-scale with Disruptions",
+  "objective": "Minimize realized makespan under delays and material availability.",
+  "short_name": "JSSP-complex-dynamic",
+  "source_table": "Table 12",
+  "tier": 4
+}

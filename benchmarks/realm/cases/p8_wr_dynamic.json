@@ -1,0 +1,32 @@
+{
+  "case_id": "P8",
+  "constraints": [
+    "Planner must preserve task completion and passenger movement constraints from P5.",
+    "Planner must know current location of each vehicle when the road closure is announced."
+  ],
+  "description": "Wedding logistics extended with road closures and dynamic rerouting.",
+  "disruptions": [
+    {
+      "description": "Road closure requires real-time rerouting.",
+      "type": "road_closure"
+    }
+  ],
+  "extends": "P5",
+  "family": "planning",
+  "metrics": [
+    "on_time_performance",
+    "rerouting_correctness",
+    "state_tracking"
+  ],
+  "mode": "dynamic",
+  "name": "Wedding Logistics with Disruptions",
+  "objective": "Recover from road closures while still meeting the 3 PM photo deadline.",
+  "requirements": [
+    "Track current vehicle locations at the time of disruption.",
+    "Determine whether each vehicle is affected by a road closure.",
+    "Reroute affected vehicles without violating wedding deadlines."
+  ],
+  "short_name": "WR-dynamic",
+  "source_section": "3.8",
+  "tier": 4
+}

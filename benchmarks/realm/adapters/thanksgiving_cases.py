@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from tests.benchmarks.realm_case_loader import load_realm_bench_cases
+from benchmarks.realm.adapters.realm_case_loader import load_realm_bench_cases
 
 
 @dataclass(frozen=True)

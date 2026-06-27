@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from tests.benchmarks.realm_case_loader import load_realm_bench_cases
+from benchmarks.realm.adapters.realm_case_loader import load_realm_bench_cases
 
 
 def test_realm_case_loader_returns_all_cases_by_id():

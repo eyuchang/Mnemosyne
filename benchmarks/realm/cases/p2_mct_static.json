@@ -1,0 +1,67 @@
+{
+  "case_id": "P2",
+  "constraints": [
+    "Total visitors at a location must not exceed capacity.",
+    "Lab tours are available only from 9 AM to 4 PM.",
+    "Dining must be visited between 11 AM and 2 PM.",
+    "Library can be visited only after 10 AM."
+  ],
+  "description": "Multiple coordinated campus tours with shared location-capacity constraints.",
+  "disruptions": [],
+  "entities": {
+    "capacities": {
+      "A": 40,
+      "B": 25,
+      "C": 30,
+      "D": 30,
+      "H": 20,
+      "L": 30,
+      "M": 25,
+      "P": 20,
+      "R": 20,
+      "S": 40
+    },
+    "groups": [
+      {
+        "description": "domestic students",
+        "group_id": "G1",
+        "size": 15
+      },
+      {
+        "description": "international students",
+        "group_id": "G2",
+        "size": 20
+      }
+    ],
+    "locations": [
+      "S",
+      "L",
+      "B",
+      "A",
+      "D",
+      "C",
+      "M",
+      "R",
+      "H",
+      "P"
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "total_tour_time",
+    "capacity_satisfaction",
+    "visit_coverage"
+  ],
+  "mode": "static",
+  "name": "Multi-Group Campus Tours",
+  "objective": "Schedule multiple tours while minimizing total tour time and satisfying location capacities.",
+  "requirements": [
+    "Each group starts between 9 AM and 10 AM.",
+    "Each location requires a 30-minute visit.",
+    "Both tours start and end at Student Center.",
+    "All tours complete by 5 PM."
+  ],
+  "short_name": "MCT-static",
+  "source_table": "Table 2",
+  "tier": 2
+}

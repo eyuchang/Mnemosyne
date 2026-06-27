@@ -1,0 +1,81 @@
+{
+  "case_id": "P10",
+  "constraints": [
+    "Payment terms are 50 percent at order and 50 percent at delivery.",
+    "Power and cooling regular duration is 2 months at 30M USD.",
+    "Power and cooling can be expedited to 1 month at 75M USD.",
+    "Testing can be expedited from 2 months to 1 month at 45M USD.",
+    "Any module can be expedited at 150 percent cost and 50 percent time."
+  ],
+  "delay_cost_model": {
+    "operations_cost_usd_per_month": 10000000,
+    "revenue_loss_usd_per_month": 50000000
+  },
+  "description": "Enterprise-scale GPU data-center construction and procurement planning with natural-disaster risks and expedition trade-offs.",
+  "disruptions": [
+    {
+      "cost_impact_percent": 30,
+      "delay_months": 1,
+      "probability_per_quarter": 0.1,
+      "type": "earthquake"
+    },
+    {
+      "cost_impact_percent": 30,
+      "delay_months": 1,
+      "probability_per_quarter": 0.1,
+      "type": "typhoon"
+    },
+    {
+      "description": "Expedite one shipment by 1 month, shifting all shipments.",
+      "type": "shipment_delay"
+    }
+  ],
+  "entities": {
+    "cluster_definition": {
+      "gpus_per_cluster": 50000
+    },
+    "cluster_infrastructure": {
+      "cooling_gallons_per_day_per_cluster": 1000000,
+      "networking_cost_usd": 25000000,
+      "networking_duration_months": 1,
+      "power_mw_per_cluster": 150,
+      "testing_cost_usd": 15000000,
+      "testing_duration_months": 2
+    },
+    "gpu_target_units_prose_note": "The prose describes a 1 million GPU data center, while Table 8 lists 100,000 units.",
+    "gpu_target_units_table": 100000,
+    "vendors": [
+      {
+        "maintenance_risk_percent_per_year": 20,
+        "name": "NVIDIA",
+        "quarterly_capacity_units": 200000,
+        "unit_cost_usd": 15000
+      },
+      {
+        "maintenance_risk_percent_per_year": 50,
+        "name": "AMD",
+        "quarterly_capacity_units": 150000,
+        "unit_cost_usd": 10000
+      }
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "total_cost",
+    "deadline_satisfaction",
+    "risk_adjusted_cost",
+    "infrastructure_readiness"
+  ],
+  "mode": "static_dynamic",
+  "name": "Global Supply Chain",
+  "objective": "Minimize total cost while meeting a 15-month data-center completion deadline.",
+  "requirements": [
+    "All orders are placed on day 1.",
+    "Shipments occur quarterly.",
+    "Power and cooling must be ready before networking starts.",
+    "Each cluster must complete testing before becoming operational."
+  ],
+  "short_name": "GSC-static-dynamic",
+  "source_table": "Table 8",
+  "tier": 5
+}

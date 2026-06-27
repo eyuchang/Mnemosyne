@@ -1,0 +1,80 @@
+{
+  "case_id": "P5",
+  "constraints": [
+    "Gift shop opens at 12 PM.",
+    "Tailor closes at 2 PM.",
+    "Two cars must accommodate all transport needs."
+  ],
+  "description": "Coordinate arrivals, transport, gift collection, and clothes pickup before a 3 PM wedding photo session.",
+  "disruptions": [],
+  "entities": {
+    "locations": {
+      "B": "Boston Airport",
+      "G": "Gift shop",
+      "T": "Tailor shop",
+      "W": "Wedding venue"
+    },
+    "people": [
+      {
+        "arrival_location": "B",
+        "arrival_time": "11:00",
+        "name": "Alex",
+        "needs_ride": true,
+        "origin": "Chicago"
+      },
+      {
+        "arrival_location": "B",
+        "arrival_time": "12:30",
+        "name": "Jamie",
+        "needs_ride": true,
+        "origin": "Atlanta"
+      },
+      {
+        "arrival_location": "W",
+        "arrival_time": "12:00",
+        "has_car": true,
+        "name": "Pat",
+        "origin": "NYC"
+      }
+    ],
+    "resources": [
+      {
+        "available_after": "12:00",
+        "capacity": 5,
+        "location": "W",
+        "resource": "Pat car"
+      },
+      {
+        "available_after": "13:30",
+        "capacity": 5,
+        "location": "W",
+        "resource": "Chris car"
+      }
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "on_time_performance",
+    "task_completion",
+    "transport_feasibility"
+  ],
+  "mode": "static",
+  "name": "Wedding Reunion Logistics",
+  "objective": "Ensure everyone and all required items reach the wedding venue before 3 PM.",
+  "requirements": [
+    "Collect wedding gift after noon.",
+    "Pick up clothes from tailor by 2 PM.",
+    "Everyone must be at wedding venue for 3 PM photos."
+  ],
+  "short_name": "WR-static",
+  "source_table": "Table 5",
+  "tier": 2,
+  "travel_times_minutes": {
+    "B-G": 45,
+    "B-T": 30,
+    "B-W": 40,
+    "G-T": 20,
+    "G-W": 25,
+    "T-W": 15
+  }
+}

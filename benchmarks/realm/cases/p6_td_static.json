@@ -1,0 +1,83 @@
+{
+  "case_id": "P6",
+  "constraints": [
+    "James must rent a car after landing.",
+    "Emily requires airport pickup.",
+    "Cooking supervision must be maintained."
+  ],
+  "description": "Coordinate family arrivals, airport pickup, Grandma pickup, car rental, and dinner preparation for a 6 PM Thanksgiving dinner.",
+  "disruptions": [],
+  "entities": {
+    "family_members": [
+      {
+        "host": true,
+        "location": "home",
+        "name": "Sarah",
+        "role": "Mom"
+      },
+      {
+        "arrival_location": "BOS",
+        "arrival_time": "13:00",
+        "must_rent_car": true,
+        "name": "James",
+        "origin": "SF",
+        "role": "Dad"
+      },
+      {
+        "arrival_location": "BOS",
+        "arrival_time": "14:30",
+        "name": "Emily",
+        "origin": "Chicago",
+        "requires_pickup": true,
+        "role": "Sister"
+      },
+      {
+        "arrival_mode": "driving",
+        "arrival_time": "15:00",
+        "name": "Michael",
+        "origin": "NY",
+        "role": "Brother"
+      },
+      {
+        "location": "suburban Boston",
+        "name": "Grandma",
+        "requires_pickup": true
+      }
+    ],
+    "meal_tasks": [
+      {
+        "duration_minutes": 240,
+        "requires_supervision": true,
+        "task": "turkey"
+      },
+      {
+        "duration_minutes": 120,
+        "task": "side_dishes"
+      }
+    ]
+  },
+  "family": "planning",
+  "metrics": [
+    "on_time_dinner",
+    "pickup_completion",
+    "cooking_readiness",
+    "cooking_supervision"
+  ],
+  "mode": "static",
+  "name": "Thanksgiving Dinner Planning",
+  "objective": "All family members arrive home and dinner is ready by 6 PM.",
+  "requirements": [
+    "All family members at home for 6 PM dinner.",
+    "Turkey and sides ready by dinner time.",
+    "All pickups completed with available drivers.",
+    "Someone must stay home during cooking."
+  ],
+  "short_name": "TD-static",
+  "source_table": "Table 6",
+  "tier": 3,
+  "travel_times_minutes": {
+    "BOS-Grandma": 60,
+    "home-BOS": 60,
+    "home-Grandma": 30
+  }
+}

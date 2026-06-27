@@ -1,0 +1,96 @@
+{
+  "case_id": "J2",
+  "constraints": [
+    "Operations must follow the listed order per job.",
+    "Each machine processes at most one operation at a time.",
+    "Scheduler must respond to delays at runtime."
+  ],
+  "description": "Basic JSSP with stochastic operation delays and reactive replanning.",
+  "disruptions": [
+    {
+      "distribution": "Uniform(0, 2)",
+      "revealed_at": "operation_start",
+      "type": "stochastic_operation_delay"
+    },
+    {
+      "machine": "MachineA",
+      "type": "machine_breakdown_example",
+      "unavailable_end": 6,
+      "unavailable_start": 4
+    }
+  ],
+  "entities": {
+    "jobs": [
+      {
+        "job_id": "Job1",
+        "operations": [
+          {
+            "duration": 3,
+            "machine": "MachineA"
+          },
+          {
+            "duration": 2,
+            "machine": "MachineB"
+          },
+          {
+            "duration": 2,
+            "machine": "MachineC"
+          }
+        ]
+      },
+      {
+        "job_id": "Job2",
+        "operations": [
+          {
+            "duration": 2,
+            "machine": "MachineA"
+          },
+          {
+            "duration": 1,
+            "machine": "MachineC"
+          },
+          {
+            "duration": 4,
+            "machine": "MachineB"
+          }
+        ]
+      },
+      {
+        "job_id": "Job3",
+        "operations": [
+          {
+            "duration": 4,
+            "machine": "MachineB"
+          },
+          {
+            "duration": 1,
+            "machine": "MachineA"
+          },
+          {
+            "duration": 3,
+            "machine": "MachineC"
+          }
+        ]
+      }
+    ],
+    "machines": [
+      "MachineA",
+      "MachineB",
+      "MachineC"
+    ]
+  },
+  "extends": "J1",
+  "family": "jssp",
+  "metrics": [
+    "realized_makespan",
+    "reactivity",
+    "precedence_satisfaction",
+    "machine_capacity_satisfaction"
+  ],
+  "mode": "dynamic",
+  "name": "JSSP Basic with Disruptions",
+  "objective": "Minimize realized makespan under dynamic delays.",
+  "short_name": "JSSP-simple-dynamic",
+  "source_table": "Table 10",
+  "tier": 4
+}

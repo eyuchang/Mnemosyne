@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-REALM_CASE_FIXTURE = Path(__file__).parent / "fixtures" / "realm_bench_cases.json"
+REALM_CASE_FIXTURE = Path(__file__).resolve().parents[1] / "cases" / "realm_bench_cases.json"
 
 
 @dataclass(frozen=True)

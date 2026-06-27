@@ -45,7 +45,7 @@ Completed product tags:
 
 Current full local suite:
 
-`237 passed, 24 skipped`
+`248 passed, 24 skipped`
 
 ---
 
@@ -489,7 +489,7 @@ Core invariant:
 
 Validation:
 
-    237 passed, 24 skipped
+    248 passed, 24 skipped
 
 Next recommended milestones:
 
@@ -535,7 +535,7 @@ Observed R6.1 state:
 
 Validation:
 
-    237 passed, 24 skipped
+    248 passed, 24 skipped
 
 Next required checkpoint:
 
@@ -571,9 +571,47 @@ R6.2 demo correction:
 
 Validation:
 
-    237 passed, 24 skipped
+    248 passed, 24 skipped
 
 R7.0 must start with:
 
     audit/report portability behind store protocol
     enforced validated admission as the public mutation boundary
+
+
+---
+
+## R6.3 REALM-Bench case fixtures complete
+
+R6.3 extracts REALM-Bench cases into deterministic reusable test fixtures.
+
+Added:
+
+    tests/benchmarks/fixtures/realm_bench_cases.json
+    tests/benchmarks/realm_case_loader.py
+    tests/benchmarks/realm_thanksgiving_cases.py
+
+The fixture contains all 14 REALM-Bench cases:
+
+    P1-P10
+    J1-J4
+
+Thanksgiving cases are now directly reusable:
+
+    P6 Thanksgiving Dinner Planning / TD-static
+    P9 Thanksgiving with Disruptions / TD-dynamic
+
+P9 models James's flight delay:
+
+    original arrival: 13:00
+    new arrival: 16:00
+    notice time: 10:00
+    delay: 180 minutes
+    early notice window: 180 minutes
+
+Validation:
+
+    248 passed, 24 skipped
+
+R6.3 remains benchmark fixture work only.
+It does not start R7.0 infrastructure hardening.

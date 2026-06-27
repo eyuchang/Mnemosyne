@@ -695,3 +695,55 @@ P9 repair:
 Validation:
 
     253 passed, 24 skipped
+
+
+---
+
+## R6.6 Thanksgiving recovery substrate trace complete
+
+R6.6 adds an explicit recovery-substrate trace for the Thanksgiving P9 disruption benchmark.
+
+Added runners:
+
+    benchmarks/realm/scripts/run_thanksgiving_recovery_trace.py
+    benchmarks/realm/scripts/run_thanksgiving_suite.py
+
+Generated reports:
+
+    benchmarks/realm/reports/thanksgiving_p9_recovery_trace_report.md
+    benchmarks/realm/reports/thanksgiving_suite_report.md
+
+Generated recovery lifecycle artifacts:
+
+    benchmarks/realm/recovery/p9_thanksgiving_commitments.json
+    benchmarks/realm/recovery/p9_thanksgiving_wakeups.json
+    benchmarks/realm/recovery/p9_thanksgiving_repair_proposals.json
+    benchmarks/realm/recovery/p9_thanksgiving_repair_admissions.json
+    benchmarks/realm/recovery/p9_thanksgiving_recovery_lineage.json
+
+Current result:
+
+    P6 feasible: True
+    P9 feasible after repair: True
+    wakeups: 2
+    proposals: 1
+    admitted repairs: 1
+    optimality status: feasible_not_proven_optimal
+
+R6.6 models the recovery lifecycle:
+
+    disruption
+    active commitments
+    commitment wakeups
+    repair proposal
+    repair admission
+    audit lineage
+
+Validation:
+
+    259 passed, 24 skipped
+
+Limitation:
+
+    R6.6 models the Mnemosyne recovery pattern as deterministic benchmark artifacts.
+    It does not yet call core CTL mutation APIs directly.

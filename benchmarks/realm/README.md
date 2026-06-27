@@ -124,3 +124,54 @@ Repair:
     Grandma pickup is reassigned from James to Sarah.
     The repair is triggered at 10:00, not at James's original 13:00 arrival time.
     Dinner remains feasible by 18:00.
+
+
+## Thanksgiving recovery substrate trace
+
+R6.6 adds a recovery-substrate trace for the Thanksgiving P9 disruption case.
+
+Run the recovery trace only:
+
+    python benchmarks/realm/scripts/run_thanksgiving_recovery_trace.py
+
+Run the full Thanksgiving suite:
+
+    python benchmarks/realm/scripts/run_thanksgiving_suite.py
+
+Generated recovery trace report:
+
+    benchmarks/realm/reports/thanksgiving_p9_recovery_trace_report.md
+
+Generated suite report:
+
+    benchmarks/realm/reports/thanksgiving_suite_report.md
+
+Generated recovery artifacts:
+
+    benchmarks/realm/recovery/p9_thanksgiving_commitments.json
+    benchmarks/realm/recovery/p9_thanksgiving_wakeups.json
+    benchmarks/realm/recovery/p9_thanksgiving_repair_proposals.json
+    benchmarks/realm/recovery/p9_thanksgiving_repair_admissions.json
+    benchmarks/realm/recovery/p9_thanksgiving_recovery_lineage.json
+
+R6.6 shows the P9 lifecycle:
+
+    disruption
+    affected commitments
+    commitment wakeups
+    repair proposal
+    repair admission
+    audit lineage
+
+Current result:
+
+    P6 feasible: True
+    P9 feasible after repair: True
+    wakeups: 2
+    proposals: 1
+    admitted repairs: 1
+
+Important limitation:
+
+    R6.6 models the Mnemosyne recovery pattern as deterministic benchmark artifacts.
+    It does not yet call core CTL mutation APIs directly.

@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from mnemosyne.core.protocols.recovery_store import (
+    RECOVERY_EVENT_METHODS,
     RECOVERY_READ_METHODS,
     RECOVERY_STORE_REQUIRED_METHODS,
     RECOVERY_WRITE_METHODS,
@@ -55,11 +56,13 @@ def test_empty_store_fails_closed_with_all_required_methods_missing():
         assert method in message
 
 
-def test_read_only_store_can_satisfy_read_boundary_but_not_write_boundary():
+def test_read_only_store_can_satisfy_read_boundary_but_not_write_or_event_boundary():
     store = ReadOnlyRecoveryStore()
 
     assert missing_recovery_store_methods(store, RECOVERY_READ_METHODS) == ()
-    assert missing_recovery_store_methods(store, RECOVERY_STORE_REQUIRED_METHODS) == RECOVERY_WRITE_METHODS
+    assert missing_recovery_store_methods(store, RECOVERY_STORE_REQUIRED_METHODS) == (
+        RECOVERY_WRITE_METHODS + RECOVERY_EVENT_METHODS
+    )
 
     assert require_recovery_store(store, required_methods=RECOVERY_READ_METHODS) is store
 
@@ -67,3 +70,5 @@ def test_read_only_store_can_satisfy_read_boundary_but_not_write_boundary():
         require_recovery_store(store)
 
     assert "commit_batch" in str(exc.value)
+    assert "append_recovery_event" in str(exc.value)
+    assert "list_recovery_events" in str(exc.value)

@@ -3,9 +3,11 @@ from __future__ import annotations
 import inspect
 
 from mnemosyne.core.protocols.recovery_store import (
+    RECOVERY_EVENT_METHODS,
     RECOVERY_READ_METHODS,
     RECOVERY_STORE_REQUIRED_METHODS,
     RECOVERY_WRITE_METHODS,
+    RecoveryEventStore,
     RecoveryReadStore,
     RecoveryStore,
     RecoveryWriteStore,
@@ -18,6 +20,7 @@ def test_sqlite_store_satisfies_recovery_store_protocols():
 
     assert isinstance(store, RecoveryReadStore)
     assert isinstance(store, RecoveryWriteStore)
+    assert isinstance(store, RecoveryEventStore)
     assert isinstance(store, RecoveryStore)
 
 
@@ -30,7 +33,13 @@ def test_recovery_store_protocol_surface_is_explicit_and_minimal():
         "get_by_op_id",
     )
     assert RECOVERY_WRITE_METHODS == ("commit_batch",)
-    assert RECOVERY_STORE_REQUIRED_METHODS == RECOVERY_READ_METHODS + RECOVERY_WRITE_METHODS
+    assert RECOVERY_EVENT_METHODS == (
+        "append_recovery_event",
+        "list_recovery_events",
+    )
+    assert RECOVERY_STORE_REQUIRED_METHODS == (
+        RECOVERY_READ_METHODS + RECOVERY_WRITE_METHODS + RECOVERY_EVENT_METHODS
+    )
 
 
 def test_sqlite_store_exposes_required_recovery_methods():

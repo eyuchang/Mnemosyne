@@ -34,7 +34,7 @@ This separation is intentional. The project first establishes a visible, auditab
 
 Current milestone:
 
-`R4.8: Temporal active recovery boundary`
+`R5.0: Product API and audit surface`
 
 Completed product tags:
 
@@ -45,7 +45,7 @@ Completed product tags:
 
 Current full local suite:
 
-`179 passed, 24 skipped`
+`198 passed, 24 skipped`
 
 ---
 
@@ -242,6 +242,26 @@ Solver backends may propose certified plans. Mnemosyne remains the commit author
 
 A certified and conflict-free solver proposal is still not admissible if its world assumptions disagree with observed world facts.
 
+
+### 3.9 Product API and audit surface
+
+R5.0 adds the product-facing API layer:
+
+- `mnemosyne.api.commitments`
+- `mnemosyne.api.recovery`
+- `mnemosyne.api.proposal_packages`
+- `mnemosyne.api.audit`
+
+The API layer wraps the internal R4.5-R4.8 machinery without changing the source-of-truth contract.
+
+Product code should call `mnemosyne.api` rather than importing internal CTL, recovery, runtime, or package modules directly.
+
+Core invariant:
+
+    Application code -> mnemosyne.api -> Validator / Store / CTL / StateView
+
+Audit APIs are read-only. Recovery APIs commit only commitment-FSM records. Proposal package APIs keep domain candidates inert unless separately admitted through the domain CTL path.
+
 ---
 
 ## 4. What is not yet integrated
@@ -407,7 +427,7 @@ Recommended next stages:
 
 The next immediate stage should likely be:
 
-`R5.0 product API and audit surface`
+`R5.1 product reporting and CLI surface`
 
 Purpose:
 

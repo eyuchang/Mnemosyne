@@ -1,0 +1,85 @@
+{
+  "authoring_mode": "human_authored",
+  "case_id": "P9",
+  "case_short_name": "TD-dynamic",
+  "disruption": {
+    "delay_minutes": 180,
+    "early_notice_minutes": 180,
+    "new_arrival_time": "16:00",
+    "notice_time_est": "10:00",
+    "original_arrival_time": "13:00",
+    "person": "James"
+  },
+  "notes": [
+    "The repair is triggered at 10:00 when the delay notice arrives.",
+    "The repair does not wait until James's original 13:00 arrival time.",
+    "Grandma pickup is reassigned from James to Sarah.",
+    "Dinner remains feasible by 18:00."
+  ],
+  "objective": "React to James's delay at notice time while preserving dinner by 18:00.",
+  "optimality_status": "feasible_not_proven_optimal",
+  "plan": {
+    "cooking": [
+      {
+        "assigned_to": "Sarah",
+        "duration_minutes": 240,
+        "end": "13:00",
+        "location": "home",
+        "start": "09:00",
+        "supervision": "continuous",
+        "task": "turkey"
+      },
+      {
+        "assigned_to": "Sarah",
+        "duration_minutes": 120,
+        "end": "18:00",
+        "location": "home",
+        "start": "16:00",
+        "supervision": "not_required",
+        "task": "side_dishes"
+      }
+    ],
+    "final_state": {
+      "all_family_home_by": "17:30",
+      "dinner_ready_at": "18:00"
+    },
+    "transportation": [
+      {
+        "action": "pickup_Emily_then_Grandma",
+        "end": "16:00",
+        "passengers": [
+          "Emily",
+          "Grandma"
+        ],
+        "person": "Sarah",
+        "route": "home-BOS-Grandma-home",
+        "start": "13:30"
+      },
+      {
+        "action": "delayed_land_BOS_and_rent_car_then_drive_home",
+        "end": "17:30",
+        "person": "James",
+        "start": "16:00"
+      },
+      {
+        "action": "drive_from_NY_to_home",
+        "arrival": "15:00",
+        "person": "Michael"
+      }
+    ]
+  },
+  "repair": {
+    "changed_assignments": [
+      {
+        "after": "Sarah",
+        "before": "James",
+        "reason": "James now lands too late to complete Grandma pickup before dinner.",
+        "task": "Grandma pickup"
+      }
+    ],
+    "repair_trigger_time": "10:00"
+  },
+  "schema_version": "realm_solution.v1",
+  "solution_id": "p9_thanksgiving_dynamic_repair_baseline",
+  "solution_type": "deterministic_repair_baseline"
+}

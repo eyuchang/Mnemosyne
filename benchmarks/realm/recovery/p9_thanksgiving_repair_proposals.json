@@ -1,0 +1,27 @@
+{
+  "case_id": "P9",
+  "proposals": [
+    {
+      "changes": [
+        {
+          "after": "Sarah",
+          "before": "James",
+          "field": "Grandma pickup assignee"
+        }
+      ],
+      "created_from_wakeups": [
+        "p9-wakeup-grandma-pickup",
+        "p9-wakeup-dinner-deadline"
+      ],
+      "description": "Reassign Grandma pickup from James to Sarah.",
+      "expected_result": {
+        "all_family_home_by": "17:30",
+        "dinner_ready_at": "18:00"
+      },
+      "proposal_id": "p9-proposal-reassign-grandma-to-sarah",
+      "proposal_type": "repair_candidate",
+      "status": "selected"
+    }
+  ],
+  "schema_version": "thanksgiving_recovery_proposals.v1"
+}

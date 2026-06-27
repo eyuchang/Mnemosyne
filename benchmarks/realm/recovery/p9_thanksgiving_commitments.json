@@ -1,0 +1,30 @@
+{
+  "case_id": "P9",
+  "commitments": [
+    {
+      "affected_by_disruption": false,
+      "commitment_id": "p9-cook-turkey-supervision",
+      "description": "Sarah supervises turkey from 09:00 to 13:00.",
+      "kind": "temporal_constraint"
+    },
+    {
+      "affected_by_disruption": false,
+      "commitment_id": "p9-pickup-emily",
+      "description": "Emily is picked up from BOS before dinner.",
+      "kind": "pickup_constraint"
+    },
+    {
+      "affected_by_disruption": true,
+      "commitment_id": "p9-pickup-grandma-by-james",
+      "description": "Original plan assigns Grandma pickup to James.",
+      "kind": "pickup_assignment"
+    },
+    {
+      "affected_by_disruption": true,
+      "commitment_id": "p9-dinner-ready-by-1800",
+      "description": "All family members home and dinner ready by 18:00.",
+      "kind": "deadline_constraint"
+    }
+  ],
+  "schema_version": "thanksgiving_recovery_commitments.v1"
+}

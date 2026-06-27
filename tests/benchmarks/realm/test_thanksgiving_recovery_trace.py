@@ -86,6 +86,11 @@ def test_committed_thanksgiving_recovery_trace_artifacts_are_current(tmp_path: P
 
     committed = {
         "trace_json": Path("benchmarks/realm/evaluations/p9_thanksgiving_recovery_trace.json"),
+        "commitments_json": Path("benchmarks/realm/recovery/p9_thanksgiving_commitments.json"),
+        "wakeups_json": Path("benchmarks/realm/recovery/p9_thanksgiving_wakeups.json"),
+        "proposals_json": Path("benchmarks/realm/recovery/p9_thanksgiving_repair_proposals.json"),
+        "admissions_json": Path("benchmarks/realm/recovery/p9_thanksgiving_repair_admissions.json"),
+        "lineage_json": Path("benchmarks/realm/recovery/p9_thanksgiving_recovery_lineage.json"),
         "report_json": Path("benchmarks/realm/reports/thanksgiving_p9_recovery_trace_report.json"),
         "report_markdown": Path("benchmarks/realm/reports/thanksgiving_p9_recovery_trace_report.md"),
     }
@@ -95,3 +100,41 @@ def test_committed_thanksgiving_recovery_trace_artifacts_are_current(tmp_path: P
         assert path.read_text(encoding="utf-8") == generated.files[key].read_text(
             encoding="utf-8"
         )
+
+
+
+def test_thanksgiving_recovery_trace_exports_explicit_recovery_artifacts(tmp_path: Path):
+    result = run_recovery_trace(tmp_path)
+
+    trace = json.loads(result.files["trace_json"].read_text(encoding="utf-8"))
+    commitments = json.loads(result.files["commitments_json"].read_text(encoding="utf-8"))
+    wakeups = json.loads(result.files["wakeups_json"].read_text(encoding="utf-8"))
+    proposals = json.loads(result.files["proposals_json"].read_text(encoding="utf-8"))
+    admissions = json.loads(result.files["admissions_json"].read_text(encoding="utf-8"))
+    lineage = json.loads(result.files["lineage_json"].read_text(encoding="utf-8"))
+
+    assert commitments == {
+        "case_id": "P9",
+        "commitments": trace["commitments"],
+        "schema_version": "thanksgiving_recovery_commitments.v1",
+    }
+    assert wakeups == {
+        "case_id": "P9",
+        "schema_version": "thanksgiving_recovery_wakeups.v1",
+        "wakeups": trace["wakeups"],
+    }
+    assert proposals == {
+        "case_id": "P9",
+        "proposals": trace["proposals"],
+        "schema_version": "thanksgiving_recovery_proposals.v1",
+    }
+    assert admissions == {
+        "admissions": trace["admissions"],
+        "case_id": "P9",
+        "schema_version": "thanksgiving_recovery_admissions.v1",
+    }
+    assert lineage == {
+        "case_id": "P9",
+        "lineage": trace["lineage"],
+        "schema_version": "thanksgiving_recovery_lineage.v1",
+    }

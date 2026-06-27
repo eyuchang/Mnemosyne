@@ -1,0 +1,36 @@
+{
+  "case_id": "P9",
+  "lineage": [
+    {
+      "id": "p9-disruption-james-flight-delay",
+      "kind": "disruption_event",
+      "step": 1,
+      "summary": "James flight delay notice received at 10:00."
+    },
+    {
+      "id": "p9-wakeup-grandma-pickup",
+      "kind": "commitment_wakeup",
+      "step": 2,
+      "summary": "Grandma pickup commitment wakes."
+    },
+    {
+      "id": "p9-wakeup-dinner-deadline",
+      "kind": "commitment_wakeup",
+      "step": 3,
+      "summary": "Dinner deadline commitment wakes."
+    },
+    {
+      "id": "p9-proposal-reassign-grandma-to-sarah",
+      "kind": "repair_proposal",
+      "step": 4,
+      "summary": "Repair proposal reassigns Grandma pickup from James to Sarah."
+    },
+    {
+      "id": "p9-admit-reassign-grandma-to-sarah",
+      "kind": "repair_admission",
+      "step": 5,
+      "summary": "Selected repair is admitted after validation."
+    }
+  ],
+  "schema_version": "thanksgiving_recovery_lineage.v1"
+}

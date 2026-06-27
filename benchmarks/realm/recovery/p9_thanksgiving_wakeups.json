@@ -1,0 +1,22 @@
+{
+  "case_id": "P9",
+  "schema_version": "thanksgiving_recovery_wakeups.v1",
+  "wakeups": [
+    {
+      "commitment_id": "p9-pickup-grandma-by-james",
+      "reason": "James now lands at 16:00, too late to perform Grandma pickup safely.",
+      "result": "repair_required",
+      "source_event_id": "p9-disruption-james-flight-delay",
+      "wakeup_id": "p9-wakeup-grandma-pickup",
+      "wakeup_time": "10:00"
+    },
+    {
+      "commitment_id": "p9-dinner-ready-by-1800",
+      "reason": "The delay threatens the all-family-home-before-dinner condition.",
+      "result": "repair_required",
+      "source_event_id": "p9-disruption-james-flight-delay",
+      "wakeup_id": "p9-wakeup-dinner-deadline",
+      "wakeup_time": "10:00"
+    }
+  ]
+}

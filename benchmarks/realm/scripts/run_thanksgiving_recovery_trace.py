@@ -284,11 +284,41 @@ def run_recovery_trace(output_root: str | Path | None = None) -> ThanksgivingRec
 
     files = {
         "trace_json": root / "evaluations" / "p9_thanksgiving_recovery_trace.json",
+        "commitments_json": root / "recovery" / "p9_thanksgiving_commitments.json",
+        "wakeups_json": root / "recovery" / "p9_thanksgiving_wakeups.json",
+        "proposals_json": root / "recovery" / "p9_thanksgiving_repair_proposals.json",
+        "admissions_json": root / "recovery" / "p9_thanksgiving_repair_admissions.json",
+        "lineage_json": root / "recovery" / "p9_thanksgiving_recovery_lineage.json",
         "report_json": root / "reports" / "thanksgiving_p9_recovery_trace_report.json",
         "report_markdown": root / "reports" / "thanksgiving_p9_recovery_trace_report.md",
     }
 
     _write_json(files["trace_json"], trace)
+    _write_json(files["commitments_json"], {
+        "schema_version": "thanksgiving_recovery_commitments.v1",
+        "case_id": trace["case_id"],
+        "commitments": trace["commitments"],
+    })
+    _write_json(files["wakeups_json"], {
+        "schema_version": "thanksgiving_recovery_wakeups.v1",
+        "case_id": trace["case_id"],
+        "wakeups": trace["wakeups"],
+    })
+    _write_json(files["proposals_json"], {
+        "schema_version": "thanksgiving_recovery_proposals.v1",
+        "case_id": trace["case_id"],
+        "proposals": trace["proposals"],
+    })
+    _write_json(files["admissions_json"], {
+        "schema_version": "thanksgiving_recovery_admissions.v1",
+        "case_id": trace["case_id"],
+        "admissions": trace["admissions"],
+    })
+    _write_json(files["lineage_json"], {
+        "schema_version": "thanksgiving_recovery_lineage.v1",
+        "case_id": trace["case_id"],
+        "lineage": trace["lineage"],
+    })
     _write_json(files["report_json"], trace)
     files["report_markdown"].parent.mkdir(parents=True, exist_ok=True)
     files["report_markdown"].write_text(render_markdown(trace) + "\n", encoding="utf-8")

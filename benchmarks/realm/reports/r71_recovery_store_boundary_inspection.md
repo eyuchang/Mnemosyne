@@ -44,10 +44,10 @@ R7.1 does not claim Postgres support, distributed storage, Kubernetes deployment
 
 ### `mnemosyne/api/audit.py`
 
-- L16: `sqlite` — `from mnemosyne.core.commitments.store_index import ctl_record_from_sqlite_row`
-- L204: `execute(` — `rows = store.conn.execute(`
-- L206: `SELECT ` — `SELECT *`
-- L214: `sqlite` — `return [ctl_record_from_sqlite_row(row) for row in rows]`
+- L17: `sqlite` — `from mnemosyne.core.commitments.store_index import ctl_record_from_sqlite_row`
+- L205: `execute(` — `rows = store.conn.execute(`
+- L207: `SELECT ` — `SELECT *`
+- L215: `sqlite` — `return [ctl_record_from_sqlite_row(row) for row in rows]`
 
 ### `mnemosyne/api/recovery.py`
 

@@ -4,7 +4,7 @@
 
 - Module count: 7
 - Available modules: 7
-- Public callables: 150
+- Public callables: 152
 
 ## Modules
 
@@ -43,6 +43,7 @@
 | `make_register_commitment_candidate` | function | `(*, tenant_id: 'str', tx_group_id: 'str', commitment: 'ActiveCommitment', workflow_id: 'str | None' = None, binding_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None) -> 'TransitionCandidate'` |
 | `register_active_commitment` | function | `(*, store: 'Any', tenant_id: 'str', tx_group_id: 'str', commitment: 'ActiveCommitment', workflow_id: 'str | None' = None, binding_id: 'str | None' = None, validator: 'Validator | None' = None, batch_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None) -> 'CommitmentApiResult'` |
 | `reject_active_commitment` | function | `(*, store: 'Any', tenant_id: 'str', tx_group_id: 'str', commitment_id: 'str', rejection_code: 'str', rejection_evidence: 'dict | None' = None, state_before: 'str | None' = None, workflow_id: 'str | None' = None, binding_id: 'str | None' = None, validator: 'Validator | None' = None, batch_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None, dependency_rid: 'str | None' = None) -> 'CommitmentApiResult'` |
+| `require_recovery_store` | function | `(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'` |
 | `uuid4` | function | `()` |
 
 ### `mnemosyne.api.recovery`
@@ -127,6 +128,7 @@
 | `field` | function | `(*, default=<dataclasses._MISSING_TYPE object at 0xADDR>, default_factory=<dataclasses._MISSING_TYPE object at 0xADDR>, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=<dataclasses._MISSING_TYPE object at 0xADDR>, doc=None)` |
 | `list_unresolved_commitments` | function | `(*, store: 'Any', tenant_id: 'str', workflow_id: 'str | None' = None) -> 'UnresolvedCommitmentReport'` |
 | `proposal_package_reference_from_event_payload` | function | `(payload: 'dict[str, Any]') -> 'dict[str, Any] | None'` |
+| `require_recovery_store` | function | `(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'` |
 
 ### `mnemosyne.benchmarks.jssp_disruption_commitments`
 

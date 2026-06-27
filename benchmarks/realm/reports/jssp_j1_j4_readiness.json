@@ -568,6 +568,11 @@
           "kind": "function",
           "name": "reject_active_commitment",
           "signature": "(*, store: 'Any', tenant_id: 'str', tx_group_id: 'str', commitment_id: 'str', rejection_code: 'str', rejection_evidence: 'dict | None' = None, state_before: 'str | None' = None, workflow_id: 'str | None' = None, binding_id: 'str | None' = None, validator: 'Validator | None' = None, batch_id: 'str | None' = None, rid: 'str | None' = None, op_id: 'str | None' = None, dependency_rid: 'str | None' = None) -> 'CommitmentApiResult'"
+        },
+        {
+          "kind": "function",
+          "name": "require_recovery_store",
+          "signature": "(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'"
         }
       ]
     },
@@ -747,6 +752,11 @@
           "kind": "function",
           "name": "proposal_package_reference_from_event_payload",
           "signature": "(payload: 'dict[str, Any]') -> 'dict[str, Any] | None'"
+        },
+        {
+          "kind": "function",
+          "name": "require_recovery_store",
+          "signature": "(store: 'T', *, required_methods: 'tuple[str, ...]' = ('get_record', 'get_entity_history', 'get_full_entity_history', 'get_state_view', 'get_by_op_id', 'commit_batch')) -> 'T'"
         }
       ]
     }

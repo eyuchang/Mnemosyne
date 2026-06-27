@@ -12,22 +12,22 @@
       "path": "mnemosyne/api/audit.py",
       "sites": [
         {
-          "line": 16,
+          "line": 17,
           "term": "sqlite",
           "text": "from mnemosyne.core.commitments.store_index import ctl_record_from_sqlite_row"
         },
         {
-          "line": 204,
+          "line": 205,
           "term": "execute(",
           "text": "rows = store.conn.execute("
         },
         {
-          "line": 206,
+          "line": 207,
           "term": "SELECT ",
           "text": "SELECT *"
         },
         {
-          "line": 214,
+          "line": 215,
           "term": "sqlite",
           "text": "return [ctl_record_from_sqlite_row(row) for row in rows]"
         }
@@ -567,6 +567,7 @@
         "mnemosyne.core.commitments",
         "mnemosyne.core.commitments.store_index",
         "mnemosyne.core.models",
+        "mnemosyne.core.protocols.recovery_store",
         "mnemosyne.core.recovery",
         "typing"
       ],
@@ -581,6 +582,7 @@
         "dataclasses",
         "mnemosyne.core.commitments",
         "mnemosyne.core.models",
+        "mnemosyne.core.protocols.recovery_store",
         "mnemosyne.core.validation",
         "typing",
         "uuid"

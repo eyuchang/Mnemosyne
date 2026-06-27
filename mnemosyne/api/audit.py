@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any
 
+from mnemosyne.core.protocols.recovery_store import RECOVERY_READ_METHODS, require_recovery_store
 from mnemosyne.core.commitments import (
     ActiveCommitment,
     CommitmentEventType,
@@ -253,6 +254,8 @@ async def audit_active_commitments(
     tenant_id: str,
     workflow_id: str | None = None,
 ) -> list[ActiveCommitmentAuditRow]:
+
+    store = require_recovery_store(store, required_methods=RECOVERY_READ_METHODS)
     """Return read-only audit rows for known active commitments."""
 
     index = await active_commitment_index_from_store(
@@ -290,6 +293,8 @@ async def list_unresolved_commitments(
     tenant_id: str,
     workflow_id: str | None = None,
 ) -> UnresolvedCommitmentReport:
+
+    store = require_recovery_store(store, required_methods=RECOVERY_READ_METHODS)
     """Return unresolved active commitments.
 
     Unresolved means the commitment remains live in the replay-derived
@@ -350,6 +355,8 @@ async def audit_recovery_lineage(
     workflow_id: str | None = None,
     commitment_id: str | None = None,
 ) -> list[RecoveryLineageRow]:
+
+    store = require_recovery_store(store, required_methods=RECOVERY_READ_METHODS)
     """Return read-only lineage rows for recovery-related commitment events."""
 
     records = _commitment_records_from_store(

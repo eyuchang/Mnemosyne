@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import pytest
 
 from mnemosyne.benchmarks.jssp_disruption_commitments import (
@@ -16,6 +17,7 @@ from mnemosyne.benchmarks.jssp_recovery_proposals import (
 )
 from mnemosyne.benchmarks.jssp_repair_admission import (
     admit_repair_candidates_from_proposal_batch,
+    admit_selected_repair_candidates,
     repair_candidates_from_proposal_batch,
     selected_repair_commit_batch,
 )
@@ -370,3 +372,155 @@ async def test_admit_and_finalize_repair_candidates_one_step_helper(store, valid
         workflow_id=W,
     )
     assert unresolved.count == 7
+
+
+
+@pytest.mark.asyncio
+async def test_invalid_repair_candidate_fails_closed_without_mutating_stateviews(
+    store,
+    validator,
+):
+    from mnemosyne.api.audit import list_unresolved_commitments
+
+    schedule, proposal_batch = await _seed_recovery_proposal_batch(store, validator)
+
+    selected = repair_candidates_from_proposal_batch(
+        proposal_batch,
+        operation_keys=["J3:O2"],
+    )
+    assert len(selected) == 1
+
+    invalid_candidate = replace(
+        selected[0],
+        rid="rid:jssp:jssp-3x3-smoke:invalid-repair-candidate:J3-O2",
+        action_type="invalid_reschedule",
+    )
+
+    before_j3 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J3:O2"),
+        JSSP_FSM_ID,
+    )
+    before_j2 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J2:O3"),
+        JSSP_FSM_ID,
+    )
+
+    unresolved_before = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved_before.count == 9
+
+    repair_admission = await admit_selected_repair_candidates(
+        store=store,
+        validator=validator,
+        tenant_id=T,
+        tx_group_id="tx:r62-jssp:invalid-repair-admission",
+        workflow_id=W,
+        selected_candidates=[invalid_candidate],
+        batch_id="batch:r62-jssp:invalid-repair-admission",
+    )
+
+    assert not repair_admission.ok
+    assert repair_admission.validation is not None
+    assert not repair_admission.validation.ok
+    assert repair_admission.records == []
+    assert repair_admission.committed == []
+    assert repair_admission.selected_rids == [
+        "rid:jssp:jssp-3x3-smoke:invalid-repair-candidate:J3-O2",
+    ]
+    assert repair_admission.committed_rids == []
+
+    after_j3 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J3:O2"),
+        JSSP_FSM_ID,
+    )
+    after_j2 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J2:O3"),
+        JSSP_FSM_ID,
+    )
+
+    assert after_j3 == before_j3
+    assert after_j2 == before_j2
+    assert after_j3.attrs["start"] == 4
+    assert after_j3.attrs["end"] == 7
+    assert after_j2.attrs["start"] == 7
+    assert after_j2.attrs["end"] == 11
+
+    unresolved_after = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved_after.count == 9
+
+
+@pytest.mark.asyncio
+async def test_empty_repair_candidate_selection_is_noop_without_mutating_stateviews(
+    store,
+    validator,
+):
+    from mnemosyne.api.audit import list_unresolved_commitments
+
+    schedule, _ = await _seed_recovery_proposal_batch(store, validator)
+
+    before_j3 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J3:O2"),
+        JSSP_FSM_ID,
+    )
+    before_j2 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J2:O3"),
+        JSSP_FSM_ID,
+    )
+
+    unresolved_before = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved_before.count == 9
+
+    repair_admission = await admit_selected_repair_candidates(
+        store=store,
+        validator=validator,
+        tenant_id=T,
+        tx_group_id="tx:r62-jssp:empty-repair-admission",
+        workflow_id=W,
+        selected_candidates=[],
+        batch_id="batch:r62-jssp:empty-repair-admission",
+    )
+
+    assert not repair_admission.ok
+    assert repair_admission.validation is None
+    assert repair_admission.selected_rids == []
+    assert repair_admission.committed_rids == []
+    assert repair_admission.records == []
+    assert repair_admission.committed == []
+
+    after_j3 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J3:O2"),
+        JSSP_FSM_ID,
+    )
+    after_j2 = await store.get_state_view(
+        T,
+        schedule_entity_id(schedule.case_id, "J2:O3"),
+        JSSP_FSM_ID,
+    )
+
+    assert after_j3 == before_j3
+    assert after_j2 == before_j2
+
+    unresolved_after = await list_unresolved_commitments(
+        store=store,
+        tenant_id=T,
+        workflow_id=W,
+    )
+    assert unresolved_after.count == 9

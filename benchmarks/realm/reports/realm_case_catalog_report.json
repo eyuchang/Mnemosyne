@@ -1,0 +1,529 @@
+{
+  "case_count": 14,
+  "cases": [
+    {
+      "case_id": "P1",
+      "constraints": [
+        "Lab Building is available only from 9 AM to 4 PM.",
+        "Library can be visited only after 10 AM.",
+        "All visits must fit within the tour horizon."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "total_tour_time",
+        "visit_coverage",
+        "constraint_satisfaction"
+      ],
+      "mode": "static",
+      "name": "Campus Tour",
+      "objective": "Minimize total tour time while visiting all required locations.",
+      "requirements": [
+        "Start time is given.",
+        "Each location requires a 30-minute visit.",
+        "Tour starts and ends at Student Center.",
+        "All locations must be visited.",
+        "Tour must complete by 5 PM."
+      ],
+      "short_name": "CT-static",
+      "tier": 1
+    },
+    {
+      "case_id": "P2",
+      "constraints": [
+        "Total visitors at a location must not exceed capacity.",
+        "Lab tours are available only from 9 AM to 4 PM.",
+        "Dining must be visited between 11 AM and 2 PM.",
+        "Library can be visited only after 10 AM."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "total_tour_time",
+        "capacity_satisfaction",
+        "visit_coverage"
+      ],
+      "mode": "static",
+      "name": "Multi-Group Campus Tours",
+      "objective": "Schedule multiple tours while minimizing total tour time and satisfying location capacities.",
+      "requirements": [
+        "Each group starts between 9 AM and 10 AM.",
+        "Each location requires a 30-minute visit.",
+        "Both tours start and end at Student Center.",
+        "All tours complete by 5 PM."
+      ],
+      "short_name": "MCT-static",
+      "tier": 2
+    },
+    {
+      "case_id": "P3",
+      "constraints": [
+        "Vehicle capacity is two passengers.",
+        "All passenger airport deadlines must be met."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "on_time_performance",
+        "total_distance",
+        "capacity_satisfaction"
+      ],
+      "mode": "static",
+      "name": "Urban Ride-Sharing",
+      "objective": "Assign vehicles and pickup times to deliver all passengers to BOS on time while reducing distance and inefficiency.",
+      "requirements": [
+        "Dispatcher determines pickup times from a feasible schedule.",
+        "Pickup times must allow vehicle travel to pickup point and then airport arrival by deadline."
+      ],
+      "short_name": "URS-static",
+      "tier": 2
+    },
+    {
+      "case_id": "P4",
+      "constraints": [
+        "Vehicle capacity is two passengers.",
+        "Passenger airport deadlines must be satisfied if feasible."
+      ],
+      "disruption_count": 2,
+      "disruptions": [
+        {
+          "description": "Airport route traffic delay.",
+          "type": "traffic_delay"
+        },
+        {
+          "description": "Certain local road closure.",
+          "type": "road_closure"
+        }
+      ],
+      "extends": "P3",
+      "family": "planning",
+      "metrics": [
+        "on_time_performance",
+        "total_vehicle_travel_time",
+        "disruption_adaptation"
+      ],
+      "mode": "dynamic",
+      "name": "Urban Ride-Sharing with Disruptions",
+      "objective": "Minimize total vehicle travel time while meeting passenger deadlines under disruptions.",
+      "requirements": [
+        "Respond to traffic delays and road closures.",
+        "Maintain capacity and deadline feasibility after replanning."
+      ],
+      "short_name": "URS-dynamic",
+      "tier": 4
+    },
+    {
+      "case_id": "P5",
+      "constraints": [
+        "Gift shop opens at 12 PM.",
+        "Tailor closes at 2 PM.",
+        "Two cars must accommodate all transport needs."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "on_time_performance",
+        "task_completion",
+        "transport_feasibility"
+      ],
+      "mode": "static",
+      "name": "Wedding Reunion Logistics",
+      "objective": "Ensure everyone and all required items reach the wedding venue before 3 PM.",
+      "requirements": [
+        "Collect wedding gift after noon.",
+        "Pick up clothes from tailor by 2 PM.",
+        "Everyone must be at wedding venue for 3 PM photos."
+      ],
+      "short_name": "WR-static",
+      "tier": 2
+    },
+    {
+      "case_id": "P6",
+      "constraints": [
+        "James must rent a car after landing.",
+        "Emily requires airport pickup.",
+        "Cooking supervision must be maintained."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "on_time_dinner",
+        "pickup_completion",
+        "cooking_readiness",
+        "cooking_supervision"
+      ],
+      "mode": "static",
+      "name": "Thanksgiving Dinner Planning",
+      "objective": "All family members arrive home and dinner is ready by 6 PM.",
+      "requirements": [
+        "All family members at home for 6 PM dinner.",
+        "Turkey and sides ready by dinner time.",
+        "All pickups completed with available drivers.",
+        "Someone must stay home during cooking."
+      ],
+      "short_name": "TD-static",
+      "tier": 3
+    },
+    {
+      "case_id": "P7",
+      "constraints": [
+        "Transportation mode and capacity constraints.",
+        "Delivery prioritization constraints.",
+        "Airport overflow handling constraints."
+      ],
+      "disruption_count": 4,
+      "disruptions": [
+        {
+          "description": "Unpredictable donation arrivals.",
+          "type": "donation_arrival"
+        },
+        {
+          "description": "Road blockages requiring rerouting.",
+          "type": "road_blockage"
+        },
+        {
+          "description": "Emergency hospital demands.",
+          "type": "emergency_hospital_demand"
+        },
+        {
+          "description": "Fuel shortage delays.",
+          "type": "fuel_shortage_delay"
+        }
+      ],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "deadline_satisfaction",
+        "resource_distribution",
+        "priority_satisfaction",
+        "capacity_satisfaction"
+      ],
+      "mode": "static",
+      "name": "Disaster Relief Logistics",
+      "objective": "Schedule resource distribution, transportation, and delivery priorities while satisfying deadlines and capacities.",
+      "requirements": [
+        "Deliver food and water to distribution centers by 8 PM.",
+        "Deliver medicine to hospitals within 6 hours.",
+        "Refuel fuel station by noon.",
+        "Clear airport overflow beyond 5 tons immediately."
+      ],
+      "short_name": "DL-static",
+      "tier": 3
+    },
+    {
+      "case_id": "P8",
+      "constraints": [
+        "Planner must preserve task completion and passenger movement constraints from P5.",
+        "Planner must know current location of each vehicle when the road closure is announced."
+      ],
+      "disruption_count": 1,
+      "disruptions": [
+        {
+          "description": "Road closure requires real-time rerouting.",
+          "type": "road_closure"
+        }
+      ],
+      "extends": "P5",
+      "family": "planning",
+      "metrics": [
+        "on_time_performance",
+        "rerouting_correctness",
+        "state_tracking"
+      ],
+      "mode": "dynamic",
+      "name": "Wedding Logistics with Disruptions",
+      "objective": "Recover from road closures while still meeting the 3 PM photo deadline.",
+      "requirements": [
+        "Track current vehicle locations at the time of disruption.",
+        "Determine whether each vehicle is affected by a road closure.",
+        "Reroute affected vehicles without violating wedding deadlines."
+      ],
+      "short_name": "WR-dynamic",
+      "tier": 4
+    },
+    {
+      "case_id": "P9",
+      "constraints": [
+        "Original P6 cooking and pickup constraints remain active.",
+        "Flight delay notice may arrive before the originally expected arrival time."
+      ],
+      "disruption_count": 1,
+      "disruptions": [
+        {
+          "description": "James learns at 10 AM EST that his 1 PM BOS arrival is delayed to 4 PM.",
+          "new_arrival_time": "16:00",
+          "notice_time_est": "10:00",
+          "original_arrival_time": "13:00",
+          "person": "James",
+          "type": "flight_delay"
+        }
+      ],
+      "extends": "P6",
+      "family": "planning",
+      "metrics": [
+        "early_replanning",
+        "on_time_dinner",
+        "pickup_recovery",
+        "cooking_supervision"
+      ],
+      "mode": "dynamic",
+      "name": "Thanksgiving with Disruptions",
+      "objective": "Use early delay notice to recover the dinner, pickup, and supervision plan before the original arrival time.",
+      "requirements": [
+        "React when delay notice is received, not only at the original arrival time.",
+        "Re-optimize travel and dinner plan using the available notice window.",
+        "Maintain Thanksgiving dinner readiness and pickup feasibility."
+      ],
+      "short_name": "TD-dynamic",
+      "tier": 4
+    },
+    {
+      "case_id": "P10",
+      "constraints": [
+        "Payment terms are 50 percent at order and 50 percent at delivery.",
+        "Power and cooling regular duration is 2 months at 30M USD.",
+        "Power and cooling can be expedited to 1 month at 75M USD.",
+        "Testing can be expedited from 2 months to 1 month at 45M USD.",
+        "Any module can be expedited at 150 percent cost and 50 percent time."
+      ],
+      "disruption_count": 3,
+      "disruptions": [
+        {
+          "cost_impact_percent": 30,
+          "delay_months": 1,
+          "probability_per_quarter": 0.1,
+          "type": "earthquake"
+        },
+        {
+          "cost_impact_percent": 30,
+          "delay_months": 1,
+          "probability_per_quarter": 0.1,
+          "type": "typhoon"
+        },
+        {
+          "description": "Expedite one shipment by 1 month, shifting all shipments.",
+          "type": "shipment_delay"
+        }
+      ],
+      "extends": null,
+      "family": "planning",
+      "metrics": [
+        "total_cost",
+        "deadline_satisfaction",
+        "risk_adjusted_cost",
+        "infrastructure_readiness"
+      ],
+      "mode": "static_dynamic",
+      "name": "Global Supply Chain",
+      "objective": "Minimize total cost while meeting a 15-month data-center completion deadline.",
+      "requirements": [
+        "All orders are placed on day 1.",
+        "Shipments occur quarterly.",
+        "Power and cooling must be ready before networking starts.",
+        "Each cluster must complete testing before becoming operational."
+      ],
+      "short_name": "GSC-static-dynamic",
+      "tier": 5
+    },
+    {
+      "case_id": "J1",
+      "constraints": [
+        "Operations must follow the listed order per job.",
+        "Each machine processes at most one operation at a time.",
+        "Operations are non-preemptive."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "jssp",
+      "metrics": [
+        "makespan",
+        "precedence_satisfaction",
+        "machine_capacity_satisfaction"
+      ],
+      "mode": "static",
+      "name": "JSSP Basic",
+      "objective": "Minimize makespan.",
+      "requirements": [],
+      "short_name": "JSSP-simple-static",
+      "tier": 1
+    },
+    {
+      "case_id": "J2",
+      "constraints": [
+        "Operations must follow the listed order per job.",
+        "Each machine processes at most one operation at a time.",
+        "Scheduler must respond to delays at runtime."
+      ],
+      "disruption_count": 2,
+      "disruptions": [
+        {
+          "distribution": "Uniform(0, 2)",
+          "revealed_at": "operation_start",
+          "type": "stochastic_operation_delay"
+        },
+        {
+          "machine": "MachineA",
+          "type": "machine_breakdown_example",
+          "unavailable_end": 6,
+          "unavailable_start": 4
+        }
+      ],
+      "extends": "J1",
+      "family": "jssp",
+      "metrics": [
+        "realized_makespan",
+        "reactivity",
+        "precedence_satisfaction",
+        "machine_capacity_satisfaction"
+      ],
+      "mode": "dynamic",
+      "name": "JSSP Basic with Disruptions",
+      "objective": "Minimize realized makespan under dynamic delays.",
+      "requirements": [],
+      "short_name": "JSSP-simple-dynamic",
+      "tier": 4
+    },
+    {
+      "case_id": "J3",
+      "constraints": [
+        "Operations must follow job-specific order.",
+        "Each machine can process only one job at a time.",
+        "Required materials must be available before operation starts."
+      ],
+      "disruption_count": 0,
+      "disruptions": [],
+      "extends": null,
+      "family": "jssp",
+      "metrics": [
+        "makespan",
+        "material_feasibility",
+        "machine_capacity_satisfaction",
+        "precedence_satisfaction"
+      ],
+      "mode": "static",
+      "name": "JSSP Large-scale",
+      "objective": "Minimize makespan under resource, precedence, and material constraints.",
+      "requirements": [],
+      "short_name": "JSSP-complex-static",
+      "tier": 3
+    },
+    {
+      "case_id": "J4",
+      "constraints": [
+        "Operations must respect job-specific order.",
+        "Machines are exclusive-use and non-preemptive.",
+        "Materials must be present and available before operation start.",
+        "Schedule must react to real-time delays and shortages."
+      ],
+      "disruption_count": 2,
+      "disruptions": [
+        {
+          "distribution": "Uniform(0, 3)",
+          "type": "stochastic_operation_delay"
+        },
+        {
+          "description": "Materials may become temporarily unavailable.",
+          "materials_examples": [
+            "C-X",
+            "F"
+          ],
+          "type": "material_unavailability"
+        }
+      ],
+      "extends": "J3",
+      "family": "jssp",
+      "metrics": [
+        "realized_makespan",
+        "adaptivity",
+        "material_feasibility",
+        "machine_capacity_satisfaction"
+      ],
+      "mode": "dynamic",
+      "name": "JSSP Large-scale with Disruptions",
+      "objective": "Minimize realized makespan under delays and material availability.",
+      "requirements": [],
+      "short_name": "JSSP-complex-dynamic",
+      "tier": 4
+    }
+  ],
+  "dynamic_case_ids": [
+    "P4",
+    "P7",
+    "P8",
+    "P9",
+    "P10",
+    "J2",
+    "J4"
+  ],
+  "schema_version": "realm_case_catalog_report.v1",
+  "thanksgiving": {
+    "dynamic": {
+      "case_id": "P9",
+      "disruption": {
+        "delay_minutes": 180,
+        "early_notice_minutes": 180,
+        "new_arrival_time": "16:00",
+        "notice_time_est": "10:00",
+        "original_arrival_time": "13:00",
+        "person": "James"
+      },
+      "extends": "P6",
+      "short_name": "TD-dynamic"
+    },
+    "readiness_result": {
+      "evaluation_available": false,
+      "executable_solver_result": "not_run_in_r6.4",
+      "next_step": "R6.5 executable Thanksgiving P6/P9 benchmark",
+      "problem_extracted": true,
+      "solution_available": false,
+      "typed_adapter_loaded": true
+    },
+    "static": {
+      "case_id": "P6",
+      "dinner_deadline": "18:00",
+      "family_members": [
+        "Sarah",
+        "James",
+        "Emily",
+        "Michael",
+        "Grandma"
+      ],
+      "host_members": [
+        "Sarah"
+      ],
+      "meal_tasks": [
+        {
+          "duration_minutes": 240,
+          "requires_supervision": true,
+          "task": "turkey"
+        },
+        {
+          "duration_minutes": 120,
+          "requires_supervision": false,
+          "task": "side_dishes"
+        }
+      ],
+      "pickup_members": [
+        "Emily",
+        "Grandma"
+      ],
+      "short_name": "TD-static",
+      "travel_times_minutes": {
+        "BOS-Grandma": 60,
+        "home-BOS": 60,
+        "home-Grandma": 30
+      }
+    }
+  }
+}

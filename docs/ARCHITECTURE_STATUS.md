@@ -34,7 +34,7 @@ This separation is intentional. The project first establishes a visible, auditab
 
 Current milestone:
 
-`R5.0: Product API and audit surface`
+`R5.1: Product reporting and CLI surface`
 
 Completed product tags:
 
@@ -45,7 +45,7 @@ Completed product tags:
 
 Current full local suite:
 
-`198 passed, 24 skipped`
+`210 passed, 24 skipped`
 
 ---
 
@@ -262,6 +262,34 @@ Core invariant:
 
 Audit APIs are read-only. Recovery APIs commit only commitment-FSM records. Proposal package APIs keep domain candidates inert unless separately admitted through the domain CTL path.
 
+
+### 3.10 Product reporting and CLI surface
+
+R5.1 adds product-facing reporting over the R5.0 audit API:
+
+- `mnemosyne.api.reports`
+- `mnemosyne.cli.product_reports`
+- `examples/r51_product_report_export_demo.py`
+
+The reporting layer converts product audit rows into Markdown and JSON reports.
+
+Supported reports include:
+
+- active commitment audit
+- unresolved commitments
+- commitment lineage
+- recovery lineage
+
+Core invariant:
+
+    Reports are read-only.
+    CLI export is read-only.
+    Reporting does not validate, commit, mutate CTL, mutate StateView, or execute recovery.
+
+The reporting path is:
+
+    mnemosyne.api.audit -> mnemosyne.api.reports -> Markdown / JSON / CLI
+
 ---
 
 ## 4. What is not yet integrated
@@ -427,7 +455,7 @@ Recommended next stages:
 
 The next immediate stage should likely be:
 
-`R5.1 product reporting and CLI surface`
+`R6.0 disruptive planning benchmark layer`
 
 Purpose:
 

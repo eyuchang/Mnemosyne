@@ -33,3 +33,8 @@ __all__ = [
     "require_temporal_sdk",
     "validate_and_commit_batch_activity",
 ]
+from mnemosyne.runtime.temporal.active_recovery import (
+    ActiveRecoveryActivityResult,
+    TemporalRecoveryProposalProvider,
+    plan_validate_and_commit_active_recovery_activity,
+)

@@ -1,0 +1,408 @@
+{
+  "api_calls": [
+    "SQLiteStore",
+    "register_active_commitment",
+    "fire_active_commitment",
+    "create_recovery_proposal_package",
+    "emit_package_backed_proposal",
+    "admit_active_commitment",
+    "get_active_commitment_status",
+    "audit_active_commitments",
+    "audit_commitment_lineage",
+    "audit_recovery_lineage",
+    "list_unresolved_commitments"
+  ],
+  "audit": {
+    "active_commitments": [
+      {
+        "commitment_id": "p9-cook-turkey-supervision",
+        "commitment_type": "temporal_constraint",
+        "dependency_scope": {
+          "case_id": "P9",
+          "constraint": "turkey_supervision",
+          "domain": "thanksgiving"
+        },
+        "description": "Sarah supervises turkey from 09:00 to 13:00.",
+        "first_record_id": "p9-register-1",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 1,
+        "last_record_id": "p9-register-1",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "commitment_id": "p9-dinner-ready-by-1800",
+        "commitment_type": "deadline_constraint",
+        "dependency_scope": {
+          "case_id": "P9",
+          "constraint": "dinner_ready",
+          "deadline": "18:00",
+          "domain": "thanksgiving"
+        },
+        "description": "All family members home and dinner ready by 18:00.",
+        "first_record_id": "p9-register-4",
+        "is_unresolved": true,
+        "last_action_type": "commitment_fired",
+        "last_log_position": 6,
+        "last_record_id": "p9-fire-2",
+        "record_count": 2,
+        "status": "fired",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "commitment_id": "p9-pickup-emily",
+        "commitment_type": "pickup_constraint",
+        "dependency_scope": {
+          "case_id": "P9",
+          "constraint": "pickup_before_dinner",
+          "domain": "thanksgiving",
+          "person": "Emily"
+        },
+        "description": "Emily is picked up from BOS before dinner.",
+        "first_record_id": "p9-register-2",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 2,
+        "last_record_id": "p9-register-2",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "commitment_type": "pickup_assignment",
+        "dependency_scope": {
+          "assignee": "James",
+          "case_id": "P9",
+          "constraint": "pickup_before_dinner",
+          "domain": "thanksgiving",
+          "person": "Grandma"
+        },
+        "description": "Original plan assigns Grandma pickup to James.",
+        "first_record_id": "p9-register-3",
+        "is_unresolved": false,
+        "last_action_type": "commitment_admitted",
+        "last_log_position": 8,
+        "last_record_id": "p9-admit-grandma-repair",
+        "record_count": 4,
+        "status": "admitted",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      }
+    ],
+    "grandma_commitment_lineage": [
+      {
+        "action_type": "commitment_registered",
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "local_log_position": 3,
+        "log_position": 3,
+        "payload": {
+          "commitment": {
+            "commitment_id": "p9-pickup-grandma-by-james",
+            "commitment_type": "pickup_assignment",
+            "compensation_ref": null,
+            "continuation_ref": "repair:reassign-grandma-pickup",
+            "creating_record_id": null,
+            "creating_workflow_id": null,
+            "cross_episode_key": null,
+            "dependency_scope": {
+              "assignee": "James",
+              "case_id": "P9",
+              "constraint": "pickup_before_dinner",
+              "domain": "thanksgiving",
+              "person": "Grandma"
+            },
+            "description": "Original plan assigns Grandma pickup to James.",
+            "expiry": null,
+            "failure_signature": null,
+            "guard_ref": null,
+            "priority": 20,
+            "trigger": {
+              "notice_time": "10:00",
+              "person": "James",
+              "type": "flight_delay"
+            },
+            "validator_ref": null
+          }
+        },
+        "record_id": "p9-register-3",
+        "status_after": "live",
+        "status_before": "none",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "p9-register-commitments",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "action_type": "commitment_fired",
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "local_log_position": 5,
+        "log_position": 5,
+        "payload": {
+          "reason": "james_flight_delay_notice_at_1000"
+        },
+        "record_id": "p9-fire-1",
+        "status_after": "fired",
+        "status_before": "live",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "p9-fire-disruption",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "action_type": "commitment_proposal_emitted",
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "local_log_position": 7,
+        "log_position": 7,
+        "payload": {
+          "proposal_package": {
+            "candidate_count": 0,
+            "candidate_rids": [],
+            "commitment_id": "p9-pickup-grandma-by-james",
+            "created_by": "r67_thanksgiving_api_bound_recovery",
+            "created_from_record_id": "p9-fire-1",
+            "package_id": "p9-package-reassign-grandma-to-sarah",
+            "proposal_ref": "repair:grandma-pickup-james-to-sarah",
+            "proposal_scope": {
+              "assignee": "James",
+              "case_id": "P9",
+              "constraint": "pickup_before_dinner",
+              "domain": "thanksgiving",
+              "person": "Grandma"
+            },
+            "rationale": "James now lands at 16:00; Grandma pickup is reassigned to Sarah."
+          },
+          "proposal_ref": "repair:grandma-pickup-james-to-sarah",
+          "proposal_scope": {
+            "assignee": "James",
+            "case_id": "P9",
+            "constraint": "pickup_before_dinner",
+            "domain": "thanksgiving",
+            "person": "Grandma"
+          },
+          "rationale": "James now lands at 16:00; Grandma pickup is reassigned to Sarah."
+        },
+        "record_id": "p9-package-proposal",
+        "status_after": "proposed",
+        "status_before": "fired",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "p9-emit-recovery-package",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "action_type": "commitment_admitted",
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "local_log_position": 8,
+        "log_position": 8,
+        "payload": {
+          "admitted_record_ids": [
+            "p9-package-proposal"
+          ]
+        },
+        "record_id": "p9-admit-grandma-repair",
+        "status_after": "admitted",
+        "status_before": "proposed",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "p9-admit-repair",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      }
+    ],
+    "recovery_lineage": [
+      {
+        "action_type": "commitment_proposal_emitted",
+        "admitted_record_ids": [],
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "log_position": 7,
+        "package_id": "p9-package-reassign-grandma-to-sarah",
+        "payload": {
+          "proposal_package": {
+            "candidate_count": 0,
+            "candidate_rids": [],
+            "commitment_id": "p9-pickup-grandma-by-james",
+            "created_by": "r67_thanksgiving_api_bound_recovery",
+            "created_from_record_id": "p9-fire-1",
+            "package_id": "p9-package-reassign-grandma-to-sarah",
+            "proposal_ref": "repair:grandma-pickup-james-to-sarah",
+            "proposal_scope": {
+              "assignee": "James",
+              "case_id": "P9",
+              "constraint": "pickup_before_dinner",
+              "domain": "thanksgiving",
+              "person": "Grandma"
+            },
+            "rationale": "James now lands at 16:00; Grandma pickup is reassigned to Sarah."
+          },
+          "proposal_ref": "repair:grandma-pickup-james-to-sarah",
+          "proposal_scope": {
+            "assignee": "James",
+            "case_id": "P9",
+            "constraint": "pickup_before_dinner",
+            "domain": "thanksgiving",
+            "person": "Grandma"
+          },
+          "rationale": "James now lands at 16:00; Grandma pickup is reassigned to Sarah."
+        },
+        "proposal_ref": "repair:grandma-pickup-james-to-sarah",
+        "record_id": "p9-package-proposal",
+        "rejection_code": null,
+        "status_after": "proposed",
+        "status_before": "fired",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "p9-emit-recovery-package",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      },
+      {
+        "action_type": "commitment_admitted",
+        "admitted_record_ids": [
+          "p9-package-proposal"
+        ],
+        "commitment_id": "p9-pickup-grandma-by-james",
+        "log_position": 8,
+        "package_id": null,
+        "payload": {
+          "admitted_record_ids": [
+            "p9-package-proposal"
+          ]
+        },
+        "proposal_ref": null,
+        "record_id": "p9-admit-grandma-repair",
+        "rejection_code": null,
+        "status_after": "admitted",
+        "status_before": "proposed",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "p9-admit-repair",
+        "workflow_id": "p9-thanksgiving-api-bound"
+      }
+    ],
+    "unresolved": {
+      "rows": [
+        {
+          "commitment_id": "p9-cook-turkey-supervision",
+          "commitment_type": "temporal_constraint",
+          "dependency_scope": {
+            "case_id": "P9",
+            "constraint": "turkey_supervision",
+            "domain": "thanksgiving"
+          },
+          "description": "Sarah supervises turkey from 09:00 to 13:00.",
+          "first_record_id": "p9-register-1",
+          "is_unresolved": true,
+          "last_action_type": "commitment_registered",
+          "last_log_position": 1,
+          "last_record_id": "p9-register-1",
+          "record_count": 1,
+          "status": "live",
+          "workflow_id": "p9-thanksgiving-api-bound"
+        },
+        {
+          "commitment_id": "p9-dinner-ready-by-1800",
+          "commitment_type": "deadline_constraint",
+          "dependency_scope": {
+            "case_id": "P9",
+            "constraint": "dinner_ready",
+            "deadline": "18:00",
+            "domain": "thanksgiving"
+          },
+          "description": "All family members home and dinner ready by 18:00.",
+          "first_record_id": "p9-register-4",
+          "is_unresolved": true,
+          "last_action_type": "commitment_fired",
+          "last_log_position": 6,
+          "last_record_id": "p9-fire-2",
+          "record_count": 2,
+          "status": "fired",
+          "workflow_id": "p9-thanksgiving-api-bound"
+        },
+        {
+          "commitment_id": "p9-pickup-emily",
+          "commitment_type": "pickup_constraint",
+          "dependency_scope": {
+            "case_id": "P9",
+            "constraint": "pickup_before_dinner",
+            "domain": "thanksgiving",
+            "person": "Emily"
+          },
+          "description": "Emily is picked up from BOS before dinner.",
+          "first_record_id": "p9-register-2",
+          "is_unresolved": true,
+          "last_action_type": "commitment_registered",
+          "last_log_position": 2,
+          "last_record_id": "p9-register-2",
+          "record_count": 1,
+          "status": "live",
+          "workflow_id": "p9-thanksgiving-api-bound"
+        }
+      ],
+      "tenant_id": "realm-thanksgiving",
+      "workflow_id": "p9-thanksgiving-api-bound"
+    },
+    "unresolved_count": 3
+  },
+  "case_id": "P9",
+  "commitment_statuses": {
+    "p9-cook-turkey-supervision": "live",
+    "p9-dinner-ready-by-1800": "fired",
+    "p9-pickup-emily": "live",
+    "p9-pickup-grandma-by-james": "admitted"
+  },
+  "disruption": {
+    "delay_minutes": 180,
+    "early_notice_minutes": 180,
+    "new_arrival_time": "16:00",
+    "notice_time_est": "10:00",
+    "original_arrival_time": "13:00",
+    "person": "James"
+  },
+  "proposal_package": {
+    "commitment_id": "p9-pickup-grandma-by-james",
+    "created_by": "r67_thanksgiving_api_bound_recovery",
+    "created_from_record_id": "p9-fire-1",
+    "package_id": "p9-package-reassign-grandma-to-sarah",
+    "proposal_ref": "repair:grandma-pickup-james-to-sarah",
+    "proposal_scope": {
+      "assignee": "James",
+      "case_id": "P9",
+      "constraint": "pickup_before_dinner",
+      "domain": "thanksgiving",
+      "person": "Grandma"
+    },
+    "proposed_domain_candidates": [],
+    "rationale": "James now lands at 16:00; Grandma pickup is reassigned to Sarah.",
+    "validator_context": {
+      "dinner_ready_time": "18:00",
+      "latest_family_home_time": "17:30",
+      "repair_trigger_time": "10:00"
+    }
+  },
+  "record_ids": {
+    "admitted": [
+      "p9-admit-grandma-repair"
+    ],
+    "fired": [
+      "p9-fire-1",
+      "p9-fire-2"
+    ],
+    "package": [
+      "p9-package-proposal"
+    ],
+    "registered": [
+      "p9-register-1",
+      "p9-register-2",
+      "p9-register-3",
+      "p9-register-4"
+    ]
+  },
+  "result": {
+    "admitted_repairs": 1,
+    "dinner_ready_time": "18:00",
+    "feasible_after_repair": true,
+    "fired_commitments": 2,
+    "latest_family_home_time": "17:30",
+    "optimality_status": "feasible_not_proven_optimal",
+    "proposal_packages": 1,
+    "registered_commitments": 4,
+    "repair_trigger_time": "10:00"
+  },
+  "schema_version": "thanksgiving_api_bound_recovery.v1",
+  "tenant_id": "realm-thanksgiving",
+  "workflow_id": "p9-thanksgiving-api-bound"
+}

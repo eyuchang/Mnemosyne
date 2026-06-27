@@ -1,0 +1,219 @@
+{
+  "api_replay": {
+    "duplicate_event_count": 0,
+    "recovery_count": 1,
+    "recovery_id": "r73-recovery",
+    "replayed_event_count": 3,
+    "states": [
+      {
+        "checkpoint": {
+          "duplicate_event_count": 0,
+          "idempotency_keys": [
+            "r73-idem-1",
+            "r73-idem-2",
+            "r73-idem-3"
+          ],
+          "last_sequence_no": 3,
+          "recovery_id": "r73-recovery",
+          "replayed_event_count": 3,
+          "tenant_id": "tenant-r73"
+        },
+        "duplicate_event_count": 0,
+        "duplicate_events": [],
+        "event_counts": {
+          "commitment_fired": 1,
+          "proposal_package_created": 1,
+          "repair_admission_committed": 1
+        },
+        "events": [
+          {
+            "causality_key": "commitment-r73",
+            "created_at": "2026-01-01T00:00:01+00:00",
+            "event_id": "r73-event-1",
+            "event_type": "commitment_fired",
+            "idempotency_key": "r73-idem-1",
+            "payload": {
+              "commitment_id": "commitment-r73"
+            },
+            "recovery_id": "r73-recovery",
+            "schema_id": "core.recovery_event",
+            "schema_version": "1.0",
+            "sequence_no": 1,
+            "tenant_id": "tenant-r73",
+            "workflow_id": "workflow-r73"
+          },
+          {
+            "causality_key": null,
+            "created_at": "2026-01-01T00:00:02+00:00",
+            "event_id": "r73-event-2",
+            "event_type": "proposal_package_created",
+            "idempotency_key": "r73-idem-2",
+            "payload": {
+              "proposal_package_id": "pkg-r73"
+            },
+            "recovery_id": "r73-recovery",
+            "schema_id": "core.recovery_event",
+            "schema_version": "1.0",
+            "sequence_no": 2,
+            "tenant_id": "tenant-r73",
+            "workflow_id": "workflow-r73"
+          },
+          {
+            "causality_key": null,
+            "created_at": "2026-01-01T00:00:03+00:00",
+            "event_id": "r73-event-3",
+            "event_type": "repair_admission_committed",
+            "idempotency_key": "r73-idem-3",
+            "payload": {
+              "admission_id": "admission-r73"
+            },
+            "recovery_id": "r73-recovery",
+            "schema_id": "core.recovery_event",
+            "schema_version": "1.0",
+            "sequence_no": 3,
+            "tenant_id": "tenant-r73",
+            "workflow_id": "workflow-r73"
+          }
+        ],
+        "last_sequence_no": 3,
+        "payloads_by_type": {
+          "commitment_fired": [
+            {
+              "commitment_id": "commitment-r73"
+            }
+          ],
+          "proposal_package_created": [
+            {
+              "proposal_package_id": "pkg-r73"
+            }
+          ],
+          "repair_admission_committed": [
+            {
+              "admission_id": "admission-r73"
+            }
+          ]
+        },
+        "recovery_id": "r73-recovery",
+        "replayed_event_count": 3,
+        "tenant_id": "tenant-r73",
+        "terminal_event_seen": true,
+        "workflow_id": "workflow-r73"
+      }
+    ],
+    "tenant_id": "tenant-r73",
+    "workflow_id": "workflow-r73"
+  },
+  "claims": {
+    "checkpoint_projection_claimed": true,
+    "deterministic_replay_order_claimed": true,
+    "durable_event_log_replay_claimed": true,
+    "idempotent_duplicate_tolerance_claimed": true,
+    "kubernetes_claimed": false,
+    "postgres_claimed": false,
+    "production_runtime_claimed": false,
+    "temporal_claimed": false
+  },
+  "duplicate_replay": {
+    "checkpoint": {
+      "duplicate_event_count": 2,
+      "idempotency_keys": [
+        "dup-idem-1"
+      ],
+      "last_sequence_no": 1,
+      "recovery_id": "dup-recovery",
+      "replayed_event_count": 1,
+      "tenant_id": "tenant-r73"
+    },
+    "duplicate_event_count": 2,
+    "duplicate_events": [
+      {
+        "causality_key": "duplicate-event-id",
+        "created_at": "2026-01-01T00:00:02+00:00",
+        "event_id": "dup-event-1",
+        "event_type": "commitment_fired",
+        "idempotency_key": "dup-idem-2",
+        "payload": {
+          "commitment_id": "duplicate-event-id"
+        },
+        "recovery_id": "dup-recovery",
+        "schema_id": "core.recovery_event",
+        "schema_version": "1.0",
+        "sequence_no": 2,
+        "tenant_id": "tenant-r73",
+        "workflow_id": "workflow-r73"
+      },
+      {
+        "causality_key": "duplicate-idempotency-key",
+        "created_at": "2026-01-01T00:00:03+00:00",
+        "event_id": "dup-event-3",
+        "event_type": "commitment_fired",
+        "idempotency_key": "dup-idem-1",
+        "payload": {
+          "commitment_id": "duplicate-idempotency-key"
+        },
+        "recovery_id": "dup-recovery",
+        "schema_id": "core.recovery_event",
+        "schema_version": "1.0",
+        "sequence_no": 3,
+        "tenant_id": "tenant-r73",
+        "workflow_id": "workflow-r73"
+      }
+    ],
+    "event_counts": {
+      "commitment_fired": 1
+    },
+    "events": [
+      {
+        "causality_key": "dup-commitment",
+        "created_at": "2026-01-01T00:00:01+00:00",
+        "event_id": "dup-event-1",
+        "event_type": "commitment_fired",
+        "idempotency_key": "dup-idem-1",
+        "payload": {
+          "commitment_id": "dup-commitment"
+        },
+        "recovery_id": "dup-recovery",
+        "schema_id": "core.recovery_event",
+        "schema_version": "1.0",
+        "sequence_no": 1,
+        "tenant_id": "tenant-r73",
+        "workflow_id": "workflow-r73"
+      }
+    ],
+    "last_sequence_no": 1,
+    "payloads_by_type": {
+      "commitment_fired": [
+        {
+          "commitment_id": "dup-commitment"
+        }
+      ]
+    },
+    "recovery_id": "dup-recovery",
+    "replayed_event_count": 1,
+    "tenant_id": "tenant-r73",
+    "terminal_event_seen": false,
+    "workflow_id": "workflow-r73"
+  },
+  "limitations": [
+    "R7.3 replays durable recovery events into deterministic recovery state.",
+    "R7.3 does not yet replay domain CTL mutation after crash.",
+    "R7.3 does not claim PostgreSQL, Kubernetes, Temporal, or production-runtime execution."
+  ],
+  "schema_version": "r73_recovery_replay_report.v1",
+  "summary": {
+    "deterministic_sequence_order": [
+      "r73-event-1",
+      "r73-event-2",
+      "r73-event-3"
+    ],
+    "duplicate_event_count": 0,
+    "duplicate_replay_duplicate_count": 2,
+    "duplicate_replay_tolerance_checked": true,
+    "last_sequence_no": 3,
+    "recovery_count": 1,
+    "replayed_event_count": 3,
+    "tenant_id": "tenant-r73",
+    "terminal_event_seen": true,
+    "workflow_id": "workflow-r73"
+  }
+}

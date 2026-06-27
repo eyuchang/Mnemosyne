@@ -1,0 +1,37 @@
+{
+  "claims": {
+    "kubernetes_claimed": false,
+    "live_postgres_required": false,
+    "postgres_adapter_implemented": false,
+    "postgres_conformance_boundary_defined": true,
+    "postgres_live_conformance_claimed": false,
+    "postgres_live_test_harness_defined": true,
+    "postgres_live_test_opt_in": true,
+    "production_runtime_claimed": false,
+    "sqlite_remains_default_store": true,
+    "temporal_claimed": false
+  },
+  "future_live_conformance_plan": [
+    "Implement PostgreSQL recovery-store adapter behind the RecoveryStore protocol.",
+    "Construct PostgreSQL store only when MNEMOSYNE_POSTGRES_DATABASE_URL is supplied.",
+    "Run observe_recovery_store_conformance against PostgreSQL with restart persistence expected.",
+    "Keep default CI independent of PostgreSQL service availability."
+  ],
+  "limitations": [
+    "R7.6 defines the PostgreSQL live conformance harness only.",
+    "R7.6 does not implement the PostgreSQL adapter.",
+    "R7.6 does not require a PostgreSQL service in default CI.",
+    "R7.6 does not claim Kubernetes, Temporal, or production-runtime recovery."
+  ],
+  "schema_version": "r76_postgres_conformance_report.v1",
+  "summary": {
+    "decision": "postgres_live_conformance_harness_defined_as_opt_in",
+    "default_ci_safe": true,
+    "live_postgres_required": false,
+    "postgres_conformance_env": "MNEMOSYNE_POSTGRES_DATABASE_URL",
+    "postgres_conformance_env_present": false,
+    "sqlite_remains_default_store": true,
+    "store_schema_id": "mnemosyne.store.sqlite",
+    "store_schema_version": "1.0"
+  }
+}

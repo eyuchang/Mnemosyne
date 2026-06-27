@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Inspected files: 43
+- Inspected files: 44
 - Mutation sites: 69
-- Validation sites: 201
+- Validation sites: 206
 - Decision: `ready_for_validated_admission_boundary_hardening`
 
 ## Purpose
@@ -399,6 +399,14 @@ This inspection commit does not change mutation semantics. It identifies the adm
 - L67: `require_recovery_store` — `assert require_recovery_store(store, required_methods=RECOVERY_READ_METHODS) is store`
 - L69: `RecoveryStore` — `with pytest.raises(RecoveryStoreCapabilityError) as exc:`
 - L70: `require_recovery_store` — `require_recovery_store(store)`
+
+### `tests/core/test_recovery_store_conformance_contract.py`
+
+- L7: `RecoveryStore` — `RecoveryStoreConformanceCase,`
+- L18: `RecoveryStore` — `RecoveryStoreConformanceCase(store_name="SQLiteStore"),`
+- L37: `RecoveryStore` — `RecoveryStoreConformanceCase(`
+- L51: `RecoveryStore` — `RecoveryStoreConformanceCase(store_name="SQLiteStore"),`
+- L66: `RecoveryStore` — `RecoveryStoreConformanceCase(`
 
 ### `tests/core/test_recovery_store_persistence.py`
 

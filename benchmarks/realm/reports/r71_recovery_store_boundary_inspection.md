@@ -2,8 +2,8 @@
 
 ## Summary
 
-- Inspected files: 33
-- Recovery-related files: 28
+- Inspected files: 34
+- Recovery-related files: 29
 - Coupling sites: 101
 - Decision: `ready_for_store_protocol_refactor`
 
@@ -30,6 +30,7 @@ R7.1 does not claim Postgres support, distributed storage, Kubernetes deployment
 - `mnemosyne/benchmarks/jssp_repair_admission.py`
 - `mnemosyne/benchmarks/jssp_schedule_admission.py`
 - `mnemosyne/core/store_capabilities.py`
+- `mnemosyne/core/store_conformance.py`
 - `mnemosyne/runtime/admission.py`
 - `mnemosyne/runtime/command_handler.py`
 - `mnemosyne/runtime/commands.py`

@@ -615,3 +615,38 @@ Validation:
 
 R6.3 remains benchmark fixture work only.
 It does not start R7.0 infrastructure hardening.
+
+
+---
+
+## R6.4 REALM-Bench repository layout and reports complete
+
+R6.4 moves REALM-Bench assets from test-only fixtures into a public researcher-facing benchmark tree.
+
+Added public layout:
+
+    benchmarks/realm/cases/
+    benchmarks/realm/adapters/
+    benchmarks/realm/reports/
+    benchmarks/realm/solutions/
+    benchmarks/realm/evaluations/
+    benchmarks/realm/scripts/
+
+The benchmark now exposes:
+
+    all 14 REALM-Bench cases as committed JSON artifacts
+    per-case files for P1-P10 and J1-J4
+    reusable case loader and Thanksgiving adapter
+    committed Markdown and JSON case catalog reports
+    documented solution and evaluation directories
+
+Researcher-facing report:
+
+    benchmarks/realm/reports/realm_case_catalog_report.md
+
+Validation:
+
+    251 passed, 24 skipped
+
+R6.4 remains repository organization and report work.
+Executable Thanksgiving solving and evaluation start in R6.5.

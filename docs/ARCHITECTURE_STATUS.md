@@ -650,3 +650,48 @@ Validation:
 
 R6.4 remains repository organization and report work.
 Executable Thanksgiving solving and evaluation start in R6.5.
+
+
+---
+
+## R6.5 Thanksgiving executable benchmark complete
+
+R6.5 adds the first executable REALM-Bench benchmark report.
+
+Added runner:
+
+    benchmarks/realm/scripts/run_thanksgiving_benchmark.py
+
+Generated solutions:
+
+    benchmarks/realm/solutions/p6_thanksgiving_static_baseline.json
+    benchmarks/realm/solutions/p9_thanksgiving_dynamic_repair_baseline.json
+
+Generated evaluations:
+
+    benchmarks/realm/evaluations/p6_thanksgiving_static_eval.json
+    benchmarks/realm/evaluations/p9_thanksgiving_dynamic_eval.json
+
+Generated report:
+
+    benchmarks/realm/reports/thanksgiving_p6_p9_report.md
+    benchmarks/realm/reports/thanksgiving_p6_p9_report.json
+
+Current result:
+
+    P6 feasible: True
+    P9 feasible after repair: True
+    P6 optimality: feasible_not_proven_optimal
+    P9 optimality: feasible_not_proven_optimal
+
+P9 repair:
+
+    James flight delay notice arrives at 10:00.
+    James original arrival is 13:00.
+    James new arrival is 16:00.
+    Grandma pickup is reassigned from James to Sarah.
+    Dinner remains feasible by 18:00.
+
+Validation:
+
+    253 passed, 24 skipped

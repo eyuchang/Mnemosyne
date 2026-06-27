@@ -77,3 +77,50 @@ Tests are stored in:
 
 The cases and reports are committed artifacts.
 Tests verify that the committed artifacts remain loadable and deterministic.
+
+
+## Executable Thanksgiving benchmark
+
+R6.5 adds an executable deterministic Thanksgiving benchmark for:
+
+    P6 Thanksgiving Dinner Planning / TD-static
+    P9 Thanksgiving with Disruptions / TD-dynamic
+
+Run:
+
+    python benchmarks/realm/scripts/run_thanksgiving_benchmark.py
+
+This generates:
+
+    benchmarks/realm/solutions/p6_thanksgiving_static_baseline.json
+    benchmarks/realm/solutions/p9_thanksgiving_dynamic_repair_baseline.json
+
+    benchmarks/realm/evaluations/p6_thanksgiving_static_eval.json
+    benchmarks/realm/evaluations/p9_thanksgiving_dynamic_eval.json
+
+    benchmarks/realm/reports/thanksgiving_p6_p9_report.json
+    benchmarks/realm/reports/thanksgiving_p6_p9_report.md
+
+Open the report:
+
+    open benchmarks/realm/reports/thanksgiving_p6_p9_report.md
+
+Current result:
+
+    P6 feasible: True
+    P9 feasible after repair: True
+    P6 optimality: feasible_not_proven_optimal
+    P9 optimality: feasible_not_proven_optimal
+
+P9 disruption:
+
+    James's flight delay is known at 10:00.
+    Original arrival: 13:00
+    New arrival: 16:00
+    Delay: 180 minutes
+
+Repair:
+
+    Grandma pickup is reassigned from James to Sarah.
+    The repair is triggered at 10:00, not at James's original 13:00 arrival time.
+    Dinner remains feasible by 18:00.

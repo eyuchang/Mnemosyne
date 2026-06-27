@@ -148,7 +148,7 @@ async def emit_recovery_proposals_for_disruption(
             schedule=schedule,
             disruption=disruption_signal.disruption,
             disrupted_operation=fired.disrupted_operation,
-            created_from_record_id=fired.result.record.rid,
+            created_from_record_id=fired.result.records[-1].rid,
         )
 
         commitment = active_commitment_for_scheduled_operation(

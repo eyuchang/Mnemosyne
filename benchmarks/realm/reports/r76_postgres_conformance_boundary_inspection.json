@@ -1,0 +1,1061 @@
+{
+  "claims": {
+    "kubernetes_claimed": false,
+    "live_postgres_required": false,
+    "postgres_adapter_implemented": false,
+    "postgres_conformance_boundary_defined": true,
+    "postgres_live_conformance_claimed": false,
+    "postgres_schema_draft_defined": true,
+    "production_runtime_claimed": false,
+    "sqlite_remains_default_store": true,
+    "temporal_claimed": false
+  },
+  "current_runtime_tables": [
+    "commands",
+    "events",
+    "inbox_messages",
+    "outbox_messages",
+    "commitments",
+    "proposal_packages"
+  ],
+  "limitations": [
+    "R7.6 Commit 1 defines the PostgreSQL conformance boundary only.",
+    "No live PostgreSQL adapter is implemented in this commit.",
+    "SQLite remains the default store and test target.",
+    "Live PostgreSQL tests should remain skipped unless an explicit database URL is supplied."
+  ],
+  "postgres_conformance_requirements": [
+    {
+      "category": "table",
+      "description": "PostgreSQL store must provide `store_schema_metadata` with equivalent logical fields.",
+      "id": "postgres_table_store_schema_metadata",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "table",
+      "description": "PostgreSQL store must provide `recovery_events` with equivalent logical fields.",
+      "id": "postgres_table_recovery_events",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "constraint",
+      "description": "Preserve unique `(tenant_id, event_id)` for durable idempotency.",
+      "id": "postgres_recovery_events_unique_event_id",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "constraint",
+      "description": "Preserve unique `(tenant_id, idempotency_key)` for retry safety.",
+      "id": "postgres_recovery_events_unique_idempotency_key",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "constraint",
+      "description": "Preserve unique `(tenant_id, recovery_id, sequence_no)` for deterministic replay.",
+      "id": "postgres_recovery_events_unique_sequence_no",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "query_semantics",
+      "description": "List recovery events deterministically by recovery id, sequence number, and event id.",
+      "id": "postgres_recovery_events_ordering",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "type_semantics",
+      "description": "Payloads must round-trip JSON-compatible data without changing replay semantics.",
+      "id": "postgres_recovery_events_json_payload",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "migration",
+      "description": "Store schema id/version must be queryable and stable across restart.",
+      "id": "postgres_schema_metadata",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "capability",
+      "description": "PostgreSQL store must report durable recovery, idempotency, replay, and restart persistence capabilities.",
+      "id": "postgres_capability_report",
+      "required": true,
+      "sqlite_present": true
+    },
+    {
+      "category": "ci_boundary",
+      "description": "Live PostgreSQL conformance tests must be skipped unless an explicit database URL is supplied.",
+      "id": "postgres_default_ci_skip",
+      "required": true,
+      "sqlite_present": true
+    }
+  ],
+  "postgres_schema_draft": [
+    "CREATE TABLE store_schema_metadata (schema_id TEXT PRIMARY KEY, schema_version TEXT NOT NULL, store_type TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL, updated_at TIMESTAMPTZ NOT NULL);",
+    "CREATE TABLE recovery_events (event_id TEXT NOT NULL, tenant_id TEXT NOT NULL, workflow_id TEXT, recovery_id TEXT NOT NULL, sequence_no INTEGER NOT NULL, event_type TEXT NOT NULL, idempotency_key TEXT NOT NULL, causality_key TEXT, payload JSONB NOT NULL, schema_id TEXT NOT NULL, schema_version TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL, PRIMARY KEY (tenant_id, event_id), UNIQUE (tenant_id, idempotency_key), UNIQUE (tenant_id, recovery_id, sequence_no));",
+    "CREATE INDEX idx_recovery_events_recovery ON recovery_events (tenant_id, recovery_id, sequence_no);",
+    "CREATE INDEX idx_recovery_events_workflow ON recovery_events (tenant_id, workflow_id, created_at);"
+  ],
+  "required_postgres_tables": [
+    "store_schema_metadata",
+    "recovery_events"
+  ],
+  "schema_version": "r76_postgres_conformance_boundary_inspection.v1",
+  "sqlite_schema": {
+    "columns": {
+      "commands": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "command_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "actor_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "command_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "payload",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "idempotency_key",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "submitted_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "ctl_records": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "log_position",
+          "notnull": false,
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "rid",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "op_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "tx_group_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "binding_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "eid",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "fsm",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "version",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 10,
+          "default": null,
+          "name": "state_before",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 11,
+          "default": null,
+          "name": "state_after",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 12,
+          "default": null,
+          "name": "action_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 13,
+          "default": null,
+          "name": "triggers",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 14,
+          "default": null,
+          "name": "dependencies",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 15,
+          "default": null,
+          "name": "metadata",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 16,
+          "default": null,
+          "name": "extension",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 17,
+          "default": null,
+          "name": "app_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 18,
+          "default": null,
+          "name": "app_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 19,
+          "default": null,
+          "name": "schema_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 20,
+          "default": null,
+          "name": "schema_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 21,
+          "default": null,
+          "name": "fsm_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 22,
+          "default": null,
+          "name": "policy_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 23,
+          "default": null,
+          "name": "policy_version",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 24,
+          "default": null,
+          "name": "validator_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 25,
+          "default": null,
+          "name": "validator_version",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 26,
+          "default": null,
+          "name": "timestamp",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 27,
+          "default": null,
+          "name": "local_log_position",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        }
+      ],
+      "effective_record_index": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "rid",
+          "notnull": true,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "effective",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "changed_by_rid",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "entity_projection": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "eid",
+          "notnull": true,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "fsm",
+          "notnull": true,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "state",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "version",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "attrs",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "effective_records",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "as_of_log_position",
+          "notnull": false,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "binding_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "event_inbox": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "inbox_id",
+          "notnull": false,
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "event_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "source",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "dedupe_key",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "binding_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "payload",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "schema_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "schema_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 10,
+          "default": null,
+          "name": "received_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 11,
+          "default": null,
+          "name": "processed_at",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 12,
+          "default": null,
+          "name": "status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "event_log": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "log_position",
+          "notnull": false,
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "event_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "source",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "event_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "entity_refs",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "payload",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "binding_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "schema_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 10,
+          "default": null,
+          "name": "schema_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 11,
+          "default": null,
+          "name": "timestamp",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "outbox": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "outbox_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "provider",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "effect_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "payload",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "provider_idempotency_key",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "binding_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "created_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "recovery_events": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "log_position",
+          "notnull": false,
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "event_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "workflow_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "recovery_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "sequence_no",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "event_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "idempotency_key",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "causality_key",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "payload",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 10,
+          "default": null,
+          "name": "schema_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 11,
+          "default": null,
+          "name": "schema_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 12,
+          "default": null,
+          "name": "created_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "store_schema_metadata": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "schema_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "schema_version",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "store_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "created_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "updated_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ]
+    },
+    "indexes": [
+      "idx_ctl_entity",
+      "idx_ctl_group",
+      "idx_recovery_events_recovery",
+      "idx_recovery_events_workflow"
+    ],
+    "objects": [
+      {
+        "name": "idx_ctl_entity",
+        "sql": "CREATE INDEX idx_ctl_entity\n                ON ctl_records(tenant_id, eid, fsm, version)",
+        "table": "ctl_records",
+        "type": "index"
+      },
+      {
+        "name": "idx_ctl_group",
+        "sql": "CREATE INDEX idx_ctl_group\n                ON ctl_records(tenant_id, tx_group_id)",
+        "table": "ctl_records",
+        "type": "index"
+      },
+      {
+        "name": "idx_recovery_events_recovery",
+        "sql": "CREATE INDEX idx_recovery_events_recovery\n                ON recovery_events(tenant_id, recovery_id, sequence_no)",
+        "table": "recovery_events",
+        "type": "index"
+      },
+      {
+        "name": "idx_recovery_events_workflow",
+        "sql": "CREATE INDEX idx_recovery_events_workflow\n                ON recovery_events(tenant_id, workflow_id, log_position)",
+        "table": "recovery_events",
+        "type": "index"
+      },
+      {
+        "name": "commands",
+        "sql": "CREATE TABLE commands (\n                command_id TEXT PRIMARY KEY,\n                tenant_id TEXT NOT NULL,\n                actor_id TEXT NOT NULL,\n                command_type TEXT NOT NULL,\n                payload TEXT NOT NULL,\n                idempotency_key TEXT NOT NULL,\n                workflow_id TEXT,\n                submitted_at TEXT NOT NULL,\n                UNIQUE(tenant_id, idempotency_key)\n            )",
+        "table": "commands",
+        "type": "table"
+      },
+      {
+        "name": "ctl_records",
+        "sql": "CREATE TABLE ctl_records (\n                log_position INTEGER PRIMARY KEY AUTOINCREMENT,\n                rid TEXT NOT NULL,\n                op_id TEXT,\n                tenant_id TEXT NOT NULL,\n                tx_group_id TEXT NOT NULL,\n                workflow_id TEXT,\n                binding_id TEXT,\n                eid TEXT NOT NULL,\n                fsm TEXT NOT NULL,\n                version INTEGER NOT NULL,\n                state_before TEXT NOT NULL,\n                state_after TEXT NOT NULL,\n                action_type TEXT NOT NULL,\n                triggers TEXT NOT NULL,\n                dependencies TEXT NOT NULL,\n                metadata TEXT NOT NULL,\n                extension TEXT NOT NULL,\n                app_id TEXT NOT NULL,\n                app_version TEXT NOT NULL,\n                schema_id TEXT NOT NULL,\n                schema_version TEXT NOT NULL,\n                fsm_version TEXT NOT NULL,\n                policy_id TEXT,\n                policy_version TEXT,\n                validator_id TEXT,\n                validator_version TEXT,\n                timestamp TEXT NOT NULL,\n                local_log_position INTEGER NOT NULL,\n                UNIQUE(tenant_id, rid),\n                UNIQUE(tenant_id, op_id),\n                UNIQUE(tenant_id, eid, fsm, version),\n                UNIQUE(tenant_id, workflow_id, local_log_position)\n            )",
+        "table": "ctl_records",
+        "type": "table"
+      },
+      {
+        "name": "effective_record_index",
+        "sql": "CREATE TABLE effective_record_index (\n                tenant_id TEXT NOT NULL,\n                rid TEXT NOT NULL,\n                effective INTEGER NOT NULL,\n                changed_by_rid TEXT,\n                PRIMARY KEY (tenant_id, rid)\n            )",
+        "table": "effective_record_index",
+        "type": "table"
+      },
+      {
+        "name": "entity_projection",
+        "sql": "CREATE TABLE entity_projection (\n                tenant_id TEXT NOT NULL,\n                eid TEXT NOT NULL,\n                fsm TEXT NOT NULL,\n                state TEXT,\n                version INTEGER NOT NULL,\n                attrs TEXT NOT NULL,\n                effective_records TEXT NOT NULL,\n                as_of_log_position INTEGER,\n                workflow_id TEXT,\n                binding_id TEXT,\n                PRIMARY KEY (tenant_id, eid, fsm)\n            )",
+        "table": "entity_projection",
+        "type": "table"
+      },
+      {
+        "name": "event_inbox",
+        "sql": "CREATE TABLE event_inbox (\n                inbox_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                event_id TEXT NOT NULL,\n                tenant_id TEXT NOT NULL,\n                source TEXT NOT NULL,\n                dedupe_key TEXT NOT NULL,\n                workflow_id TEXT,\n                binding_id TEXT,\n                payload TEXT NOT NULL,\n                schema_id TEXT NOT NULL,\n                schema_version TEXT NOT NULL,\n                received_at TEXT NOT NULL,\n                processed_at TEXT,\n                status TEXT NOT NULL,\n                UNIQUE(tenant_id, source, dedupe_key)\n            )",
+        "table": "event_inbox",
+        "type": "table"
+      },
+      {
+        "name": "event_log",
+        "sql": "CREATE TABLE event_log (\n                log_position INTEGER PRIMARY KEY AUTOINCREMENT,\n                event_id TEXT NOT NULL,\n                tenant_id TEXT NOT NULL,\n                source TEXT NOT NULL,\n                event_type TEXT NOT NULL,\n                entity_refs TEXT NOT NULL,\n                payload TEXT NOT NULL,\n                workflow_id TEXT,\n                binding_id TEXT,\n                schema_id TEXT NOT NULL,\n                schema_version TEXT NOT NULL,\n                timestamp TEXT NOT NULL,\n                UNIQUE(tenant_id, event_id)\n            )",
+        "table": "event_log",
+        "type": "table"
+      },
+      {
+        "name": "outbox",
+        "sql": "CREATE TABLE outbox (\n                outbox_id TEXT NOT NULL,\n                tenant_id TEXT NOT NULL,\n                provider TEXT NOT NULL,\n                effect_type TEXT NOT NULL,\n                payload TEXT NOT NULL,\n                provider_idempotency_key TEXT NOT NULL,\n                workflow_id TEXT,\n                binding_id TEXT,\n                status TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                UNIQUE(tenant_id, outbox_id),\n                UNIQUE(tenant_id, provider, provider_idempotency_key)\n            )",
+        "table": "outbox",
+        "type": "table"
+      },
+      {
+        "name": "recovery_events",
+        "sql": "CREATE TABLE recovery_events (\n                log_position INTEGER PRIMARY KEY AUTOINCREMENT,\n                event_id TEXT NOT NULL,\n                tenant_id TEXT NOT NULL,\n                workflow_id TEXT,\n                recovery_id TEXT NOT NULL,\n                sequence_no INTEGER NOT NULL,\n                event_type TEXT NOT NULL,\n                idempotency_key TEXT NOT NULL,\n                causality_key TEXT,\n                payload TEXT NOT NULL,\n                schema_id TEXT NOT NULL,\n                schema_version TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                UNIQUE(tenant_id, event_id),\n                UNIQUE(tenant_id, idempotency_key),\n                UNIQUE(tenant_id, recovery_id, sequence_no)\n            )",
+        "table": "recovery_events",
+        "type": "table"
+      },
+      {
+        "name": "store_schema_metadata",
+        "sql": "CREATE TABLE store_schema_metadata (\n                schema_id TEXT PRIMARY KEY,\n                schema_version TEXT NOT NULL,\n                store_type TEXT NOT NULL,\n                created_at TEXT NOT NULL,\n                updated_at TEXT NOT NULL\n            )",
+        "table": "store_schema_metadata",
+        "type": "table"
+      }
+    ],
+    "tables": [
+      "commands",
+      "ctl_records",
+      "effective_record_index",
+      "entity_projection",
+      "event_inbox",
+      "event_log",
+      "outbox",
+      "recovery_events",
+      "store_schema_metadata"
+    ]
+  },
+  "summary": {
+    "decision": "postgres_conformance_boundary_ready_for_contract_tests",
+    "required_postgres_table_count": 2,
+    "sqlite_index_count": 4,
+    "sqlite_table_count": 9,
+    "store_schema_id": "mnemosyne.store.sqlite",
+    "store_schema_version": "1.0"
+  }
+}

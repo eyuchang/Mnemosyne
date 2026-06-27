@@ -26,4 +26,13 @@ __all__ = [
     "load_active_commitments",
     "register_active_commitment",
     "reject_active_commitment",
+    "RecoveryApiExecution",
+    "plan_active_recovery",
+    "validate_and_commit_active_recovery",
 ]
+
+from mnemosyne.api.recovery import (
+    RecoveryApiExecution,
+    plan_active_recovery,
+    validate_and_commit_active_recovery,
+)

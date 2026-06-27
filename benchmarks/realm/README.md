@@ -27,3 +27,53 @@ This directory contains reusable REALM-Bench assets for Mnemosyne.
 R6.4 starts by moving REALM-Bench assets out of the test-only tree and into a public benchmark directory.
 
 The tests under `tests/benchmarks/realm/` verify that these assets load and remain deterministic.
+
+
+## How to use
+
+Inspect the full case catalog:
+
+    benchmarks/realm/reports/realm_case_catalog_report.md
+
+Load cases programmatically:
+
+    from benchmarks.realm.adapters.realm_case_loader import load_realm_bench_cases
+
+    store = load_realm_bench_cases()
+    p6 = store.by_id("P6")
+    p9 = store.by_id("P9")
+
+Load typed Thanksgiving scenarios:
+
+    from benchmarks.realm.adapters.thanksgiving_cases import (
+        thanksgiving_static_scenario,
+        thanksgiving_dynamic_scenario,
+    )
+
+    static = thanksgiving_static_scenario()
+    dynamic = thanksgiving_dynamic_scenario()
+
+## Researcher-facing contract
+
+Cases are stored in:
+
+    benchmarks/realm/cases/
+
+Reports are stored in:
+
+    benchmarks/realm/reports/
+
+Solutions are stored in:
+
+    benchmarks/realm/solutions/
+
+Evaluations are stored in:
+
+    benchmarks/realm/evaluations/
+
+Tests are stored in:
+
+    tests/benchmarks/realm/
+
+The cases and reports are committed artifacts.
+Tests verify that the committed artifacts remain loadable and deterministic.

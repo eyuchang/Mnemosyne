@@ -1,0 +1,51 @@
+{
+  "case_coverage": [
+    {
+      "case_id": "J1",
+      "claim_boundary": "feasible_not_proven_optimal",
+      "mode": "static",
+      "r68_status": "deterministic_static_baseline"
+    },
+    {
+      "case_id": "J2",
+      "claim_boundary": "benchmark_local_api_bound_recovery",
+      "mode": "dynamic",
+      "r68_status": "deterministic_recovery_and_api_bound_commitment_recovery"
+    },
+    {
+      "case_id": "J3",
+      "claim_boundary": "feasible_not_proven_optimal",
+      "mode": "static",
+      "r68_status": "deterministic_static_baseline"
+    },
+    {
+      "case_id": "J4",
+      "claim_boundary": "no_full_recovery_claim",
+      "mode": "dynamic",
+      "r68_status": "contract_only_requires_material_resource_recovery_extension"
+    }
+  ],
+  "dynamic_contract_summary": {
+    "case_count": 2,
+    "existing_substrate_ready_count": 1,
+    "requires_extension_count": 1
+  },
+  "generated_artifacts": {
+    "dynamic_contracts_report": "benchmarks/realm/reports/jssp_dynamic_contracts_report.md",
+    "j2_api_bound_recovery_report": "benchmarks/realm/reports/j2_jssp_api_bound_recovery_report.md",
+    "j2_recovery_baseline_report": "benchmarks/realm/reports/j2_jssp_machine_breakdown_recovery_report.md",
+    "readiness_report": "benchmarks/realm/reports/jssp_j1_j4_readiness.md",
+    "static_baselines_report": "benchmarks/realm/reports/jssp_static_baselines_report.md"
+  },
+  "schema_version": "realm_jssp_j1_j4_suite_report.v1",
+  "summary": {
+    "durable_logs_claimed": false,
+    "dynamic_contract_case_count": 2,
+    "j2_api_bound_recovery": true,
+    "j2_deterministic_recovery_baseline": true,
+    "j4_full_recovery_claimed": false,
+    "production_runtime_claimed": false,
+    "readiness_decision": "ready_for_executable_j1_j4_baselines",
+    "static_case_count": 2
+  }
+}

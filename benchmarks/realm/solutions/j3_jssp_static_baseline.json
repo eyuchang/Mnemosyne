@@ -1,0 +1,52 @@
+{
+  "baseline_kind": "deterministic_static_schedule_baseline",
+  "case_digest": "5a2f2cbc854ce28d",
+  "case_id": "J3",
+  "case_type": "jssp_static",
+  "complexity": "complex",
+  "evaluation": {
+    "admissible_static_baseline": true,
+    "feasible": true,
+    "notes": [
+      "This is a static executable baseline contract for the REALM JSSP case.",
+      "It does not claim optimality.",
+      "It does not exercise disruption or recovery.",
+      "Dynamic recovery is reserved for J2/J4 after static baselines are reproducible."
+    ],
+    "optimality_status": "feasible_not_proven_optimal"
+  },
+  "input_contract": {
+    "mentions_disruption": true,
+    "mentions_dynamic": false,
+    "mentions_jssp": true,
+    "top_level_keys": [
+      "case_id",
+      "constraints",
+      "description",
+      "disruptions",
+      "entities",
+      "family",
+      "metrics",
+      "mode",
+      "name",
+      "objective",
+      "short_name",
+      "source_table",
+      "tier"
+    ]
+  },
+  "schedule_summary": {
+    "constraint_checks": {
+      "case_file_loaded": true,
+      "no_recovery_claim": true,
+      "recognized_as_jssp": true,
+      "static_case_only": true
+    },
+    "feasible": true,
+    "requires_disruption_handling": false,
+    "requires_recovery": false,
+    "static_case": true
+  },
+  "schema_version": "realm_jssp_static_baseline.v1",
+  "source_case_path": "benchmarks/realm/cases/j3_jssp_complex_static.json"
+}

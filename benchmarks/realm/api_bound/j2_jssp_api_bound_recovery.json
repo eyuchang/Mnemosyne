@@ -1,0 +1,621 @@
+{
+  "api_sequence": [
+    "admit_baseline_schedule",
+    "register_schedule_commitments",
+    "signal_machine_breakdown",
+    "emit_recovery_proposals_for_disruption",
+    "admit_and_finalize_repair_candidates_from_proposal_batch",
+    "audit_active_commitments",
+    "audit_recovery_lineage",
+    "list_unresolved_commitments"
+  ],
+  "audit": {
+    "active_rows": [
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job1:O1:machine:MachineA",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job1:O1",
+          "job_id": "Job1",
+          "machine_id": "MachineA",
+          "operation_id": "O1",
+          "operation_key": "Job1:O1",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job1:O1"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job1-O1",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 10,
+        "last_record_id": "rid:jssp:commitment-register:Job1-O1",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job1:O2:machine:MachineB",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job1:O2",
+          "job_id": "Job1",
+          "machine_id": "MachineB",
+          "operation_id": "O2",
+          "operation_key": "Job1:O2",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job1:O2"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job1-O2",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 13,
+        "last_record_id": "rid:jssp:commitment-register:Job1-O2",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job1:O3:machine:MachineC",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job1:O3",
+          "job_id": "Job1",
+          "machine_id": "MachineC",
+          "operation_id": "O3",
+          "operation_key": "Job1:O3",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job1:O3"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job1-O3",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 16,
+        "last_record_id": "rid:jssp:commitment-register:Job1-O3",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job2:O1",
+          "job_id": "Job2",
+          "machine_id": "MachineA",
+          "operation_id": "O1",
+          "operation_key": "Job2:O1",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job2:O1"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job2-O1",
+        "is_unresolved": false,
+        "last_action_type": "commitment_admitted",
+        "last_log_position": 25,
+        "last_record_id": "rid:jssp:commitment-admitted:Job2-O1",
+        "record_count": 4,
+        "status": "admitted",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job2:O2:machine:MachineC",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job2:O2",
+          "job_id": "Job2",
+          "machine_id": "MachineC",
+          "operation_id": "O2",
+          "operation_key": "Job2:O2",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job2:O2"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job2-O2",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 14,
+        "last_record_id": "rid:jssp:commitment-register:Job2-O2",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job2:O3:machine:MachineB",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job2:O3",
+          "job_id": "Job2",
+          "machine_id": "MachineB",
+          "operation_id": "O3",
+          "operation_key": "Job2:O3",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job2:O3"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job2-O3",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 17,
+        "last_record_id": "rid:jssp:commitment-register:Job2-O3",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job3:O1:machine:MachineB",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job3:O1",
+          "job_id": "Job3",
+          "machine_id": "MachineB",
+          "operation_id": "O1",
+          "operation_key": "Job3:O1",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job3:O1"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job3-O1",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 12,
+        "last_record_id": "rid:jssp:commitment-register:Job3-O1",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job3:O2:machine:MachineA",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job3:O2",
+          "job_id": "Job3",
+          "machine_id": "MachineA",
+          "operation_id": "O2",
+          "operation_key": "Job3:O2",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job3:O2"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job3-O2",
+        "is_unresolved": false,
+        "last_action_type": "commitment_admitted",
+        "last_log_position": 26,
+        "last_record_id": "rid:jssp:commitment-admitted:Job3-O2",
+        "record_count": 4,
+        "status": "admitted",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "commitment_id": "jssp:realm-j2:commitment:Job3:O3:machine:MachineC",
+        "commitment_type": "jssp_machine_availability_guard",
+        "dependency_scope": {
+          "case_id": "realm-j2",
+          "entity_id": "jssp:realm-j2:operation:Job3:O3",
+          "job_id": "Job3",
+          "machine_id": "MachineC",
+          "operation_id": "O3",
+          "operation_key": "Job3:O3",
+          "schedule_entity_id": "jssp:realm-j2:operation:Job3:O3"
+        },
+        "description": "Scheduled operation must remain executable on its assigned machine during its scheduled time window.",
+        "first_record_id": "rid:jssp:commitment-register:Job3-O3",
+        "is_unresolved": true,
+        "last_action_type": "commitment_registered",
+        "last_log_position": 18,
+        "last_record_id": "rid:jssp:commitment-register:Job3-O3",
+        "record_count": 1,
+        "status": "live",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      }
+    ],
+    "admitted_commitment_ids": [
+      "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+      "jssp:realm-j2:commitment:Job3:O2:machine:MachineA"
+    ],
+    "fired_commitment_ids_after_finalization": [],
+    "live_commitment_ids": [
+      "jssp:realm-j2:commitment:Job1:O1:machine:MachineA",
+      "jssp:realm-j2:commitment:Job1:O2:machine:MachineB",
+      "jssp:realm-j2:commitment:Job1:O3:machine:MachineC",
+      "jssp:realm-j2:commitment:Job2:O2:machine:MachineC",
+      "jssp:realm-j2:commitment:Job2:O3:machine:MachineB",
+      "jssp:realm-j2:commitment:Job3:O1:machine:MachineB",
+      "jssp:realm-j2:commitment:Job3:O3:machine:MachineC"
+    ],
+    "recovery_rows": [
+      {
+        "action_type": "commitment_proposal_emitted",
+        "admitted_record_ids": [],
+        "commitment_id": "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+        "log_position": 21,
+        "package_id": "pkg:jssp:realm-j2:repair:Job2-O1",
+        "payload": {
+          "proposal_package": {
+            "candidate_count": 1,
+            "candidate_rids": [
+              "rid:jssp:realm-j2:repair-candidate:Job2-O1"
+            ],
+            "commitment_id": "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+            "created_by": "jssp_recovery_proposal_adapter",
+            "created_from_record_id": "rid:jssp:breakdown-fire:Job2-O1",
+            "package_id": "pkg:jssp:realm-j2:repair:Job2-O1",
+            "proposal_ref": "proposal:jssp:realm-j2:repair:Job2-O1",
+            "proposal_scope": {
+              "case_id": "realm-j2",
+              "entity_id": "jssp:realm-j2:operation:Job2:O1",
+              "job_id": "Job2",
+              "machine_id": "MachineA",
+              "operation_id": "O1",
+              "operation_key": "Job2:O1",
+              "schedule_entity_id": "jssp:realm-j2:operation:Job2:O1"
+            },
+            "rationale": "Machine breakdown overlaps the scheduled operation. Carry a concrete inert reschedule candidate; do not mutate domain schedule state until a separate domain CTL admission."
+          },
+          "proposal_ref": "proposal:jssp:realm-j2:repair:Job2-O1",
+          "proposal_scope": {
+            "case_id": "realm-j2",
+            "entity_id": "jssp:realm-j2:operation:Job2:O1",
+            "job_id": "Job2",
+            "machine_id": "MachineA",
+            "operation_id": "O1",
+            "operation_key": "Job2:O1",
+            "schedule_entity_id": "jssp:realm-j2:operation:Job2:O1"
+          },
+          "rationale": "Machine breakdown overlaps the scheduled operation. Carry a concrete inert reschedule candidate; do not mutate domain schedule state until a separate domain CTL admission."
+        },
+        "proposal_ref": "proposal:jssp:realm-j2:repair:Job2-O1",
+        "record_id": "rid:jssp:recovery-proposal:Job2-O1",
+        "rejection_code": null,
+        "status_after": "proposed",
+        "status_before": "fired",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "tx:realm-j2:baseline",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "action_type": "commitment_proposal_emitted",
+        "admitted_record_ids": [],
+        "commitment_id": "jssp:realm-j2:commitment:Job3:O2:machine:MachineA",
+        "log_position": 22,
+        "package_id": "pkg:jssp:realm-j2:repair:Job3-O2",
+        "payload": {
+          "proposal_package": {
+            "candidate_count": 1,
+            "candidate_rids": [
+              "rid:jssp:realm-j2:repair-candidate:Job3-O2"
+            ],
+            "commitment_id": "jssp:realm-j2:commitment:Job3:O2:machine:MachineA",
+            "created_by": "jssp_recovery_proposal_adapter",
+            "created_from_record_id": "rid:jssp:breakdown-fire:Job3-O2",
+            "package_id": "pkg:jssp:realm-j2:repair:Job3-O2",
+            "proposal_ref": "proposal:jssp:realm-j2:repair:Job3-O2",
+            "proposal_scope": {
+              "case_id": "realm-j2",
+              "entity_id": "jssp:realm-j2:operation:Job3:O2",
+              "job_id": "Job3",
+              "machine_id": "MachineA",
+              "operation_id": "O2",
+              "operation_key": "Job3:O2",
+              "schedule_entity_id": "jssp:realm-j2:operation:Job3:O2"
+            },
+            "rationale": "Machine breakdown overlaps the scheduled operation. Carry a concrete inert reschedule candidate; do not mutate domain schedule state until a separate domain CTL admission."
+          },
+          "proposal_ref": "proposal:jssp:realm-j2:repair:Job3-O2",
+          "proposal_scope": {
+            "case_id": "realm-j2",
+            "entity_id": "jssp:realm-j2:operation:Job3:O2",
+            "job_id": "Job3",
+            "machine_id": "MachineA",
+            "operation_id": "O2",
+            "operation_key": "Job3:O2",
+            "schedule_entity_id": "jssp:realm-j2:operation:Job3:O2"
+          },
+          "rationale": "Machine breakdown overlaps the scheduled operation. Carry a concrete inert reschedule candidate; do not mutate domain schedule state until a separate domain CTL admission."
+        },
+        "proposal_ref": "proposal:jssp:realm-j2:repair:Job3-O2",
+        "record_id": "rid:jssp:recovery-proposal:Job3-O2",
+        "rejection_code": null,
+        "status_after": "proposed",
+        "status_before": "fired",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "tx:realm-j2:baseline",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "action_type": "commitment_admitted",
+        "admitted_record_ids": [
+          "rid:jssp:realm-j2:repair-candidate:Job2-O1"
+        ],
+        "commitment_id": "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+        "log_position": 25,
+        "package_id": null,
+        "payload": {
+          "admitted_record_ids": [
+            "rid:jssp:realm-j2:repair-candidate:Job2-O1"
+          ]
+        },
+        "proposal_ref": null,
+        "record_id": "rid:jssp:commitment-admitted:Job2-O1",
+        "rejection_code": null,
+        "status_after": "admitted",
+        "status_before": "proposed",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "tx:realm-j2:commitment-finalization",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      },
+      {
+        "action_type": "commitment_admitted",
+        "admitted_record_ids": [
+          "rid:jssp:realm-j2:repair-candidate:Job3-O2"
+        ],
+        "commitment_id": "jssp:realm-j2:commitment:Job3:O2:machine:MachineA",
+        "log_position": 26,
+        "package_id": null,
+        "payload": {
+          "admitted_record_ids": [
+            "rid:jssp:realm-j2:repair-candidate:Job3-O2"
+          ]
+        },
+        "proposal_ref": null,
+        "record_id": "rid:jssp:commitment-admitted:Job3-O2",
+        "rejection_code": null,
+        "status_after": "admitted",
+        "status_before": "proposed",
+        "timestamp": "<timestamp>",
+        "tx_group_id": "tx:realm-j2:commitment-finalization",
+        "workflow_id": "workflow:realm-j2-api-bound"
+      }
+    ]
+  },
+  "case_id": "J2",
+  "claims": {
+    "active_commitment_memory_claimed": true,
+    "admission_boundary_claimed": true,
+    "api_bound_recovery_claimed": true,
+    "audit_lineage_claimed": true,
+    "benchmark_local_recovery_claimed": true,
+    "durable_logs_claimed": false,
+    "global_schedule_feasibility_after_api_admission_claimed": false,
+    "j4_full_recovery_claimed": false,
+    "production_runtime_claimed": false
+  },
+  "disruption": {
+    "event_id": "realm-j2:breakdown:MachineA:4-6",
+    "machine_id": "MachineA",
+    "type": "machine_breakdown",
+    "unavailable_end": 6,
+    "unavailable_start": 4
+  },
+  "jssp_schedule": {
+    "baseline_rows": [
+      {
+        "duration": 3,
+        "end": 3,
+        "job_id": "Job1",
+        "machine": "MachineA",
+        "operation_id": "Job1:O1",
+        "operation_index": 1,
+        "start": 0
+      },
+      {
+        "duration": 2,
+        "end": 5,
+        "job_id": "Job2",
+        "machine": "MachineA",
+        "operation_id": "Job2:O1",
+        "operation_index": 1,
+        "start": 3
+      },
+      {
+        "duration": 4,
+        "end": 4,
+        "job_id": "Job3",
+        "machine": "MachineB",
+        "operation_id": "Job3:O1",
+        "operation_index": 1,
+        "start": 0
+      },
+      {
+        "duration": 2,
+        "end": 6,
+        "job_id": "Job1",
+        "machine": "MachineB",
+        "operation_id": "Job1:O2",
+        "operation_index": 2,
+        "start": 4
+      },
+      {
+        "duration": 1,
+        "end": 6,
+        "job_id": "Job2",
+        "machine": "MachineC",
+        "operation_id": "Job2:O2",
+        "operation_index": 2,
+        "start": 5
+      },
+      {
+        "duration": 1,
+        "end": 6,
+        "job_id": "Job3",
+        "machine": "MachineA",
+        "operation_id": "Job3:O2",
+        "operation_index": 2,
+        "start": 5
+      },
+      {
+        "duration": 2,
+        "end": 8,
+        "job_id": "Job1",
+        "machine": "MachineC",
+        "operation_id": "Job1:O3",
+        "operation_index": 3,
+        "start": 6
+      },
+      {
+        "duration": 4,
+        "end": 10,
+        "job_id": "Job2",
+        "machine": "MachineB",
+        "operation_id": "Job2:O3",
+        "operation_index": 3,
+        "start": 6
+      },
+      {
+        "duration": 3,
+        "end": 11,
+        "job_id": "Job3",
+        "machine": "MachineC",
+        "operation_id": "Job3:O3",
+        "operation_index": 3,
+        "start": 8
+      }
+    ],
+    "case_id": "realm-j2",
+    "makespan": 11,
+    "operation_count": 9,
+    "operation_keys": [
+      "Job1:O1",
+      "Job1:O2",
+      "Job1:O3",
+      "Job2:O1",
+      "Job2:O2",
+      "Job2:O3",
+      "Job3:O1",
+      "Job3:O2",
+      "Job3:O3"
+    ]
+  },
+  "limitations": [
+    "This binds REALM J2 to the active commitment, proposal, admission, and audit APIs.",
+    "It does not claim production-runtime durable recovery.",
+    "It does not claim J4 material/resource recovery.",
+    "The current JSSP repair-admission API mutates selected disrupted operation StateViews; full downstream propagation remains future work."
+  ],
+  "results": {
+    "active_commitment_audit_count": 9,
+    "admitted_commitment_count": 2,
+    "affected_operation_keys": [
+      "Job2:O1",
+      "Job3:O2"
+    ],
+    "baseline_admission_ok": true,
+    "disruption_signal_ok": true,
+    "finalization_admitted_record_ids": [
+      "rid:jssp:realm-j2:repair-candidate:Job2-O1",
+      "rid:jssp:realm-j2:repair-candidate:Job3-O2"
+    ],
+    "finalization_commitment_ids": [
+      "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+      "jssp:realm-j2:commitment:Job3:O2:machine:MachineA"
+    ],
+    "finalization_ok": true,
+    "fired_commitment_count": 2,
+    "fired_commitment_count_after_finalization": 0,
+    "live_commitment_count": 7,
+    "proposal_batch_ok": true,
+    "proposal_commitment_ids": [
+      "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+      "jssp:realm-j2:commitment:Job3:O2:machine:MachineA"
+    ],
+    "recovery_lineage_count": 4,
+    "registered_commitment_count": 9,
+    "registered_commitment_ids": [
+      "jssp:realm-j2:commitment:Job1:O1:machine:MachineA",
+      "jssp:realm-j2:commitment:Job2:O1:machine:MachineA",
+      "jssp:realm-j2:commitment:Job3:O1:machine:MachineB",
+      "jssp:realm-j2:commitment:Job1:O2:machine:MachineB",
+      "jssp:realm-j2:commitment:Job2:O2:machine:MachineC",
+      "jssp:realm-j2:commitment:Job3:O2:machine:MachineA",
+      "jssp:realm-j2:commitment:Job1:O3:machine:MachineC",
+      "jssp:realm-j2:commitment:Job2:O3:machine:MachineB",
+      "jssp:realm-j2:commitment:Job3:O3:machine:MachineC"
+    ],
+    "registered_commitment_operation_keys": [
+      "Job1:O1",
+      "Job2:O1",
+      "Job3:O1",
+      "Job1:O2",
+      "Job2:O2",
+      "Job3:O2",
+      "Job1:O3",
+      "Job2:O3",
+      "Job3:O3"
+    ],
+    "registration_ok": true,
+    "repair_admission_committed_rids": [
+      "rid:jssp:realm-j2:repair-candidate:Job2-O1",
+      "rid:jssp:realm-j2:repair-candidate:Job3-O2"
+    ],
+    "repair_admission_ok": true,
+    "repair_candidate_count": 2,
+    "repair_candidates": [
+      {
+        "action_type": "reschedule",
+        "eid": "jssp:realm-j2:operation:Job2:O1",
+        "end": 8,
+        "operation_key": "Job2:O1",
+        "rid": "rid:jssp:realm-j2:repair-candidate:Job2-O1",
+        "start": 6
+      },
+      {
+        "action_type": "reschedule",
+        "eid": "jssp:realm-j2:operation:Job3:O2",
+        "end": 9,
+        "operation_key": "Job3:O2",
+        "rid": "rid:jssp:realm-j2:repair-candidate:Job3-O2",
+        "start": 8
+      }
+    ],
+    "unresolved_after_finalization": 7
+  },
+  "schema_version": "realm_jssp_j2_api_bound_recovery.v1",
+  "source_case_path": "benchmarks/realm/cases/j2_jssp_simple_dynamic.json",
+  "state_views_after_admission": [
+    {
+      "attrs": {
+        "baseline_makespan": 11,
+        "case_id": "realm-j2",
+        "duration": 2,
+        "end": 8,
+        "job_id": "Job2",
+        "machine": "MachineA",
+        "machine_id": "MachineA",
+        "operation_id": "O1",
+        "operation_key": "Job2:O1",
+        "repair_domain_mutation": false,
+        "repair_source_disruption_id": "realm-j2:breakdown:MachineA:4-6",
+        "sequence_index": 1,
+        "start": 6
+      },
+      "entity_id": "jssp:realm-j2:operation:Job2:O1",
+      "operation_key": "Job2:O1",
+      "state": "scheduled",
+      "version": 2
+    },
+    {
+      "attrs": {
+        "baseline_makespan": 11,
+        "case_id": "realm-j2",
+        "duration": 1,
+        "end": 9,
+        "job_id": "Job3",
+        "machine": "MachineA",
+        "machine_id": "MachineA",
+        "operation_id": "O2",
+        "operation_key": "Job3:O2",
+        "repair_domain_mutation": false,
+        "repair_source_disruption_id": "realm-j2:breakdown:MachineA:4-6",
+        "sequence_index": 2,
+        "start": 8
+      },
+      "entity_id": "jssp:realm-j2:operation:Job3:O2",
+      "operation_key": "Job3:O2",
+      "state": "scheduled",
+      "version": 2
+    }
+  ],
+  "tenant_id": "tenant:realm-j2-api-bound",
+  "workflow_id": "workflow:realm-j2-api-bound"
+}

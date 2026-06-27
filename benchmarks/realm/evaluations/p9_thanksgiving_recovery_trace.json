@@ -1,0 +1,156 @@
+{
+  "admissions": [
+    {
+      "admission_boundary": "domain_validated_repair",
+      "admission_id": "p9-admit-reassign-grandma-to-sarah",
+      "admitted_at": "10:00",
+      "proposal_id": "p9-proposal-reassign-grandma-to-sarah",
+      "status": "admitted",
+      "validation_checks": [
+        {
+          "evidence": "Repair is triggered at 10:00 when delay notice arrives.",
+          "name": "repair_triggered_at_notice_time",
+          "passed": true
+        },
+        {
+          "evidence": "Grandma pickup is reassigned from James to Sarah.",
+          "name": "pickup_assignment_repaired",
+          "passed": true
+        },
+        {
+          "evidence": "All family members home by 17:30 and dinner ready at 18:00.",
+          "name": "dinner_deadline_preserved",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "case_id": "P9",
+  "commitments": [
+    {
+      "affected_by_disruption": false,
+      "commitment_id": "p9-cook-turkey-supervision",
+      "description": "Sarah supervises turkey from 09:00 to 13:00.",
+      "kind": "temporal_constraint"
+    },
+    {
+      "affected_by_disruption": false,
+      "commitment_id": "p9-pickup-emily",
+      "description": "Emily is picked up from BOS before dinner.",
+      "kind": "pickup_constraint"
+    },
+    {
+      "affected_by_disruption": true,
+      "commitment_id": "p9-pickup-grandma-by-james",
+      "description": "Original plan assigns Grandma pickup to James.",
+      "kind": "pickup_assignment"
+    },
+    {
+      "affected_by_disruption": true,
+      "commitment_id": "p9-dinner-ready-by-1800",
+      "description": "All family members home and dinner ready by 18:00.",
+      "kind": "deadline_constraint"
+    }
+  ],
+  "disruption_event": {
+    "delay_minutes": 180,
+    "early_notice_minutes": 180,
+    "event_id": "p9-disruption-james-flight-delay",
+    "new_arrival_time": "16:00",
+    "notice_time_est": "10:00",
+    "original_arrival_time": "13:00",
+    "person": "James",
+    "type": "flight_delay"
+  },
+  "limitations": [
+    "This is a deterministic recovery trace.",
+    "It models the recovery pattern but does not yet call core CTL mutation APIs."
+  ],
+  "lineage": [
+    {
+      "id": "p9-disruption-james-flight-delay",
+      "kind": "disruption_event",
+      "step": 1,
+      "summary": "James flight delay notice received at 10:00."
+    },
+    {
+      "id": "p9-wakeup-grandma-pickup",
+      "kind": "commitment_wakeup",
+      "step": 2,
+      "summary": "Grandma pickup commitment wakes."
+    },
+    {
+      "id": "p9-wakeup-dinner-deadline",
+      "kind": "commitment_wakeup",
+      "step": 3,
+      "summary": "Dinner deadline commitment wakes."
+    },
+    {
+      "id": "p9-proposal-reassign-grandma-to-sarah",
+      "kind": "repair_proposal",
+      "step": 4,
+      "summary": "Repair proposal reassigns Grandma pickup from James to Sarah."
+    },
+    {
+      "id": "p9-admit-reassign-grandma-to-sarah",
+      "kind": "repair_admission",
+      "step": 5,
+      "summary": "Selected repair is admitted after validation."
+    }
+  ],
+  "proposals": [
+    {
+      "changes": [
+        {
+          "after": "Sarah",
+          "before": "James",
+          "field": "Grandma pickup assignee"
+        }
+      ],
+      "created_from_wakeups": [
+        "p9-wakeup-grandma-pickup",
+        "p9-wakeup-dinner-deadline"
+      ],
+      "description": "Reassign Grandma pickup from James to Sarah.",
+      "expected_result": {
+        "all_family_home_by": "17:30",
+        "dinner_ready_at": "18:00"
+      },
+      "proposal_id": "p9-proposal-reassign-grandma-to-sarah",
+      "proposal_type": "repair_candidate",
+      "status": "selected"
+    }
+  ],
+  "result": {
+    "admitted_repair_count": 1,
+    "dinner_ready_time": "18:00",
+    "feasible_after_repair": true,
+    "latest_family_home_time": "17:30",
+    "optimality_status": "feasible_not_proven_optimal",
+    "proposal_count": 1,
+    "repair_trigger_time": "10:00",
+    "selected_repair_count": 1,
+    "wakeup_count": 2
+  },
+  "schema_version": "thanksgiving_recovery_trace.v1",
+  "source_case": "P6",
+  "trace_id": "p9_thanksgiving_recovery_trace",
+  "wakeups": [
+    {
+      "commitment_id": "p9-pickup-grandma-by-james",
+      "reason": "James now lands at 16:00, too late to perform Grandma pickup safely.",
+      "result": "repair_required",
+      "source_event_id": "p9-disruption-james-flight-delay",
+      "wakeup_id": "p9-wakeup-grandma-pickup",
+      "wakeup_time": "10:00"
+    },
+    {
+      "commitment_id": "p9-dinner-ready-by-1800",
+      "reason": "The delay threatens the all-family-home-before-dinner condition.",
+      "result": "repair_required",
+      "source_event_id": "p9-disruption-james-flight-delay",
+      "wakeup_id": "p9-wakeup-dinner-deadline",
+      "wakeup_time": "10:00"
+    }
+  ]
+}

@@ -129,9 +129,11 @@ class PostgresStore:
         config: PostgresStoreConfig | None = None,
         *,
         connection_factory: Callable[[], Any] | None = None,
+        connection_provider: Callable[[], Any] | None = None,
     ) -> None:
         self.config = config if config is not None else postgres_store_config_from_env()
         self._connection_factory = connection_factory
+        self._connection_provider = connection_provider
         self._schema_initialized = False
 
     @property
@@ -183,6 +185,29 @@ class PostgresStore:
 
     @contextmanager
     def _managed_connection(self) -> Iterator[Any]:
+        self.require_configured()
+
+        if self._connection_provider is not None:
+            provided = self._connection_provider()
+
+            if hasattr(provided, "__enter__") and hasattr(provided, "__exit__"):
+                with provided as connection:
+                    try:
+                        self._initialize_schema_once(connection)
+                        yield connection
+                    except Exception:
+                        self._rollback(connection)
+                        raise
+                return
+
+            try:
+                self._initialize_schema_once(provided)
+                yield provided
+            except Exception:
+                self._rollback(provided)
+                raise
+            return
+
         connection = self._connect()
         try:
             self._initialize_schema_once(connection)

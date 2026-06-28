@@ -151,3 +151,36 @@ CREATE TABLE IF NOT EXISTS policy_registry (
   immutable BOOLEAN NOT NULL DEFAULT TRUE,
   PRIMARY KEY (policy_id, policy_version)
 );
+
+-- R7.8.1 PostgreSQL recovery-event adapter contract.
+CREATE TABLE IF NOT EXISTS store_schema_metadata (
+    schema_id TEXT PRIMARY KEY,
+    schema_version TEXT NOT NULL,
+    store_type TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS recovery_events (
+    event_id TEXT NOT NULL,
+    tenant_id TEXT NOT NULL,
+    workflow_id TEXT,
+    recovery_id TEXT NOT NULL,
+    sequence_no INTEGER NOT NULL,
+    event_type TEXT NOT NULL,
+    idempotency_key TEXT NOT NULL,
+    causality_key TEXT,
+    payload JSONB NOT NULL,
+    schema_id TEXT NOT NULL,
+    schema_version TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL,
+    PRIMARY KEY (tenant_id, event_id),
+    UNIQUE (tenant_id, idempotency_key),
+    UNIQUE (tenant_id, recovery_id, sequence_no)
+);
+
+CREATE INDEX IF NOT EXISTS idx_recovery_events_recovery
+ON recovery_events (tenant_id, recovery_id, sequence_no);
+
+CREATE INDEX IF NOT EXISTS idx_recovery_events_workflow
+ON recovery_events (tenant_id, workflow_id, created_at);

@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 import os
+from contextlib import contextmanager
 from dataclasses import dataclass
-from typing import Any, Callable
+from datetime import datetime, timezone
+from typing import Any, Callable, Iterator
 
 from mnemosyne.core.recovery.events import RecoveryEvent
 from mnemosyne.core.store_capabilities import (
@@ -37,6 +39,7 @@ POSTGRES_SCHEMA_STATEMENTS = (
     VALUES (%s, %s, %s, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     ON CONFLICT (schema_id) DO UPDATE SET
         schema_version = EXCLUDED.schema_version,
+        store_type = EXCLUDED.store_type,
         updated_at = CURRENT_TIMESTAMP
     """,
     """
@@ -77,6 +80,10 @@ class PostgresStoreDependencyError(RuntimeError):
     """Raised when live PostgreSQL usage is requested but psycopg is unavailable."""
 
 
+class PostgresRecoveryEventConflictError(RuntimeError):
+    """Raised when a recovery event conflicts with an existing sequence slot."""
+
+
 @dataclass(frozen=True)
 class PostgresStoreConfig:
     database_url: str | None = None
@@ -110,11 +117,11 @@ def postgres_store_config_from_env(
 
 
 class PostgresStore:
-    """Optional PostgreSQL recovery-store adapter.
+    """Optional PostgreSQL recovery-event adapter.
 
-    R7.8 implements the live adapter surface behind explicit configuration.
-    Default CI remains PostgreSQL-free because no connection is opened unless
-    PostgreSQL is selected and a database URL is supplied.
+    R7.8.1 keeps PostgreSQL opt-in, closes owned connections, avoids hot-path
+    repeated schema DDL, casts payloads to JSONB, and makes idempotent retry
+    resilient to unique-conflict races.
     """
 
     def __init__(
@@ -125,6 +132,7 @@ class PostgresStore:
     ) -> None:
         self.config = config if config is not None else postgres_store_config_from_env()
         self._connection_factory = connection_factory
+        self._schema_initialized = False
 
     @property
     def configured(self) -> bool:
@@ -159,6 +167,33 @@ class PostgresStore:
         return connection.cursor()
 
     @staticmethod
+    def _commit(connection: Any) -> None:
+        if hasattr(connection, "commit"):
+            connection.commit()
+
+    @staticmethod
+    def _rollback(connection: Any) -> None:
+        if hasattr(connection, "rollback"):
+            connection.rollback()
+
+    @staticmethod
+    def _close(connection: Any) -> None:
+        if hasattr(connection, "close"):
+            connection.close()
+
+    @contextmanager
+    def _managed_connection(self) -> Iterator[Any]:
+        connection = self._connect()
+        try:
+            self._initialize_schema_once(connection)
+            yield connection
+        except Exception:
+            self._rollback(connection)
+            raise
+        finally:
+            self._close(connection)
+
+    @staticmethod
     def _row_value(row: Any, key: str, index: int) -> Any:
         if isinstance(row, dict):
             return row[key]
@@ -171,8 +206,22 @@ class PostgresStore:
         if isinstance(value, dict):
             return value
         if isinstance(value, str):
-            return json.loads(value)
-        return dict(value)
+            decoded = json.loads(value)
+            if isinstance(decoded, dict):
+                return decoded
+            raise TypeError("Recovery event payload must decode to a JSON object")
+        decoded = dict(value)
+        if not isinstance(decoded, dict):
+            raise TypeError("Recovery event payload must be a JSON object")
+        return decoded
+
+    @staticmethod
+    def _normalize_created_at(value: datetime | None) -> datetime:
+        if value is None:
+            return datetime.now(timezone.utc)
+        if value.tzinfo is None:
+            return value.replace(tzinfo=timezone.utc)
+        return value.astimezone(timezone.utc)
 
     @classmethod
     def _row_to_recovery_event(cls, row: Any) -> RecoveryEvent:
@@ -191,8 +240,8 @@ class PostgresStore:
             created_at=cls._row_value(row, "created_at", 11),
         )
 
-    def _initialize_schema(self, connection: Any) -> None:
-        if not self.config.initialize_schema:
+    def _initialize_schema_once(self, connection: Any) -> None:
+        if not self.config.initialize_schema or self._schema_initialized:
             return
 
         with self._cursor(connection) as cursor:
@@ -209,30 +258,95 @@ class PostgresStore:
                 else:
                     cursor.execute(statement)
 
-        if hasattr(connection, "commit"):
-            connection.commit()
+        self._commit(connection)
+        self._schema_initialized = True
+
+    @staticmethod
+    def _select_columns_sql() -> str:
+        return """
+            SELECT event_id, tenant_id, workflow_id, recovery_id, sequence_no,
+                   event_type, idempotency_key, causality_key, payload,
+                   schema_id, schema_version, created_at
+            FROM recovery_events
+        """
+
+    def _select_by_event_or_idempotency(
+        self,
+        cursor: Any,
+        event: RecoveryEvent,
+    ) -> RecoveryEvent | None:
+        cursor.execute(
+            self._select_columns_sql()
+            + """
+            WHERE tenant_id = %s
+              AND (event_id = %s OR idempotency_key = %s)
+            ORDER BY
+                CASE WHEN event_id = %s THEN 0 ELSE 1 END,
+                sequence_no,
+                event_id
+            LIMIT 1
+            """,
+            (
+                event.tenant_id,
+                event.event_id,
+                event.idempotency_key,
+                event.event_id,
+            ),
+        )
+        row = cursor.fetchone()
+        if row is None:
+            return None
+        return self._row_to_recovery_event(row)
+
+    def _select_by_recovery_sequence(
+        self,
+        cursor: Any,
+        event: RecoveryEvent,
+    ) -> RecoveryEvent | None:
+        cursor.execute(
+            self._select_columns_sql()
+            + """
+            WHERE tenant_id = %s
+              AND recovery_id = %s
+              AND sequence_no = %s
+            LIMIT 1
+            """,
+            (
+                event.tenant_id,
+                event.recovery_id,
+                event.sequence_no,
+            ),
+        )
+        row = cursor.fetchone()
+        if row is None:
+            return None
+        return self._row_to_recovery_event(row)
 
     async def initialize_schema(self) -> None:
         connection = self._connect()
-        self._initialize_schema(connection)
+        try:
+            self._initialize_schema_once(connection)
+        except Exception:
+            self._rollback(connection)
+            raise
+        finally:
+            self._close(connection)
 
     async def get_store_schema_version(self) -> str:
         if not self.config.configured:
             return self.config.schema_version
 
-        connection = self._connect()
-        self._initialize_schema(connection)
-
-        with self._cursor(connection) as cursor:
-            cursor.execute(
-                """
-                SELECT schema_version
-                FROM store_schema_metadata
-                WHERE schema_id = %s
-                """,
-                (self.config.schema_id,),
-            )
-            row = cursor.fetchone()
+        with self._managed_connection() as connection:
+            with self._cursor(connection) as cursor:
+                cursor.execute(
+                    """
+                    SELECT schema_version
+                    FROM store_schema_metadata
+                    WHERE schema_id = %s
+                    """,
+                    (self.config.schema_id,),
+                )
+                row = cursor.fetchone()
 
         if row is None:
             return self.config.schema_version
@@ -240,19 +354,22 @@ class PostgresStore:
         return str(self._row_value(row, "schema_version", 0))
 
     async def get_store_capability_report(self) -> StoreCapabilityReport:
+        live_configured = self.config.configured
+
         return StoreCapabilityReport(
             store_type="PostgresStore",
             schema_id=self.config.schema_id,
             schema_version=self.config.schema_version,
-            durable_recovery_events=True,
-            idempotent_recovery_events=True,
-            deterministic_recovery_replay_order=True,
-            supports_restart_persistence=True,
+            durable_recovery_events=live_configured,
+            idempotent_recovery_events=live_configured,
+            deterministic_recovery_replay_order=live_configured,
+            supports_restart_persistence=live_configured,
             supports_postgres_conformance_target=True,
             notes=(
-                "R7.8 implements the live PostgreSQL adapter surface.",
-                "Live PostgreSQL execution remains opt-in.",
+                "R7.8.1 implements the opt-in PostgreSQL recovery-event adapter surface.",
+                "Live PostgreSQL execution remains gated by configuration.",
                 f"Live use requires {POSTGRES_DATABASE_URL_ENV}.",
+                "Default CI remains PostgreSQL-free.",
             ),
         )
 
@@ -261,17 +378,17 @@ class PostgresStore:
             "PostgreSQL get_record is outside the R7.8 recovery-event adapter scope"
         )
 
-    async def get_entity_history(self, tenant_id: str, rid: str) -> list[Any]:
+    async def get_entity_history(self, tenant_id: str, eid: str, fsm: Any) -> list[Any]:
         raise NotImplementedError(
             "PostgreSQL get_entity_history is outside the R7.8 recovery-event adapter scope"
         )
 
-    async def get_full_entity_history(self, tenant_id: str, rid: str) -> list[Any]:
+    async def get_full_entity_history(self, tenant_id: str, eid: str, fsm: Any) -> list[Any]:
         raise NotImplementedError(
             "PostgreSQL get_full_entity_history is outside the R7.8 recovery-event adapter scope"
         )
 
-    async def get_state_view(self, tenant_id: str) -> Any:
+    async def get_state_view(self, tenant_id: str, eid: str, fsm: Any) -> Any:
         raise NotImplementedError(
             "PostgreSQL get_state_view is outside the R7.8 recovery-event adapter scope"
         )
@@ -287,74 +404,85 @@ class PostgresStore:
         )
 
     async def append_recovery_event(self, event: RecoveryEvent) -> RecoveryEvent:
-        connection = self._connect()
-        self._initialize_schema(connection)
+        self.require_configured()
+        created_at = self._normalize_created_at(event.created_at)
 
-        with self._cursor(connection) as cursor:
-            cursor.execute(
-                """
-                SELECT event_id, tenant_id, workflow_id, recovery_id, sequence_no,
-                       event_type, idempotency_key, causality_key, payload,
-                       schema_id, schema_version, created_at
-                FROM recovery_events
-                WHERE tenant_id = %s
-                  AND (event_id = %s OR idempotency_key = %s)
-                ORDER BY
-                    CASE WHEN event_id = %s THEN 0 ELSE 1 END,
-                    sequence_no,
-                    event_id
-                LIMIT 1
-                """,
-                (
-                    event.tenant_id,
-                    event.event_id,
-                    event.idempotency_key,
-                    event.event_id,
-                ),
-            )
-            existing = cursor.fetchone()
-            if existing is not None:
-                return self._row_to_recovery_event(existing)
+        with self._managed_connection() as connection:
+            with self._cursor(connection) as cursor:
+                existing = self._select_by_event_or_idempotency(cursor, event)
+                if existing is not None:
+                    return existing
 
-            cursor.execute(
-                """
-                INSERT INTO recovery_events
-                (
-                    event_id,
-                    tenant_id,
-                    workflow_id,
-                    recovery_id,
-                    sequence_no,
-                    event_type,
-                    idempotency_key,
-                    causality_key,
-                    payload,
-                    schema_id,
-                    schema_version,
-                    created_at
+                cursor.execute(
+                    """
+                    INSERT INTO recovery_events
+                    (
+                        event_id,
+                        tenant_id,
+                        workflow_id,
+                        recovery_id,
+                        sequence_no,
+                        event_type,
+                        idempotency_key,
+                        causality_key,
+                        payload,
+                        schema_id,
+                        schema_version,
+                        created_at
+                    )
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s::jsonb, %s, %s, %s)
+                    ON CONFLICT DO NOTHING
+                    RETURNING event_id
+                    """,
+                    (
+                        event.event_id,
+                        event.tenant_id,
+                        event.workflow_id,
+                        event.recovery_id,
+                        event.sequence_no,
+                        event.event_type,
+                        event.idempotency_key,
+                        event.causality_key,
+                        json.dumps(event.payload, sort_keys=True),
+                        event.schema_id,
+                        event.schema_version,
+                        created_at,
+                    ),
                 )
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """,
-                (
-                    event.event_id,
-                    event.tenant_id,
-                    event.workflow_id,
-                    event.recovery_id,
-                    event.sequence_no,
-                    event.event_type,
-                    event.idempotency_key,
-                    event.causality_key,
-                    json.dumps(event.payload, sort_keys=True),
-                    event.schema_id,
-                    event.schema_version,
-                    event.created_at,
-                ),
-            )
+                inserted = cursor.fetchone()
 
-        if hasattr(connection, "commit"):
-            connection.commit()
+                if inserted is None:
+                    existing = self._select_by_event_or_idempotency(cursor, event)
+                    if existing is not None:
+                        return existing
 
-        return event
+                    sequence_conflict = self._select_by_recovery_sequence(cursor, event)
+                    if sequence_conflict is not None:
+                        raise PostgresRecoveryEventConflictError(
+                            "Recovery event conflicts with an existing "
+                            "(tenant_id, recovery_id, sequence_no) slot"
+                        )
+
+                    raise PostgresRecoveryEventConflictError(
+                        "Recovery event insert conflicted but no canonical row was found"
+                    )
+
+            self._commit(connection)
+
+        return RecoveryEvent(
+            event_id=event.event_id,
+            tenant_id=event.tenant_id,
+            workflow_id=event.workflow_id,
+            recovery_id=event.recovery_id,
+            sequence_no=event.sequence_no,
+            event_type=event.event_type,
+            idempotency_key=event.idempotency_key,
+            causality_key=event.causality_key,
+            payload=event.payload,
+            schema_id=event.schema_id,
+            schema_version=event.schema_version,
+            created_at=created_at,
+        )
 
     async def list_recovery_events(
         self,
@@ -364,35 +492,30 @@ class PostgresStore:
         recovery_id: str | None = None,
         event_type: str | None = None,
     ) -> list[RecoveryEvent]:
-        connection = self._connect()
-        self._initialize_schema(connection)
+        with self._managed_connection() as connection:
+            clauses = ["tenant_id = %s"]
+            params: list[Any] = [tenant_id]
 
-        clauses = ["tenant_id = %s"]
-        params: list[Any] = [tenant_id]
+            if workflow_id is not None:
+                clauses.append("workflow_id = %s")
+                params.append(workflow_id)
 
-        if workflow_id is not None:
-            clauses.append("workflow_id = %s")
-            params.append(workflow_id)
+            if recovery_id is not None:
+                clauses.append("recovery_id = %s")
+                params.append(recovery_id)
 
-        if recovery_id is not None:
-            clauses.append("recovery_id = %s")
-            params.append(recovery_id)
+            if event_type is not None:
+                clauses.append("event_type = %s")
+                params.append(event_type)
 
-        if event_type is not None:
-            clauses.append("event_type = %s")
-            params.append(event_type)
+            query = f"""
+                {self._select_columns_sql()}
+                WHERE {' AND '.join(clauses)}
+                ORDER BY recovery_id, sequence_no, event_id
+            """
 
-        query = f"""
-            SELECT event_id, tenant_id, workflow_id, recovery_id, sequence_no,
-                   event_type, idempotency_key, causality_key, payload,
-                   schema_id, schema_version, created_at
-            FROM recovery_events
-            WHERE {' AND '.join(clauses)}
-            ORDER BY recovery_id, sequence_no, event_id
-        """
-
-        with self._cursor(connection) as cursor:
-            cursor.execute(query, tuple(params))
-            rows = cursor.fetchall()
+            with self._cursor(connection) as cursor:
+                cursor.execute(query, tuple(params))
+                rows = cursor.fetchall()
 
         return [self._row_to_recovery_event(row) for row in rows]

@@ -58,10 +58,10 @@ async def test_postgres_store_reports_future_conformance_capability_without_live
     assert report.store_type == "PostgresStore"
     assert report.schema_id == STORE_SCHEMA_ID
     assert report.schema_version == STORE_SCHEMA_VERSION
-    assert report.supports_restart_persistence is True
+    assert report.supports_restart_persistence is False
     assert report.supports_postgres_conformance_target is True
-    assert "R7.8 implements the live PostgreSQL adapter surface." in report.notes
-    assert "Live PostgreSQL execution remains opt-in." in report.notes
+    assert "R7.8.1 implements the opt-in PostgreSQL recovery-event adapter surface." in report.notes
+    assert "Live PostgreSQL execution remains gated by configuration." in report.notes
 
 
 @pytest.mark.asyncio

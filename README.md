@@ -205,3 +205,9 @@ Purpose:
     expose stable product-facing APIs for commitments, recovery, proposal
     packages, and audit views without requiring application code to touch
     internal CTL/recovery modules directly.
+
+## User guide
+
+For running J1-J4 experiments, choosing SQLite or PostgreSQL, placing experiment code, and finding results, see:
+
+- `docs/user_guide_j1_j4_experiments.md`

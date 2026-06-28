@@ -1,0 +1,3414 @@
+{
+  "claim": "Concurrent generated proposals may arrive in arbitrary order, but committed state must be equivalent to some serial order of admitted proposals.",
+  "name": "Serial-equivalent generative admission",
+  "rq": "RQ2",
+  "success_criteria": [
+    "ATP invalid_commits = 0",
+    "ATP duplicate_operation_commits = 0",
+    "ATP capacity_underflow = 0",
+    "ATP serial_equivalent = true",
+    "Unsafe baselines exhibit invalid commits or non-serial-equivalent state"
+  ],
+  "systems": [
+    {
+      "capacity_underflow": 1,
+      "committed": 80,
+      "duplicate_operation_commits": 12,
+      "final_capacity": -1632,
+      "invalid_commits": 48,
+      "proposal_count": 80,
+      "rejected": 0,
+      "rows": [
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-43",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-36",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-1",
+            "proposal_id": "p-57",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-5",
+            "proposal_id": "p-13",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-1",
+            "proposal_id": "p-65",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-2",
+            "proposal_id": "p-50",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-32",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-38",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-1",
+            "proposal_id": "p-9",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-33",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-4",
+            "proposal_id": "p-28",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-2",
+            "proposal_id": "p-78",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-2",
+            "proposal_id": "p-54",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-4",
+            "proposal_id": "p-12",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-2",
+            "proposal_id": "p-58",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-0",
+            "proposal_id": "p-0",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-3",
+            "proposal_id": "p-71",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-1",
+            "proposal_id": "p-61",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-41",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-2",
+            "proposal_id": "p-10",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-4",
+            "proposal_id": "p-4",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-3",
+            "proposal_id": "p-27",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-37",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-35",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-34",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-46",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-3",
+            "proposal_id": "p-79",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-1",
+            "proposal_id": "p-1",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-3",
+            "proposal_id": "p-51",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-47",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-2",
+            "proposal_id": "p-70",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-42",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-3",
+            "proposal_id": "p-75",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-2",
+            "proposal_id": "p-66",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-0",
+            "proposal_id": "p-72",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-1",
+            "proposal_id": "p-17",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-3",
+            "proposal_id": "p-67",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-3",
+            "proposal_id": "p-11",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-7",
+            "proposal_id": "p-15",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-7",
+            "proposal_id": "p-7",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-40",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-1",
+            "proposal_id": "p-53",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-0",
+            "proposal_id": "p-48",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-0",
+            "proposal_id": "p-68",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-3",
+            "proposal_id": "p-55",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-5",
+            "proposal_id": "p-29",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-5",
+            "proposal_id": "p-21",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-3",
+            "proposal_id": "p-59",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-45",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-2",
+            "proposal_id": "p-2",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-1",
+            "proposal_id": "p-73",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-1",
+            "proposal_id": "p-49",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-0",
+            "proposal_id": "p-16",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-6",
+            "proposal_id": "p-6",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-0",
+            "proposal_id": "p-24",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-5",
+            "proposal_id": "p-5",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-0",
+            "proposal_id": "p-60",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-0",
+            "proposal_id": "p-64",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-7",
+            "proposal_id": "p-23",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-1",
+            "proposal_id": "p-69",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-0",
+            "proposal_id": "p-52",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-2",
+            "proposal_id": "p-74",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-2",
+            "proposal_id": "p-26",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-6",
+            "proposal_id": "p-22",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-39",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-2",
+            "proposal_id": "p-62",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-6",
+            "proposal_id": "p-14",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-1",
+            "proposal_id": "p-25",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-3",
+            "proposal_id": "p-3",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-1",
+            "proposal_id": "p-77",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-0",
+            "proposal_id": "p-8",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-3",
+            "proposal_id": "p-19",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-3",
+            "proposal_id": "p-63",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-7",
+            "proposal_id": "p-31",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-6",
+            "proposal_id": "p-30",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-4",
+            "proposal_id": "p-20",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-0",
+            "proposal_id": "p-76",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-44",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-0",
+            "proposal_id": "p-56",
+            "valid_under_c": false
+          },
+          "reason": "baseline_direct_write"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-2",
+            "proposal_id": "p-18",
+            "valid_under_c": true
+          },
+          "reason": "baseline_direct_write"
+        }
+      ],
+      "serial_equivalent": false,
+      "system": "unserialized_generated_writes"
+    },
+    {
+      "capacity_underflow": 1,
+      "committed": 68,
+      "duplicate_operation_commits": 4,
+      "final_capacity": -1620,
+      "invalid_commits": 36,
+      "proposal_count": 80,
+      "rejected": 12,
+      "rows": [
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-43",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-36",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-1",
+            "proposal_id": "p-57",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-5",
+            "proposal_id": "p-13",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-1",
+            "proposal_id": "p-65",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-2",
+            "proposal_id": "p-50",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-32",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-38",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-1",
+            "proposal_id": "p-9",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-33",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-4",
+            "proposal_id": "p-28",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-2",
+            "proposal_id": "p-78",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-2",
+            "proposal_id": "p-54",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-4",
+            "proposal_id": "p-12",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-2",
+            "proposal_id": "p-58",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-0",
+            "proposal_id": "p-0",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-3",
+            "proposal_id": "p-71",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-1",
+            "proposal_id": "p-61",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-41",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-2",
+            "proposal_id": "p-10",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-4",
+            "proposal_id": "p-4",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-3",
+            "proposal_id": "p-27",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-37",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-35",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-34",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-46",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-3",
+            "proposal_id": "p-79",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-1",
+            "proposal_id": "p-1",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-3",
+            "proposal_id": "p-51",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-47",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-2",
+            "proposal_id": "p-70",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-42",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-3",
+            "proposal_id": "p-75",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-2",
+            "proposal_id": "p-66",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-0",
+            "proposal_id": "p-72",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-1",
+            "proposal_id": "p-17",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-3",
+            "proposal_id": "p-67",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-3",
+            "proposal_id": "p-11",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-7",
+            "proposal_id": "p-15",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-7",
+            "proposal_id": "p-7",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-40",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-1",
+            "proposal_id": "p-53",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-0",
+            "proposal_id": "p-48",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-0",
+            "proposal_id": "p-68",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-3",
+            "proposal_id": "p-55",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-5",
+            "proposal_id": "p-29",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-5",
+            "proposal_id": "p-21",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-3",
+            "proposal_id": "p-59",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-45",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-2",
+            "proposal_id": "p-2",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-1",
+            "proposal_id": "p-73",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-1",
+            "proposal_id": "p-49",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-0",
+            "proposal_id": "p-16",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-6",
+            "proposal_id": "p-6",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-0",
+            "proposal_id": "p-24",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-5",
+            "proposal_id": "p-5",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-0",
+            "proposal_id": "p-60",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-0",
+            "proposal_id": "p-64",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-7",
+            "proposal_id": "p-23",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-1",
+            "proposal_id": "p-69",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-0",
+            "proposal_id": "p-52",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-2",
+            "proposal_id": "p-74",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-2",
+            "proposal_id": "p-26",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-6",
+            "proposal_id": "p-22",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-39",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-2",
+            "proposal_id": "p-62",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-6",
+            "proposal_id": "p-14",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-1",
+            "proposal_id": "p-25",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-3",
+            "proposal_id": "p-3",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-1",
+            "proposal_id": "p-77",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-0",
+            "proposal_id": "p-8",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-3",
+            "proposal_id": "p-19",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-3",
+            "proposal_id": "p-63",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-7",
+            "proposal_id": "p-31",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-6",
+            "proposal_id": "p-30",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-4",
+            "proposal_id": "p-20",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-0",
+            "proposal_id": "p-76",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-44",
+            "valid_under_c": false
+          },
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-0",
+            "proposal_id": "p-56",
+            "valid_under_c": false
+          },
+          "reason": "committed_weak_lock"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-2",
+            "proposal_id": "p-18",
+            "valid_under_c": true
+          },
+          "reason": "committed_weak_lock"
+        }
+      ],
+      "serial_equivalent": false,
+      "system": "weak_lock_admission"
+    },
+    {
+      "capacity_underflow": 0,
+      "committed": 32,
+      "duplicate_operation_commits": 0,
+      "final_capacity": 0,
+      "final_version": 32,
+      "invalid_commits": 0,
+      "proposal_count": 80,
+      "rejected": 48,
+      "rows": [
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-43",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-36",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-1",
+            "proposal_id": "p-57",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-5",
+            "proposal_id": "p-13",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-1",
+            "proposal_id": "p-65",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-2",
+            "proposal_id": "p-50",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-32",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-38",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-1",
+            "proposal_id": "p-9",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-33",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-4",
+            "proposal_id": "p-28",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-2",
+            "proposal_id": "p-78",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-2",
+            "proposal_id": "p-54",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-4",
+            "proposal_id": "p-12",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-2",
+            "proposal_id": "p-58",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-0",
+            "proposal_id": "p-0",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-3",
+            "proposal_id": "p-71",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-1",
+            "proposal_id": "p-61",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-41",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-2",
+            "proposal_id": "p-10",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-4",
+            "proposal_id": "p-4",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-3",
+            "proposal_id": "p-27",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-37",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-35",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-34",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-46",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-3",
+            "proposal_id": "p-79",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-1",
+            "proposal_id": "p-1",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-3",
+            "proposal_id": "p-51",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-47",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-2",
+            "proposal_id": "p-70",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-2",
+            "proposal_id": "p-42",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-3",
+            "proposal_id": "p-75",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-2",
+            "proposal_id": "p-66",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-0",
+            "proposal_id": "p-72",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-1",
+            "proposal_id": "p-17",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-3",
+            "proposal_id": "p-67",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-3",
+            "proposal_id": "p-11",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-7",
+            "proposal_id": "p-15",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-7",
+            "proposal_id": "p-7",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-40",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-1",
+            "proposal_id": "p-53",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-0",
+            "proposal_id": "p-48",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-0",
+            "proposal_id": "p-68",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-3",
+            "proposal_id": "p-55",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-5",
+            "proposal_id": "p-29",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-5",
+            "proposal_id": "p-21",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-3",
+            "proposal_id": "p-59",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-1",
+            "proposal_id": "p-45",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-2",
+            "proposal_id": "p-2",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-1",
+            "proposal_id": "p-73",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-planner_agent-1",
+            "proposal_id": "p-49",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-0",
+            "proposal_id": "p-16",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-6",
+            "proposal_id": "p-6",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-0",
+            "proposal_id": "p-24",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 5,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-5",
+            "proposal_id": "p-5",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-0",
+            "proposal_id": "p-60",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-planner_agent-0",
+            "proposal_id": "p-64",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-7",
+            "proposal_id": "p-23",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-llm_like_agent-1",
+            "proposal_id": "p-69",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-llm_like_agent-0",
+            "proposal_id": "p-52",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-repair_agent-2",
+            "proposal_id": "p-74",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-2",
+            "proposal_id": "p-26",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-6",
+            "proposal_id": "p-22",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-3",
+            "proposal_id": "p-39",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-2",
+            "proposal_id": "p-62",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-6",
+            "proposal_id": "p-14",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 1,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-1",
+            "proposal_id": "p-25",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "planner_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-planner_agent-3",
+            "proposal_id": "p-3",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-1",
+            "proposal_id": "p-77",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "llm_like_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-llm_like_agent-0",
+            "proposal_id": "p-8",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 3,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-3",
+            "proposal_id": "p-19",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-adversarial_agent-3",
+            "proposal_id": "p-63",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 7,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-7",
+            "proposal_id": "p-31",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 6,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-adversarial_agent-6",
+            "proposal_id": "p-30",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 4,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-4",
+            "proposal_id": "p-20",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -100,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "capacity_violation",
+            "operation_key": "overdraw-adversarial_agent-0",
+            "proposal_id": "p-76",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "adversarial_agent",
+            "delta": -1,
+            "expected_version": 0,
+            "item": "seat_pool",
+            "kind": "duplicate_operation_key",
+            "operation_key": "duplicate-key-0",
+            "proposal_id": "p-44",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": -1,
+            "item": "seat_pool",
+            "kind": "stale_read_version",
+            "operation_key": "stale-version-repair_agent-0",
+            "proposal_id": "p-56",
+            "valid_under_c": false
+          },
+          "reason": "invalid_under_c"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "agent": "repair_agent",
+            "delta": -1,
+            "expected_version": 2,
+            "item": "seat_pool",
+            "kind": "valid_capacity_decrement",
+            "operation_key": "reserve-seat-repair_agent-2",
+            "proposal_id": "p-18",
+            "valid_under_c": true
+          },
+          "reason": "admitted_serial_boundary"
+        }
+      ],
+      "serial_equivalent": true,
+      "system": "atp_mnemosyne"
+    }
+  ]
+}

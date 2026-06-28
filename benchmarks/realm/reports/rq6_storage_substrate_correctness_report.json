@@ -1,0 +1,56 @@
+{
+  "claim": "Storage-level idempotency, uniqueness, and transactional projection preserve committed effective state under duplicate, stale, malformed, and concurrent attempts.",
+  "name": "Storage-substrate correctness",
+  "rq": "RQ6",
+  "success_criteria": [
+    "ATP storage invalid_commits = 0",
+    "ATP storage stateview_mismatches = 0",
+    "Unconstrained baseline invalid_commits > 0",
+    "SQLite must run by default",
+    "PostgreSQL runs only when MNEMOSYNE_POSTGRES_DATABASE_URL is set"
+  ],
+  "systems": [
+    {
+      "attempts": 128,
+      "committed": 128,
+      "expected_state_total": 64,
+      "invalid_commits": 64,
+      "ledger_rows": 128,
+      "rejected": 0,
+      "skip_reason": "",
+      "skipped": false,
+      "state_total": 128,
+      "stateview_mismatches": 1,
+      "substrate": "memory",
+      "system": "unconstrained_log_baseline"
+    },
+    {
+      "attempts": 128,
+      "committed": 64,
+      "expected_state_total": 64,
+      "invalid_commits": 0,
+      "ledger_rows": 64,
+      "rejected": 64,
+      "skip_reason": "",
+      "skipped": false,
+      "state_total": 64,
+      "stateview_mismatches": 0,
+      "substrate": "sqlite",
+      "system": "sqlite_atp_storage"
+    },
+    {
+      "attempts": 128,
+      "committed": 0,
+      "expected_state_total": 64,
+      "invalid_commits": 0,
+      "ledger_rows": 0,
+      "rejected": 0,
+      "skip_reason": "MNEMOSYNE_POSTGRES_DATABASE_URL not set",
+      "skipped": true,
+      "state_total": 0,
+      "stateview_mismatches": 0,
+      "substrate": "postgres",
+      "system": "postgres_atp_storage"
+    }
+  ]
+}

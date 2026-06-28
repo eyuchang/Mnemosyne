@@ -211,3 +211,9 @@ Purpose:
 For running J1-J4 experiments, choosing SQLite or PostgreSQL, placing experiment code, and finding results, see:
 
 - `docs/user_guide_j1_j4_experiments.md`
+
+## Current readiness
+
+- R7 PostgreSQL runtime adapter path is complete: see `docs/release_notes/r7_postgres_runtime_adapter_completion.md`.
+- J1-J4 benchmark/user workflow is runnable in the default suite: see `docs/benchmark_readiness_matrix.md`.
+- P1-P10 should not yet be claimed as fully runnable or certified.

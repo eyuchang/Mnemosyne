@@ -4,13 +4,18 @@ import os
 
 import pytest
 
+from mnemosyne.core.store_conformance import (
+    RecoveryStoreConformanceCase,
+    observe_recovery_store_conformance,
+)
+from mnemosyne.store.postgres import PostgresStore, PostgresStoreConfig
+
 
 POSTGRES_CONFORMANCE_ENV = "MNEMOSYNE_POSTGRES_DATABASE_URL"
 
 
-def test_postgres_live_conformance_is_opt_in_by_environment():
+def test_postgres_live_conformance_env_boundary_is_named():
     assert POSTGRES_CONFORMANCE_ENV == "MNEMOSYNE_POSTGRES_DATABASE_URL"
-    assert os.environ.get(POSTGRES_CONFORMANCE_ENV) is None
 
 
 @pytest.mark.skipif(
@@ -18,15 +23,23 @@ def test_postgres_live_conformance_is_opt_in_by_environment():
     reason="live PostgreSQL conformance requires MNEMOSYNE_POSTGRES_DATABASE_URL",
 )
 @pytest.mark.asyncio
-async def test_postgres_live_recovery_store_conformance_contract_placeholder():
-    """Future live PostgreSQL conformance test.
-
-    R7.6 intentionally defines the live-test boundary without implementing the
-    PostgreSQL adapter. When MNEMOSYNE_POSTGRES_DATABASE_URL is supplied in a
-    later milestone, this test should construct the PostgreSQL store and call
-    observe_recovery_store_conformance with expects_restart_persistence=True.
-    """
-
-    pytest.fail(
-        "PostgreSQL adapter is not implemented yet; R7.6 defines only the opt-in live-test boundary"
+async def test_postgres_live_recovery_store_conformance_contract():
+    store = PostgresStore(
+        PostgresStoreConfig(database_url=os.environ[POSTGRES_CONFORMANCE_ENV])
     )
+
+    observation = await observe_recovery_store_conformance(
+        store,
+        RecoveryStoreConformanceCase(
+            store_name="PostgresStore",
+            expects_restart_persistence=True,
+        ),
+    )
+
+    assert observation.passed is True
+    assert observation.details["store_type"] == "PostgresStore"
+    assert observation.details["duplicate_result_event_id"] == "conformance-event-1"
+    assert observation.details["event_ids"] == [
+        "conformance-event-1",
+        "conformance-event-2",
+    ]

@@ -1,0 +1,1490 @@
+{
+  "claim": "ACR wakeups may resume recovery by emitting proposal packages, but they cannot mutate committed domain truth except through ordinary ATP admission.",
+  "name": "Obligation containment",
+  "rq": "RQ4",
+  "success_criteria": [
+    "ATP unauthorized_mutations = 0",
+    "At least one unsafe baseline has unauthorized_mutations > 0",
+    "ATP proposal_packages_created > 0",
+    "ATP admitted_repairs > 0",
+    "ATP rejected_repairs > 0"
+  ],
+  "systems": [
+    {
+      "admitted_repairs": 0,
+      "continuation_count": 4,
+      "proposal_packages_created": 0,
+      "rejected_repairs": 0,
+      "rows": [
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "normal_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "workflow_timer:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "llm_like_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "adversarial_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "direct_mutation",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "trigger_direct_mutation",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        }
+      ],
+      "system": "trigger_direct_mutation",
+      "unauthorized_mutations": 12,
+      "wakeup_count": 24,
+      "workload_count_per_continuation": 6
+    },
+    {
+      "admitted_repairs": 0,
+      "continuation_count": 4,
+      "proposal_packages_created": 0,
+      "rejected_repairs": 0,
+      "rows": [
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "normal_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "workflow_timer:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "llm_like_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "ignored",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "adversarial_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "timer_direct_write",
+          "domain_mutated": true,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": false,
+          "system": "workflow_timer_direct_write",
+          "unauthorized_mutation": true,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        }
+      ],
+      "system": "workflow_timer_direct_write",
+      "unauthorized_mutations": 16,
+      "wakeup_count": 24,
+      "workload_count_per_continuation": 6
+    },
+    {
+      "admitted_repairs": 4,
+      "continuation_count": 4,
+      "proposal_packages_created": 12,
+      "rejected_repairs": 20,
+      "rows": [
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "admitted",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "normal_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "normal_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "normal_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "admitted",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "workflow_timer:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "workflow_timer",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "workflow_timer:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "admitted",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "llm_like_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "llm_like_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "llm_like_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": true,
+          "decision": "admitted",
+          "domain_mutated": true,
+          "obligation_rule_reason": "accepted",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:valid-proposal",
+            "workload": "valid_proposal_package"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "direct_mutation_forbidden",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:direct-mutation",
+            "workload": "direct_domain_mutation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "acr_not_live",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": false,
+            "attempts_direct_domain_mutation": true,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": false,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:expired-acr",
+            "workload": "expired_acr_wakeup"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "malformed_continuation",
+          "proposal_package_created": false,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": false,
+            "wakeup_id": "adversarial_continuation:acr-17:malformed-continuation",
+            "workload": "malformed_continuation"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "stale_dependency_scope",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": false,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": true,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:stale-dependency",
+            "workload": "stale_dependency_scope"
+          }
+        },
+        {
+          "accepted_by_obligation_rule": false,
+          "decision": "rejected_before_commit",
+          "domain_mutated": false,
+          "obligation_rule_reason": "invalid_recovery_proposal",
+          "proposal_package_created": true,
+          "system": "atp_mnemosyne",
+          "unauthorized_mutation": false,
+          "wakeup": {
+            "acr_live": true,
+            "attempts_direct_domain_mutation": false,
+            "continuation": "adversarial_continuation",
+            "dependency_state_current": true,
+            "emits_proposal_package": true,
+            "proposal_valid_under_c": false,
+            "syntactically_valid": true,
+            "wakeup_id": "adversarial_continuation:acr-17:invalid-proposal",
+            "workload": "invalid_recovery_proposal"
+          }
+        }
+      ],
+      "system": "atp_mnemosyne",
+      "unauthorized_mutations": 0,
+      "wakeup_count": 24,
+      "workload_count_per_continuation": 6
+    }
+  ]
+}

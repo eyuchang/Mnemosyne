@@ -1,0 +1,1535 @@
+{
+  "claim": "Better proposers improve utility and admission efficiency, while ATP keeps invalid committed transitions at zero relative to C.",
+  "name": "Proposer quality affects usefulness, not committed-state correctness",
+  "proposer_summaries": [
+    {
+      "accepted_rate": 0.1,
+      "admitted": 1,
+      "attempts": 10,
+      "attempts_to_first_admission": 8,
+      "invalid_commits": 0,
+      "proposer": "no_intelligence",
+      "rejected": 9,
+      "utility": 1
+    },
+    {
+      "accepted_rate": 0.2,
+      "admitted": 2,
+      "attempts": 10,
+      "attempts_to_first_admission": 5,
+      "invalid_commits": 0,
+      "proposer": "random_proposer",
+      "rejected": 8,
+      "utility": 4
+    },
+    {
+      "accepted_rate": 0.5,
+      "admitted": 5,
+      "attempts": 10,
+      "attempts_to_first_admission": 2,
+      "invalid_commits": 0,
+      "proposer": "rule_based_proposer",
+      "rejected": 5,
+      "utility": 25
+    },
+    {
+      "accepted_rate": 0.8,
+      "admitted": 8,
+      "attempts": 10,
+      "attempts_to_first_admission": 1,
+      "invalid_commits": 0,
+      "proposer": "solver_like_proposer",
+      "rejected": 2,
+      "utility": 64
+    },
+    {
+      "accepted_rate": 0.6,
+      "admitted": 6,
+      "attempts": 10,
+      "attempts_to_first_admission": 2,
+      "invalid_commits": 0,
+      "proposer": "llm_like_proposer",
+      "rejected": 4,
+      "utility": 36
+    },
+    {
+      "accepted_rate": 0.1,
+      "admitted": 1,
+      "attempts": 10,
+      "attempts_to_first_admission": 10,
+      "invalid_commits": 0,
+      "proposer": "adversarial_proposer",
+      "rejected": 9,
+      "utility": 1
+    }
+  ],
+  "rq": "RQ8",
+  "success_criteria": [
+    "ATP invalid_commits = 0 across proposer classes",
+    "Direct commit baseline invalid_commits > 0",
+    "Higher-quality proposers improve admitted utility and admission efficiency",
+    "No learning, regret, or preemptive-planning claim is made"
+  ],
+  "systems": [
+    {
+      "attempts": 60,
+      "committed": 60,
+      "invalid_commits": 37,
+      "rejected": 0,
+      "rows": [
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-1",
+            "operation_key": "no_intelligence-op-1",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-2",
+            "operation_key": "no_intelligence-op-2",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-3",
+            "operation_key": "no_intelligence-op-3",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-4",
+            "operation_key": "no_intelligence-op-4",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-5",
+            "operation_key": "no_intelligence-op-5",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "evidence_destroying_repair",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-6",
+            "operation_key": "no_intelligence-op-6",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-7",
+            "operation_key": "no_intelligence-op-7",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-8",
+            "operation_key": "no_intelligence-op-8",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "",
+            "utility": 1,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-9",
+            "operation_key": "no_intelligence-op-9",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-10",
+            "operation_key": "no_intelligence-op-10",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-1",
+            "operation_key": "random_proposer-op-1",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-2",
+            "operation_key": "random_proposer-op-2",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-3",
+            "operation_key": "random_proposer-op-3",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-4",
+            "operation_key": "random_proposer-op-4",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-5",
+            "operation_key": "random_proposer-op-5",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "",
+            "utility": 2,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-6",
+            "operation_key": "random_proposer-op-6",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-7",
+            "operation_key": "random_proposer-op-7",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-8",
+            "operation_key": "random_proposer-op-8",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-9",
+            "operation_key": "random_proposer-op-9",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "",
+            "utility": 2,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-10",
+            "operation_key": "random_proposer-op-10",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-1",
+            "operation_key": "rule_based_proposer-op-1",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-2",
+            "operation_key": "rule_based_proposer-op-2",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-3",
+            "operation_key": "rule_based_proposer-op-3",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-4",
+            "operation_key": "rule_based_proposer-op-4",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-5",
+            "operation_key": "rule_based_proposer-op-5",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-6",
+            "operation_key": "rule_based_proposer-op-6",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-7",
+            "operation_key": "rule_based_proposer-op-7",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-8",
+            "operation_key": "rule_based_proposer-op-8",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-9",
+            "operation_key": "rule_based_proposer-op-9",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-10",
+            "operation_key": "rule_based_proposer-op-10",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-1",
+            "operation_key": "solver_like_proposer-op-1",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-2",
+            "operation_key": "solver_like_proposer-op-2",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-3",
+            "operation_key": "solver_like_proposer-op-3",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-4",
+            "operation_key": "solver_like_proposer-op-4",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-5",
+            "operation_key": "solver_like_proposer-op-5",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-6",
+            "operation_key": "solver_like_proposer-op-6",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-7",
+            "operation_key": "solver_like_proposer-op-7",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-8",
+            "operation_key": "solver_like_proposer-op-8",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-9",
+            "operation_key": "solver_like_proposer-op-9",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-10",
+            "operation_key": "solver_like_proposer-op-10",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-1",
+            "operation_key": "llm_like_proposer-op-1",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-2",
+            "operation_key": "llm_like_proposer-op-2",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-3",
+            "operation_key": "llm_like_proposer-op-3",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-4",
+            "operation_key": "llm_like_proposer-op-4",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-5",
+            "operation_key": "llm_like_proposer-op-5",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "evidence_destroying_repair",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-6",
+            "operation_key": "llm_like_proposer-op-6",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-7",
+            "operation_key": "llm_like_proposer-op-7",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-8",
+            "operation_key": "llm_like_proposer-op-8",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-9",
+            "operation_key": "llm_like_proposer-op-9",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-10",
+            "operation_key": "llm_like_proposer-op-10",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-1",
+            "operation_key": "adversarial_proposer-op-1",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-2",
+            "operation_key": "adversarial_proposer-op-2",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-3",
+            "operation_key": "adversarial_proposer-op-3",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-4",
+            "operation_key": "adversarial_proposer-op-4",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-5",
+            "operation_key": "adversarial_proposer-op-5",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "evidence_destroying_repair",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-6",
+            "operation_key": "adversarial_proposer-op-6",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-7",
+            "operation_key": "adversarial_proposer-op-7",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-8",
+            "operation_key": "adversarial_proposer-op-8",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-9",
+            "operation_key": "adversarial_proposer-op-9",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-10",
+            "operation_key": "adversarial_proposer-op-10",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "",
+            "utility": 1,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "direct_commit"
+        }
+      ],
+      "system": "direct_commit_baseline",
+      "total_utility": 131
+    },
+    {
+      "attempts": 60,
+      "committed": 23,
+      "invalid_commits": 0,
+      "rejected": 37,
+      "rows": [
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-1",
+            "operation_key": "no_intelligence-op-1",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-2",
+            "operation_key": "no_intelligence-op-2",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "stale_world"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-3",
+            "operation_key": "no_intelligence-op-3",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "capacity_violation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-4",
+            "operation_key": "no_intelligence-op-4",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-5",
+            "operation_key": "no_intelligence-op-5",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "evidence_destroying_repair",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "evidence_destroying_repair"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-6",
+            "operation_key": "no_intelligence-op-6",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-7",
+            "operation_key": "no_intelligence-op-7",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-8",
+            "operation_key": "no_intelligence-op-8",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "",
+            "utility": 1,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-9",
+            "operation_key": "no_intelligence-op-9",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "capacity_violation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "no_intelligence-attempt-10",
+            "operation_key": "no_intelligence-op-10",
+            "proposer": "no_intelligence",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-1",
+            "operation_key": "random_proposer-op-1",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-2",
+            "operation_key": "random_proposer-op-2",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "stale_world"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-3",
+            "operation_key": "random_proposer-op-3",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "capacity_violation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-4",
+            "operation_key": "random_proposer-op-4",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-5",
+            "operation_key": "random_proposer-op-5",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "",
+            "utility": 2,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-6",
+            "operation_key": "random_proposer-op-6",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-7",
+            "operation_key": "random_proposer-op-7",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-8",
+            "operation_key": "random_proposer-op-8",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "stale_world"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-9",
+            "operation_key": "random_proposer-op-9",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "",
+            "utility": 2,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "random_proposer-attempt-10",
+            "operation_key": "random_proposer-op-10",
+            "proposer": "random_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-1",
+            "operation_key": "rule_based_proposer-op-1",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-2",
+            "operation_key": "rule_based_proposer-op-2",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-3",
+            "operation_key": "rule_based_proposer-op-3",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-4",
+            "operation_key": "rule_based_proposer-op-4",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-5",
+            "operation_key": "rule_based_proposer-op-5",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-6",
+            "operation_key": "rule_based_proposer-op-6",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-7",
+            "operation_key": "rule_based_proposer-op-7",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-8",
+            "operation_key": "rule_based_proposer-op-8",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "stale_world"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-9",
+            "operation_key": "rule_based_proposer-op-9",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "",
+            "utility": 5,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "rule_based_proposer-attempt-10",
+            "operation_key": "rule_based_proposer-op-10",
+            "proposer": "rule_based_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-1",
+            "operation_key": "solver_like_proposer-op-1",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-2",
+            "operation_key": "solver_like_proposer-op-2",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-3",
+            "operation_key": "solver_like_proposer-op-3",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-4",
+            "operation_key": "solver_like_proposer-op-4",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-5",
+            "operation_key": "solver_like_proposer-op-5",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-6",
+            "operation_key": "solver_like_proposer-op-6",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-7",
+            "operation_key": "solver_like_proposer-op-7",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-8",
+            "operation_key": "solver_like_proposer-op-8",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 8,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-9",
+            "operation_key": "solver_like_proposer-op-9",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "capacity_violation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "solver_like_proposer-attempt-10",
+            "operation_key": "solver_like_proposer-op-10",
+            "proposer": "solver_like_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-1",
+            "operation_key": "llm_like_proposer-op-1",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-2",
+            "operation_key": "llm_like_proposer-op-2",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-3",
+            "operation_key": "llm_like_proposer-op-3",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-4",
+            "operation_key": "llm_like_proposer-op-4",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-5",
+            "operation_key": "llm_like_proposer-op-5",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "evidence_destroying_repair",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "evidence_destroying_repair"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-6",
+            "operation_key": "llm_like_proposer-op-6",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-7",
+            "operation_key": "llm_like_proposer-op-7",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-8",
+            "operation_key": "llm_like_proposer-op-8",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-9",
+            "operation_key": "llm_like_proposer-op-9",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "",
+            "utility": 6,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        },
+        {
+          "attempt": {
+            "attempt_id": "llm_like_proposer-attempt-10",
+            "operation_key": "llm_like_proposer-op-10",
+            "proposer": "llm_like_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-1",
+            "operation_key": "adversarial_proposer-op-1",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-2",
+            "operation_key": "adversarial_proposer-op-2",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "stale_world"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-3",
+            "operation_key": "adversarial_proposer-op-3",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "capacity_violation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-4",
+            "operation_key": "adversarial_proposer-op-4",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "unsafe_compensation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "unsafe_compensation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-5",
+            "operation_key": "adversarial_proposer-op-5",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "evidence_destroying_repair",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "evidence_destroying_repair"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-6",
+            "operation_key": "adversarial_proposer-op-6",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "duplicate_operation_key",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "duplicate_operation_key"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-7",
+            "operation_key": "adversarial_proposer-op-7",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "malformed",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "malformed"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-8",
+            "operation_key": "adversarial_proposer-op-8",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "stale_world",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "stale_world"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-9",
+            "operation_key": "adversarial_proposer-op-9",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "capacity_violation",
+            "utility": 0,
+            "valid_under_c": false
+          },
+          "committed": false,
+          "reason": "capacity_violation"
+        },
+        {
+          "attempt": {
+            "attempt_id": "adversarial_proposer-attempt-10",
+            "operation_key": "adversarial_proposer-op-10",
+            "proposer": "adversarial_proposer",
+            "reason_if_invalid": "",
+            "utility": 1,
+            "valid_under_c": true
+          },
+          "committed": true,
+          "reason": "admitted"
+        }
+      ],
+      "system": "atp_mnemosyne",
+      "total_utility": 131
+    }
+  ]
+}

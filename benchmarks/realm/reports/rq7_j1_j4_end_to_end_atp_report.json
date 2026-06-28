@@ -1,0 +1,382 @@
+{
+  "claim": "Planning and recovery cases execute through the ATP boundary: benchmark case to proposal package to admission to CTL to StateView.",
+  "name": "J1-J4 end-to-end ATP execution",
+  "rq": "RQ7",
+  "success_criteria": [
+    "ATP completed_cases = 4",
+    "ATP invalid_commits = 0",
+    "ATP stateview_mismatches = 0",
+    "ATP rejected invalid or stale proposals > 0",
+    "Unsafe baseline commits invalid proposals or corrupts StateView"
+  ],
+  "systems": [
+    {
+      "admitted": 9,
+      "case_count": 4,
+      "completed_cases": 4,
+      "invalid_commits": 3,
+      "proposal_packages": 9,
+      "rejected": 0,
+      "rows": [
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J1",
+            "case_name": "nominal_multi_step_plan",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j1-create-plan",
+            "proposal_id": "j1-p1",
+            "proposal_type": "valid_plan_step",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J1",
+            "case_name": "nominal_multi_step_plan",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j1-commit-itinerary",
+            "proposal_id": "j1-p2",
+            "proposal_type": "valid_plan_commit",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J2",
+            "case_name": "disruption_recovery",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j2-record-disruption",
+            "proposal_id": "j2-p1",
+            "proposal_type": "valid_disruption_observation",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J2",
+            "case_name": "disruption_recovery",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": true,
+            "operation_key": "j2-delete-failure-evidence",
+            "proposal_id": "j2-p2",
+            "proposal_type": "evidence_destroying_repair",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": -10,
+            "valid_under_c": false
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J2",
+            "case_name": "disruption_recovery",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j2-admit-repair-route",
+            "proposal_id": "j2-p3",
+            "proposal_type": "valid_repair",
+            "repair_radius": 2,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J3",
+            "case_name": "stale_world_replanning",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j3-stale-route",
+            "proposal_id": "j3-p1",
+            "proposal_type": "stale_world_plan",
+            "repair_radius": 0,
+            "stale_world": true,
+            "state_delta": 99,
+            "valid_under_c": false
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J3",
+            "case_name": "stale_world_replanning",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j3-fresh-replan",
+            "proposal_id": "j3-p2",
+            "proposal_type": "valid_fresh_replan",
+            "repair_radius": 1,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J4",
+            "case_name": "active_commitment_wakeup",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": true,
+            "evidence_destroying": false,
+            "operation_key": "j4-direct-acr-mutation",
+            "proposal_id": "j4-p1",
+            "proposal_type": "direct_acr_mutation",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 99,
+            "valid_under_c": false
+          },
+          "reason": "direct_workflow_commit"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J4",
+            "case_name": "active_commitment_wakeup",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j4-acr-proposal-package",
+            "proposal_id": "j4-p2",
+            "proposal_type": "valid_acr_recovery_proposal",
+            "repair_radius": 1,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "direct_workflow_commit"
+        }
+      ],
+      "stateview_mismatches": 3,
+      "system": "direct_workflow_baseline",
+      "total_repair_radius": 4
+    },
+    {
+      "admitted": 6,
+      "case_count": 4,
+      "completed_cases": 4,
+      "invalid_commits": 0,
+      "proposal_packages": 9,
+      "rejected": 3,
+      "rows": [
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J1",
+            "case_name": "nominal_multi_step_plan",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j1-create-plan",
+            "proposal_id": "j1-p1",
+            "proposal_type": "valid_plan_step",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "admitted"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J1",
+            "case_name": "nominal_multi_step_plan",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j1-commit-itinerary",
+            "proposal_id": "j1-p2",
+            "proposal_type": "valid_plan_commit",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "admitted"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J2",
+            "case_name": "disruption_recovery",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j2-record-disruption",
+            "proposal_id": "j2-p1",
+            "proposal_type": "valid_disruption_observation",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "admitted"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "case_id": "J2",
+            "case_name": "disruption_recovery",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": true,
+            "operation_key": "j2-delete-failure-evidence",
+            "proposal_id": "j2-p2",
+            "proposal_type": "evidence_destroying_repair",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": -10,
+            "valid_under_c": false
+          },
+          "reason": "evidence_destroying_unresolved_repair"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J2",
+            "case_name": "disruption_recovery",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j2-admit-repair-route",
+            "proposal_id": "j2-p3",
+            "proposal_type": "valid_repair",
+            "repair_radius": 2,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "admitted"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "case_id": "J3",
+            "case_name": "stale_world_replanning",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j3-stale-route",
+            "proposal_id": "j3-p1",
+            "proposal_type": "stale_world_plan",
+            "repair_radius": 0,
+            "stale_world": true,
+            "state_delta": 99,
+            "valid_under_c": false
+          },
+          "reason": "stale_world_rejection"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J3",
+            "case_name": "stale_world_replanning",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j3-fresh-replan",
+            "proposal_id": "j3-p2",
+            "proposal_type": "valid_fresh_replan",
+            "repair_radius": 1,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "admitted"
+        },
+        {
+          "committed": false,
+          "proposal": {
+            "case_id": "J4",
+            "case_name": "active_commitment_wakeup",
+            "completes_case": false,
+            "dependency_invalid": false,
+            "direct_mutation": true,
+            "evidence_destroying": false,
+            "operation_key": "j4-direct-acr-mutation",
+            "proposal_id": "j4-p1",
+            "proposal_type": "direct_acr_mutation",
+            "repair_radius": 0,
+            "stale_world": false,
+            "state_delta": 99,
+            "valid_under_c": false
+          },
+          "reason": "direct_mutation_forbidden"
+        },
+        {
+          "committed": true,
+          "proposal": {
+            "case_id": "J4",
+            "case_name": "active_commitment_wakeup",
+            "completes_case": true,
+            "dependency_invalid": false,
+            "direct_mutation": false,
+            "evidence_destroying": false,
+            "operation_key": "j4-acr-proposal-package",
+            "proposal_id": "j4-p2",
+            "proposal_type": "valid_acr_recovery_proposal",
+            "repair_radius": 1,
+            "stale_world": false,
+            "state_delta": 1,
+            "valid_under_c": true
+          },
+          "reason": "admitted"
+        }
+      ],
+      "stateview_mismatches": 0,
+      "system": "atp_mnemosyne",
+      "total_repair_radius": 4
+    }
+  ]
+}

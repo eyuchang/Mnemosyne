@@ -219,13 +219,13 @@ async def test_postgres_store_non_event_runtime_methods_remain_out_of_scope():
         await store.get_record("tenant", "rid")
 
     with pytest.raises(NotImplementedError):
-        await store.get_entity_history("tenant", "rid")
+        await store.get_entity_history("tenant", "eid", "fsm")
 
     with pytest.raises(NotImplementedError):
-        await store.get_full_entity_history("tenant", "rid")
+        await store.get_full_entity_history("tenant", "eid", "fsm")
 
     with pytest.raises(NotImplementedError):
-        await store.get_state_view("tenant")
+        await store.get_state_view("tenant", "eid", "fsm")
 
     with pytest.raises(NotImplementedError):
         await store.get_by_op_id("tenant", "op")

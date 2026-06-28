@@ -20,9 +20,10 @@
       "durable_recovery_events": true,
       "idempotent_recovery_events": true,
       "notes": [
-        "R7.8 implements the live PostgreSQL adapter surface.",
-        "Live PostgreSQL execution remains opt-in.",
-        "Live use requires MNEMOSYNE_POSTGRES_DATABASE_URL."
+        "R7.8.1 implements the opt-in PostgreSQL recovery-event adapter surface.",
+        "Live PostgreSQL execution remains gated by configuration.",
+        "Live use requires MNEMOSYNE_POSTGRES_DATABASE_URL.",
+        "Default CI remains PostgreSQL-free."
       ],
       "schema_id": "mnemosyne.store.sqlite",
       "schema_version": "1.0",

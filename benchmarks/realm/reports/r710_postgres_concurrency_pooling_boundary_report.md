@@ -56,4 +56,4 @@ With `MNEMOSYNE_POSTGRES_DATABASE_URL` set:
 
 R7.10 establishes the PostgreSQL concurrency and pooling boundary.
 
-It proves live concurrent idempotency/conflict behavior and prepares the system for a later optional pooled adapter path, without introducing any required PostgreSQL or pool dependency into default CI.
+It demonstrates live concurrent idempotency/conflict behavior in an env-gated validation run and prepares the system for a later optional pooled adapter path, without introducing any required PostgreSQL or pool dependency into default CI.

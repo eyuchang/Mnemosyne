@@ -1,0 +1,26 @@
+services:
+  mnemosyne-api:
+    build: .
+    environment:
+      MNEMOSYNE_SERVICE_HOST: "0.0.0.0"
+      MNEMOSYNE_SERVICE_PORT: "8088"
+      MNEMOSYNE_SERVICE_MODE: "local"
+      MNEMOSYNE_POSTGRES_DATABASE_URL: "postgresql://mnemosyne:mnemosyne@postgres:5432/mnemosyne"
+    ports:
+      - "8088:8088"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: mnemosyne
+      POSTGRES_PASSWORD: mnemosyne
+      POSTGRES_DB: mnemosyne
+    ports:
+      - "54329:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mnemosyne -d mnemosyne"]
+      interval: 5s
+      timeout: 5s
+      retries: 10

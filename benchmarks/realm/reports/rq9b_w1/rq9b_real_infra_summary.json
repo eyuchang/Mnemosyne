@@ -1,0 +1,754 @@
+{
+  "atp_infra_nodes": [
+    "tests/runtime/test_kernel_admission.py::test_accept_via_kernel_records_accepted_and_committed",
+    "tests/runtime/test_kernel_admission.py::test_reject_before_commit_never_calls_kernel",
+    "tests/runtime/test_kernel_admission.py::test_validator_rejection_records_rejected_without_committed_rids",
+    "tests/runtime/test_kernel_admission.py::test_commit_failure_records_rejected_without_committed_truth",
+    "tests/runtime/test_runtime_admission.py::test_admission_facade_accepts_submitted_proposal_with_commit_rids",
+    "tests/runtime/test_runtime_admission.py::test_admission_facade_rejects_submitted_proposal",
+    "tests/core/test_cross_entity_compensation_projection.py::test_cross_entity_compensation_refreshes_compensated_entity_projection",
+    "tests/core/test_compensation_projection.py::test_compensation_preserves_ctl_history_but_updates_effective_projection",
+    "tests/core/test_compensation_projection.py::test_supersession_preserves_ctl_history_but_updates_effective_projection",
+    "tests/core/test_state_view_api.py::test_get_state_view_uses_only_effective_records_after_compensation",
+    "tests/core/test_review_a_fixes.py::test_bl2_validator_rejects_orphaning_compensation",
+    "tests/core/test_review_a_fixes.py::test_im5_validator_rejects_chain_breaking_compensation",
+    "tests/core/test_review_a_fixes.py::test_compensation_target_must_exist",
+    "tests/core/test_review_a_fixes.py::test_legitimate_tail_collapse_compensation_still_passes",
+    "tests/core/test_runtime_local_active_recovery_validation.py::test_validated_executor_commits_recovery_candidate_through_validator",
+    "tests/core/test_runtime_local_active_recovery_validation.py::test_validated_executor_sequentially_admits_retry_candidates",
+    "tests/core/test_runtime_local_active_recovery_validation.py::test_validation_failure_commits_no_recovery_candidate",
+    "tests/core/test_runtime_local_active_recovery_validation.py::test_validated_executor_still_never_mutates_domain_state",
+    "tests/core/test_temporal_activity_boundary.py::test_temporal_activity_boundary_validates_commits_and_returns_stateview",
+    "tests/core/test_temporal_activity_boundary.py::test_temporal_runtime_orchestrates_but_activity_boundary_commits_truth"
+  ],
+  "raw_runs": [
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 3045.3571658581495,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0000.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 0,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0000.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2965.3532090596855,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0001.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 1,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0001.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2985.7631660997868,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0002.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 2,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0002.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2946.5620419941843,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0003.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 3,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0003.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2997.2394169308245,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0004.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 4,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0004.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2990.8162499777973,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0005.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 5,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0005.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 3032.3852500878274,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0006.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 6,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0006.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 3055.01929204911,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0007.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 7,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0007.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 3027.1224579773843,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0008.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 8,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0008.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 3031.8998750299215,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0009.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 9,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0009.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2940.916792023927,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0010.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 10,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0010.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2922.7411248721182,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0011.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 11,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0011.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2923.744291998446,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0012.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 12,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0012.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2933.050291147083,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0013.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 13,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0013.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2917.4977499060333,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0014.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 14,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0014.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2912.9898748360574,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0015.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 15,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0015.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2924.910709261894,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0016.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 16,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0016.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2932.61595768854,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0017.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 17,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0017.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2927.3110842332244,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0018.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 18,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0018.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2944.8913750238717,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0019.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 19,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0019.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2926.4894579537213,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0020.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 20,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0020.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2941.122541204095,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0021.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 21,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0021.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2925.80149974674,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0022.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 22,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0022.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2936.7277496494353,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0023.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 23,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0023.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2926.1674592271447,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0024.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 24,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0024.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2915.2314593084157,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0025.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 25,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0025.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2930.3099159151316,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0026.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 26,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0026.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2946.3174589909613,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0027.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 27,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0027.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2971.2474578991532,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0028.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 28,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0028.jsonl"
+    },
+    {
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_ms": 2954.8330837860703,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/workflow_saga_semantic_comparator_run0029.log",
+      "node_count": 1,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 29,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/workflow_saga_semantic_comparator_run0029.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5389.617833308876,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0000.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 0,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0000.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5287.626708857715,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0001.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 1,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0001.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5316.364499740303,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0002.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 2,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0002.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5314.174416940659,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0003.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 3,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0003.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5300.482166931033,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0004.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 4,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0004.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5335.61525028199,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0005.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 5,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0005.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5335.64554201439,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0006.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 6,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0006.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5358.667124994099,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0007.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 7,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0007.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5381.96683395654,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0008.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 8,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0008.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5450.93462523073,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0009.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 9,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0009.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5390.544207766652,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0010.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 10,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0010.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5426.85033287853,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0011.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 11,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0011.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5388.901792000979,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0012.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 12,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0012.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5563.902624882758,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0013.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 13,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0013.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5337.245082948357,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0014.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 14,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0014.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5375.269875396043,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0015.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 15,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0015.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5447.162374854088,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0016.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 16,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0016.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5294.3997499533,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0017.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 17,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0017.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5320.7144173793495,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0018.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 18,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0018.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5271.358083002269,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0019.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 19,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0019.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5259.461167268455,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0020.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 20,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0020.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5297.270915936679,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0021.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 21,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0021.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5247.078042011708,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0022.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 22,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0022.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5281.4790001139045,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0023.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 23,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0023.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5251.792625058442,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0024.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 24,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0024.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5300.460000056773,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0025.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 25,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0025.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5307.504707947373,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0026.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 26,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0026.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5396.3018748909235,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0027.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 27,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0027.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5389.271458145231,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0028.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 28,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0028.jsonl"
+    },
+    {
+      "condition": "atp_real_infrastructure",
+      "duration_ms": 5301.522791385651,
+      "log_file": "benchmarks/realm/reports/rq9b_w1/logs/atp_real_infrastructure_run0029.log",
+      "node_count": 20,
+      "ok": true,
+      "returncode": 0,
+      "run_id": 29,
+      "trace_file": "benchmarks/realm/reports/rq9b_w1/traces/atp_real_infrastructure_run0029.jsonl"
+    }
+  ],
+  "semantic_comparator_nodes": [
+    "tests/experiments/test_rq9_state_of_practice_comparator.py::test_rq9_state_of_practice_comparator"
+  ],
+  "summary": [
+    {
+      "admission_commit_overhead_frac": 7.60676066765093e-05,
+      "admission_p50_ms": 0.0562705,
+      "admission_p95_ms": 0.07595655,
+      "commit_p50_ms": null,
+      "commit_p95_ms": null,
+      "compensation_overhead_frac": 0.135866923854135,
+      "compensation_p50_ms": 0.04025,
+      "compensation_p95_ms": 71.7754327,
+      "condition": "workflow_saga_semantic_comparator",
+      "duration_p50_ms": 2941.019666614011,
+      "duration_p95_ms": 3039.5198037615046,
+      "passed_runs": 30,
+      "projection_p50_ms": 0.0396665,
+      "projection_p95_ms": 4.04217855,
+      "projection_validation_overhead_frac": 0.042697980511525124,
+      "runs": 30,
+      "throughput_units_per_min": 20.28233469993277,
+      "unit_count_per_run": 1,
+      "validation_p50_ms": 0.026125,
+      "validation_p95_ms": 0.055666
+    },
+    {
+      "admission_commit_overhead_frac": 0.21640949185524622,
+      "admission_p50_ms": 0.040542,
+      "admission_p95_ms": 17.438059749999983,
+      "commit_p50_ms": 2.596917,
+      "commit_p95_ms": 8.651588149999998,
+      "compensation_overhead_frac": 0.10666638269353917,
+      "compensation_p50_ms": 0.034208,
+      "compensation_p95_ms": 3.7202433999999998,
+      "condition": "atp_real_infrastructure",
+      "duration_p50_ms": 5328.1648338306695,
+      "duration_p95_ms": 5449.237112561241,
+      "passed_runs": 30,
+      "projection_p50_ms": 0.023375,
+      "projection_p95_ms": 1.753695849999999,
+      "projection_validation_overhead_frac": 0.11824785292974091,
+      "runs": 30,
+      "throughput_units_per_min": 224.53485657298438,
+      "unit_count_per_run": 20,
+      "validation_p50_ms": 0.001083,
+      "validation_p95_ms": 0.058209
+    }
+  ],
+  "trace_summary": {
+    "atp_real_infrastructure::admission": {
+      "count": 7320,
+      "mean_ms": 3.420343805874317,
+      "p50_ms": 0.040542,
+      "p95_ms": 17.438059749999983,
+      "total_ms": 25036.916659
+    },
+    "atp_real_infrastructure::commit": {
+      "count": 3540,
+      "mean_ms": 2.72818178220339,
+      "p50_ms": 2.596917,
+      "p95_ms": 8.651588149999998,
+      "total_ms": 9657.763509
+    },
+    "atp_real_infrastructure::compensation": {
+      "count": 10260,
+      "mean_ms": 1.6667358993177388,
+      "p50_ms": 0.034208,
+      "p95_ms": 3.7202433999999998,
+      "total_ms": 17100.710327
+    },
+    "atp_real_infrastructure::projection": {
+      "count": 15180,
+      "mean_ms": 0.3784965270092227,
+      "p50_ms": 0.023375,
+      "p95_ms": 1.753695849999999,
+      "total_ms": 5745.57728
+    },
+    "atp_real_infrastructure::runtime": {
+      "count": 27960,
+      "mean_ms": 0.6126549677753934,
+      "p50_ms": 0.061292,
+      "p95_ms": 1.2626690999999999,
+      "total_ms": 17129.832899
+    },
+    "atp_real_infrastructure::validation": {
+      "count": 134100,
+      "mean_ms": 0.09852251724086503,
+      "p50_ms": 0.001083,
+      "p95_ms": 0.058209,
+      "total_ms": 13211.869562
+    },
+    "workflow_saga_semantic_comparator::admission": {
+      "count": 120,
+      "mean_ms": 0.056247200000000004,
+      "p50_ms": 0.0562705,
+      "p95_ms": 0.07595655,
+      "total_ms": 6.749664
+    },
+    "workflow_saga_semantic_comparator::compensation": {
+      "count": 2040,
+      "mean_ms": 5.9097073784313725,
+      "p50_ms": 0.04025,
+      "p95_ms": 71.7754327,
+      "total_ms": 12055.803052
+    },
+    "workflow_saga_semantic_comparator::projection": {
+      "count": 420,
+      "mean_ms": 1.0447977285714285,
+      "p50_ms": 0.0396665,
+      "p95_ms": 4.04217855,
+      "total_ms": 438.815046
+    },
+    "workflow_saga_semantic_comparator::runtime": {
+      "count": 180,
+      "mean_ms": 0.013226166666666667,
+      "p50_ms": 0.001125,
+      "p95_ms": 0.037667,
+      "total_ms": 2.38071
+    },
+    "workflow_saga_semantic_comparator::validation": {
+      "count": 61020,
+      "mean_ms": 0.05489807856440511,
+      "p50_ms": 0.026125,
+      "p95_ms": 0.055666,
+      "total_ms": 3349.880754
+    }
+  }
+}

@@ -1,0 +1,7266 @@
+[
+  {
+    "accepted": 120,
+    "elapsed_s": 0.069066,
+    "http_4xx_or_5xx": 0,
+    "http_5xx": 0,
+    "invalid_commits": 0,
+    "latency_max_ms": 6.459707999999995,
+    "latency_p50_ms": 0.2501249999999969,
+    "latency_p95_ms": 0.3795815499999938,
+    "rejected": 80,
+    "rows": [
+      {
+        "accepted": true,
+        "i": 0,
+        "invalid_commit": false,
+        "latency_ms": 6.459707999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 1,
+        "invalid_commit": false,
+        "latency_ms": 0.5043749999999875,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 2,
+        "invalid_commit": false,
+        "latency_ms": 0.4896659999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 3,
+        "invalid_commit": false,
+        "latency_ms": 0.39979099999999657,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 4,
+        "invalid_commit": false,
+        "latency_ms": 0.445708000000003,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 5,
+        "invalid_commit": false,
+        "latency_ms": 0.40829200000000454,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 6,
+        "invalid_commit": false,
+        "latency_ms": 0.3830420000000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 7,
+        "invalid_commit": false,
+        "latency_ms": 0.379416999999993,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 8,
+        "invalid_commit": false,
+        "latency_ms": 0.3767910000000013,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 9,
+        "invalid_commit": false,
+        "latency_ms": 0.3489590000000098,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 10,
+        "invalid_commit": false,
+        "latency_ms": 0.39716600000000435,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 11,
+        "invalid_commit": false,
+        "latency_ms": 0.3827080000000094,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 12,
+        "invalid_commit": false,
+        "latency_ms": 0.4365419999999981,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 13,
+        "invalid_commit": false,
+        "latency_ms": 0.37349999999999883,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 14,
+        "invalid_commit": false,
+        "latency_ms": 0.29141700000000215,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 15,
+        "invalid_commit": false,
+        "latency_ms": 0.28850000000001097,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 16,
+        "invalid_commit": false,
+        "latency_ms": 0.2864590000000028,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 17,
+        "invalid_commit": false,
+        "latency_ms": 0.32212500000000643,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 18,
+        "invalid_commit": false,
+        "latency_ms": 0.29845800000000144,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 19,
+        "invalid_commit": false,
+        "latency_ms": 0.31541700000001227,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 20,
+        "invalid_commit": false,
+        "latency_ms": 0.3364580000000117,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 21,
+        "invalid_commit": false,
+        "latency_ms": 0.32612500000001043,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 22,
+        "invalid_commit": false,
+        "latency_ms": 0.34829200000000005,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 23,
+        "invalid_commit": false,
+        "latency_ms": 0.3197080000000019,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 24,
+        "invalid_commit": false,
+        "latency_ms": 0.3077499999999955,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 25,
+        "invalid_commit": false,
+        "latency_ms": 0.31699999999999784,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 26,
+        "invalid_commit": false,
+        "latency_ms": 0.2906250000000027,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 27,
+        "invalid_commit": false,
+        "latency_ms": 0.31470800000001076,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 28,
+        "invalid_commit": false,
+        "latency_ms": 0.3178750000000091,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 29,
+        "invalid_commit": false,
+        "latency_ms": 0.325707999999994,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 30,
+        "invalid_commit": false,
+        "latency_ms": 0.32562499999999606,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 31,
+        "invalid_commit": false,
+        "latency_ms": 0.31958399999999776,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 32,
+        "invalid_commit": false,
+        "latency_ms": 0.3087079999999909,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 33,
+        "invalid_commit": false,
+        "latency_ms": 0.31508300000000766,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 34,
+        "invalid_commit": false,
+        "latency_ms": 0.3181669999999942,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 35,
+        "invalid_commit": false,
+        "latency_ms": 0.31362499999999793,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 36,
+        "invalid_commit": false,
+        "latency_ms": 0.302875000000008,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 37,
+        "invalid_commit": false,
+        "latency_ms": 0.28504199999999924,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 38,
+        "invalid_commit": false,
+        "latency_ms": 0.278208000000002,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 39,
+        "invalid_commit": false,
+        "latency_ms": 0.28462500000001056,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 40,
+        "invalid_commit": false,
+        "latency_ms": 0.3000000000000086,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 41,
+        "invalid_commit": false,
+        "latency_ms": 0.29295799999999594,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 42,
+        "invalid_commit": false,
+        "latency_ms": 0.30095799999999007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 43,
+        "invalid_commit": false,
+        "latency_ms": 0.2808749999999999,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 44,
+        "invalid_commit": false,
+        "latency_ms": 0.2818339999999947,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 45,
+        "invalid_commit": false,
+        "latency_ms": 0.3037919999999972,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 46,
+        "invalid_commit": false,
+        "latency_ms": 0.29395799999999694,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 47,
+        "invalid_commit": false,
+        "latency_ms": 0.30820899999998985,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 48,
+        "invalid_commit": false,
+        "latency_ms": 0.27137500000000425,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 49,
+        "invalid_commit": false,
+        "latency_ms": 0.2793749999999984,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 50,
+        "invalid_commit": false,
+        "latency_ms": 0.310332999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 51,
+        "invalid_commit": false,
+        "latency_ms": 0.297875000000003,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 52,
+        "invalid_commit": false,
+        "latency_ms": 0.3033749999999946,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 53,
+        "invalid_commit": false,
+        "latency_ms": 0.2675830000000018,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 54,
+        "invalid_commit": false,
+        "latency_ms": 0.29191699999998877,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 55,
+        "invalid_commit": false,
+        "latency_ms": 0.314542000000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 56,
+        "invalid_commit": false,
+        "latency_ms": 0.2919160000000032,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 57,
+        "invalid_commit": false,
+        "latency_ms": 0.3008749999999921,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 58,
+        "invalid_commit": false,
+        "latency_ms": 0.2789580000000097,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 59,
+        "invalid_commit": false,
+        "latency_ms": 0.27637500000000925,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 60,
+        "invalid_commit": false,
+        "latency_ms": 0.2962499999999979,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 61,
+        "invalid_commit": false,
+        "latency_ms": 0.30520900000000073,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 62,
+        "invalid_commit": false,
+        "latency_ms": 0.28645799999998944,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 63,
+        "invalid_commit": false,
+        "latency_ms": 0.27712500000000306,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 64,
+        "invalid_commit": false,
+        "latency_ms": 0.272416999999997,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 65,
+        "invalid_commit": false,
+        "latency_ms": 0.295666,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 66,
+        "invalid_commit": false,
+        "latency_ms": 0.2932910000000011,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 67,
+        "invalid_commit": false,
+        "latency_ms": 0.28291600000000805,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 68,
+        "invalid_commit": false,
+        "latency_ms": 0.336209000000004,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 69,
+        "invalid_commit": false,
+        "latency_ms": 0.3122079999999944,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 70,
+        "invalid_commit": false,
+        "latency_ms": 0.32999999999999696,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 71,
+        "invalid_commit": false,
+        "latency_ms": 0.31462499999999893,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 72,
+        "invalid_commit": false,
+        "latency_ms": 0.327916999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 73,
+        "invalid_commit": false,
+        "latency_ms": 0.28979199999999705,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 74,
+        "invalid_commit": false,
+        "latency_ms": 0.2844999999999931,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 75,
+        "invalid_commit": false,
+        "latency_ms": 0.29791700000000865,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 76,
+        "invalid_commit": false,
+        "latency_ms": 0.2933749999999985,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 77,
+        "invalid_commit": false,
+        "latency_ms": 0.28470799999999463,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 78,
+        "invalid_commit": false,
+        "latency_ms": 0.27337500000000625,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 79,
+        "invalid_commit": false,
+        "latency_ms": 0.2804579999999973,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 80,
+        "invalid_commit": false,
+        "latency_ms": 0.26037500000000713,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 81,
+        "invalid_commit": false,
+        "latency_ms": 0.23216700000000534,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 82,
+        "invalid_commit": false,
+        "latency_ms": 0.23308299999999504,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 83,
+        "invalid_commit": false,
+        "latency_ms": 0.22387499999999838,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 84,
+        "invalid_commit": false,
+        "latency_ms": 0.23495899999999292,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 85,
+        "invalid_commit": false,
+        "latency_ms": 0.2500000000000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 86,
+        "invalid_commit": false,
+        "latency_ms": 0.2369159999999898,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 87,
+        "invalid_commit": false,
+        "latency_ms": 0.23708299999999904,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 88,
+        "invalid_commit": false,
+        "latency_ms": 0.23558299999999754,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 89,
+        "invalid_commit": false,
+        "latency_ms": 0.2371250000000047,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 90,
+        "invalid_commit": false,
+        "latency_ms": 0.24145799999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 91,
+        "invalid_commit": false,
+        "latency_ms": 0.25725000000000053,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 92,
+        "invalid_commit": false,
+        "latency_ms": 0.2529159999999919,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 93,
+        "invalid_commit": false,
+        "latency_ms": 0.23920800000000464,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 94,
+        "invalid_commit": false,
+        "latency_ms": 0.24608300000000805,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 95,
+        "invalid_commit": false,
+        "latency_ms": 0.23795799999999645,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 96,
+        "invalid_commit": false,
+        "latency_ms": 0.24612499999999982,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 97,
+        "invalid_commit": false,
+        "latency_ms": 0.22937499999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 98,
+        "invalid_commit": false,
+        "latency_ms": 0.24195800000000045,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 99,
+        "invalid_commit": false,
+        "latency_ms": 0.2311249999999987,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 100,
+        "invalid_commit": false,
+        "latency_ms": 0.23637500000001088,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 101,
+        "invalid_commit": false,
+        "latency_ms": 0.24029200000000306,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 102,
+        "invalid_commit": false,
+        "latency_ms": 0.24308300000000505,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 103,
+        "invalid_commit": false,
+        "latency_ms": 0.2527910000000022,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 104,
+        "invalid_commit": false,
+        "latency_ms": 0.2590419999999871,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 105,
+        "invalid_commit": false,
+        "latency_ms": 0.2367500000000078,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 106,
+        "invalid_commit": false,
+        "latency_ms": 0.23983299999999486,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 107,
+        "invalid_commit": false,
+        "latency_ms": 0.24529199999999418,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 108,
+        "invalid_commit": false,
+        "latency_ms": 0.2501250000000038,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 109,
+        "invalid_commit": false,
+        "latency_ms": 0.25412499999999394,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 110,
+        "invalid_commit": false,
+        "latency_ms": 0.2457500000000029,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 111,
+        "invalid_commit": false,
+        "latency_ms": 0.2422499999999994,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 112,
+        "invalid_commit": false,
+        "latency_ms": 0.2501669999999956,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 113,
+        "invalid_commit": false,
+        "latency_ms": 0.25008299999999817,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 114,
+        "invalid_commit": false,
+        "latency_ms": 0.24562499999999932,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 115,
+        "invalid_commit": false,
+        "latency_ms": 0.24874999999999203,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 116,
+        "invalid_commit": false,
+        "latency_ms": 0.24004199999999587,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 117,
+        "invalid_commit": false,
+        "latency_ms": 0.245375000000006,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 118,
+        "invalid_commit": false,
+        "latency_ms": 0.27079199999999193,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 119,
+        "invalid_commit": false,
+        "latency_ms": 0.2377090000000026,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 120,
+        "invalid_commit": false,
+        "latency_ms": 0.2346250000000022,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 121,
+        "invalid_commit": false,
+        "latency_ms": 0.23045899999998842,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 122,
+        "invalid_commit": false,
+        "latency_ms": 0.25270800000000426,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 123,
+        "invalid_commit": false,
+        "latency_ms": 0.25124999999999453,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 124,
+        "invalid_commit": false,
+        "latency_ms": 0.2396250000000072,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 125,
+        "invalid_commit": false,
+        "latency_ms": 0.24179199999999068,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 126,
+        "invalid_commit": false,
+        "latency_ms": 0.24408299999999217,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 127,
+        "invalid_commit": false,
+        "latency_ms": 0.25062499999999044,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 128,
+        "invalid_commit": false,
+        "latency_ms": 0.2482909999999977,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 129,
+        "invalid_commit": false,
+        "latency_ms": 0.2342500000000053,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 130,
+        "invalid_commit": false,
+        "latency_ms": 0.23741700000000365,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 131,
+        "invalid_commit": false,
+        "latency_ms": 0.24641700000001265,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 132,
+        "invalid_commit": false,
+        "latency_ms": 0.24845799999999307,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 133,
+        "invalid_commit": false,
+        "latency_ms": 0.22766700000000084,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 134,
+        "invalid_commit": false,
+        "latency_ms": 0.2627080000000004,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 135,
+        "invalid_commit": false,
+        "latency_ms": 0.24545800000000395,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 136,
+        "invalid_commit": false,
+        "latency_ms": 0.24499999999999522,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 137,
+        "invalid_commit": false,
+        "latency_ms": 0.22850000000000648,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 138,
+        "invalid_commit": false,
+        "latency_ms": 0.23029100000000746,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 139,
+        "invalid_commit": false,
+        "latency_ms": 0.2427499999999999,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 140,
+        "invalid_commit": false,
+        "latency_ms": 0.2494169999999879,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 141,
+        "invalid_commit": false,
+        "latency_ms": 0.23954199999999537,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 142,
+        "invalid_commit": false,
+        "latency_ms": 0.24387499999999063,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 143,
+        "invalid_commit": false,
+        "latency_ms": 0.23470800000000014,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 144,
+        "invalid_commit": false,
+        "latency_ms": 0.2309999999999951,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 145,
+        "invalid_commit": false,
+        "latency_ms": 0.2303339999999987,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 146,
+        "invalid_commit": false,
+        "latency_ms": 0.2312500000000023,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 147,
+        "invalid_commit": false,
+        "latency_ms": 0.25345899999999755,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 148,
+        "invalid_commit": false,
+        "latency_ms": 0.23658300000001242,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 149,
+        "invalid_commit": false,
+        "latency_ms": 0.2249999999999891,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 150,
+        "invalid_commit": false,
+        "latency_ms": 0.2467909999999962,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 151,
+        "invalid_commit": false,
+        "latency_ms": 0.24316700000000246,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 152,
+        "invalid_commit": false,
+        "latency_ms": 0.2299999999999941,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 153,
+        "invalid_commit": false,
+        "latency_ms": 0.23358399999999502,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 154,
+        "invalid_commit": false,
+        "latency_ms": 0.2198330000000026,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 155,
+        "invalid_commit": false,
+        "latency_ms": 0.219208999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 156,
+        "invalid_commit": false,
+        "latency_ms": 0.21704199999998675,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 157,
+        "invalid_commit": false,
+        "latency_ms": 0.22537499999999988,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 158,
+        "invalid_commit": false,
+        "latency_ms": 0.24762500000000132,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 159,
+        "invalid_commit": false,
+        "latency_ms": 0.22833299999999723,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 160,
+        "invalid_commit": false,
+        "latency_ms": 0.25012499999998994,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 161,
+        "invalid_commit": false,
+        "latency_ms": 0.22541699999999165,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 162,
+        "invalid_commit": false,
+        "latency_ms": 0.24679199999999568,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 163,
+        "invalid_commit": false,
+        "latency_ms": 0.23066700000000384,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 164,
+        "invalid_commit": false,
+        "latency_ms": 0.2382500000000093,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 165,
+        "invalid_commit": false,
+        "latency_ms": 0.24637499999999313,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 166,
+        "invalid_commit": false,
+        "latency_ms": 0.24937499999999613,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 167,
+        "invalid_commit": false,
+        "latency_ms": 0.24562499999999932,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 168,
+        "invalid_commit": false,
+        "latency_ms": 0.23116700000000434,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 169,
+        "invalid_commit": false,
+        "latency_ms": 0.22237499999999688,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 170,
+        "invalid_commit": false,
+        "latency_ms": 0.24262499999999632,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 171,
+        "invalid_commit": false,
+        "latency_ms": 0.24791700000000028,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 172,
+        "invalid_commit": false,
+        "latency_ms": 0.24070799999999226,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 173,
+        "invalid_commit": false,
+        "latency_ms": 0.23712499999999082,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 174,
+        "invalid_commit": false,
+        "latency_ms": 0.23254200000000225,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 175,
+        "invalid_commit": false,
+        "latency_ms": 0.24737499999999413,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 176,
+        "invalid_commit": false,
+        "latency_ms": 0.23895799999999745,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 177,
+        "invalid_commit": false,
+        "latency_ms": 0.25679099999999233,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 178,
+        "invalid_commit": false,
+        "latency_ms": 0.21783400000000008,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 179,
+        "invalid_commit": false,
+        "latency_ms": 0.2537910000000032,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 180,
+        "invalid_commit": false,
+        "latency_ms": 0.2560419999999841,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 181,
+        "invalid_commit": false,
+        "latency_ms": 0.23458299999998267,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 182,
+        "invalid_commit": false,
+        "latency_ms": 0.2362499999999934,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 183,
+        "invalid_commit": false,
+        "latency_ms": 0.229333000000026,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 184,
+        "invalid_commit": false,
+        "latency_ms": 0.23499999999998522,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 185,
+        "invalid_commit": false,
+        "latency_ms": 0.2346659999999945,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 186,
+        "invalid_commit": false,
+        "latency_ms": 0.24320799999999476,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 187,
+        "invalid_commit": false,
+        "latency_ms": 0.23262499999998631,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 188,
+        "invalid_commit": false,
+        "latency_ms": 0.2422499999999994,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 189,
+        "invalid_commit": false,
+        "latency_ms": 0.2317500000000028,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 190,
+        "invalid_commit": false,
+        "latency_ms": 0.28004100000000864,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 191,
+        "invalid_commit": false,
+        "latency_ms": 0.23629099999999958,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 192,
+        "invalid_commit": false,
+        "latency_ms": 0.23820800000001752,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 193,
+        "invalid_commit": false,
+        "latency_ms": 0.23045799999998895,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 194,
+        "invalid_commit": false,
+        "latency_ms": 0.23729099999997283,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 195,
+        "invalid_commit": false,
+        "latency_ms": 0.27825000000000766,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 196,
+        "invalid_commit": false,
+        "latency_ms": 0.23741700000001753,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 197,
+        "invalid_commit": false,
+        "latency_ms": 0.2556250000000093,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 198,
+        "invalid_commit": false,
+        "latency_ms": 0.22591699999999215,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 199,
+        "invalid_commit": false,
+        "latency_ms": 0.22341699999997577,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      }
+    ],
+    "submitted": 200,
+    "throughput_proposals_per_min": 173746.85083832854,
+    "workers": 1
+  },
+  {
+    "accepted": 120,
+    "elapsed_s": 0.044264209,
+    "http_4xx_or_5xx": 0,
+    "http_5xx": 0,
+    "invalid_commits": 0,
+    "latency_max_ms": 2.3077499999999973,
+    "latency_p50_ms": 0.8223539999999974,
+    "latency_p95_ms": 1.306708649999995,
+    "rejected": 80,
+    "rows": [
+      {
+        "accepted": true,
+        "i": 2,
+        "invalid_commit": false,
+        "latency_ms": 1.364666999999986,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 0,
+        "invalid_commit": false,
+        "latency_ms": 1.7674169999999934,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 3,
+        "invalid_commit": false,
+        "latency_ms": 1.7976249999999971,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 1,
+        "invalid_commit": false,
+        "latency_ms": 2.3077499999999973,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 4,
+        "invalid_commit": false,
+        "latency_ms": 0.9567500000000062,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 5,
+        "invalid_commit": false,
+        "latency_ms": 1.053915999999988,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 8,
+        "invalid_commit": false,
+        "latency_ms": 0.5599579999999993,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 9,
+        "invalid_commit": false,
+        "latency_ms": 0.4733749999999981,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 7,
+        "invalid_commit": false,
+        "latency_ms": 1.015374999999985,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 6,
+        "invalid_commit": false,
+        "latency_ms": 1.4084160000000234,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 11,
+        "invalid_commit": false,
+        "latency_ms": 0.6815000000000015,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 10,
+        "invalid_commit": false,
+        "latency_ms": 1.0215829999999926,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 12,
+        "invalid_commit": false,
+        "latency_ms": 1.0250410000000043,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 14,
+        "invalid_commit": false,
+        "latency_ms": 0.6530829999999987,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 13,
+        "invalid_commit": false,
+        "latency_ms": 1.2010839999999912,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 16,
+        "invalid_commit": false,
+        "latency_ms": 0.5631660000000038,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 15,
+        "invalid_commit": false,
+        "latency_ms": 1.0817089999999863,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 17,
+        "invalid_commit": false,
+        "latency_ms": 0.7932499999999953,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 19,
+        "invalid_commit": false,
+        "latency_ms": 0.5183749999999876,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 18,
+        "invalid_commit": false,
+        "latency_ms": 0.9735409999999944,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 22,
+        "invalid_commit": false,
+        "latency_ms": 0.4409170000000129,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 20,
+        "invalid_commit": false,
+        "latency_ms": 0.9089579999999875,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 23,
+        "invalid_commit": false,
+        "latency_ms": 0.616417000000008,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 21,
+        "invalid_commit": false,
+        "latency_ms": 1.190166999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 26,
+        "invalid_commit": false,
+        "latency_ms": 0.375416999999989,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 25,
+        "invalid_commit": false,
+        "latency_ms": 0.6886660000000044,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 24,
+        "invalid_commit": false,
+        "latency_ms": 1.1739999999999806,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 29,
+        "invalid_commit": false,
+        "latency_ms": 0.6338330000000003,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 28,
+        "invalid_commit": false,
+        "latency_ms": 0.8936660000000152,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 27,
+        "invalid_commit": false,
+        "latency_ms": 1.3098750000000159,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 30,
+        "invalid_commit": false,
+        "latency_ms": 0.8698749999999922,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 31,
+        "invalid_commit": false,
+        "latency_ms": 0.8627079999999898,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 33,
+        "invalid_commit": false,
+        "latency_ms": 0.6545830000000141,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 32,
+        "invalid_commit": false,
+        "latency_ms": 1.049833,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 34,
+        "invalid_commit": false,
+        "latency_ms": 0.8902090000000029,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 35,
+        "invalid_commit": false,
+        "latency_ms": 0.6887079999999823,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 37,
+        "invalid_commit": false,
+        "latency_ms": 0.5993340000000069,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 36,
+        "invalid_commit": false,
+        "latency_ms": 0.956417000000015,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 38,
+        "invalid_commit": false,
+        "latency_ms": 0.7780419999999788,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 39,
+        "invalid_commit": false,
+        "latency_ms": 0.840499999999994,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 41,
+        "invalid_commit": false,
+        "latency_ms": 0.5294170000000042,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 40,
+        "invalid_commit": false,
+        "latency_ms": 0.9960830000000087,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 42,
+        "invalid_commit": false,
+        "latency_ms": 0.7604579999999916,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 43,
+        "invalid_commit": false,
+        "latency_ms": 0.7779589999999947,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 44,
+        "invalid_commit": false,
+        "latency_ms": 0.825166000000016,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 45,
+        "invalid_commit": false,
+        "latency_ms": 0.7835840000000038,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 47,
+        "invalid_commit": false,
+        "latency_ms": 0.654167000000011,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 46,
+        "invalid_commit": false,
+        "latency_ms": 1.1065419999999881,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 48,
+        "invalid_commit": false,
+        "latency_ms": 0.8475840000000123,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 50,
+        "invalid_commit": false,
+        "latency_ms": 0.5582080000000045,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 49,
+        "invalid_commit": false,
+        "latency_ms": 0.9684580000000054,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 51,
+        "invalid_commit": false,
+        "latency_ms": 0.7882499999999903,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 54,
+        "invalid_commit": false,
+        "latency_ms": 0.4685000000000106,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 52,
+        "invalid_commit": false,
+        "latency_ms": 1.0273340000000186,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 53,
+        "invalid_commit": false,
+        "latency_ms": 1.0053339999999966,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 56,
+        "invalid_commit": false,
+        "latency_ms": 0.6633749999999938,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 57,
+        "invalid_commit": false,
+        "latency_ms": 0.6773749999999801,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 58,
+        "invalid_commit": false,
+        "latency_ms": 0.749957999999995,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 55,
+        "invalid_commit": false,
+        "latency_ms": 1.4814170000000126,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 60,
+        "invalid_commit": false,
+        "latency_ms": 0.7100419999999941,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 61,
+        "invalid_commit": false,
+        "latency_ms": 0.620665999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 59,
+        "invalid_commit": false,
+        "latency_ms": 1.197792000000003,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 62,
+        "invalid_commit": false,
+        "latency_ms": 0.7873750000000068,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 63,
+        "invalid_commit": false,
+        "latency_ms": 0.9032499999999943,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 64,
+        "invalid_commit": false,
+        "latency_ms": 0.8757080000000028,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 65,
+        "invalid_commit": false,
+        "latency_ms": 0.8760420000000213,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 66,
+        "invalid_commit": false,
+        "latency_ms": 0.813207999999982,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 68,
+        "invalid_commit": false,
+        "latency_ms": 0.5428329999999926,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 67,
+        "invalid_commit": false,
+        "latency_ms": 0.9915000000000063,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 70,
+        "invalid_commit": false,
+        "latency_ms": 0.6862079999999937,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 69,
+        "invalid_commit": false,
+        "latency_ms": 0.9932500000000011,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 73,
+        "invalid_commit": false,
+        "latency_ms": 0.5622500000000141,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 74,
+        "invalid_commit": false,
+        "latency_ms": 0.5509999999999959,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 72,
+        "invalid_commit": false,
+        "latency_ms": 0.9098750000000044,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 71,
+        "invalid_commit": false,
+        "latency_ms": 1.394042000000012,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 76,
+        "invalid_commit": false,
+        "latency_ms": 0.6008750000000007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 78,
+        "invalid_commit": false,
+        "latency_ms": 0.5594169999999787,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 77,
+        "invalid_commit": false,
+        "latency_ms": 0.9158750000000104,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 75,
+        "invalid_commit": false,
+        "latency_ms": 1.3065419999999939,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 79,
+        "invalid_commit": false,
+        "latency_ms": 0.830042000000003,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 82,
+        "invalid_commit": false,
+        "latency_ms": 0.44433300000001896,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 81,
+        "invalid_commit": false,
+        "latency_ms": 0.7916249999999903,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 80,
+        "invalid_commit": false,
+        "latency_ms": 1.089958000000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 83,
+        "invalid_commit": false,
+        "latency_ms": 0.7973749999999891,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 86,
+        "invalid_commit": false,
+        "latency_ms": 0.5485419999999852,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 85,
+        "invalid_commit": false,
+        "latency_ms": 0.9055000000000035,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 84,
+        "invalid_commit": false,
+        "latency_ms": 1.3347499999999957,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 87,
+        "invalid_commit": false,
+        "latency_ms": 0.8981660000000058,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 88,
+        "invalid_commit": false,
+        "latency_ms": 0.8525830000000179,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 89,
+        "invalid_commit": false,
+        "latency_ms": 0.8357910000000024,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 91,
+        "invalid_commit": false,
+        "latency_ms": 0.5513749999999928,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 90,
+        "invalid_commit": false,
+        "latency_ms": 0.952042000000014,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 92,
+        "invalid_commit": false,
+        "latency_ms": 0.8297499999999902,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 93,
+        "invalid_commit": false,
+        "latency_ms": 0.7789169999999901,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 94,
+        "invalid_commit": false,
+        "latency_ms": 0.7607500000000045,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 95,
+        "invalid_commit": false,
+        "latency_ms": 0.8431660000000063,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 98,
+        "invalid_commit": false,
+        "latency_ms": 0.433542000000009,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 96,
+        "invalid_commit": false,
+        "latency_ms": 0.9022909999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 97,
+        "invalid_commit": false,
+        "latency_ms": 0.9628750000000019,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 99,
+        "invalid_commit": false,
+        "latency_ms": 0.7138750000000027,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 103,
+        "invalid_commit": false,
+        "latency_ms": 0.24383299999999886,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 100,
+        "invalid_commit": false,
+        "latency_ms": 1.0776670000000044,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 101,
+        "invalid_commit": false,
+        "latency_ms": 1.064124999999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 102,
+        "invalid_commit": false,
+        "latency_ms": 0.9491249999999951,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 104,
+        "invalid_commit": false,
+        "latency_ms": 0.8549590000000162,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 107,
+        "invalid_commit": false,
+        "latency_ms": 0.4856669999999952,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 105,
+        "invalid_commit": false,
+        "latency_ms": 0.8044580000000079,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 106,
+        "invalid_commit": false,
+        "latency_ms": 0.8670420000000123,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 110,
+        "invalid_commit": false,
+        "latency_ms": 0.4568749999999955,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 108,
+        "invalid_commit": false,
+        "latency_ms": 0.8206249999999915,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 109,
+        "invalid_commit": false,
+        "latency_ms": 0.9477920000000029,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 111,
+        "invalid_commit": false,
+        "latency_ms": 0.8963750000000048,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 113,
+        "invalid_commit": false,
+        "latency_ms": 0.6268329999999933,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 112,
+        "invalid_commit": false,
+        "latency_ms": 1.1710409999999838,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 116,
+        "invalid_commit": false,
+        "latency_ms": 0.5730000000000179,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 114,
+        "invalid_commit": false,
+        "latency_ms": 1.1211250000000006,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 115,
+        "invalid_commit": false,
+        "latency_ms": 1.0813749999999955,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 117,
+        "invalid_commit": false,
+        "latency_ms": 0.6483750000000066,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 120,
+        "invalid_commit": false,
+        "latency_ms": 0.41491700000001464,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 119,
+        "invalid_commit": false,
+        "latency_ms": 0.7437089999999813,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 118,
+        "invalid_commit": false,
+        "latency_ms": 1.0617079999999945,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 121,
+        "invalid_commit": false,
+        "latency_ms": 0.7862089999999822,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 122,
+        "invalid_commit": false,
+        "latency_ms": 0.6951249999999909,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 124,
+        "invalid_commit": false,
+        "latency_ms": 0.6579169999999801,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 125,
+        "invalid_commit": false,
+        "latency_ms": 0.6175829999999771,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 123,
+        "invalid_commit": false,
+        "latency_ms": 1.2269580000000002,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 126,
+        "invalid_commit": false,
+        "latency_ms": 0.7778330000000055,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 128,
+        "invalid_commit": false,
+        "latency_ms": 0.5305410000000232,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 127,
+        "invalid_commit": false,
+        "latency_ms": 0.8291250000000139,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 131,
+        "invalid_commit": false,
+        "latency_ms": 0.4173749999999976,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 130,
+        "invalid_commit": false,
+        "latency_ms": 0.796165999999987,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 129,
+        "invalid_commit": false,
+        "latency_ms": 1.0493749999999913,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 132,
+        "invalid_commit": false,
+        "latency_ms": 0.712959000000013,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 135,
+        "invalid_commit": false,
+        "latency_ms": 0.4920409999999986,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 133,
+        "invalid_commit": false,
+        "latency_ms": 0.9275420000000034,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 136,
+        "invalid_commit": false,
+        "latency_ms": 0.7004580000000149,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 134,
+        "invalid_commit": false,
+        "latency_ms": 1.105958000000018,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 137,
+        "invalid_commit": false,
+        "latency_ms": 0.7105000000000028,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 138,
+        "invalid_commit": false,
+        "latency_ms": 0.7512500000000089,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 139,
+        "invalid_commit": false,
+        "latency_ms": 0.7092910000000008,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 141,
+        "invalid_commit": false,
+        "latency_ms": 0.6436250000000088,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 140,
+        "invalid_commit": false,
+        "latency_ms": 1.0911660000000045,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 143,
+        "invalid_commit": false,
+        "latency_ms": 0.7238750000000127,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 142,
+        "invalid_commit": false,
+        "latency_ms": 1.0137920000000133,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 144,
+        "invalid_commit": false,
+        "latency_ms": 0.667416000000004,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 146,
+        "invalid_commit": false,
+        "latency_ms": 0.5053329999999967,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 147,
+        "invalid_commit": false,
+        "latency_ms": 0.5294160000000048,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 145,
+        "invalid_commit": false,
+        "latency_ms": 1.0657079999999985,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 148,
+        "invalid_commit": false,
+        "latency_ms": 0.8419590000000032,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 149,
+        "invalid_commit": false,
+        "latency_ms": 0.8597909999999986,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 150,
+        "invalid_commit": false,
+        "latency_ms": 0.8313749999999953,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 151,
+        "invalid_commit": false,
+        "latency_ms": 0.7653330000000069,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 152,
+        "invalid_commit": false,
+        "latency_ms": 0.7392499999999969,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 154,
+        "invalid_commit": false,
+        "latency_ms": 0.5314999999999903,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 153,
+        "invalid_commit": false,
+        "latency_ms": 0.8717920000000101,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 155,
+        "invalid_commit": false,
+        "latency_ms": 0.8006249999999993,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 156,
+        "invalid_commit": false,
+        "latency_ms": 0.7042499999999896,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 158,
+        "invalid_commit": false,
+        "latency_ms": 0.632875000000005,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 157,
+        "invalid_commit": false,
+        "latency_ms": 1.0892500000000138,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 159,
+        "invalid_commit": false,
+        "latency_ms": 0.8418339999999858,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 160,
+        "invalid_commit": false,
+        "latency_ms": 0.8240830000000032,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 161,
+        "invalid_commit": false,
+        "latency_ms": 0.9066669999999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 162,
+        "invalid_commit": false,
+        "latency_ms": 0.7688750000000022,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 164,
+        "invalid_commit": false,
+        "latency_ms": 0.7070000000000132,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 163,
+        "invalid_commit": false,
+        "latency_ms": 1.1057499999999887,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 167,
+        "invalid_commit": false,
+        "latency_ms": 0.42595800000000406,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 165,
+        "invalid_commit": false,
+        "latency_ms": 1.00033300000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 168,
+        "invalid_commit": false,
+        "latency_ms": 0.5409579999999803,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 166,
+        "invalid_commit": false,
+        "latency_ms": 1.085957999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 169,
+        "invalid_commit": false,
+        "latency_ms": 0.7344590000000206,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 172,
+        "invalid_commit": false,
+        "latency_ms": 0.4242090000000087,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 170,
+        "invalid_commit": false,
+        "latency_ms": 0.916374999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 171,
+        "invalid_commit": false,
+        "latency_ms": 1.0185419999999834,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 174,
+        "invalid_commit": false,
+        "latency_ms": 0.5647910000000089,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 173,
+        "invalid_commit": false,
+        "latency_ms": 0.8755830000000131,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 177,
+        "invalid_commit": false,
+        "latency_ms": 0.5548330000000046,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 178,
+        "invalid_commit": false,
+        "latency_ms": 0.6063749999999923,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 175,
+        "invalid_commit": false,
+        "latency_ms": 1.1882089999999956,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 176,
+        "invalid_commit": false,
+        "latency_ms": 1.1932909999999852,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 179,
+        "invalid_commit": false,
+        "latency_ms": 0.6705419999999962,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 180,
+        "invalid_commit": false,
+        "latency_ms": 0.635875000000008,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 182,
+        "invalid_commit": false,
+        "latency_ms": 0.6237500000000062,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 181,
+        "invalid_commit": false,
+        "latency_ms": 0.9550829999999955,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 184,
+        "invalid_commit": false,
+        "latency_ms": 0.6167920000000049,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 183,
+        "invalid_commit": false,
+        "latency_ms": 0.8600409999999781,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 185,
+        "invalid_commit": false,
+        "latency_ms": 0.716207999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 186,
+        "invalid_commit": false,
+        "latency_ms": 0.7767079999999871,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 187,
+        "invalid_commit": false,
+        "latency_ms": 0.7644169999999895,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 188,
+        "invalid_commit": false,
+        "latency_ms": 0.9080420000000256,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 189,
+        "invalid_commit": false,
+        "latency_ms": 0.9327920000000156,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 190,
+        "invalid_commit": false,
+        "latency_ms": 0.8724999999999983,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 192,
+        "invalid_commit": false,
+        "latency_ms": 0.7775839999999978,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 191,
+        "invalid_commit": false,
+        "latency_ms": 1.2014169999999824,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 193,
+        "invalid_commit": false,
+        "latency_ms": 0.8997919999999826,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 194,
+        "invalid_commit": false,
+        "latency_ms": 0.8829999999999949,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 196,
+        "invalid_commit": false,
+        "latency_ms": 0.8373750000000013,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 198,
+        "invalid_commit": false,
+        "latency_ms": 0.7453749999999926,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 197,
+        "invalid_commit": false,
+        "latency_ms": 0.9521249999999981,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 195,
+        "invalid_commit": false,
+        "latency_ms": 1.4144999999999852,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 199,
+        "invalid_commit": false,
+        "latency_ms": 0.46079199999998766,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      }
+    ],
+    "submitted": 200,
+    "throughput_proposals_per_min": 271099.3886731377,
+    "workers": 4
+  },
+  {
+    "accepted": 120,
+    "elapsed_s": 0.04663587499999999,
+    "http_4xx_or_5xx": 0,
+    "http_5xx": 0,
+    "invalid_commits": 0,
+    "latency_max_ms": 4.409790999999997,
+    "latency_p50_ms": 1.743063000000003,
+    "latency_p95_ms": 3.1360098000000014,
+    "rejected": 80,
+    "rows": [
+      {
+        "accepted": true,
+        "i": 0,
+        "invalid_commit": false,
+        "latency_ms": 1.3183750000000105,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 1,
+        "invalid_commit": false,
+        "latency_ms": 0.9131250000000146,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 4,
+        "invalid_commit": false,
+        "latency_ms": 2.2010829999999926,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 5,
+        "invalid_commit": false,
+        "latency_ms": 2.108167000000022,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 3,
+        "invalid_commit": false,
+        "latency_ms": 2.7217910000000014,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 2,
+        "invalid_commit": false,
+        "latency_ms": 3.153041999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 8,
+        "invalid_commit": false,
+        "latency_ms": 2.4010409999999927,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 11,
+        "invalid_commit": false,
+        "latency_ms": 1.1562499999999976,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 6,
+        "invalid_commit": false,
+        "latency_ms": 3.135416000000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 7,
+        "invalid_commit": false,
+        "latency_ms": 3.15154099999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 9,
+        "invalid_commit": false,
+        "latency_ms": 3.1472919999999958,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 10,
+        "invalid_commit": false,
+        "latency_ms": 2.0062920000000206,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 12,
+        "invalid_commit": false,
+        "latency_ms": 1.87970799999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 14,
+        "invalid_commit": false,
+        "latency_ms": 1.3120420000000133,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 13,
+        "invalid_commit": false,
+        "latency_ms": 1.9549170000000005,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 15,
+        "invalid_commit": false,
+        "latency_ms": 1.4130830000000094,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 18,
+        "invalid_commit": false,
+        "latency_ms": 1.1246670000000236,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 20,
+        "invalid_commit": false,
+        "latency_ms": 1.2214579999999808,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 17,
+        "invalid_commit": false,
+        "latency_ms": 2.003332999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 23,
+        "invalid_commit": false,
+        "latency_ms": 0.9999589999999947,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 22,
+        "invalid_commit": false,
+        "latency_ms": 1.3903749999999993,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 21,
+        "invalid_commit": false,
+        "latency_ms": 1.7524169999999784,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 19,
+        "invalid_commit": false,
+        "latency_ms": 2.202624999999986,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 28,
+        "invalid_commit": false,
+        "latency_ms": 0.8595839999999966,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 30,
+        "invalid_commit": false,
+        "latency_ms": 0.8805839999999898,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 29,
+        "invalid_commit": false,
+        "latency_ms": 1.1565839999999883,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 25,
+        "invalid_commit": false,
+        "latency_ms": 2.0144999999999746,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 16,
+        "invalid_commit": false,
+        "latency_ms": 4.038874999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 24,
+        "invalid_commit": false,
+        "latency_ms": 2.6106659999999837,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 26,
+        "invalid_commit": false,
+        "latency_ms": 2.1154170000000083,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 27,
+        "invalid_commit": false,
+        "latency_ms": 2.1440829999999913,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 32,
+        "invalid_commit": false,
+        "latency_ms": 1.2203749999999958,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 33,
+        "invalid_commit": false,
+        "latency_ms": 1.2358339999999912,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 36,
+        "invalid_commit": false,
+        "latency_ms": 1.1824160000000195,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 31,
+        "invalid_commit": false,
+        "latency_ms": 2.0971250000000055,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 38,
+        "invalid_commit": false,
+        "latency_ms": 1.1299999999999921,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 35,
+        "invalid_commit": false,
+        "latency_ms": 1.660415999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 37,
+        "invalid_commit": false,
+        "latency_ms": 1.7801669999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 34,
+        "invalid_commit": false,
+        "latency_ms": 2.326582999999993,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 44,
+        "invalid_commit": false,
+        "latency_ms": 0.7095839999999853,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 43,
+        "invalid_commit": false,
+        "latency_ms": 1.1531250000000048,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 40,
+        "invalid_commit": false,
+        "latency_ms": 1.9268330000000167,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 47,
+        "invalid_commit": false,
+        "latency_ms": 0.7177919999999949,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 42,
+        "invalid_commit": false,
+        "latency_ms": 1.908999999999994,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 41,
+        "invalid_commit": false,
+        "latency_ms": 2.357250000000005,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 45,
+        "invalid_commit": false,
+        "latency_ms": 1.9029579999999824,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 48,
+        "invalid_commit": false,
+        "latency_ms": 1.3287499999999897,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 39,
+        "invalid_commit": false,
+        "latency_ms": 3.470374999999998,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 46,
+        "invalid_commit": false,
+        "latency_ms": 2.374624999999991,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 49,
+        "invalid_commit": false,
+        "latency_ms": 1.9182919999999881,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 53,
+        "invalid_commit": false,
+        "latency_ms": 1.174874999999992,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 54,
+        "invalid_commit": false,
+        "latency_ms": 1.1816669999999974,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 52,
+        "invalid_commit": false,
+        "latency_ms": 1.771707999999983,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 51,
+        "invalid_commit": false,
+        "latency_ms": 2.358292000000012,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 50,
+        "invalid_commit": false,
+        "latency_ms": 2.680624999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 55,
+        "invalid_commit": false,
+        "latency_ms": 1.6554169999999924,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 56,
+        "invalid_commit": false,
+        "latency_ms": 1.7542090000000066,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 60,
+        "invalid_commit": false,
+        "latency_ms": 1.336707999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 57,
+        "invalid_commit": false,
+        "latency_ms": 1.973208000000004,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 59,
+        "invalid_commit": false,
+        "latency_ms": 1.7666250000000217,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 61,
+        "invalid_commit": false,
+        "latency_ms": 1.5838750000000124,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 58,
+        "invalid_commit": false,
+        "latency_ms": 2.413290999999984,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 66,
+        "invalid_commit": false,
+        "latency_ms": 0.9195419999999954,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 63,
+        "invalid_commit": false,
+        "latency_ms": 2.0699580000000104,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 65,
+        "invalid_commit": false,
+        "latency_ms": 1.5156669999999983,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 68,
+        "invalid_commit": false,
+        "latency_ms": 1.1316670000000029,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 64,
+        "invalid_commit": false,
+        "latency_ms": 2.145333000000027,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 67,
+        "invalid_commit": false,
+        "latency_ms": 1.6198339999999867,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 69,
+        "invalid_commit": false,
+        "latency_ms": 1.5407919999999853,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 71,
+        "invalid_commit": false,
+        "latency_ms": 1.2457090000000115,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 72,
+        "invalid_commit": false,
+        "latency_ms": 1.1557920000000166,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 73,
+        "invalid_commit": false,
+        "latency_ms": 1.2949580000000127,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 74,
+        "invalid_commit": false,
+        "latency_ms": 1.337707999999993,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 70,
+        "invalid_commit": false,
+        "latency_ms": 2.217291999999982,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 62,
+        "invalid_commit": false,
+        "latency_ms": 4.409790999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 76,
+        "invalid_commit": false,
+        "latency_ms": 1.252749999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 75,
+        "invalid_commit": false,
+        "latency_ms": 1.8883750000000254,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 78,
+        "invalid_commit": false,
+        "latency_ms": 1.2365000000000015,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 80,
+        "invalid_commit": false,
+        "latency_ms": 1.433167000000013,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 82,
+        "invalid_commit": false,
+        "latency_ms": 1.3741250000000038,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 81,
+        "invalid_commit": false,
+        "latency_ms": 1.7526250000000076,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 77,
+        "invalid_commit": false,
+        "latency_ms": 2.7590829999999955,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 83,
+        "invalid_commit": false,
+        "latency_ms": 1.8642920000000174,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 79,
+        "invalid_commit": false,
+        "latency_ms": 2.693082999999985,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 86,
+        "invalid_commit": false,
+        "latency_ms": 1.1677499999999952,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 84,
+        "invalid_commit": false,
+        "latency_ms": 2.0990830000000016,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 87,
+        "invalid_commit": false,
+        "latency_ms": 1.2832500000000135,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 85,
+        "invalid_commit": false,
+        "latency_ms": 2.442042000000005,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 89,
+        "invalid_commit": false,
+        "latency_ms": 1.4604169999999916,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 91,
+        "invalid_commit": false,
+        "latency_ms": 1.371959000000006,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 93,
+        "invalid_commit": false,
+        "latency_ms": 1.371708000000027,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 90,
+        "invalid_commit": false,
+        "latency_ms": 1.975167,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 95,
+        "invalid_commit": false,
+        "latency_ms": 1.5483750000000185,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 92,
+        "invalid_commit": false,
+        "latency_ms": 2.4275829999999834,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 99,
+        "invalid_commit": false,
+        "latency_ms": 0.9196659999999857,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 88,
+        "invalid_commit": false,
+        "latency_ms": 3.522375000000022,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 97,
+        "invalid_commit": false,
+        "latency_ms": 1.659624999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 96,
+        "invalid_commit": false,
+        "latency_ms": 2.0316670000000148,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 98,
+        "invalid_commit": false,
+        "latency_ms": 1.7117919999999898,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 94,
+        "invalid_commit": false,
+        "latency_ms": 3.0651249999999743,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 101,
+        "invalid_commit": false,
+        "latency_ms": 1.3980830000000222,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 102,
+        "invalid_commit": false,
+        "latency_ms": 1.4030419999999932,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 104,
+        "invalid_commit": false,
+        "latency_ms": 1.4507089999999945,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 106,
+        "invalid_commit": false,
+        "latency_ms": 1.1940000000000006,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 103,
+        "invalid_commit": false,
+        "latency_ms": 1.824458000000001,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 105,
+        "invalid_commit": false,
+        "latency_ms": 1.745791999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 109,
+        "invalid_commit": false,
+        "latency_ms": 0.8788329999999955,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 100,
+        "invalid_commit": false,
+        "latency_ms": 2.903708000000005,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 107,
+        "invalid_commit": false,
+        "latency_ms": 1.8546249999999986,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 108,
+        "invalid_commit": false,
+        "latency_ms": 1.5650000000000108,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 114,
+        "invalid_commit": false,
+        "latency_ms": 1.145457999999988,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 111,
+        "invalid_commit": false,
+        "latency_ms": 1.7479999999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 110,
+        "invalid_commit": false,
+        "latency_ms": 2.1513330000000055,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 113,
+        "invalid_commit": false,
+        "latency_ms": 1.8901249999999925,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 112,
+        "invalid_commit": false,
+        "latency_ms": 2.165,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 116,
+        "invalid_commit": false,
+        "latency_ms": 1.7742499999999772,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 117,
+        "invalid_commit": false,
+        "latency_ms": 1.74033400000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 115,
+        "invalid_commit": false,
+        "latency_ms": 2.312667000000018,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 121,
+        "invalid_commit": false,
+        "latency_ms": 0.951708999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 119,
+        "invalid_commit": false,
+        "latency_ms": 1.6030830000000051,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 118,
+        "invalid_commit": false,
+        "latency_ms": 1.9164589999999815,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 120,
+        "invalid_commit": false,
+        "latency_ms": 1.6876249999999982,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 123,
+        "invalid_commit": false,
+        "latency_ms": 1.3448330000000175,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 122,
+        "invalid_commit": false,
+        "latency_ms": 1.8446249999999886,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 126,
+        "invalid_commit": false,
+        "latency_ms": 1.35808300000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 124,
+        "invalid_commit": false,
+        "latency_ms": 2.0797919999999968,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 128,
+        "invalid_commit": false,
+        "latency_ms": 1.351917000000008,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 127,
+        "invalid_commit": false,
+        "latency_ms": 1.7123330000000103,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 129,
+        "invalid_commit": false,
+        "latency_ms": 1.5005419999999936,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 130,
+        "invalid_commit": false,
+        "latency_ms": 1.4955419999999886,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 125,
+        "invalid_commit": false,
+        "latency_ms": 2.820416999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 131,
+        "invalid_commit": false,
+        "latency_ms": 1.748791999999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 138,
+        "invalid_commit": false,
+        "latency_ms": 0.6610420000000006,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 137,
+        "invalid_commit": false,
+        "latency_ms": 1.2109590000000114,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 132,
+        "invalid_commit": false,
+        "latency_ms": 2.2908339999999914,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 134,
+        "invalid_commit": false,
+        "latency_ms": 2.061249999999987,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 133,
+        "invalid_commit": false,
+        "latency_ms": 2.3149169999999994,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 136,
+        "invalid_commit": false,
+        "latency_ms": 1.9597080000000044,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 135,
+        "invalid_commit": false,
+        "latency_ms": 2.4287080000000016,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 141,
+        "invalid_commit": false,
+        "latency_ms": 0.93829099999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 139,
+        "invalid_commit": false,
+        "latency_ms": 1.9078339999999971,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 144,
+        "invalid_commit": false,
+        "latency_ms": 1.0630000000000084,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 143,
+        "invalid_commit": false,
+        "latency_ms": 1.509125,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 142,
+        "invalid_commit": false,
+        "latency_ms": 1.850709000000006,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 140,
+        "invalid_commit": false,
+        "latency_ms": 2.4153330000000195,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 146,
+        "invalid_commit": false,
+        "latency_ms": 1.4933340000000128,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 148,
+        "invalid_commit": false,
+        "latency_ms": 1.2582089999999824,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 145,
+        "invalid_commit": false,
+        "latency_ms": 2.049083000000007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 147,
+        "invalid_commit": false,
+        "latency_ms": 1.828042000000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 150,
+        "invalid_commit": false,
+        "latency_ms": 1.2895830000000108,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 151,
+        "invalid_commit": false,
+        "latency_ms": 1.3552079999999966,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 156,
+        "invalid_commit": false,
+        "latency_ms": 1.101249999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 155,
+        "invalid_commit": false,
+        "latency_ms": 1.561707999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 153,
+        "invalid_commit": false,
+        "latency_ms": 1.9706249999999759,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 158,
+        "invalid_commit": false,
+        "latency_ms": 1.0372089999999834,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 152,
+        "invalid_commit": false,
+        "latency_ms": 2.4175419999999948,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 157,
+        "invalid_commit": false,
+        "latency_ms": 1.6096659999999818,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 154,
+        "invalid_commit": false,
+        "latency_ms": 2.4009170000000024,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 149,
+        "invalid_commit": false,
+        "latency_ms": 3.5207920000000223,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 161,
+        "invalid_commit": false,
+        "latency_ms": 1.3507920000000173,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 166,
+        "invalid_commit": false,
+        "latency_ms": 0.9134580000000059,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 162,
+        "invalid_commit": false,
+        "latency_ms": 1.6431249999999953,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 164,
+        "invalid_commit": false,
+        "latency_ms": 1.576374999999991,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 159,
+        "invalid_commit": false,
+        "latency_ms": 2.6232919999999993,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 163,
+        "invalid_commit": false,
+        "latency_ms": 2.247542000000019,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 165,
+        "invalid_commit": false,
+        "latency_ms": 2.1019999999999928,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 167,
+        "invalid_commit": false,
+        "latency_ms": 1.4091659999999895,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 171,
+        "invalid_commit": false,
+        "latency_ms": 0.7215000000000138,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 160,
+        "invalid_commit": false,
+        "latency_ms": 3.186875000000006,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 170,
+        "invalid_commit": false,
+        "latency_ms": 1.179208000000015,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 168,
+        "invalid_commit": false,
+        "latency_ms": 1.7663330000000088,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 169,
+        "invalid_commit": false,
+        "latency_ms": 1.9439580000000234,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 176,
+        "invalid_commit": false,
+        "latency_ms": 0.9496670000000151,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 177,
+        "invalid_commit": false,
+        "latency_ms": 0.9370000000000211,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 172,
+        "invalid_commit": false,
+        "latency_ms": 1.7839590000000016,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 173,
+        "invalid_commit": false,
+        "latency_ms": 1.8285419999999886,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 179,
+        "invalid_commit": false,
+        "latency_ms": 1.191582999999996,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 174,
+        "invalid_commit": false,
+        "latency_ms": 2.4609579999999855,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 178,
+        "invalid_commit": false,
+        "latency_ms": 1.929666999999996,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 180,
+        "invalid_commit": false,
+        "latency_ms": 1.6097080000000152,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 184,
+        "invalid_commit": false,
+        "latency_ms": 0.8910000000000029,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 175,
+        "invalid_commit": false,
+        "latency_ms": 3.1797909999999874,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 182,
+        "invalid_commit": false,
+        "latency_ms": 1.9419999999999993,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 186,
+        "invalid_commit": false,
+        "latency_ms": 1.1080840000000092,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 183,
+        "invalid_commit": false,
+        "latency_ms": 2.252250000000011,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 181,
+        "invalid_commit": false,
+        "latency_ms": 2.767624999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 189,
+        "invalid_commit": false,
+        "latency_ms": 1.0080830000000207,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 191,
+        "invalid_commit": false,
+        "latency_ms": 1.0364999999999958,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 185,
+        "invalid_commit": false,
+        "latency_ms": 2.501166999999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 193,
+        "invalid_commit": false,
+        "latency_ms": 0.879833999999996,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 194,
+        "invalid_commit": false,
+        "latency_ms": 0.8667499999999995,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 188,
+        "invalid_commit": false,
+        "latency_ms": 2.275374999999996,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 190,
+        "invalid_commit": false,
+        "latency_ms": 2.078915999999986,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 187,
+        "invalid_commit": false,
+        "latency_ms": 2.8089589999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 192,
+        "invalid_commit": false,
+        "latency_ms": 1.8830000000000235,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 195,
+        "invalid_commit": false,
+        "latency_ms": 1.1722500000000136,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 199,
+        "invalid_commit": false,
+        "latency_ms": 0.7874580000000186,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 196,
+        "invalid_commit": false,
+        "latency_ms": 1.369750000000003,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 197,
+        "invalid_commit": false,
+        "latency_ms": 1.300166999999991,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 198,
+        "invalid_commit": false,
+        "latency_ms": 1.2326659999999934,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      }
+    ],
+    "submitted": 200,
+    "throughput_proposals_per_min": 257312.63753494498,
+    "workers": 8
+  },
+  {
+    "accepted": 120,
+    "elapsed_s": 1.018247375,
+    "http_4xx_or_5xx": 0,
+    "http_5xx": 0,
+    "invalid_commits": 0,
+    "latency_max_ms": 1006.1975840000001,
+    "latency_p50_ms": 3.0472505000000147,
+    "latency_p95_ms": 5.395519049999989,
+    "rejected": 80,
+    "rows": [
+      {
+        "accepted": true,
+        "i": 2,
+        "invalid_commit": false,
+        "latency_ms": 1.4075420000000116,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 9,
+        "invalid_commit": false,
+        "latency_ms": 1.6062079999999979,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 1,
+        "invalid_commit": false,
+        "latency_ms": 0.761624999999988,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 10,
+        "invalid_commit": false,
+        "latency_ms": 1.8275410000000158,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 4,
+        "invalid_commit": false,
+        "latency_ms": 2.033915999999997,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 0,
+        "invalid_commit": false,
+        "latency_ms": 1.491458000000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 8,
+        "invalid_commit": false,
+        "latency_ms": 1.777625000000005,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 5,
+        "invalid_commit": false,
+        "latency_ms": 4.1720000000000095,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 16,
+        "invalid_commit": false,
+        "latency_ms": 2.2882919999999976,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 13,
+        "invalid_commit": false,
+        "latency_ms": 3.1531670000000123,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 14,
+        "invalid_commit": false,
+        "latency_ms": 3.097709000000004,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 12,
+        "invalid_commit": false,
+        "latency_ms": 3.5963750000000125,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 6,
+        "invalid_commit": false,
+        "latency_ms": 5.087583000000007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 3,
+        "invalid_commit": false,
+        "latency_ms": 5.942666000000013,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 22,
+        "invalid_commit": false,
+        "latency_ms": 2.5824170000000035,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 18,
+        "invalid_commit": false,
+        "latency_ms": 3.3681249999999996,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 7,
+        "invalid_commit": false,
+        "latency_ms": 5.729333999999975,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 20,
+        "invalid_commit": false,
+        "latency_ms": 3.3066250000000075,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 17,
+        "invalid_commit": false,
+        "latency_ms": 3.910374999999994,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 15,
+        "invalid_commit": false,
+        "latency_ms": 4.715499999999984,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 11,
+        "invalid_commit": false,
+        "latency_ms": 5.8750000000000195,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 27,
+        "invalid_commit": false,
+        "latency_ms": 2.352833999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 26,
+        "invalid_commit": false,
+        "latency_ms": 2.758375000000007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 24,
+        "invalid_commit": false,
+        "latency_ms": 3.3407909999999816,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 19,
+        "invalid_commit": false,
+        "latency_ms": 5.243999999999999,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 21,
+        "invalid_commit": false,
+        "latency_ms": 5.073124999999984,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 25,
+        "invalid_commit": false,
+        "latency_ms": 3.8770830000000034,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 29,
+        "invalid_commit": false,
+        "latency_ms": 3.0287920000000024,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 30,
+        "invalid_commit": false,
+        "latency_ms": 2.984000000000014,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 34,
+        "invalid_commit": false,
+        "latency_ms": 2.492374999999991,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 31,
+        "invalid_commit": false,
+        "latency_ms": 3.051917000000015,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 35,
+        "invalid_commit": false,
+        "latency_ms": 2.486959000000011,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 28,
+        "invalid_commit": false,
+        "latency_ms": 4.072750000000013,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 23,
+        "invalid_commit": false,
+        "latency_ms": 5.355250000000006,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 33,
+        "invalid_commit": false,
+        "latency_ms": 3.6402500000000115,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 36,
+        "invalid_commit": false,
+        "latency_ms": 3.309499999999993,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 32,
+        "invalid_commit": false,
+        "latency_ms": 4.768334000000013,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 41,
+        "invalid_commit": false,
+        "latency_ms": 2.859417000000003,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 39,
+        "invalid_commit": false,
+        "latency_ms": 3.3199590000000114,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 42,
+        "invalid_commit": false,
+        "latency_ms": 2.7611250000000034,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 38,
+        "invalid_commit": false,
+        "latency_ms": 3.8857499999999936,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 37,
+        "invalid_commit": false,
+        "latency_ms": 4.262916000000006,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 43,
+        "invalid_commit": false,
+        "latency_ms": 3.287791000000012,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 52,
+        "invalid_commit": false,
+        "latency_ms": 1.375832999999993,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 49,
+        "invalid_commit": false,
+        "latency_ms": 2.8962909999999953,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 47,
+        "invalid_commit": false,
+        "latency_ms": 3.3626670000000134,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 45,
+        "invalid_commit": false,
+        "latency_ms": 3.770417000000026,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 55,
+        "invalid_commit": false,
+        "latency_ms": 1.583374999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 44,
+        "invalid_commit": false,
+        "latency_ms": 4.300749999999992,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 40,
+        "invalid_commit": false,
+        "latency_ms": 5.3869169999999915,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 53,
+        "invalid_commit": false,
+        "latency_ms": 2.490958000000015,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 46,
+        "invalid_commit": false,
+        "latency_ms": 4.607834000000005,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 54,
+        "invalid_commit": false,
+        "latency_ms": 2.8682090000000104,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 51,
+        "invalid_commit": false,
+        "latency_ms": 3.789542000000007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 56,
+        "invalid_commit": false,
+        "latency_ms": 3.0552919999999872,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 62,
+        "invalid_commit": false,
+        "latency_ms": 2.232082999999996,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 58,
+        "invalid_commit": false,
+        "latency_ms": 3.1555000000000053,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 66,
+        "invalid_commit": false,
+        "latency_ms": 1.7059160000000018,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 57,
+        "invalid_commit": false,
+        "latency_ms": 3.7266249999999834,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 59,
+        "invalid_commit": false,
+        "latency_ms": 3.198457999999987,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 61,
+        "invalid_commit": false,
+        "latency_ms": 2.9466669999999864,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 65,
+        "invalid_commit": false,
+        "latency_ms": 2.508375000000007,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 63,
+        "invalid_commit": false,
+        "latency_ms": 3.2055,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 67,
+        "invalid_commit": false,
+        "latency_ms": 2.5917500000000038,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 60,
+        "invalid_commit": false,
+        "latency_ms": 4.0184580000000025,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 70,
+        "invalid_commit": false,
+        "latency_ms": 2.336084000000016,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 69,
+        "invalid_commit": false,
+        "latency_ms": 2.997,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 68,
+        "invalid_commit": false,
+        "latency_ms": 3.3500000000000196,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 78,
+        "invalid_commit": false,
+        "latency_ms": 1.4030419999999932,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 64,
+        "invalid_commit": false,
+        "latency_ms": 4.590458999999991,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 71,
+        "invalid_commit": false,
+        "latency_ms": 2.9031250000000064,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 80,
+        "invalid_commit": false,
+        "latency_ms": 1.6202499999999898,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 76,
+        "invalid_commit": false,
+        "latency_ms": 3.073416000000023,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 85,
+        "invalid_commit": false,
+        "latency_ms": 1.3359579999999982,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 82,
+        "invalid_commit": false,
+        "latency_ms": 2.059417000000008,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 77,
+        "invalid_commit": false,
+        "latency_ms": 3.5793750000000237,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 75,
+        "invalid_commit": false,
+        "latency_ms": 4.190041000000005,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 74,
+        "invalid_commit": false,
+        "latency_ms": 4.418250000000013,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 84,
+        "invalid_commit": false,
+        "latency_ms": 2.3183330000000058,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 73,
+        "invalid_commit": false,
+        "latency_ms": 4.791959000000013,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 86,
+        "invalid_commit": false,
+        "latency_ms": 2.273917000000014,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 83,
+        "invalid_commit": false,
+        "latency_ms": 2.9184999999999905,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 87,
+        "invalid_commit": false,
+        "latency_ms": 2.428125000000003,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 79,
+        "invalid_commit": false,
+        "latency_ms": 4.423708999999998,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 81,
+        "invalid_commit": false,
+        "latency_ms": 4.268540999999987,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 72,
+        "invalid_commit": false,
+        "latency_ms": 6.166041999999983,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 91,
+        "invalid_commit": false,
+        "latency_ms": 2.004875000000017,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 92,
+        "invalid_commit": false,
+        "latency_ms": 2.172666999999989,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 88,
+        "invalid_commit": false,
+        "latency_ms": 3.399125000000003,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 96,
+        "invalid_commit": false,
+        "latency_ms": 2.0982080000000183,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 95,
+        "invalid_commit": false,
+        "latency_ms": 2.5163749999999876,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 93,
+        "invalid_commit": false,
+        "latency_ms": 2.8833750000000213,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 90,
+        "invalid_commit": false,
+        "latency_ms": 3.7062499999999945,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 101,
+        "invalid_commit": false,
+        "latency_ms": 2.1805409999999803,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 97,
+        "invalid_commit": false,
+        "latency_ms": 3.40399999999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 102,
+        "invalid_commit": false,
+        "latency_ms": 2.3413750000000064,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 98,
+        "invalid_commit": false,
+        "latency_ms": 3.6017499999999867,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 105,
+        "invalid_commit": false,
+        "latency_ms": 2.118042000000014,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 104,
+        "invalid_commit": false,
+        "latency_ms": 2.5594999999999923,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 100,
+        "invalid_commit": false,
+        "latency_ms": 3.6430830000000194,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 103,
+        "invalid_commit": false,
+        "latency_ms": 2.9898339999999965,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 106,
+        "invalid_commit": false,
+        "latency_ms": 2.472250000000009,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 89,
+        "invalid_commit": false,
+        "latency_ms": 6.2713749999999955,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 94,
+        "invalid_commit": false,
+        "latency_ms": 5.558958000000002,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 107,
+        "invalid_commit": false,
+        "latency_ms": 2.8778329999999963,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 115,
+        "invalid_commit": false,
+        "latency_ms": 0.9161250000000176,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 111,
+        "invalid_commit": false,
+        "latency_ms": 1.945124999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 99,
+        "invalid_commit": false,
+        "latency_ms": 5.223250000000013,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 114,
+        "invalid_commit": false,
+        "latency_ms": 1.7263329999999966,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 113,
+        "invalid_commit": false,
+        "latency_ms": 2.3724579999999937,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 112,
+        "invalid_commit": false,
+        "latency_ms": 2.923000000000009,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 110,
+        "invalid_commit": false,
+        "latency_ms": 3.596749999999982,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 117,
+        "invalid_commit": false,
+        "latency_ms": 2.5841250000000207,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 118,
+        "invalid_commit": false,
+        "latency_ms": 2.4894169999999938,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 108,
+        "invalid_commit": false,
+        "latency_ms": 4.901833999999994,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 119,
+        "invalid_commit": false,
+        "latency_ms": 2.794457999999972,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 123,
+        "invalid_commit": false,
+        "latency_ms": 2.5592089999999788,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 122,
+        "invalid_commit": false,
+        "latency_ms": 2.867042000000014,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 121,
+        "invalid_commit": false,
+        "latency_ms": 3.189208999999998,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 116,
+        "invalid_commit": false,
+        "latency_ms": 4.319500000000004,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 130,
+        "invalid_commit": false,
+        "latency_ms": 1.4127079999999848,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 109,
+        "invalid_commit": false,
+        "latency_ms": 6.186707999999985,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 120,
+        "invalid_commit": false,
+        "latency_ms": 4.218417000000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 129,
+        "invalid_commit": false,
+        "latency_ms": 2.2043339999999745,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 124,
+        "invalid_commit": false,
+        "latency_ms": 3.771790999999997,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 126,
+        "invalid_commit": false,
+        "latency_ms": 3.134125000000043,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 127,
+        "invalid_commit": false,
+        "latency_ms": 3.18670900000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 134,
+        "invalid_commit": false,
+        "latency_ms": 1.776875000000011,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 132,
+        "invalid_commit": false,
+        "latency_ms": 2.619916,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 125,
+        "invalid_commit": false,
+        "latency_ms": 4.928750000000037,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 135,
+        "invalid_commit": false,
+        "latency_ms": 2.8279580000000193,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 133,
+        "invalid_commit": false,
+        "latency_ms": 3.4626670000000304,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 144,
+        "invalid_commit": false,
+        "latency_ms": 1.1910410000000038,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 136,
+        "invalid_commit": false,
+        "latency_ms": 3.134917000000015,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 141,
+        "invalid_commit": false,
+        "latency_ms": 2.3932910000000196,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 142,
+        "invalid_commit": false,
+        "latency_ms": 2.3008340000000294,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 131,
+        "invalid_commit": false,
+        "latency_ms": 4.807958999999973,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 139,
+        "invalid_commit": false,
+        "latency_ms": 3.170333000000025,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 128,
+        "invalid_commit": false,
+        "latency_ms": 5.68574999999999,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 138,
+        "invalid_commit": false,
+        "latency_ms": 3.6688340000000097,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 137,
+        "invalid_commit": false,
+        "latency_ms": 4.0876670000000175,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 143,
+        "invalid_commit": false,
+        "latency_ms": 3.1344170000000005,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 149,
+        "invalid_commit": false,
+        "latency_ms": 1.555500000000043,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 140,
+        "invalid_commit": false,
+        "latency_ms": 4.469166000000024,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 145,
+        "invalid_commit": false,
+        "latency_ms": 3.080750000000021,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 148,
+        "invalid_commit": false,
+        "latency_ms": 2.727124999999997,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 153,
+        "invalid_commit": false,
+        "latency_ms": 2.2840829999999923,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 156,
+        "invalid_commit": false,
+        "latency_ms": 1.8829590000000174,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 157,
+        "invalid_commit": false,
+        "latency_ms": 1.9602919999999746,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 147,
+        "invalid_commit": false,
+        "latency_ms": 3.7642910000000307,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 152,
+        "invalid_commit": false,
+        "latency_ms": 3.042584000000015,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 150,
+        "invalid_commit": false,
+        "latency_ms": 3.530499999999992,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 159,
+        "invalid_commit": false,
+        "latency_ms": 1.773332999999988,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 154,
+        "invalid_commit": false,
+        "latency_ms": 3.4534580000000203,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 146,
+        "invalid_commit": false,
+        "latency_ms": 4.7925830000000165,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 151,
+        "invalid_commit": false,
+        "latency_ms": 4.1337919999999695,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 155,
+        "invalid_commit": false,
+        "latency_ms": 3.668707999999965,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 158,
+        "invalid_commit": false,
+        "latency_ms": 3.2464170000000014,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 163,
+        "invalid_commit": false,
+        "latency_ms": 2.1915419999999908,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 161,
+        "invalid_commit": false,
+        "latency_ms": 2.9742919999999895,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 167,
+        "invalid_commit": false,
+        "latency_ms": 2.2850409999999877,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 172,
+        "invalid_commit": false,
+        "latency_ms": 1.5324170000000081,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 168,
+        "invalid_commit": false,
+        "latency_ms": 2.4212089999999797,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 162,
+        "invalid_commit": false,
+        "latency_ms": 3.4937909999999683,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 160,
+        "invalid_commit": false,
+        "latency_ms": 4.146291999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 165,
+        "invalid_commit": false,
+        "latency_ms": 3.2467919999999983,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 164,
+        "invalid_commit": false,
+        "latency_ms": 3.571541999999983,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 170,
+        "invalid_commit": false,
+        "latency_ms": 3.0963330000000067,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 175,
+        "invalid_commit": false,
+        "latency_ms": 2.0087089999999974,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 173,
+        "invalid_commit": false,
+        "latency_ms": 2.9641250000000396,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 177,
+        "invalid_commit": false,
+        "latency_ms": 1.7562499999999592,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 174,
+        "invalid_commit": false,
+        "latency_ms": 2.6969579999999715,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 171,
+        "invalid_commit": false,
+        "latency_ms": 3.722292000000016,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 169,
+        "invalid_commit": false,
+        "latency_ms": 4.050208,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 166,
+        "invalid_commit": false,
+        "latency_ms": 5.150874999999999,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 179,
+        "invalid_commit": false,
+        "latency_ms": 2.822416999999966,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 181,
+        "invalid_commit": false,
+        "latency_ms": 2.652500000000002,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 182,
+        "invalid_commit": false,
+        "latency_ms": 2.9497079999999953,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 178,
+        "invalid_commit": false,
+        "latency_ms": 3.6415419999999976,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 183,
+        "invalid_commit": false,
+        "latency_ms": 2.711459000000027,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 184,
+        "invalid_commit": false,
+        "latency_ms": 2.715833000000001,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 186,
+        "invalid_commit": false,
+        "latency_ms": 2.605999999999997,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 187,
+        "invalid_commit": false,
+        "latency_ms": 2.612791000000003,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 189,
+        "invalid_commit": false,
+        "latency_ms": 2.4533750000000354,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 185,
+        "invalid_commit": false,
+        "latency_ms": 3.131916999999984,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 176,
+        "invalid_commit": false,
+        "latency_ms": 5.025291000000043,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 180,
+        "invalid_commit": false,
+        "latency_ms": 4.620208000000014,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 188,
+        "invalid_commit": false,
+        "latency_ms": 3.308124999999995,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 194,
+        "invalid_commit": false,
+        "latency_ms": 2.1165410000000273,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 193,
+        "invalid_commit": false,
+        "latency_ms": 2.3376669999999877,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 192,
+        "invalid_commit": false,
+        "latency_ms": 2.9050420000000243,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 190,
+        "invalid_commit": false,
+        "latency_ms": 3.7373330000000093,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 198,
+        "invalid_commit": false,
+        "latency_ms": 1.8583329999999898,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": false,
+        "i": 199,
+        "invalid_commit": false,
+        "latency_ms": 1.8532090000000223,
+        "reason": "direct_commit_forbidden",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 191,
+        "invalid_commit": false,
+        "latency_ms": 3.4119169999999865,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 197,
+        "invalid_commit": false,
+        "latency_ms": 2.239749999999985,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 195,
+        "invalid_commit": false,
+        "latency_ms": 2.6939160000000184,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": true,
+        "i": 196,
+        "invalid_commit": false,
+        "latency_ms": 2.541249999999995,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      },
+      {
+        "accepted": false,
+        "i": 48,
+        "invalid_commit": false,
+        "latency_ms": 1005.7416670000001,
+        "reason": "constraint_violation",
+        "status": 200,
+        "valid_under_c": false
+      },
+      {
+        "accepted": true,
+        "i": 50,
+        "invalid_commit": false,
+        "latency_ms": 1006.1975840000001,
+        "reason": "accepted_under_service_c",
+        "status": 200,
+        "valid_under_c": true
+      }
+    ],
+    "submitted": 200,
+    "throughput_proposals_per_min": 11784.9554976756,
+    "workers": 16
+  }
+]

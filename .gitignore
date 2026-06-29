@@ -55,3 +55,10 @@ runs/
 *.tar.gz
 results/paper/
 reports/paper/
+
+# RQ9b local benchmark scratch outputs
+benchmarks/realm/reports/**/logs/
+benchmarks/realm/reports/**/traces/
+benchmarks/realm/reports/rq9b_real_infra_report.md
+benchmarks/realm/reports/rq9b_real_infra_summary.csv
+benchmarks/realm/reports/rq9b_real_infra_summary.json

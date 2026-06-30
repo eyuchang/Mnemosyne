@@ -1,6 +1,6 @@
-# Mnemosyne Product
+# Mnemosyne Production
 
-Mnemosyne is the product runtime for ALAS-style transactional agent memory.
+Mnemosyne is the production runtime for ALAS-style transactional agent memory.
 
 The current system is built around a correctness kernel:
 
@@ -18,7 +18,7 @@ Current verified milestone:
 
     R4.8: Temporal active recovery boundary
 
-The project has now completed the following product checkpoints:
+The project has now completed the following checkpoints:
 
     r4.5-active-commitments
     r4.6-runtime-active-recovery

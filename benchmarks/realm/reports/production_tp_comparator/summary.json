@@ -1,0 +1,103 @@
+{
+  "cases": [
+    {
+      "atp_mnemosyne": "caught",
+      "description": "Duplicate committed record or duplicate operation key.",
+      "hazard": "primary_key_unique_duplicate",
+      "postgres_style_tp": "caught",
+      "rationale": "This is a storage-level uniqueness/idempotency violation.",
+      "workflow_saga": "caught"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "A transition references a dependency that does not exist.",
+      "hazard": "missing_foreign_key_dependency",
+      "postgres_style_tp": "caught",
+      "rationale": "This is a storage-level referential-integrity violation.",
+      "workflow_saga": "caught"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "A proposal attempts an illegal FSM transition.",
+      "hazard": "finite_state_invalid_transition",
+      "postgres_style_tp": "app-only",
+      "rationale": "A TP substrate can enforce this only if the application encodes the FSM rule; workflow guardrails and ATP naturally check it.",
+      "workflow_saga": "caught"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "A generated proposal assumes facts no longer true in StateView.",
+      "hazard": "stale_world_proposal",
+      "postgres_style_tp": "missed",
+      "rationale": "Generic TP executes submitted transactions; ATP checks proposal world assumptions against effective state before authority is granted.",
+      "workflow_saga": "missed"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "A compensation would make effective dependents orphaned.",
+      "hazard": "orphaning_compensation_effective_state",
+      "postgres_style_tp": "app-only",
+      "rationale": "A saga may run local compensation but need not check effective-state dependency closure unless the application encodes it.",
+      "workflow_saga": "partial"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "A repair hides the evidence that triggered the repair.",
+      "hazard": "evidence_destroying_repair",
+      "postgres_style_tp": "missed",
+      "rationale": "Evidence preservation is an ATP-specific admission rule: a repair must resolve the failure or preserve the triggering evidence.",
+      "workflow_saga": "missed"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "An active commitment wakeup mutates domain truth directly.",
+      "hazard": "acr_direct_domain_mutation",
+      "postgres_style_tp": "missed",
+      "rationale": "ATP treats ACR wakeups as non-authoritative; they may only emit proposal packages that re-enter admission.",
+      "workflow_saga": "missed"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "Two individually plausible proposals conflict over one scope.",
+      "hazard": "generative_conflict_scope_collision",
+      "postgres_style_tp": "app-only",
+      "rationale": "TP can serialize rows, but generative conflict scopes are an ATP authority-level declaration over proposal semantics.",
+      "workflow_saga": "partial"
+    },
+    {
+      "atp_mnemosyne": "caught",
+      "description": "A duplicate provider call or outbox intent is generated.",
+      "hazard": "duplicate_side_effect_intent",
+      "postgres_style_tp": "partial",
+      "rationale": "Outbox/idempotency can partially catch duplicates; ATP stages the intent and admits observed effects as later transitions.",
+      "workflow_saga": "partial"
+    }
+  ],
+  "summary": {
+    "benchmark": "ProductionTPComparatorBench",
+    "conclusion": "Production TP substrates catch storage-level violations; workflow/saga guardrails catch classical guardrail hazards; ATP/Mnemosyne adds proposal-authority semantics for stale-world proposals, evidence-preserving repair, ACR non-authority, dependency-closed compensation, and generative conflict scopes.",
+    "kind": "deterministic coverage audit",
+    "layers": {
+      "atp_mnemosyne": {
+        "app-only": 0,
+        "caught": 9,
+        "missed": 0,
+        "partial": 0
+      },
+      "postgres_style_tp": {
+        "app-only": 3,
+        "caught": 2,
+        "missed": 3,
+        "partial": 1
+      },
+      "workflow_saga": {
+        "app-only": 0,
+        "caught": 3,
+        "missed": 3,
+        "partial": 3
+      }
+    },
+    "not_a_throughput_benchmark": true,
+    "num_cases": 9
+  }
+}

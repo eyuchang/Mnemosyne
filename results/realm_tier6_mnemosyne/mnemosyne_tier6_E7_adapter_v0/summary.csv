@@ -1,0 +1,14 @@
+metric,value
+num_events,78
+safety_passed,True
+invalid_commit_count,0
+evidence_destroying_repair_count,0
+orphaned_dependent_count,0
+repeated_failure_rate,0.0
+repeated_failure_rate_controls,0.0
+time_to_correction_observed_count,12
+time_to_correction_censored_count,66
+horizon_reward_mean,0.8423076923076923
+grounded_admission_rate,1.0
+bracket_position_repeated_failure_rate,1.0
+bracket_position_horizon_reward,0.8423076923076923

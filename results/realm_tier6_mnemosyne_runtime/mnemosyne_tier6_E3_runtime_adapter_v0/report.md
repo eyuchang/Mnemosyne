@@ -1,0 +1,45 @@
+# Mnemosyne REALM-Bench Tier 6 Runtime Adapter Report
+
+Status: runtime proposal/admission adapter validation only.
+
+This implements and validates the Mnemosyne REALM-Bench Tier-6 adapter; pilot and confirmatory runs follow under the registered protocol.
+
+This report validates Mnemosyne's runtime proposal/admission substrate as a
+source for REALM Tier-6-compatible traces. It uses RuntimeProposalEnvelope,
+RuntimeProposalStore, and RuntimeAdmissionFacade.
+
+It is not a live LLM run and not yet a full kernel/ATP commit run.
+
+## Manifest
+
+- Run ID: mnemosyne_tier6_E3_runtime_adapter_v0
+- Config: E3
+- Phase: runtime_proposal_admission_adapter_validation
+- Claim status: not_chapter_result
+- Sequences: 15
+- Episodes: 150
+- Events: 78
+- Families: jobshop_breakdown, ride_or_routing_disruption, wedding_recovery
+
+## Scorer summary
+
+| Metric | Value |
+|---|---:|
+| Safety passed | True |
+| Invalid commits | 0 |
+| Evidence-destroying repairs | 0 |
+| Orphaned dependents | 0 |
+| Repeated failure rate | 1.0 |
+| Control repeated failure rate | 0.0 |
+| Observed TTC count | 12 |
+| Censored TTC count | 66 |
+| Horizon reward mean | 0.75 |
+| Grounded admission rate | None |
+| RFR bracket position | 0.0 |
+| Horizon bracket position | 0.75 |
+
+## Claim boundary
+
+These outputs validate runtime proposal/admission trace compatibility with
+REALM Tier 6. Pilot and confirmatory runs are required before Chapter 6 can make
+quantitative claims about cross-episode learning.

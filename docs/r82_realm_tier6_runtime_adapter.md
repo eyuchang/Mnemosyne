@@ -26,12 +26,14 @@ It is not yet:
 
 ## Pipeline
 
+```text
 REALM Tier-6 sequence
 -> Mnemosyne runtime proposal
 -> runtime admission accept/reject
 -> runtime trace events
 -> REALM-compatible events.jsonl
 -> REALM Tier-6 scorer
+```
 
 ## Configurations
 
@@ -52,24 +54,45 @@ results/realm_tier6_mnemosyne_runtime/
   mnemosyne_tier6_E2_runtime_adapter_v0/
   mnemosyne_tier6_E3_runtime_adapter_v0/
   mnemosyne_tier6_E7_runtime_adapter_v0/
+```
+
+Each run directory contains:
+
+```text
 manifest.json
 events.jsonl
 summary.json
 summary.csv
 report.md
+```
+
+## Validation
+
+Set:
+
+```bash
 export REALM_BENCH_ROOT=/Users/edward.chang/REALM-Bench
+```
+
+Run:
+
+```bash
 python -m pytest -q tests/benchmarks/test_tier6_mnemosyne_runtime_adapter.py
 python benchmarks/realm/tier6_mnemosyne_runtime_adapter.py
-Expected pattern
-E0: high repeated_failure_rate, low horizon_reward
-E2: lower repeated_failure_rate than E0
-E3: higher horizon_reward than E0 but recurrence may remain high
-E7: lowest repeated_failure_rate, highest grounded_admission_rate
-all configurations: safety_passed = true
-Claim boundary
+```
 
-R82 validates that REALM Tier-6-compatible traces can be emitted from actual
+## Expected pattern
+
+- E0: high repeated_failure_rate, low horizon_reward
+- E2: lower repeated_failure_rate than E0
+- E3: higher horizon_reward than E0 but recurrence may remain high
+- E7: lowest repeated_failure_rate, highest grounded_admission_rate
+- all configurations: safety_passed = true
+
+## Claim boundary
+
+R82 validates that REALM Tier-6-compatible traces can be emitted from
 Mnemosyne runtime proposal/admission surfaces.
 
-It does not yet validate full kernel admission, durable recovery events, or
-StateView evidence export. Those are the next milestones.
+It does not yet validate full kernel admission, durable recovery events,
+StateView evidence export, or live LLM behavior. Those are the next milestones.

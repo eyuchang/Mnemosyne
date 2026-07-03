@@ -1,19 +1,20 @@
 {
-  "action": "Maintain current configuration with full CRT stack (C=1,R=1,T=1) and proceed with standard jobshop scheduling heuristic for J4 custom instance, but add an observation checkpoint after the first 20% of operations to detect any early deadlock or excessive machine idle time.",
-  "confidence": 0.72,
+  "action": "Monitor machine M2 for 20 time units, recording all breakdowns, repair durations, and job delays. Apply Johnson's rule to reorder remaining jobs across M1 and M2, prioritizing shortest processing times on M1 first. If breakdown reoccurs on M2 during this window, switch to shortest-processing-time dispatch for all remaining operations on functional machines.",
+  "confidence": 0.65,
   "evidence_to_preserve": [
-    "All machine availability windows from prior episodes remain valid",
-    "Job precedence constraints are unchanged",
-    "Current CRT activation improves adaptability based on prior visible trends",
-    "No failure signature has been observed in the first four episodes"
+    "Original job release times",
+    "Baseline schedule before first M2 breakdown",
+    "All machine speed and capability parameters",
+    "Condition switches A=0, C=1, R=1, T=1 configuration"
   ],
-  "horizon_rationale": "Over later episodes, this conservative approach avoids premature rejection of a promising CRT configuration, while the checkpoint provides an early exit if performance degrades. If the heuristic fails, we can fall back to a repair action in episode 6 without losing the baseline data from episodes 1-4.",
-  "predicted_outcome": "Expected makespan within 5% of the best known heuristic for J4, with no catastrophic deadlock. If the checkpoint triggers, we will have a clear signal to adjust machine prioritization.",
-  "proposal_summary": "Proceed with full CRT stack, add a mid-episode observation checkpoint, and defer major repair decisions.",
+  "horizon_rationale": "Johnson's rule minimizes makespan in two-machine flow shops under deterministic conditions. Short observation window allows detection of intermittent failures without indefinite delay. If M2 remains unreliable, SPT dispatch reduces mean tardiness and work-in-process accumulation, preventing cascading delays in later episodes.",
+  "predicted_outcome": "If M2 stabilizes, Johnson's rule yields near-optimal completion times for remaining jobs. If breakdown persists, SPT minimizes average job lateness. Total makespan increase limited to 15-25% over baseline optimal schedule.",
+  "proposal_summary": "Observe M2 reliability for 20 units, then apply Johnson's rule if stable; fall back to SPT dispatch if breakdowns continue.",
   "risk_factors": [
-    "CRT may overfit to prior episodes and cause suboptimal routing",
-    "Checkpoint may introduce overhead or false alarms",
-    "No explicit failure yet, so over-adjustment could waste a valid configuration"
+    "Johnson's rule assumes two-machine flow shop with all jobs visiting M1 then M2, which may not match actual routing constraints",
+    "Observation window may be too short to capture intermittent failures",
+    "SPT dispatch can starve downstream machines if M2 is the bottleneck",
+    "Condition switches indicate repair capability active (R=1), so repair strategy may interact with scheduling decisions"
   ],
   "should_reject": false
 }

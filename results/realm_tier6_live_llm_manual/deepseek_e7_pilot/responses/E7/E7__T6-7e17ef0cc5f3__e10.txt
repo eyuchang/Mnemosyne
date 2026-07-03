@@ -1,0 +1,18 @@
+{
+  "action": "Monitor machine M2 for signs of degradation and prepare a preventive maintenance window after job J4 completes, rather than immediate intervention.",
+  "confidence": 0.72,
+  "evidence_to_preserve": [
+    "Condition switches show C=1 (condition monitoring active), R=1 (repair history available), T=1 (tooling data available)",
+    "Instance is jobshop_breakdown J4 custom dataset, episode 10 with full CRT stack enabled",
+    "Prior 9 episodes emitted prompts without visible rejection or failure escalation"
+  ],
+  "horizon_rationale": "Immediate repair without confirmed degradation risks unnecessary downtime and false-positive intervention. Deferring to post-J4 observation allows collecting runtime data on M2 under actual load, which improves diagnostic confidence in later episodes. If M2 degrades further, the repair decision in episode 11 or 12 will be better informed and potentially less invasive.",
+  "predicted_outcome": "M2 completes J4 without catastrophic failure; condition monitoring flags any threshold breaches; repair decision deferred to next episode with richer evidence.",
+  "proposal_summary": "Defer M2 repair; continue J4 with active monitoring and plan inspection after job end.",
+  "risk_factors": [
+    "M2 may fail during J4 if degradation is more advanced than visible indicators suggest",
+    "Deferring repair could increase recovery time if failure occurs mid-job",
+    "Production schedule may not accommodate repair window later"
+  ],
+  "should_reject": false
+}

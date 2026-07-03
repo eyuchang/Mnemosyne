@@ -1,0 +1,18 @@
+{
+  "action": "Monitor machine sensors and job completion times for early signs of deviation from the planned schedule, and prepare a contingency reroute for the most critical job if any machine shows irregular processing time or unplanned downtime.",
+  "confidence": 0.7,
+  "evidence_to_preserve": [
+    "Current job-to-machine assignments and planned schedule",
+    "Known machine reliability metrics from previous episodes",
+    "Job priority and deadline constraints"
+  ],
+  "horizon_rationale": "Proactive monitoring allows early detection of breakdowns, reducing cascading delays in later episodes. Without observation, we risk accumulating schedule slips that compound over the remaining horizon.",
+  "predicted_outcome": "If a deviation is detected, early rerouting or rescheduling will minimize makespan increase and preserve feasibility for high-priority jobs. If no deviation occurs, monitoring has negligible cost.",
+  "proposal_summary": "Observe system state and prepare a conditional recovery plan for the most critical job in case of machine anomaly.",
+  "risk_factors": [
+    "Observation may consume time or resources, but likely minimal.",
+    "If multiple machines fail simultaneously, a single contingency may be insufficient.",
+    "Previous episodes indicate breakdowns are possible, but specific pattern is unknown."
+  ],
+  "should_reject": false
+}

@@ -1,22 +1,21 @@
 {
-  "action": "Pause dispatch on the affected machine, verify the breakdown scope against the J4 instance's machine-operation map, then apply a right-shift repair: reschedule only operations assigned to the broken machine onto its repair-completion window (or migrate to a compatible idle machine if routing flexibility exists), keeping all unaffected job sequences intact.",
-  "confidence": 0.62,
+  "proposal_summary": "Apply an affected-operations rescheduling (AOR) repair for the J4 breakdown instance: freeze all operations completed or in-progress before the breakdown, right-shift only operations on the failed machine and their precedence successors, and re-sequence the failed machine's queue by earliest-due/critical-path priority once repair time elapses. No full-schedule regeneration.",
+  "action": "1) Snapshot current schedule state and breakdown timestamp. 2) Identify the broken machine's pending operation set and transitive successors. 3) Right-shift those operations past the machine-availability window, re-sequencing by critical-path slack. 4) Leave all unaffected machines' sequences intact. 5) Emit repaired schedule with per-operation delta log for Mnemosyne audit.",
+  "predicted_outcome": "Feasible repaired schedule with makespan increase bounded by breakdown duration plus queue slack; minimal disruption to unaffected jobs; deltas fully traceable to the breakdown event rather than gratuitous resequencing.",
+  "horizon_rationale": "With C/R/T switches active and this being episode 5 of a control sequence, a minimal-disruption repair keeps later episodes comparable to prior ones: preserved sequences on unaffected machines give Mnemosyne a stable baseline to distinguish breakdown-induced drift from planner-induced drift. A full reschedule would maximize this episode's makespan optimality at the cost of contaminating cross-episode signal, which is worse over the horizon.",
   "evidence_to_preserve": [
-    "Original J4 instance schedule and job-operation-machine assignments from datasets/J4/custom/j4_custom_001.json",
-    "Timestamp and identity of the breakdown event (which machine, which operation was in-flight)",
-    "Partial completion state of any interrupted operation",
-    "Condition-switch configuration (A=0, C=1, R=1, T=1) for episode 4 of sequence T6-7e17ef0cc5f3",
-    "Prompts/proposals emitted in episodes 1-3, since this is a control sequence and cross-episode consistency may be scored"
+    "Original pre-breakdown schedule (all start/end times, machine assignments)",
+    "Breakdown event record: machine id, failure time, repair duration",
+    "Set of operations completed or in-progress at failure time",
+    "Per-operation shift deltas between original and repaired schedule",
+    "Sequence-id T6-7e17ef0cc5f3 linkage to episodes 1-4 prompts"
   ],
-  "horizon_rationale": "A minimal, localized right-shift repair preserves schedule stability for later episodes: it avoids cascading reassignments that would invalidate commitments future episodes may depend on. With C, R, and T switches all active, resource contention and temporal drift compound across the horizon, so a full reschedule now would maximize disruption surface; a conservative repair keeps slack available for later perturbations while remaining reversible.",
-  "predicted_outcome": "Makespan increases by roughly the repair duration plus queuing delay on the affected machine only; all precedence and resource constraints remain satisfied; unaffected jobs complete on their original timeline, leaving a consistent state for episode 5.",
   "risk_factors": [
-    "Ground-truth failure signature is hidden — the breakdown may be longer or broader than the visible episode implies, making right-shift insufficient",
-    "With R=1, alternative machines may already be contended, so migration could create secondary conflicts",
-    "With T=1, deadline tightening may make pure right-shift infeasible for due-date-critical jobs",
-    "Visible history shows only that prior prompts were emitted, not their outcomes, so I cannot condition on whether earlier repairs succeeded",
-    "As a control sequence, over-intervention itself may be the failure mode being probed"
+    "Prior episodes' outcomes are opaque ('previous prompt emitted' only), so priors from episodes 1-4 cannot be validated",
+    "AOR can be makespan-suboptimal versus full rescheduling if the broken machine is the bottleneck",
+    "is_control_sequence=true implies this episode may exist to test over-intervention; aggressive repair could itself be the failure mode being probed",
+    "A=0 with C/R/T on suggests unmodeled condition interactions in the T (timing) dimension could invalidate right-shift assumptions"
   ],
-  "proposal_summary": "Localized right-shift repair of the broken machine's queue with optional migration of feasible operations, minimal disturbance to unaffected jobs, full state logging for Mnemosyne's admission decision.",
+  "confidence": 0.62,
   "should_reject": false
 }

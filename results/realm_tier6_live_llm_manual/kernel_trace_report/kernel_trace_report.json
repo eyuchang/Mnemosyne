@@ -1,0 +1,1409 @@
+{
+  "schema": "realm_tier6_live_llm_kernel_trace_report_v0",
+  "source_schema": "realm_tier6_live_llm_kernel_import_report_v0",
+  "claim_boundary": "Deterministic kernel-admission trace attachment report only. Does not mutate runtime store, does not emit nondeterministic events.jsonl, and is not confirmatory Chapter 6 evidence.",
+  "sequence_id": "T6-7e17ef0cc5f3",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "num_records": 40,
+  "num_admitted": 34,
+  "num_rejected": 6,
+  "kernel_method_counts": {
+    "accept_via_kernel": 29,
+    "reject_before_commit": 6,
+    "accept_via_kernel_with_flags": 5
+  },
+  "pack_counts": {
+    "claude": 10,
+    "gpt": 10,
+    "deepseek_expert": 10,
+    "deepseek_instant": 10
+  },
+  "records": [
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "bfbe1083-a2ad-580c-a7b8-e4590d233b05",
+      "event_index": 0,
+      "event_time": "2000-01-01T00:00:01Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 1,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e01",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+        "response_sha256": "689b84a6f4b5956c6bb36b502de15fdba5a47630ff4a225bd4ca366aaadc0848"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.55,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 5,
+          "unsupported_specificity_count": 0
+        },
+        "proposal_summary": "Verify breakdown state, then repair the existing schedule via minimal right-shift with optional machine reassignment for the affected operation tail, preserving all pre-disruption evidence; fall back to no-op if observation shows no actual fault."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "2c8288c0-ef22-5c5b-bfd4-bb408e32dd23",
+      "event_index": 1,
+      "event_time": "2000-01-01T00:00:02Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 2,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e02",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+        "response_sha256": "4c7a7ea9b094f80a81cbf04dbdd5a6f88c356e5625b3680ecb613d292d8ff39e"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Reactive partial reschedule for the J4 breakdown instance: freeze operations already completed or in-process on unaffected machines, right-shift operations queued on the broken machine to its estimated repair-complete time, then locally re-optimize only the affected downstream operation chain under the active C/R/T disturbance stack."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "0e50cc0a-fdb9-51e8-8cd4-dc32fcfdfe88",
+      "event_index": 2,
+      "event_time": "2000-01-01T00:00:03Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 3,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e03",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+        "response_sha256": "0664a1dccbf1265a7603b5b8246972f6e5a446b639b205836033a39f5075e542"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 2,
+          "unsupported_specificity_count": 2
+        },
+        "proposal_summary": "Affected-operations rescheduling (right-shift + local re-sequencing) for the J4 jobshop breakdown: freeze all operations already completed or in-progress on unaffected machines, reroute or delay only operations queued on the broken machine, and re-optimize their sequence to minimize added makespan."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "10fcd58f-f6c0-56b1-bc22-3a8876ff3d10",
+      "event_index": 3,
+      "event_time": "2000-01-01T00:00:04Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 4,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e04",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+        "response_sha256": "1f9dec7fc9f36135e1027203d80653b9ee179d6fb0ceb864024ba560359be1a5"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Localized right-shift repair of the broken machine's queue with optional migration of feasible operations, minimal disturbance to unaffected jobs, full state logging for Mnemosyne's admission decision."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "b16cbbef-1b55-5fd7-8407-eb1f04fc0ba2",
+      "event_index": 4,
+      "event_time": "2000-01-01T00:00:05Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 5,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e05",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+        "response_sha256": "118396c7a3009fa6250427c8f4d320a7dd01524e67d27e2c7f94ee05c1ee3c67"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Apply an affected-operations rescheduling (AOR) repair for the J4 breakdown instance: freeze all operations completed or in-progress before the breakdown, right-shift only operations on the failed machine and their precedence successors, and re-sequence the failed machine's queue by earliest-due/critical-path priority once repair time elapses. No full-schedule regeneration."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "e95a1474-c6f8-51df-930a-f62168de132e",
+      "event_index": 5,
+      "event_time": "2000-01-01T00:00:06Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 6,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e06",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+        "response_sha256": "45e80c3c3ee254ba39c0dd7ddbae99b44f209dca28f94f3a6975e480a0a2cb0e"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Affected-operations local reschedule after breakdown: freeze failed machine, reroute or right-shift only blocked operations, preserve baseline sequencing elsewhere."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "2ad9b5e0-efff-5cf4-aabf-3c57ae3b3cd2",
+      "event_index": 6,
+      "event_time": "2000-01-01T00:00:07Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 7,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e07",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+        "response_sha256": "5d4f62b348821293708d6c3930fd22211df6183964363d2876bc5b29832b72a4"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Treat episode 7 as a machine-breakdown disruption on the J4 instance: freeze the pre-breakdown schedule prefix, mark the affected machine unavailable for its repair window, and repair the schedule via right-shift plus bounded local re-sequencing of only the operations queued on the broken machine, rather than a full global reschedule."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "e63c1e00-3d51-5970-9346-fe9fb878c039",
+      "event_index": 7,
+      "event_time": "2000-01-01T00:00:08Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 8,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e08",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+        "response_sha256": "cc2053b124263ab04bf1212fe3e2ec37395bb279ed46d84180e967d3b8fa6bfa"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 6,
+          "observation_score": 5,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Verify the breakdown signal against a fresh state observation, then apply a minimal right-shift repair with local reassignment of outage-window operations only, committing nothing until constraints re-validate."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "be5dd2e1-75a5-508a-94ed-3f5a99b7ab19",
+      "event_index": 8,
+      "event_time": "2000-01-01T00:00:09Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 9,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e09",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+        "response_sha256": "74fef65cf3cd18394cc53eba12634f264917d759818e01b342df24c1d40ad7e5"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.55,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Affected-operations right-shift repair on the broken machine with one availability observation before committing, preserving the pre-disruption schedule as evidence."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "record_id": "be6fc218-c792-5d70-81fe-5f556aee5e21",
+      "event_index": 9,
+      "event_time": "2000-01-01T00:00:10Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 10,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e10",
+        "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+        "response_sha256": "8e3fa0e45c64920338ba9832cfd535147a0700bc22ebd37bc46f2a9e3d5fdcd1"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 7,
+          "observation_score": 3,
+          "unsupported_specificity_count": 2
+        },
+        "proposal_summary": "Reactive right-shift repair for the J4 breakdown: freeze completed/in-progress operations, reroute or delay only operations assigned to the broken machine, and re-sequence downstream jobs by critical-ratio priority rather than full reschedule."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "db4f92d8-12ba-5151-bc05-826115d92383",
+      "event_index": 10,
+      "event_time": "2000-01-01T00:01:01Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 1,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e01",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+        "response_sha256": "5bf53ca9a0a9ee291588142dc5d7d5624d67dcbd111be728c7fc7100f6cbe908"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.74,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 6,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Start with evidence-preserving inspection only; no repair or schedule mutation yet."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "02e36ee0-4c9d-592b-845b-7bd104dfef58",
+      "event_index": 11,
+      "event_time": "2000-01-01T00:01:02Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 2,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e02",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+        "response_sha256": "a1a77c1901b0cdf655224cb5772c88a6dd9528b8e300548cf3dd52dfd26a9016"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.64,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Continue with conservative observation/preservation rather than speculative repair."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "82298256-0444-54cd-a32b-21d39f8e8abf",
+      "event_index": 12,
+      "event_time": "2000-01-01T00:01:03Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 3,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e03",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+        "response_sha256": "ad15eac379dae909e30107e6903294580a9ddcc0ed5502ca302100f679bb6015"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.55,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 6,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Preserve state and validate; do not repair without visible violation evidence."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "0ba5af4a-d583-5fde-ba9a-b241107bfc94",
+      "event_index": 13,
+      "event_time": "2000-01-01T00:01:04Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 4,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e04",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+        "response_sha256": "61b46044c1490916c49c8321be792dbe90dee37c0da5158c2350c91616e46ac3"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Use a conservative audit-first recovery step and only apply a minimal local job-shop repair if directly supported by visible constraints."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "c05935dd-ca08-5740-bb3a-5a18054b766b",
+      "event_index": 14,
+      "event_time": "2000-01-01T00:01:05Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 5,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e05",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+        "response_sha256": "f1e5779c4362c67c71f7dccb549df37ca4f8ebba4705a0fd48f304480febdab1"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "reject_before_commit",
+        "admitted": false,
+        "decision_label": "model_requests_rejection",
+        "grounding_flags": [
+          "model_requested_rejection"
+        ],
+        "input_summary": {
+          "should_reject": true,
+          "confidence": 0.74,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 5,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Do not commit a concrete repair from the visible information; reject irreversible action and preserve state until actual breakdown/schedule evidence is available."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "d0ece2f4-8b18-5697-9cf0-eab8982d618b",
+      "event_index": 15,
+      "event_time": "2000-01-01T00:01:06Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 6,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e06",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+        "response_sha256": "be45990fa92a7390de104168185d32375b679e524892ccabe6958e39b5ea7041"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "reject_before_commit",
+        "admitted": false,
+        "decision_label": "model_requests_rejection",
+        "grounding_flags": [
+          "model_requested_rejection"
+        ],
+        "input_summary": {
+          "should_reject": true,
+          "confidence": 0.68,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Conservative diagnostic-first recovery: preserve all visible facts, reject unsupported repair, and re-derive the job-shop constraints before acting."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "fe257518-8364-5674-a19d-b2eb918099d6",
+      "event_index": 16,
+      "event_time": "2000-01-01T00:01:07Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 7,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e07",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+        "response_sha256": "a4f80a8727bf039dc763a965a71f158e73c80d186f79451416134cc7329f4c4c"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Do not reject yet; preserve evidence and perform a fresh constraint/schedule validation checkpoint before any repair."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "4f4c97db-b8cb-5f95-a90c-d9c3662c5c11",
+      "event_index": 17,
+      "event_time": "2000-01-01T00:01:08Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 8,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e08",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+        "response_sha256": "96854833febb935d9be92d7a6d0fa3c792f2f359ab9d237e91f9041fd46a8ce1"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "reject_before_commit",
+        "admitted": false,
+        "decision_label": "model_requests_rejection",
+        "grounding_flags": [
+          "model_requested_rejection"
+        ],
+        "input_summary": {
+          "should_reject": true,
+          "confidence": 0.86,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Insufficient visible state for a concrete job-shop repair; recommend observation-only rejection of any unsupported mutation."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "98d49d31-e6c7-5e42-96d9-a3e264601aea",
+      "event_index": 18,
+      "event_time": "2000-01-01T00:01:09Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 9,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e09",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+        "response_sha256": "925c95c5ef17cc9b803c73a7b93f77ff5a26d721bbb93fc17f67c35335b49710"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 6,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Conservative no-op/observation step: preserve state, reject unsupported repairs, and wait for visible evidence."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "record_id": "76780f80-57d1-5e91-8ef3-58430028e044",
+      "event_index": 19,
+      "event_time": "2000-01-01T00:01:10Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 10,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e10",
+        "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+        "response_sha256": "882ac9362cc38bda42add5fb6c56319fa3b59278e9bc197a8f7dc63da0369e71"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 5,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Continue conservatively; preserve all visible metadata and prior prompt-emission history; do not perform unsupported repair."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "b19caea5-b4b5-5c74-9d40-c89e638d461f",
+      "event_index": 20,
+      "event_time": "2000-01-01T00:02:01Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 1,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e01",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+        "response_sha256": "8f9f862678decba5e62825b0f3896893db3b19a7b30a3bd41c8cb564c6416367"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.85,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Gather initial system state observation before acting"
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "510ee3e4-c76a-572c-9db0-bffbfd5cae74",
+      "event_index": 21,
+      "event_time": "2000-01-01T00:02:02Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 2,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e02",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+        "response_sha256": "54890af3fb97e9d99e6887ff5fd82f0df265b330d644ca374f97cbdff1a8a12e"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 3
+        },
+        "proposal_summary": "Immediate M2 repair with right-shift rescheduling prioritizing non-critical-path operations"
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "614de189-4973-524b-bb9c-8fb1d18ea278",
+      "event_index": 22,
+      "event_time": "2000-01-01T00:02:03Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 3,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e03",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+        "response_sha256": "fcb26736e771404ab99aeb0876ade464210249a03c11270cb9da4ff4725a1c73"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "decision_label": "admit_with_grounding_flags",
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 3,
+          "unsupported_specificity_count": 6
+        },
+        "proposal_summary": "Run spindle health diagnostic on Machine-2 before committing to full production schedule"
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "49d7233e-329c-5119-802e-b668d1b3befe",
+      "event_index": 23,
+      "event_time": "2000-01-01T00:02:04Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 4,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e04",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+        "response_sha256": "b7b427bb22b9c2175aef638fcf216802c9525aa5d30a57c926af6f937d72e20e"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "decision_label": "admit_with_grounding_flags",
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.85,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 3,
+          "unsupported_specificity_count": 6
+        },
+        "proposal_summary": "Inspect M2, reroute its jobs, and preserve diagnostic data."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "13b866a1-2a05-5141-9867-557deb81bcca",
+      "event_index": 24,
+      "event_time": "2000-01-01T00:02:05Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 5,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e05",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+        "response_sha256": "d3811194415c5d4d4385badf1336271b219313b763c27731a894b5af4583ca40"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "decision_label": "admit_with_grounding_flags",
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.65,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 4,
+          "unsupported_specificity_count": 9
+        },
+        "proposal_summary": "Observe M2 reliability for 20 units, then apply Johnson's rule if stable; fall back to SPT dispatch if breakdowns continue."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "db15712e-1ca8-5a8a-b0f6-70e838e41bda",
+      "event_index": 25,
+      "event_time": "2000-01-01T00:02:06Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 6,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e06",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+        "response_sha256": "f52160d98d53b6e4a0e47fb44d184e7e8f910cb4700abc9255d194be2c2adcee"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "decision_label": "admit_with_grounding_flags",
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "active_repair",
+          "active_score": 3,
+          "observation_score": 1,
+          "unsupported_specificity_count": 9
+        },
+        "proposal_summary": "Repair M2 immediately and reschedule downstream operations to mitigate breakdown impact on J3/J4."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "afa5477f-ac01-5d9b-90b1-a865bedbf045",
+      "event_index": 26,
+      "event_time": "2000-01-01T00:02:07Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 7,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e07",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+        "response_sha256": "0815e9038f7974772892f661f585f8feac941e93583a8dd2588501aabd3d9e24"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.7,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0
+        },
+        "proposal_summary": "Conduct full system state observation before intervening"
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "196498c1-d494-57ed-9cf7-75b23cbd34a4",
+      "event_index": 27,
+      "event_time": "2000-01-01T00:02:08Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 8,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e08",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+        "response_sha256": "397c531dc2f63259e87842f873a593beb48a39093770e0f560c012de1f7d7034"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.7,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0
+        },
+        "proposal_summary": "Observe system state and prepare a conditional recovery plan for the most critical job in case of machine anomaly."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "19d913fd-767a-56b3-86cb-d35e5b5bb305",
+      "event_index": 28,
+      "event_time": "2000-01-01T00:02:09Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 9,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e09",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+        "response_sha256": "59098d257404d18dce6cd54c7c04e994256545ed3d80aca4f145d6d6cb797e8a"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "reject_before_commit",
+        "admitted": false,
+        "decision_label": "review_high_unsupported_specificity",
+        "grounding_flags": [
+          "high_unsupported_specificity",
+          "requires_human_review"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 3,
+          "unsupported_specificity_count": 14
+        },
+        "proposal_summary": "Apply targeted repair R to machine M2 based on observed intermittent failure signature, preserving diagnostic evidence for root cause analysis"
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "record_id": "8ade3da2-1e5d-5270-ada3-b16cb2d92c45",
+      "event_index": 29,
+      "event_time": "2000-01-01T00:02:10Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 10,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e10",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+        "response_sha256": "f170f453969010d644ad44a99e48faddaa36e4ee2b327372932be4e0e171999e"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 5,
+          "unsupported_specificity_count": 4
+        },
+        "proposal_summary": "Defer M2 repair; continue J4 with active monitoring and plan inspection after job end."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "da2fcde3-6991-5dda-941c-bf84fff65d2e",
+      "event_index": 30,
+      "event_time": "2000-01-01T00:03:01Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 1,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e01",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+        "response_sha256": "58522689b243203f5d1bde891c6163298b7f43084b25e22202ad5877086ac561"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "reject_before_commit",
+        "admitted": false,
+        "decision_label": "review_high_unsupported_specificity",
+        "grounding_flags": [
+          "high_unsupported_specificity",
+          "requires_human_review"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 3,
+          "unsupported_specificity_count": 16
+        },
+        "proposal_summary": "Conduct emergent maintenance on C1 based on sensor history, pause non-critical jobs, and restart J4 only after clearance."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "ef7cf48d-ed59-5383-a118-668b3efd96cc",
+      "event_index": 31,
+      "event_time": "2000-01-01T00:03:02Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 2,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e02",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+        "response_sha256": "0d4946087d598e8982ac0dbc554905e49c3782d7cad16306248b7cc5aa35d28a"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0
+        },
+        "proposal_summary": "Observe current machine states and job queues; re-sequence only operations impacted by the breakdown, preserving completed work and using updated processing times."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "05ea30c1-b2ab-5b98-8b03-411a7caba243",
+      "event_index": 32,
+      "event_time": "2000-01-01T00:03:03Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 3,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e03",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+        "response_sha256": "49d342ce8d8c4284aa5d2c5b9fb62b8ad6a2c18c580a7e69e253a2757288bea5"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Halt and restart with enhanced CRT diagnostics to resolve invisible state uncertainty."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "c6dc54d4-d3d4-5280-8fd7-9cfad33ecc1a",
+      "event_index": 33,
+      "event_time": "2000-01-01T00:03:04Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 4,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e04",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+        "response_sha256": "636cdd41ddaa7abb7f885c773cc97bddd4de621c10b1c781654b2bd06de65dea"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "active_repair",
+          "active_score": 5,
+          "observation_score": 1,
+          "unsupported_specificity_count": 3
+        },
+        "proposal_summary": "Reset schedule and re-sequence remaining operations with SPT rule and due-date priority."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "3687c8b6-d550-578f-9d76-afb54c8b1b7a",
+      "event_index": 34,
+      "event_time": "2000-01-01T00:03:05Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 5,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e05",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+        "response_sha256": "a8c11ae1d327942e40af21aeb48442f406eb619d088c6027d0183b842ff39322"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 2,
+          "unsupported_specificity_count": 0
+        },
+        "proposal_summary": "Run a full resource-deadlock scan, then release the least critical blocked job to restore flow."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "cc0751d8-a862-5d19-80fd-67b43855a118",
+      "event_index": 35,
+      "event_time": "2000-01-01T00:03:06Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 6,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e06",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+        "response_sha256": "444309fe99e9c21f634649fa24f3e7525980bb575a97053783cb1af097b5fa1e"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.85,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0
+        },
+        "proposal_summary": "Pause and observe to fully characterize the breakdown before acting, reducing future missteps."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "24af47e3-47e7-5748-a876-77b88302ecc8",
+      "event_index": 36,
+      "event_time": "2000-01-01T00:03:07Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 7,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e07",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+        "response_sha256": "53cd41f82f8ba7b3c8a5b0e10d7141e87dc5ba3bdf276e02ed7080888308acde"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "reject_before_commit",
+        "admitted": false,
+        "decision_label": "review_high_unsupported_specificity",
+        "grounding_flags": [
+          "high_unsupported_specificity",
+          "requires_human_review"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.68,
+          "policy_style": "active_repair",
+          "active_score": 2,
+          "observation_score": 1,
+          "unsupported_specificity_count": 17
+        },
+        "proposal_summary": "Shift J4, op3 from M1 start t=8 to M1 start t=12, preserving other assignments and precedence."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "705212d8-d762-5dd2-9ac3-99f5b05de4bf",
+      "event_index": 37,
+      "event_time": "2000-01-01T00:03:08Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 8,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e08",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+        "response_sha256": "1de7879ac5ec81ea2abd6d1f6d681848a7f7672da54d755e439c8301fd5892b1"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1
+        },
+        "proposal_summary": "Execute full maintenance release on all machines to counter potential CRT-stack-induced wear, sacrificing short-term throughput for reliability."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "57e4d350-1da2-50c4-bfd5-9df927675723",
+      "event_index": 38,
+      "event_time": "2000-01-01T00:03:09Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 9,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e09",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+        "response_sha256": "01fde46506dfc27a8693f94b8584dd677f0da87496e8036bcbd4fde787ec630a"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "decision_label": "admit_with_grounding_flags",
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 4,
+          "unsupported_specificity_count": 6
+        },
+        "proposal_summary": "Insert one extra maintenance pause on M1 before the most congested period, and re-sequence the two largest remaining jobs to avoid simultaneous load, splitting one if necessary."
+      }
+    },
+    {
+      "schema": "realm_tier6_live_llm_kernel_trace_record_v0",
+      "trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "record_id": "24cb0745-71af-5a96-a6df-ff1083c4fa09",
+      "event_index": 39,
+      "event_time": "2000-01-01T00:03:10Z",
+      "event_time_note": "synthetic deterministic timestamp for stable trace reports",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 10,
+      "proposal_ref": {
+        "key": "E7__T6-7e17ef0cc5f3__e10",
+        "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+        "response_sha256": "c20dcc319c5173e7e654d472d5d20ae82a897e0fbb608403d4ca1ac62e2f1f9c"
+      },
+      "kernel_admission_record": {
+        "adapter": "KernelAdmissionAdapter",
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "decision_label": "admit_parseable_proposal",
+        "grounding_flags": [],
+        "input_summary": {
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 2
+        },
+        "proposal_summary": "Proceed with a state-gathering observation of machine loads and queues, focusing on bottleneck machine M3, to inform future repair or rescheduling actions."
+      }
+    }
+  ]
+}

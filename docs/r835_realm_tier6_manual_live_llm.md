@@ -89,3 +89,11 @@ R83.5a validates prompt export, manual response capture, and response parsing fo
 The next substep imports parsed responses into Mnemosyne kernel-admission events.
 
 R83.5a does not validate API automation, full production CTL-domain StateView realization, or confirmatory H1-H5 hypotheses.
+
+## Pilot Report
+
+A detailed report for the Claude, GPT, DeepSeek expert, and DeepSeek instant manual live-LLM pilots is maintained in:
+
+`docs/r835_realm_tier6_live_llm_pilot_report.md`
+
+The report summarizes validation, episode-order auditing, model behavior differences, DeepSeek expert-vs-instant mode findings, and the claim boundary for R83.5a.

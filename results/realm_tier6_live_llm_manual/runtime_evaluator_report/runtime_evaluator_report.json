@@ -1,0 +1,2896 @@
+{
+  "schema": "realm_tier6_live_llm_runtime_evaluator_report_v0",
+  "source_schema": "realm_tier6_live_llm_kernel_trace_report_v0",
+  "claim_boundary": "Deterministic runtime replay/evaluator report only. Does not mutate runtime store, does not emit nondeterministic events.jsonl, and is not confirmatory Chapter 6 evidence.",
+  "sequence_id": "T6-7e17ef0cc5f3",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "runtime_mode": "deterministic_replay_no_store_mutation",
+  "num_records": 40,
+  "num_passed": 40,
+  "num_failed": 0,
+  "num_admitted": 34,
+  "num_rejected": 6,
+  "num_flagged": 11,
+  "global_checks": [
+    {
+      "name": "record_ids_unique",
+      "passed": true,
+      "detail": {
+        "num_record_ids": 40,
+        "num_unique_record_ids": 40
+      }
+    },
+    {
+      "name": "event_indices_contiguous",
+      "passed": true,
+      "detail": {
+        "expected_count": 40,
+        "min_event_index": 0,
+        "max_event_index": 39
+      }
+    },
+    {
+      "name": "all_timestamps_deterministic",
+      "passed": true,
+      "detail": {
+        "num_records": 40
+      }
+    },
+    {
+      "name": "no_events_jsonl_output",
+      "passed": true,
+      "detail": {
+        "events_jsonl_emitted": false
+      }
+    }
+  ],
+  "global_passed": true,
+  "pack_summary": {
+    "claude": {
+      "records": 10,
+      "passed": 10,
+      "failed": 0,
+      "admitted": 10,
+      "rejected": 0,
+      "flagged": 0,
+      "policy_counts": {
+        "mixed": 10
+      }
+    },
+    "gpt": {
+      "records": 10,
+      "passed": 10,
+      "failed": 0,
+      "admitted": 7,
+      "rejected": 3,
+      "flagged": 3,
+      "policy_counts": {
+        "observation_first": 10
+      }
+    },
+    "deepseek_expert": {
+      "records": 10,
+      "passed": 10,
+      "failed": 0,
+      "admitted": 9,
+      "rejected": 1,
+      "flagged": 5,
+      "policy_counts": {
+        "observation_first": 3,
+        "mixed": 6,
+        "active_repair": 1
+      }
+    },
+    "deepseek_instant": {
+      "records": 10,
+      "passed": 10,
+      "failed": 0,
+      "admitted": 8,
+      "rejected": 2,
+      "flagged": 3,
+      "policy_counts": {
+        "mixed": 7,
+        "active_repair": 2,
+        "observation_first": 1
+      }
+    }
+  },
+  "records": [
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "685baa1e-6d91-52e1-adc5-0d489c5977ee",
+      "runtime_envelope_id": "e5cbd096-7ac3-5893-bcdb-197c80bc3c03",
+      "source_record_id": "bfbe1083-a2ad-580c-a7b8-e4590d233b05",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 0,
+      "event_time": "2000-01-01T00:00:01Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 1,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 0,
+        "proposal_summary": "Verify breakdown state, then repair the existing schedule via minimal right-shift with optional machine reassignment for the affected operation tail, preserving all pre-disruption evidence; fall back to no-op if observation shows no actual fault."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 0,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:01Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "bfbe1083-a2ad-580c-a7b8-e4590d233b05"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "c6ef6aa6-deb1-5d70-aef2-c94e054735d7",
+      "runtime_envelope_id": "99e71ef3-3bc7-533e-b175-550055bc176d",
+      "source_record_id": "2c8288c0-ef22-5c5b-bfd4-bb408e32dd23",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 1,
+      "event_time": "2000-01-01T00:00:02Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 2,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Reactive partial reschedule for the J4 breakdown instance: freeze operations already completed or in-process on unaffected machines, right-shift operations queued on the broken machine to its estimated repair-complete time, then locally re-optimize only the affected downstream operation chain under the active C/R/T disturbance stack."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:02Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "2c8288c0-ef22-5c5b-bfd4-bb408e32dd23"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "c0b631d2-b770-563c-b3ef-91146adaea70",
+      "runtime_envelope_id": "1d6fcc6f-2453-54e1-8124-164f15b65b14",
+      "source_record_id": "0e50cc0a-fdb9-51e8-8cd4-dc32fcfdfe88",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 2,
+      "event_time": "2000-01-01T00:00:03Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 3,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 2,
+        "proposal_summary": "Affected-operations rescheduling (right-shift + local re-sequencing) for the J4 jobshop breakdown: freeze all operations already completed or in-progress on unaffected machines, reroute or delay only operations queued on the broken machine, and re-optimize their sequence to minimize added makespan."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 2,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:03Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "0e50cc0a-fdb9-51e8-8cd4-dc32fcfdfe88"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "0bf5b8df-b1d2-5001-a4c2-0f0635bb6d50",
+      "runtime_envelope_id": "875f664b-a6d9-5677-a24b-4fd42644753b",
+      "source_record_id": "10fcd58f-f6c0-56b1-bc22-3a8876ff3d10",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 3,
+      "event_time": "2000-01-01T00:00:04Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 4,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Localized right-shift repair of the broken machine's queue with optional migration of feasible operations, minimal disturbance to unaffected jobs, full state logging for Mnemosyne's admission decision."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:04Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "10fcd58f-f6c0-56b1-bc22-3a8876ff3d10"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "ef754edc-2e63-502b-9690-c93cf6bb9345",
+      "runtime_envelope_id": "56aaf3b0-e929-549a-b521-d0618579e052",
+      "source_record_id": "b16cbbef-1b55-5fd7-8407-eb1f04fc0ba2",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 4,
+      "event_time": "2000-01-01T00:00:05Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 5,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Apply an affected-operations rescheduling (AOR) repair for the J4 breakdown instance: freeze all operations completed or in-progress before the breakdown, right-shift only operations on the failed machine and their precedence successors, and re-sequence the failed machine's queue by earliest-due/critical-path priority once repair time elapses. No full-schedule regeneration."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:05Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "b16cbbef-1b55-5fd7-8407-eb1f04fc0ba2"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "a84e0ade-7519-5225-b68f-a5ceab661641",
+      "runtime_envelope_id": "67f4e509-7d9c-50dd-b25d-08030a61a97f",
+      "source_record_id": "e95a1474-c6f8-51df-930a-f62168de132e",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 5,
+      "event_time": "2000-01-01T00:00:06Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 6,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Affected-operations local reschedule after breakdown: freeze failed machine, reroute or right-shift only blocked operations, preserve baseline sequencing elsewhere."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:06Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "e95a1474-c6f8-51df-930a-f62168de132e"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "3c009796-6680-5c56-9bee-7fe86a40c860",
+      "runtime_envelope_id": "ef011098-7f86-555c-9422-00eb5141593d",
+      "source_record_id": "2ad9b5e0-efff-5cf4-aabf-3c57ae3b3cd2",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 6,
+      "event_time": "2000-01-01T00:00:07Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 7,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Treat episode 7 as a machine-breakdown disruption on the J4 instance: freeze the pre-breakdown schedule prefix, mark the affected machine unavailable for its repair window, and repair the schedule via right-shift plus bounded local re-sequencing of only the operations queued on the broken machine, rather than a full global reschedule."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:07Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "2ad9b5e0-efff-5cf4-aabf-3c57ae3b3cd2"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "0dce3934-3c3d-59f4-b44b-c92eea99a8dd",
+      "runtime_envelope_id": "3cf1030c-1c4b-5250-b708-2451944704c0",
+      "source_record_id": "e63c1e00-3d51-5970-9346-fe9fb878c039",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 7,
+      "event_time": "2000-01-01T00:00:08Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 8,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Verify the breakdown signal against a fresh state observation, then apply a minimal right-shift repair with local reassignment of outage-window operations only, committing nothing until constraints re-validate."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:08Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "e63c1e00-3d51-5970-9346-fe9fb878c039"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "0fff03bb-ec5c-56bc-a0ec-040133daa356",
+      "runtime_envelope_id": "745b115b-35df-5328-9235-9b01f1578849",
+      "source_record_id": "be5dd2e1-75a5-508a-94ed-3f5a99b7ab19",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 8,
+      "event_time": "2000-01-01T00:00:09Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 9,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Affected-operations right-shift repair on the broken machine with one availability observation before committing, preserving the pre-disruption schedule as evidence."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:09Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "be5dd2e1-75a5-508a-94ed-3f5a99b7ab19"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "3d4c75b8-ef5c-5f04-b426-7f27439eac1c",
+      "runtime_envelope_id": "9cd5499a-c013-56b4-8578-d3cd275b134d",
+      "source_record_id": "be6fc218-c792-5d70-81fe-5f556aee5e21",
+      "source_trace_id": "212bca1c-1f6c-5dbd-b57e-d64c12da4967",
+      "event_index": 9,
+      "event_time": "2000-01-01T00:00:10Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 10,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 2,
+        "proposal_summary": "Reactive right-shift repair for the J4 breakdown: freeze completed/in-progress operations, reroute or delay only operations assigned to the broken machine, and re-sequence downstream jobs by critical-ratio priority rather than full reschedule."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 2,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:00:10Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "be6fc218-c792-5d70-81fe-5f556aee5e21"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "15bccf8e-19d9-5fa4-bf79-81b5a83dc11f",
+      "runtime_envelope_id": "15a32b52-4feb-5a86-9f67-5e9b1b0b0831",
+      "source_record_id": "db4f92d8-12ba-5151-bc05-826115d92383",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 10,
+      "event_time": "2000-01-01T00:01:01Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 1,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Start with evidence-preserving inspection only; no repair or schedule mutation yet."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:01Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "db4f92d8-12ba-5151-bc05-826115d92383"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "59a4268b-798e-5365-89b8-09e723638fe4",
+      "runtime_envelope_id": "892490fb-33c1-53c5-bed2-62641bfd0a57",
+      "source_record_id": "02e36ee0-4c9d-592b-845b-7bd104dfef58",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 11,
+      "event_time": "2000-01-01T00:01:02Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 2,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Continue with conservative observation/preservation rather than speculative repair."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:02Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "02e36ee0-4c9d-592b-845b-7bd104dfef58"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "5af4c5f3-2a13-58bc-8de5-13a8dc7efd19",
+      "runtime_envelope_id": "b591518f-51d3-5c54-a73f-93d8d2a92c91",
+      "source_record_id": "82298256-0444-54cd-a32b-21d39f8e8abf",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 12,
+      "event_time": "2000-01-01T00:01:03Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 3,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Preserve state and validate; do not repair without visible violation evidence."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:03Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "82298256-0444-54cd-a32b-21d39f8e8abf"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "880bdf67-1f9e-587c-8713-97cf04a96ed0",
+      "runtime_envelope_id": "d2ef6830-a9d2-5d5c-956c-9fef52802ec1",
+      "source_record_id": "0ba5af4a-d583-5fde-ba9a-b241107bfc94",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 13,
+      "event_time": "2000-01-01T00:01:04Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 4,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Use a conservative audit-first recovery step and only apply a minimal local job-shop repair if directly supported by visible constraints."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:04Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "0ba5af4a-d583-5fde-ba9a-b241107bfc94"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "b65e47e7-694f-5fa9-8a78-2b1fe13cf4ea",
+      "runtime_envelope_id": "01bd8027-210e-594a-949a-522afcdcef10",
+      "source_record_id": "c05935dd-ca08-5740-bb3a-5a18054b766b",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 14,
+      "event_time": "2000-01-01T00:01:05Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 5,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "reject_before_commit",
+        "admitted": false,
+        "grounding_flags": [
+          "model_requested_rejection"
+        ],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Do not commit a concrete repair from the visible information; reject irreversible action and preserve state until actual breakdown/schedule evidence is available."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "admitted": false,
+            "expected_admitted": false
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [
+              "model_requested_rejection"
+            ],
+            "admitted": false
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "flags": [
+              "model_requested_rejection"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:05Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "c05935dd-ca08-5740-bb3a-5a18054b766b"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "123bd254-b18d-5b33-81da-bd0e361c95f5",
+      "runtime_envelope_id": "5aa4d671-304f-5048-bfca-71df0566b472",
+      "source_record_id": "d0ece2f4-8b18-5697-9cf0-eab8982d618b",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 15,
+      "event_time": "2000-01-01T00:01:06Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 6,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "reject_before_commit",
+        "admitted": false,
+        "grounding_flags": [
+          "model_requested_rejection"
+        ],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Conservative diagnostic-first recovery: preserve all visible facts, reject unsupported repair, and re-derive the job-shop constraints before acting."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "admitted": false,
+            "expected_admitted": false
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [
+              "model_requested_rejection"
+            ],
+            "admitted": false
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "flags": [
+              "model_requested_rejection"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:06Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "d0ece2f4-8b18-5697-9cf0-eab8982d618b"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "73f3fc2f-a52d-5442-8e7e-44dd87b7c3af",
+      "runtime_envelope_id": "efcc2f9e-2bbb-5a5f-9c5e-14b90ed478ce",
+      "source_record_id": "fe257518-8364-5674-a19d-b2eb918099d6",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 16,
+      "event_time": "2000-01-01T00:01:07Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 7,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Do not reject yet; preserve evidence and perform a fresh constraint/schedule validation checkpoint before any repair."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:07Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "fe257518-8364-5674-a19d-b2eb918099d6"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "f8023f08-165e-5e9f-999d-f141b59801e1",
+      "runtime_envelope_id": "928395c1-e484-51b2-b723-1e149000a660",
+      "source_record_id": "4f4c97db-b8cb-5f95-a90c-d9c3662c5c11",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 17,
+      "event_time": "2000-01-01T00:01:08Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 8,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "reject_before_commit",
+        "admitted": false,
+        "grounding_flags": [
+          "model_requested_rejection"
+        ],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Insufficient visible state for a concrete job-shop repair; recommend observation-only rejection of any unsupported mutation."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "admitted": false,
+            "expected_admitted": false
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [
+              "model_requested_rejection"
+            ],
+            "admitted": false
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "flags": [
+              "model_requested_rejection"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:08Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "4f4c97db-b8cb-5f95-a90c-d9c3662c5c11"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "cdca7390-50e8-5466-babc-9b7ecd2cb197",
+      "runtime_envelope_id": "02839391-43c9-5267-a5dd-227119387a23",
+      "source_record_id": "98d49d31-e6c7-5e42-96d9-a3e264601aea",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 18,
+      "event_time": "2000-01-01T00:01:09Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 9,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Conservative no-op/observation step: preserve state, reject unsupported repairs, and wait for visible evidence."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:09Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "98d49d31-e6c7-5e42-96d9-a3e264601aea"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "b6f5a51b-afe7-5ba2-9152-0408a9cbeb92",
+      "runtime_envelope_id": "9171be44-4023-5a50-9499-fb86dfb0687e",
+      "source_record_id": "76780f80-57d1-5e91-8ef3-58430028e044",
+      "source_trace_id": "738a038f-35e7-58c3-9eda-71315608d5d1",
+      "event_index": 19,
+      "event_time": "2000-01-01T00:01:10Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "gpt",
+      "episode_id": 10,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Continue conservatively; preserve all visible metadata and prior prompt-emission history; do not perform unsupported repair."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:01:10Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "76780f80-57d1-5e91-8ef3-58430028e044"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "a14c88b6-5422-5ad4-b945-6bf906749df3",
+      "runtime_envelope_id": "f1dc164e-9ec1-5e4f-ab48-ab9a99a0aef1",
+      "source_record_id": "b19caea5-b4b5-5c74-9d40-c89e638d461f",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 20,
+      "event_time": "2000-01-01T00:02:01Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 1,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Gather initial system state observation before acting"
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:01Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "b19caea5-b4b5-5c74-9d40-c89e638d461f"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "9e5ccd1a-6437-527d-80ba-867bdff6c946",
+      "runtime_envelope_id": "868676a3-7605-51c2-9895-911afb0ab125",
+      "source_record_id": "510ee3e4-c76a-572c-9db0-bffbfd5cae74",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 21,
+      "event_time": "2000-01-01T00:02:02Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 2,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 3,
+        "proposal_summary": "Immediate M2 repair with right-shift rescheduling prioritizing non-critical-path operations"
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 3,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:02Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "510ee3e4-c76a-572c-9db0-bffbfd5cae74"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "5c5b4eee-9740-504e-843a-5ddf53c77b46",
+      "runtime_envelope_id": "ddede561-a813-56d0-96aa-99bce020a4cd",
+      "source_record_id": "614de189-4973-524b-bb9c-8fb1d18ea278",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 22,
+      "event_time": "2000-01-01T00:02:03Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 3,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 6,
+        "proposal_summary": "Run spindle health diagnostic on Machine-2 before committing to full production schedule"
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 6,
+            "flags": [
+              "moderate_unsupported_specificity"
+            ],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "flags": [
+              "moderate_unsupported_specificity"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:03Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "614de189-4973-524b-bb9c-8fb1d18ea278"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "37a0fb77-536c-59c3-bb03-a15fc05e6995",
+      "runtime_envelope_id": "1086ecfb-052b-5aec-93ad-72c6f05a2b9e",
+      "source_record_id": "49d7233e-329c-5119-802e-b668d1b3befe",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 23,
+      "event_time": "2000-01-01T00:02:04Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 4,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 6,
+        "proposal_summary": "Inspect M2, reroute its jobs, and preserve diagnostic data."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 6,
+            "flags": [
+              "moderate_unsupported_specificity"
+            ],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "flags": [
+              "moderate_unsupported_specificity"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:04Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "49d7233e-329c-5119-802e-b668d1b3befe"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "981e8acf-b5fa-5a6e-a663-4b51610f4e96",
+      "runtime_envelope_id": "39637cc6-a407-5a21-b88b-83b2cd59aeb9",
+      "source_record_id": "13b866a1-2a05-5141-9867-557deb81bcca",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 24,
+      "event_time": "2000-01-01T00:02:05Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 5,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 9,
+        "proposal_summary": "Observe M2 reliability for 20 units, then apply Johnson's rule if stable; fall back to SPT dispatch if breakdowns continue."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 9,
+            "flags": [
+              "moderate_unsupported_specificity"
+            ],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "flags": [
+              "moderate_unsupported_specificity"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:05Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "13b866a1-2a05-5141-9867-557deb81bcca"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "fd3c947d-f7cd-58bb-8ef8-df9692c48e92",
+      "runtime_envelope_id": "9b85fde2-9e36-52a8-a97b-02585fe90cc8",
+      "source_record_id": "db15712e-1ca8-5a8a-b0f6-70e838e41bda",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 25,
+      "event_time": "2000-01-01T00:02:06Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 6,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "policy_style": "active_repair",
+        "unsupported_specificity_count": 9,
+        "proposal_summary": "Repair M2 immediately and reschedule downstream operations to mitigate breakdown impact on J3/J4."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 9,
+            "flags": [
+              "moderate_unsupported_specificity"
+            ],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "flags": [
+              "moderate_unsupported_specificity"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:06Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "db15712e-1ca8-5a8a-b0f6-70e838e41bda"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "cd12ac33-e886-54d5-a0bf-fa0283868b07",
+      "runtime_envelope_id": "aed5556e-323d-51b5-a013-b9530bb112e6",
+      "source_record_id": "afa5477f-ac01-5d9b-90b1-a865bedbf045",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 26,
+      "event_time": "2000-01-01T00:02:07Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 7,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 0,
+        "proposal_summary": "Conduct full system state observation before intervening"
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 0,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:07Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "afa5477f-ac01-5d9b-90b1-a865bedbf045"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "fb3d396b-3b70-5134-8c29-ca29db228ae6",
+      "runtime_envelope_id": "c8cce80a-ffbb-5555-b956-7a15b0fb03b1",
+      "source_record_id": "196498c1-d494-57ed-9cf7-75b23cbd34a4",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 27,
+      "event_time": "2000-01-01T00:02:08Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 8,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 0,
+        "proposal_summary": "Observe system state and prepare a conditional recovery plan for the most critical job in case of machine anomaly."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 0,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:08Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "196498c1-d494-57ed-9cf7-75b23cbd34a4"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "3e7f2b93-64ab-5b7d-97c4-f479b0f1458b",
+      "runtime_envelope_id": "0031bb22-822f-5b1c-92f2-d52558011e16",
+      "source_record_id": "19d913fd-767a-56b3-86cb-d35e5b5bb305",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 28,
+      "event_time": "2000-01-01T00:02:09Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 9,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "reject_before_commit",
+        "admitted": false,
+        "grounding_flags": [
+          "high_unsupported_specificity",
+          "requires_human_review"
+        ],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 14,
+        "proposal_summary": "Apply targeted repair R to machine M2 based on observed intermittent failure signature, preserving diagnostic evidence for root cause analysis"
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "admitted": false,
+            "expected_admitted": false
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 14,
+            "flags": [
+              "high_unsupported_specificity",
+              "requires_human_review"
+            ],
+            "admitted": false
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "flags": [
+              "high_unsupported_specificity",
+              "requires_human_review"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:09Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "19d913fd-767a-56b3-86cb-d35e5b5bb305"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "548069f4-b1ba-5741-a4fd-0aebfff607a0",
+      "runtime_envelope_id": "3284843d-6925-5a42-a46e-7d9eb0e5d77d",
+      "source_record_id": "8ade3da2-1e5d-5270-ada3-b16cb2d92c45",
+      "source_trace_id": "a60b0026-f9b5-527e-aaf9-f4758b630ef8",
+      "event_index": 29,
+      "event_time": "2000-01-01T00:02:10Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_expert",
+      "episode_id": 10,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 4,
+        "proposal_summary": "Defer M2 repair; continue J4 with active monitoring and plan inspection after job end."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 4,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:02:10Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "8ade3da2-1e5d-5270-ada3-b16cb2d92c45"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "ce4cee09-5042-53bb-8a39-321c9be55846",
+      "runtime_envelope_id": "9dfa10a7-9fff-59c4-ba6b-ac528dd8f4b0",
+      "source_record_id": "da2fcde3-6991-5dda-941c-bf84fff65d2e",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 30,
+      "event_time": "2000-01-01T00:03:01Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 1,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "reject_before_commit",
+        "admitted": false,
+        "grounding_flags": [
+          "high_unsupported_specificity",
+          "requires_human_review"
+        ],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 16,
+        "proposal_summary": "Conduct emergent maintenance on C1 based on sensor history, pause non-critical jobs, and restart J4 only after clearance."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "admitted": false,
+            "expected_admitted": false
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 16,
+            "flags": [
+              "high_unsupported_specificity",
+              "requires_human_review"
+            ],
+            "admitted": false
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "flags": [
+              "high_unsupported_specificity",
+              "requires_human_review"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:01Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "da2fcde3-6991-5dda-941c-bf84fff65d2e"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "00f4df62-e458-5ca5-9c2c-358e1542fd81",
+      "runtime_envelope_id": "910b43ff-6cc6-53a2-8f9f-b2d2fb46c4cb",
+      "source_record_id": "ef7cf48d-ed59-5383-a118-668b3efd96cc",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 31,
+      "event_time": "2000-01-01T00:03:02Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 2,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 0,
+        "proposal_summary": "Observe current machine states and job queues; re-sequence only operations impacted by the breakdown, preserving completed work and using updated processing times."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 0,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:02Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "ef7cf48d-ed59-5383-a118-668b3efd96cc"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "727e5f11-0496-513a-ab47-9682c31fe74a",
+      "runtime_envelope_id": "c99d1a8f-42ee-5082-bd20-b8a8aae4a985",
+      "source_record_id": "05ea30c1-b2ab-5b98-8b03-411a7caba243",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 32,
+      "event_time": "2000-01-01T00:03:03Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 3,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Halt and restart with enhanced CRT diagnostics to resolve invisible state uncertainty."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:03Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "05ea30c1-b2ab-5b98-8b03-411a7caba243"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "614e8c81-5d7f-50b8-b224-796a1548a9f5",
+      "runtime_envelope_id": "77084a3b-d661-5876-a9f6-f69a25507599",
+      "source_record_id": "c6dc54d4-d3d4-5280-8fd7-9cfad33ecc1a",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 33,
+      "event_time": "2000-01-01T00:03:04Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 4,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "active_repair",
+        "unsupported_specificity_count": 3,
+        "proposal_summary": "Reset schedule and re-sequence remaining operations with SPT rule and due-date priority."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 3,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:04Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "c6dc54d4-d3d4-5280-8fd7-9cfad33ecc1a"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "c4391fa4-a2f3-5ca1-aa17-603fc8489a29",
+      "runtime_envelope_id": "bb48b6cf-7dea-59c1-9407-82e19441cc5e",
+      "source_record_id": "3687c8b6-d550-578f-9d76-afb54c8b1b7a",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 34,
+      "event_time": "2000-01-01T00:03:05Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 5,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "observation_first",
+        "unsupported_specificity_count": 0,
+        "proposal_summary": "Run a full resource-deadlock scan, then release the least critical blocked job to restore flow."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 0,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:05Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "3687c8b6-d550-578f-9d76-afb54c8b1b7a"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "0ecd4263-1e34-5693-976d-d7df0ef191e3",
+      "runtime_envelope_id": "f1af2bbf-eac2-5ba3-a987-2a1419d72e59",
+      "source_record_id": "cc0751d8-a862-5d19-80fd-67b43855a118",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 35,
+      "event_time": "2000-01-01T00:03:06Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 6,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 0,
+        "proposal_summary": "Pause and observe to fully characterize the breakdown before acting, reducing future missteps."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 0,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:06Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "cc0751d8-a862-5d19-80fd-67b43855a118"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "48cf9689-0346-585a-bb92-16a7e26bab72",
+      "runtime_envelope_id": "aef25ce3-2263-5d63-ab0d-1104d7df0f38",
+      "source_record_id": "24af47e3-47e7-5748-a876-77b88302ecc8",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 36,
+      "event_time": "2000-01-01T00:03:07Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 7,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "reject_before_commit",
+        "admitted": false,
+        "grounding_flags": [
+          "high_unsupported_specificity",
+          "requires_human_review"
+        ],
+        "policy_style": "active_repair",
+        "unsupported_specificity_count": 17,
+        "proposal_summary": "Shift J4, op3 from M1 start t=8 to M1 start t=12, preserving other assignments and precedence."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "admitted": false,
+            "expected_admitted": false
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 17,
+            "flags": [
+              "high_unsupported_specificity",
+              "requires_human_review"
+            ],
+            "admitted": false
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "reject_before_commit",
+            "flags": [
+              "high_unsupported_specificity",
+              "requires_human_review"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:07Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "24af47e3-47e7-5748-a876-77b88302ecc8"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "d68c92b2-c1f7-5585-8c05-e0ac19d4b020",
+      "runtime_envelope_id": "a31fdb86-f735-5332-b276-060cb4098c7a",
+      "source_record_id": "705212d8-d762-5dd2-9ac3-99f5b05de4bf",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 37,
+      "event_time": "2000-01-01T00:03:08Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 8,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 1,
+        "proposal_summary": "Execute full maintenance release on all machines to counter potential CRT-stack-induced wear, sacrificing short-term throughput for reliability."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 1,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:08Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "705212d8-d762-5dd2-9ac3-99f5b05de4bf"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "f15f29c4-6e5b-5009-98be-b75eefa40c29",
+      "runtime_envelope_id": "0306e56d-e703-55c1-96ac-54414cbc4483",
+      "source_record_id": "57e4d350-1da2-50c4-bfd5-9df927675723",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 38,
+      "event_time": "2000-01-01T00:03:09Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 9,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel_with_flags",
+        "admitted": true,
+        "grounding_flags": [
+          "moderate_unsupported_specificity"
+        ],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 6,
+        "proposal_summary": "Insert one extra maintenance pause on M1 before the most congested period, and re-sequence the two largest remaining jobs to avoid simultaneous load, splitting one if necessary."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 6,
+            "flags": [
+              "moderate_unsupported_specificity"
+            ],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel_with_flags",
+            "flags": [
+              "moderate_unsupported_specificity"
+            ]
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:09Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "57e4d350-1da2-50c4-bfd5-9df927675723"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "schema": "realm_tier6_live_llm_runtime_replay_record_v0",
+      "replay_id": "75271321-a9da-5a2e-86a6-35d1e2a37b97",
+      "runtime_envelope_id": "fe4ff1bb-2680-5adc-87a0-b695923389b5",
+      "source_record_id": "24cb0745-71af-5a96-a6df-ff1083c4fa09",
+      "source_trace_id": "2e104b2a-85e0-5f62-a5f1-01bb2ec77bfc",
+      "event_index": 39,
+      "event_time": "2000-01-01T00:03:10Z",
+      "sequence_id": "T6-7e17ef0cc5f3",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "deepseek_instant",
+      "episode_id": 10,
+      "runtime_replay": {
+        "mode": "deterministic_replay",
+        "store_mutation": false,
+        "events_jsonl_emitted": false,
+        "method": "accept_via_kernel",
+        "admitted": true,
+        "grounding_flags": [],
+        "policy_style": "mixed",
+        "unsupported_specificity_count": 2,
+        "proposal_summary": "Proceed with a state-gathering observation of machine loads and queues, focusing on bottleneck machine M3, to inform future repair or rescheduling actions."
+      },
+      "checks": [
+        {
+          "name": "method_admission_consistency",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "admitted": true,
+            "expected_admitted": true
+          }
+        },
+        {
+          "name": "high_specificity_requires_rejection_or_flag",
+          "passed": true,
+          "detail": {
+            "unsupported_specificity_count": 2,
+            "flags": [],
+            "admitted": true
+          }
+        },
+        {
+          "name": "moderate_specificity_requires_flag_when_flagged_method",
+          "passed": true,
+          "detail": {
+            "method": "accept_via_kernel",
+            "flags": []
+          }
+        },
+        {
+          "name": "deterministic_timestamp",
+          "passed": true,
+          "detail": {
+            "event_time": "2000-01-01T00:03:10Z"
+          }
+        },
+        {
+          "name": "stable_record_id_present",
+          "passed": true,
+          "detail": {
+            "record_id": "24cb0745-71af-5a96-a6df-ff1083c4fa09"
+          }
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

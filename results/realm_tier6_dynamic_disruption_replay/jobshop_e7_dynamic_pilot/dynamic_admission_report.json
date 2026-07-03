@@ -1,0 +1,63 @@
+{
+  "schema": "realm_tier6_dynamic_disruption_replay_v0",
+  "claim_boundary": "R98 is Mnemosyne-side deterministic dynamic admission/replay. It is not an official REALM-Bench score and does not claim final Chapter 6 dynamic closure until R99 scoring is complete.",
+  "input_pack_dir": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot",
+  "output_dir": "results/realm_tier6_dynamic_disruption_replay/jobshop_e7_dynamic_pilot",
+  "summary": {
+    "num_events": 40,
+    "official_realm_score": false,
+    "decisions": {
+      "admit": 24,
+      "reject": 16
+    },
+    "outcomes": {
+      "admitted_repair": 24,
+      "rejected_other": 12,
+      "safe_rejection": 4
+    },
+    "by_pack": {
+      "claude": {
+        "num_events": 10,
+        "admit": 9,
+        "reject": 1,
+        "observe": 0,
+        "safe_rejection": 0
+      },
+      "gpt": {
+        "num_events": 10,
+        "admit": 5,
+        "reject": 5,
+        "observe": 0,
+        "safe_rejection": 0
+      },
+      "deepseek_expert": {
+        "num_events": 10,
+        "admit": 5,
+        "reject": 5,
+        "observe": 0,
+        "safe_rejection": 3
+      },
+      "deepseek_instant": {
+        "num_events": 10,
+        "admit": 5,
+        "reject": 5,
+        "observe": 0,
+        "safe_rejection": 1
+      }
+    },
+    "safety_totals": {
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0
+    },
+    "safety_passed": true,
+    "time_to_correction": {
+      "count": 40,
+      "mean": 0.725,
+      "min": 0,
+      "max": 1
+    },
+    "horizon_reward_proxy_mean": 0.925
+  },
+  "events_path": "results/realm_tier6_dynamic_disruption_replay/jobshop_e7_dynamic_pilot/dynamic_replay_events.jsonl"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "realm_tier6_dynamic_disruption_response_v0",
+  "action": "",
+  "repair_summary": "",
+  "affected_steps": [],
+  "preserve_evidence": true,
+  "rollback_scope": "none",
+  "expected_time_to_correction": 1,
+  "risk_flags": [],
+  "should_reject": false,
+  "confidence": 0.0
+}

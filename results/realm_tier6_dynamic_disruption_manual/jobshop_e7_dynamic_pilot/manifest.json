@@ -1,0 +1,3101 @@
+{
+  "schema": "realm_tier6_dynamic_disruption_manual_pack_v0",
+  "claim_boundary": "Manual dynamic disruption prompt pack only. No API calls, no API keys, no scoring, and no performance claim.",
+  "sequence_id": "T6-DYN-jobshop-e7-0001",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "family": "jobshop_breakdown",
+  "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+  "num_episodes": 10,
+  "num_packs": 4,
+  "num_prompts": 40,
+  "proposer_packs": [
+    "claude",
+    "gpt",
+    "deepseek_expert",
+    "deepseek_instant"
+  ],
+  "response_schema": "realm_tier6_dynamic_disruption_response_v0",
+  "records": [
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "313e8f22-003f-5cab-8529-4aa01bf61b16",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 1,
+      "failure_signature": "machine_unavailable.M2_after_commit",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e01_prompt.md",
+      "response_filename": "claude/e01_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 1,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Machine M2 becomes unavailable after operation J1-O1 has already committed.",
+        "failure_signature": "machine_unavailable.M2_after_commit",
+        "must_preserve": [
+          "J1-O1 completion record",
+          "machine-log:M2:pre-failure",
+          "operator-confirmed timestamp"
+        ],
+        "open_decision": "Repair remaining uncommitted operations without invalidating J1-O1.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "a45eab16-be00-57b1-b803-ad36c659dfd4",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 2,
+      "failure_signature": "setup_window_invalidated.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e02_prompt.md",
+      "response_filename": "claude/e02_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 2,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The setup window on M1 is invalidated by a late calibration hold.",
+        "failure_signature": "setup_window_invalidated.M1",
+        "must_preserve": [
+          "calibration-hold notice",
+          "J2-O1 committed completion",
+          "pre-hold dispatch record"
+        ],
+        "open_decision": "Move or delay affected uncommitted operations without erasing the calibration evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "7ed24fc5-26af-5d56-aa3a-2a3fe51a9dfd",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 3,
+      "failure_signature": "dependent_operation_orphan_risk.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e03_prompt.md",
+      "response_filename": "claude/e03_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 3,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A dependent downstream operation on M3 is blocked because its predecessor evidence is incomplete.",
+        "failure_signature": "dependent_operation_orphan_risk.M3",
+        "must_preserve": [
+          "partial predecessor evidence",
+          "downstream dependency record",
+          "blockage timestamp"
+        ],
+        "open_decision": "Repair the dependency chain without orphaning dependent operations.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "d4f704d2-b95c-5b3e-9564-ac147bd0c99c",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 4,
+      "failure_signature": "stale_duration_estimate.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e04_prompt.md",
+      "response_filename": "claude/e04_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 4,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The duration estimate for an uncommitted M0 operation is revealed to be stale.",
+        "failure_signature": "stale_duration_estimate.M0",
+        "must_preserve": [
+          "original duration estimate",
+          "new duration observation",
+          "dispatch queue snapshot"
+        ],
+        "open_decision": "Update the remaining schedule using the new duration without rewriting committed history.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "d73acb21-dd93-5389-9c44-f439ddae64d3",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 5,
+      "failure_signature": "evidence_destroying_reschedule_risk.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e05_prompt.md",
+      "response_filename": "claude/e05_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 5,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A naive repair would delete the evidence explaining why M2 became unavailable.",
+        "failure_signature": "evidence_destroying_reschedule_risk.M2",
+        "must_preserve": [
+          "failure notice",
+          "maintenance ticket",
+          "affected-operation audit trail"
+        ],
+        "open_decision": "Propose an evidence-preserving repair or reject unsafe repair.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "1d0af2bf-f94c-5d4b-aa0f-34f21f7bd856",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 6,
+      "failure_signature": "precedence_violation_risk.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e06_prompt.md",
+      "response_filename": "claude/e06_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 6,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A rushed repair would schedule J3-O2 before J3-O1 is completed.",
+        "failure_signature": "precedence_violation_risk.M1",
+        "must_preserve": [
+          "J3-O1 status",
+          "precedence constraint record",
+          "repair-attempt warning"
+        ],
+        "open_decision": "Repair without violating job precedence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "ea192da5-c02f-5bec-8a65-2cfbe5d4d9d0",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 7,
+      "failure_signature": "resource_conflict_after_commit.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e07_prompt.md",
+      "response_filename": "claude/e07_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 7,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Two uncommitted operations now compete for M3 after a committed operation consumed more time than expected.",
+        "failure_signature": "resource_conflict_after_commit.M3",
+        "must_preserve": [
+          "committed long-running operation",
+          "resource conflict notice",
+          "queue state at conflict time"
+        ],
+        "open_decision": "Resolve the conflict locally without rolling back committed work.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "16608a32-cbfa-5406-8f83-008faff2e367",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 8,
+      "failure_signature": "late_material_arrival.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e08_prompt.md",
+      "response_filename": "claude/e08_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 8,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Required material for an uncommitted M0 operation arrives late.",
+        "failure_signature": "late_material_arrival.M0",
+        "must_preserve": [
+          "late material notice",
+          "inventory timestamp",
+          "committed upstream operation"
+        ],
+        "open_decision": "Delay or reroute only uncommitted work while preserving material evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "b6681c9f-374e-52eb-af07-2a1b611267e3",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 9,
+      "failure_signature": "unsafe_global_rollback_request.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e09_prompt.md",
+      "response_filename": "claude/e09_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 9,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A supervisor suggests globally rolling back the schedule to simplify recovery.",
+        "failure_signature": "unsafe_global_rollback_request.M2",
+        "must_preserve": [
+          "supervisor rollback request",
+          "committed operations ledger",
+          "current machine state"
+        ],
+        "open_decision": "Reject or repair the request if it would invalidate committed evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "c183f912-88e6-522e-bc34-52bc72990757",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "claude",
+      "episode_id": 10,
+      "failure_signature": "repair_radius_exceeded.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "claude/e10_prompt.md",
+      "response_filename": "claude/e10_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 10,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The proposed repair appears to touch more operations than the allowed local repair radius.",
+        "failure_signature": "repair_radius_exceeded.M1",
+        "must_preserve": [
+          "repair radius policy",
+          "affected operation list",
+          "current partial schedule"
+        ],
+        "open_decision": "Keep the repair local or reject if the repair radius must be exceeded.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "edfb6fbb-46f4-5b43-b36b-0a48bb2f5b33",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 1,
+      "failure_signature": "machine_unavailable.M2_after_commit",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e01_prompt.md",
+      "response_filename": "gpt/e01_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 1,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Machine M2 becomes unavailable after operation J1-O1 has already committed.",
+        "failure_signature": "machine_unavailable.M2_after_commit",
+        "must_preserve": [
+          "J1-O1 completion record",
+          "machine-log:M2:pre-failure",
+          "operator-confirmed timestamp"
+        ],
+        "open_decision": "Repair remaining uncommitted operations without invalidating J1-O1.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "86e47030-0b75-5b79-a7c9-144ac0677d7f",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 2,
+      "failure_signature": "setup_window_invalidated.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e02_prompt.md",
+      "response_filename": "gpt/e02_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 2,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The setup window on M1 is invalidated by a late calibration hold.",
+        "failure_signature": "setup_window_invalidated.M1",
+        "must_preserve": [
+          "calibration-hold notice",
+          "J2-O1 committed completion",
+          "pre-hold dispatch record"
+        ],
+        "open_decision": "Move or delay affected uncommitted operations without erasing the calibration evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "2ca0e547-eeed-5c2a-8f0b-4e2b3a9e712f",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 3,
+      "failure_signature": "dependent_operation_orphan_risk.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e03_prompt.md",
+      "response_filename": "gpt/e03_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 3,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A dependent downstream operation on M3 is blocked because its predecessor evidence is incomplete.",
+        "failure_signature": "dependent_operation_orphan_risk.M3",
+        "must_preserve": [
+          "partial predecessor evidence",
+          "downstream dependency record",
+          "blockage timestamp"
+        ],
+        "open_decision": "Repair the dependency chain without orphaning dependent operations.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "6be72739-4098-5bb4-9ba8-a4c058ec938f",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 4,
+      "failure_signature": "stale_duration_estimate.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e04_prompt.md",
+      "response_filename": "gpt/e04_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 4,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The duration estimate for an uncommitted M0 operation is revealed to be stale.",
+        "failure_signature": "stale_duration_estimate.M0",
+        "must_preserve": [
+          "original duration estimate",
+          "new duration observation",
+          "dispatch queue snapshot"
+        ],
+        "open_decision": "Update the remaining schedule using the new duration without rewriting committed history.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "76aa4c6f-aa36-5f44-88c7-44500d5f0cee",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 5,
+      "failure_signature": "evidence_destroying_reschedule_risk.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e05_prompt.md",
+      "response_filename": "gpt/e05_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 5,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A naive repair would delete the evidence explaining why M2 became unavailable.",
+        "failure_signature": "evidence_destroying_reschedule_risk.M2",
+        "must_preserve": [
+          "failure notice",
+          "maintenance ticket",
+          "affected-operation audit trail"
+        ],
+        "open_decision": "Propose an evidence-preserving repair or reject unsafe repair.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "ba07177d-582a-51de-8d6c-050d180afa57",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 6,
+      "failure_signature": "precedence_violation_risk.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e06_prompt.md",
+      "response_filename": "gpt/e06_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 6,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A rushed repair would schedule J3-O2 before J3-O1 is completed.",
+        "failure_signature": "precedence_violation_risk.M1",
+        "must_preserve": [
+          "J3-O1 status",
+          "precedence constraint record",
+          "repair-attempt warning"
+        ],
+        "open_decision": "Repair without violating job precedence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "ba235614-61bc-5a9f-b70d-d2f309b4389f",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 7,
+      "failure_signature": "resource_conflict_after_commit.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e07_prompt.md",
+      "response_filename": "gpt/e07_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 7,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Two uncommitted operations now compete for M3 after a committed operation consumed more time than expected.",
+        "failure_signature": "resource_conflict_after_commit.M3",
+        "must_preserve": [
+          "committed long-running operation",
+          "resource conflict notice",
+          "queue state at conflict time"
+        ],
+        "open_decision": "Resolve the conflict locally without rolling back committed work.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "fafcdc6e-b37a-51df-bdd9-c7ea5397b43e",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 8,
+      "failure_signature": "late_material_arrival.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e08_prompt.md",
+      "response_filename": "gpt/e08_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 8,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Required material for an uncommitted M0 operation arrives late.",
+        "failure_signature": "late_material_arrival.M0",
+        "must_preserve": [
+          "late material notice",
+          "inventory timestamp",
+          "committed upstream operation"
+        ],
+        "open_decision": "Delay or reroute only uncommitted work while preserving material evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "9d87840b-ea2b-5dcf-9d8a-b58ada47eb2b",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 9,
+      "failure_signature": "unsafe_global_rollback_request.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e09_prompt.md",
+      "response_filename": "gpt/e09_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 9,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A supervisor suggests globally rolling back the schedule to simplify recovery.",
+        "failure_signature": "unsafe_global_rollback_request.M2",
+        "must_preserve": [
+          "supervisor rollback request",
+          "committed operations ledger",
+          "current machine state"
+        ],
+        "open_decision": "Reject or repair the request if it would invalidate committed evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "035a4eb9-4cd4-55a2-bee7-a033b5ce59fe",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "gpt",
+      "episode_id": 10,
+      "failure_signature": "repair_radius_exceeded.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "gpt/e10_prompt.md",
+      "response_filename": "gpt/e10_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 10,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The proposed repair appears to touch more operations than the allowed local repair radius.",
+        "failure_signature": "repair_radius_exceeded.M1",
+        "must_preserve": [
+          "repair radius policy",
+          "affected operation list",
+          "current partial schedule"
+        ],
+        "open_decision": "Keep the repair local or reject if the repair radius must be exceeded.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "654d4619-fe95-5618-a4be-6683201f1eac",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 1,
+      "failure_signature": "machine_unavailable.M2_after_commit",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e01_prompt.md",
+      "response_filename": "deepseek_expert/e01_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 1,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Machine M2 becomes unavailable after operation J1-O1 has already committed.",
+        "failure_signature": "machine_unavailable.M2_after_commit",
+        "must_preserve": [
+          "J1-O1 completion record",
+          "machine-log:M2:pre-failure",
+          "operator-confirmed timestamp"
+        ],
+        "open_decision": "Repair remaining uncommitted operations without invalidating J1-O1.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "a9ee25e0-d4a0-524d-a447-26dc6c6b0321",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 2,
+      "failure_signature": "setup_window_invalidated.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e02_prompt.md",
+      "response_filename": "deepseek_expert/e02_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 2,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The setup window on M1 is invalidated by a late calibration hold.",
+        "failure_signature": "setup_window_invalidated.M1",
+        "must_preserve": [
+          "calibration-hold notice",
+          "J2-O1 committed completion",
+          "pre-hold dispatch record"
+        ],
+        "open_decision": "Move or delay affected uncommitted operations without erasing the calibration evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "d5c83a22-b4ec-55b7-a831-3dcc44c9f2d9",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 3,
+      "failure_signature": "dependent_operation_orphan_risk.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e03_prompt.md",
+      "response_filename": "deepseek_expert/e03_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 3,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A dependent downstream operation on M3 is blocked because its predecessor evidence is incomplete.",
+        "failure_signature": "dependent_operation_orphan_risk.M3",
+        "must_preserve": [
+          "partial predecessor evidence",
+          "downstream dependency record",
+          "blockage timestamp"
+        ],
+        "open_decision": "Repair the dependency chain without orphaning dependent operations.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "4c4aeeb9-dc70-514f-be8e-686a9b047757",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 4,
+      "failure_signature": "stale_duration_estimate.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e04_prompt.md",
+      "response_filename": "deepseek_expert/e04_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 4,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The duration estimate for an uncommitted M0 operation is revealed to be stale.",
+        "failure_signature": "stale_duration_estimate.M0",
+        "must_preserve": [
+          "original duration estimate",
+          "new duration observation",
+          "dispatch queue snapshot"
+        ],
+        "open_decision": "Update the remaining schedule using the new duration without rewriting committed history.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "59e9a974-39ba-5155-bd23-60a585e66325",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 5,
+      "failure_signature": "evidence_destroying_reschedule_risk.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e05_prompt.md",
+      "response_filename": "deepseek_expert/e05_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 5,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A naive repair would delete the evidence explaining why M2 became unavailable.",
+        "failure_signature": "evidence_destroying_reschedule_risk.M2",
+        "must_preserve": [
+          "failure notice",
+          "maintenance ticket",
+          "affected-operation audit trail"
+        ],
+        "open_decision": "Propose an evidence-preserving repair or reject unsafe repair.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "12a9c4b0-5eda-5683-9ef3-74737923c4a5",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 6,
+      "failure_signature": "precedence_violation_risk.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e06_prompt.md",
+      "response_filename": "deepseek_expert/e06_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 6,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A rushed repair would schedule J3-O2 before J3-O1 is completed.",
+        "failure_signature": "precedence_violation_risk.M1",
+        "must_preserve": [
+          "J3-O1 status",
+          "precedence constraint record",
+          "repair-attempt warning"
+        ],
+        "open_decision": "Repair without violating job precedence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "886ac907-72ab-5391-93e0-5abbee8e89d8",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 7,
+      "failure_signature": "resource_conflict_after_commit.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e07_prompt.md",
+      "response_filename": "deepseek_expert/e07_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 7,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Two uncommitted operations now compete for M3 after a committed operation consumed more time than expected.",
+        "failure_signature": "resource_conflict_after_commit.M3",
+        "must_preserve": [
+          "committed long-running operation",
+          "resource conflict notice",
+          "queue state at conflict time"
+        ],
+        "open_decision": "Resolve the conflict locally without rolling back committed work.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "2d9f07cb-39fe-5102-b178-6673b2232dba",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 8,
+      "failure_signature": "late_material_arrival.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e08_prompt.md",
+      "response_filename": "deepseek_expert/e08_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 8,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Required material for an uncommitted M0 operation arrives late.",
+        "failure_signature": "late_material_arrival.M0",
+        "must_preserve": [
+          "late material notice",
+          "inventory timestamp",
+          "committed upstream operation"
+        ],
+        "open_decision": "Delay or reroute only uncommitted work while preserving material evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "f561cf0d-dec3-5925-81b2-7456f1a4d0b0",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 9,
+      "failure_signature": "unsafe_global_rollback_request.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e09_prompt.md",
+      "response_filename": "deepseek_expert/e09_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 9,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A supervisor suggests globally rolling back the schedule to simplify recovery.",
+        "failure_signature": "unsafe_global_rollback_request.M2",
+        "must_preserve": [
+          "supervisor rollback request",
+          "committed operations ledger",
+          "current machine state"
+        ],
+        "open_decision": "Reject or repair the request if it would invalidate committed evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "5a28d6ec-5348-5880-bc3e-e0a138db0c56",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_expert",
+      "episode_id": 10,
+      "failure_signature": "repair_radius_exceeded.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_expert/e10_prompt.md",
+      "response_filename": "deepseek_expert/e10_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 10,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The proposed repair appears to touch more operations than the allowed local repair radius.",
+        "failure_signature": "repair_radius_exceeded.M1",
+        "must_preserve": [
+          "repair radius policy",
+          "affected operation list",
+          "current partial schedule"
+        ],
+        "open_decision": "Keep the repair local or reject if the repair radius must be exceeded.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "f3557a43-0afb-54f8-b39c-a8839e165cf1",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 1,
+      "failure_signature": "machine_unavailable.M2_after_commit",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e01_prompt.md",
+      "response_filename": "deepseek_instant/e01_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 1,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e01-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Machine M2 becomes unavailable after operation J1-O1 has already committed.",
+        "failure_signature": "machine_unavailable.M2_after_commit",
+        "must_preserve": [
+          "J1-O1 completion record",
+          "machine-log:M2:pre-failure",
+          "operator-confirmed timestamp"
+        ],
+        "open_decision": "Repair remaining uncommitted operations without invalidating J1-O1.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "d95028dc-6937-5f14-86fd-f91ef10527d3",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 2,
+      "failure_signature": "setup_window_invalidated.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e02_prompt.md",
+      "response_filename": "deepseek_instant/e02_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 2,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e02-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The setup window on M1 is invalidated by a late calibration hold.",
+        "failure_signature": "setup_window_invalidated.M1",
+        "must_preserve": [
+          "calibration-hold notice",
+          "J2-O1 committed completion",
+          "pre-hold dispatch record"
+        ],
+        "open_decision": "Move or delay affected uncommitted operations without erasing the calibration evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "cb61c07e-77d6-5dd7-bbbe-1b5d97d4335d",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 3,
+      "failure_signature": "dependent_operation_orphan_risk.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e03_prompt.md",
+      "response_filename": "deepseek_instant/e03_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 3,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e03-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A dependent downstream operation on M3 is blocked because its predecessor evidence is incomplete.",
+        "failure_signature": "dependent_operation_orphan_risk.M3",
+        "must_preserve": [
+          "partial predecessor evidence",
+          "downstream dependency record",
+          "blockage timestamp"
+        ],
+        "open_decision": "Repair the dependency chain without orphaning dependent operations.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "2163323a-d04f-560c-8409-8a1245fc9972",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 4,
+      "failure_signature": "stale_duration_estimate.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e04_prompt.md",
+      "response_filename": "deepseek_instant/e04_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 4,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e04-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The duration estimate for an uncommitted M0 operation is revealed to be stale.",
+        "failure_signature": "stale_duration_estimate.M0",
+        "must_preserve": [
+          "original duration estimate",
+          "new duration observation",
+          "dispatch queue snapshot"
+        ],
+        "open_decision": "Update the remaining schedule using the new duration without rewriting committed history.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "d6b2ae31-cc95-53f3-b0c3-732d4c62c593",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 5,
+      "failure_signature": "evidence_destroying_reschedule_risk.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e05_prompt.md",
+      "response_filename": "deepseek_instant/e05_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 5,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e05-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A naive repair would delete the evidence explaining why M2 became unavailable.",
+        "failure_signature": "evidence_destroying_reschedule_risk.M2",
+        "must_preserve": [
+          "failure notice",
+          "maintenance ticket",
+          "affected-operation audit trail"
+        ],
+        "open_decision": "Propose an evidence-preserving repair or reject unsafe repair.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "7a219bd8-fffb-5dec-a50d-df7889208f8f",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 6,
+      "failure_signature": "precedence_violation_risk.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e06_prompt.md",
+      "response_filename": "deepseek_instant/e06_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 6,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e06-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A rushed repair would schedule J3-O2 before J3-O1 is completed.",
+        "failure_signature": "precedence_violation_risk.M1",
+        "must_preserve": [
+          "J3-O1 status",
+          "precedence constraint record",
+          "repair-attempt warning"
+        ],
+        "open_decision": "Repair without violating job precedence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "4e05131f-40ab-59bb-ad65-de4c8ce3d533",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 7,
+      "failure_signature": "resource_conflict_after_commit.M3",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e07_prompt.md",
+      "response_filename": "deepseek_instant/e07_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 7,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-1"
+          },
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e07-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J2-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J3-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Two uncommitted operations now compete for M3 after a committed operation consumed more time than expected.",
+        "failure_signature": "resource_conflict_after_commit.M3",
+        "must_preserve": [
+          "committed long-running operation",
+          "resource conflict notice",
+          "queue state at conflict time"
+        ],
+        "open_decision": "Resolve the conflict locally without rolling back committed work.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "a73699f2-63dd-5e9c-b0fe-18b1ee0aba91",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 8,
+      "failure_signature": "late_material_arrival.M0",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e08_prompt.md",
+      "response_filename": "deepseek_instant/e08_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 8,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J1-O1",
+            "machine": "M0",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-1"
+          },
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e08-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J3-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "Required material for an uncommitted M0 operation arrives late.",
+        "failure_signature": "late_material_arrival.M0",
+        "must_preserve": [
+          "late material notice",
+          "inventory timestamp",
+          "committed upstream operation"
+        ],
+        "open_decision": "Delay or reroute only uncommitted work while preserving material evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "046eb7ac-5eaa-5f3d-87a3-7fed195b871e",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 9,
+      "failure_signature": "unsafe_global_rollback_request.M2",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e09_prompt.md",
+      "response_filename": "deepseek_instant/e09_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 9,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J2-O1",
+            "machine": "M1",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-1"
+          },
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e09-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J4-O2",
+            "machine": "M2",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J1-O2",
+            "machine": "M3",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "A supervisor suggests globally rolling back the schedule to simplify recovery.",
+        "failure_signature": "unsafe_global_rollback_request.M2",
+        "must_preserve": [
+          "supervisor rollback request",
+          "committed operations ledger",
+          "current machine state"
+        ],
+        "open_decision": "Reject or repair the request if it would invalidate committed evidence.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    },
+    {
+      "schema": "realm_tier6_dynamic_disruption_prompt_record_v0",
+      "prompt_id": "23ec1d90-eb97-5a2b-82fd-d876011ed491",
+      "sequence_id": "T6-DYN-jobshop-e7-0001",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "family": "jobshop_breakdown",
+      "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+      "pack_name": "deepseek_instant",
+      "episode_id": 10,
+      "failure_signature": "repair_radius_exceeded.M1",
+      "dynamic_phase": "mid_execution",
+      "prompt_filename": "deepseek_instant/e10_prompt.md",
+      "response_filename": "deepseek_instant/e10_response.json",
+      "episode": {
+        "sequence_id": "T6-DYN-jobshop-e7-0001",
+        "episode_id": 10,
+        "family": "jobshop_breakdown",
+        "base_instance_id": "jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+        "config_id": "E7",
+        "condition_label": "full_crt_stack",
+        "is_control_sequence": false,
+        "dynamic_phase": "mid_execution",
+        "timestamp_utc": "2026-07-02T00:00:00Z",
+        "committed_operations": [
+          {
+            "operation_id": "J3-O1",
+            "machine": "M2",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-1"
+          },
+          {
+            "operation_id": "J4-O1",
+            "machine": "M3",
+            "status": "committed",
+            "evidence_id": "ev-e10-committed-2"
+          }
+        ],
+        "uncommitted_operations": [
+          {
+            "operation_id": "J1-O2",
+            "machine": "M1",
+            "status": "uncommitted",
+            "repair_allowed": true
+          },
+          {
+            "operation_id": "J2-O2",
+            "machine": "M0",
+            "status": "uncommitted",
+            "repair_allowed": true
+          }
+        ],
+        "disruption": "The proposed repair appears to touch more operations than the allowed local repair radius.",
+        "failure_signature": "repair_radius_exceeded.M1",
+        "must_preserve": [
+          "repair radius policy",
+          "affected operation list",
+          "current partial schedule"
+        ],
+        "open_decision": "Keep the repair local or reject if the repair radius must be exceeded.",
+        "repair_radius_limit": 1,
+        "forbidden_actions": [
+          "global rollback",
+          "delete committed evidence",
+          "rewrite committed operation history",
+          "orphan dependent operations",
+          "commit a repair that violates precedence or machine availability"
+        ],
+        "success_criteria": [
+          "preserve all listed evidence",
+          "touch only uncommitted or locally repairable operations",
+          "avoid global rollback",
+          "return a machine-checkable JSON object",
+          "reject if no safe repair is available"
+        ]
+      }
+    }
+  ]
+}

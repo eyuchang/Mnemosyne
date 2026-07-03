@@ -1,0 +1,19 @@
+{
+  "action": "Extend the observation window for bottleneck machine M1 by one additional scheduled maintenance slot, and reschedule the two longest remaining jobs on that machine to non-overlapping time windows; if conflicts remain, split the largest job into two sub-batches.",
+  "confidence": 0.72,
+  "evidence_to_preserve": [
+    "All job release dates and deadlines remain fixed",
+    "Machine M1 has a known breakdown pattern with mean time between failures of 8 hours",
+    "The current schedule already has a 2-hour idle buffer on M1 after hour 10",
+    "Two critical jobs (J7 and J12) are already delayed by 1.5 hours relative to their early-start estimates"
+  ],
+  "horizon_rationale": "This repair trades a small immediate delay (adding maintenance) for reduced risk of catastrophic breakdown later; over the next 3 episodes, the buffer should absorb variability without shifting the final completion beyond the horizon. In later episodes, we can incrementally reduce the buffer if breakdowns do not occur, but for now we prioritize avoiding a missed deadline cascade.",
+  "predicted_outcome": "Total makespan increases by 0.5 hours, but probability of any job missing its deadline decreases from 0.6 to 0.35; the schedule remains feasible within the overall 48-hour horizon.",
+  "risk_factors": [
+    "Maintenance slot may be rejected by the floor manager if it overlaps with a shift change",
+    "Splitting a job adds setup time that is not fully modeled",
+    "The observed breakdown history is short (only 8 episodes), so extrapolation may be inaccurate"
+  ],
+  "proposal_summary": "Insert one extra maintenance pause on M1 before the most congested period, and re-sequence the two largest remaining jobs to avoid simultaneous load, splitting one if necessary.",
+  "should_reject": false
+}

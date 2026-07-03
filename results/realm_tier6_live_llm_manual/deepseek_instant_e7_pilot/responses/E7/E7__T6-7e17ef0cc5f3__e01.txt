@@ -1,0 +1,18 @@
+{
+  "action": "Force immediate full machine breakdown inspection and initiate priority repair sequence for Job J4-Custom-001, focusing on critical workstation C1 where temperature and vibration anomalies were detected in the last operational cycle, and pause all dependent job allocations until diagnostics confirm stability.",
+  "confidence": 0.72,
+  "evidence_to_preserve": [
+    "Job J4-Custom-001 has unique custom specifications requiring non-standard tooling",
+    "Workstation C1 showed intermittent sensor warnings (temperature +5°C above baseline, vibration spikes) in prior logged maintenance records",
+    "Current backlog includes three lower-priority jobs that can be rescheduled without breaching their soft deadlines"
+  ],
+  "horizon_rationale": "Over the next 3–5 episodes, this proactive repair prevents cascading failures that would corrupt multiple custom parts and waste expensive raw materials. While it delays immediate output, it avoids a likely catastrophic breakdown that would take 3× longer to fix later, improving overall throughput and yield across the horizon.",
+  "predicted_outcome": "If accepted, the system will diagnose a worn bearing in C1, replace it within 2 hours, and resume J4 production with 95% probability of meeting the custom tolerance; total episode completion time increases by 8% but scrap rate drops from estimated 30% to 5%.",
+  "proposal_summary": "Conduct emergent maintenance on C1 based on sensor history, pause non-critical jobs, and restart J4 only after clearance.",
+  "risk_factors": [
+    "Inspection may find no fault, wasting 1.5 hours and reducing confidence in sensor data",
+    "Pausing dependent jobs may cause minor overtime costs if repair extends beyond 3 hours",
+    "Replacement part availability is uncertain (inventory shows 2 units, but one is reserved for another line)"
+  ],
+  "should_reject": false
+}

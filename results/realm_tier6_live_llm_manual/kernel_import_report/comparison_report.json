@@ -1,0 +1,1681 @@
+{
+  "schema": "realm_tier6_live_llm_kernel_import_report_v0",
+  "claim_boundary": "Deterministic live-pack comparison/import report only. Not API automation, not full CTL-domain StateView realization, and not confirmatory Chapter 6 evidence.",
+  "sequence_id": "T6-7e17ef0cc5f3",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "packs": [
+    {
+      "pack_name": "claude",
+      "num_responses": 10,
+      "num_parsed": 10,
+      "num_should_reject_true": 0,
+      "confidence_mean": 0.606,
+      "policy_counts": {
+        "mixed": 10
+      },
+      "admission_recommendation_counts": {
+        "admit_parseable_proposal": 10
+      },
+      "unsupported_specificity_total": 11,
+      "unsupported_specificity_mean": 1.1,
+      "unsupported_specificity_max": 2,
+      "responses": [
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e01",
+          "episode_id": 1,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+          "response_sha256": "689b84a6f4b5956c6bb36b502de15fdba5a47630ff4a225bd4ca366aaadc0848",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.55,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 5,
+          "unsupported_specificity_count": 0,
+          "unsupported_specificity_examples": [],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Verify breakdown state, then repair the existing schedule via minimal right-shift with optional machine reassignment for the affected operation tail, preserving all pre-disruption evidence; fall back to no-op if observation shows no actual fault."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e02",
+          "episode_id": 2,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+          "response_sha256": "4c7a7ea9b094f80a81cbf04dbdd5a6f88c356e5625b3680ecb613d292d8ff39e",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "horizon_rationale_note",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Reactive partial reschedule for the J4 breakdown instance: freeze operations already completed or in-process on unaffected machines, right-shift operations queued on the broken machine to its estimated repair-complete time, then locally re-optimize only the affected downstream operation chain under the active C/R/T disturbance stack."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e03",
+          "episode_id": 3,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+          "response_sha256": "0664a1dccbf1265a7603b5b8246972f6e5a446b639b205836033a39f5075e542",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 2,
+          "unsupported_specificity_count": 2,
+          "unsupported_specificity_examples": [
+            {
+              "category": "specific_heuristic",
+              "value": "earliest-due"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "shortest processing time"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Affected-operations rescheduling (right-shift + local re-sequencing) for the J4 jobshop breakdown: freeze all operations already completed or in-progress on unaffected machines, reroute or delay only operations queued on the broken machine, and re-optimize their sequence to minimize added makespan."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e04",
+          "episode_id": 4,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+          "response_sha256": "1f9dec7fc9f36135e1027203d80653b9ee179d6fb0ceb864024ba560359be1a5",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Localized right-shift repair of the broken machine's queue with optional migration of feasible operations, minimal disturbance to unaffected jobs, full state logging for Mnemosyne's admission decision."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e05",
+          "episode_id": 5,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+          "response_sha256": "118396c7a3009fa6250427c8f4d320a7dd01524e67d27e2c7f94ee05c1ee3c67",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "specific_heuristic",
+              "value": "earliest-due"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Apply an affected-operations rescheduling (AOR) repair for the J4 breakdown instance: freeze all operations completed or in-progress before the breakdown, right-shift only operations on the failed machine and their precedence successors, and re-sequence the failed machine's queue by earliest-due/critical-path priority once repair time elapses. No full-schedule regeneration."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e06",
+          "episode_id": 6,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+          "response_sha256": "45e80c3c3ee254ba39c0dd7ddbae99b44f209dca28f94f3a6975e480a0a2cb0e",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Affected-operations local reschedule after breakdown: freeze failed machine, reroute or right-shift only blocked operations, preserve baseline sequencing elsewhere."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e07",
+          "episode_id": 7,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+          "response_sha256": "5d4f62b348821293708d6c3930fd22211df6183964363d2876bc5b29832b72a4",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Treat episode 7 as a machine-breakdown disruption on the J4 instance: freeze the pre-breakdown schedule prefix, mark the affected machine unavailable for its repair window, and repair the schedule via right-shift plus bounded local re-sequencing of only the operations queued on the broken machine, rather than a full global reschedule."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e08",
+          "episode_id": 8,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+          "response_sha256": "cc2053b124263ab04bf1212fe3e2ec37395bb279ed46d84180e967d3b8fa6bfa",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 6,
+          "observation_score": 5,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Verify the breakdown signal against a fresh state observation, then apply a minimal right-shift repair with local reassignment of outage-window operations only, committing nothing until constraints re-validate."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e09",
+          "episode_id": 9,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+          "response_sha256": "74fef65cf3cd18394cc53eba12634f264917d759818e01b342df24c1d40ad7e5",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.55,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Affected-operations right-shift repair on the broken machine with one availability observation before committing, preserving the pre-disruption schedule as evidence."
+        },
+        {
+          "pack_name": "claude",
+          "key": "E7__T6-7e17ef0cc5f3__e10",
+          "episode_id": 10,
+          "response_path": "results/realm_tier6_live_llm_manual/claude_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+          "response_sha256": "8e3fa0e45c64920338ba9832cfd535147a0700bc22ebd37bc46f2a9e3d5fdcd1",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 7,
+          "observation_score": 3,
+          "unsupported_specificity_count": 2,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "critical-ratio"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Reactive right-shift repair for the J4 breakdown: freeze completed/in-progress operations, reroute or delay only operations assigned to the broken machine, and re-sequence downstream jobs by critical-ratio priority rather than full reschedule."
+        }
+      ]
+    },
+    {
+      "pack_name": "gpt",
+      "num_responses": 10,
+      "num_parsed": 10,
+      "num_should_reject_true": 3,
+      "confidence_mean": 0.689,
+      "policy_counts": {
+        "observation_first": 10
+      },
+      "admission_recommendation_counts": {
+        "admit_parseable_proposal": 7,
+        "model_requests_rejection": 3
+      },
+      "unsupported_specificity_total": 10,
+      "unsupported_specificity_mean": 1,
+      "unsupported_specificity_max": 1,
+      "responses": [
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e01",
+          "episode_id": 1,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+          "response_sha256": "5bf53ca9a0a9ee291588142dc5d7d5624d67dcbd111be728c7fc7100f6cbe908",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.74,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 6,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Start with evidence-preserving inspection only; no repair or schedule mutation yet."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e02",
+          "episode_id": 2,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+          "response_sha256": "a1a77c1901b0cdf655224cb5772c88a6dd9528b8e300548cf3dd52dfd26a9016",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.64,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Continue with conservative observation/preservation rather than speculative repair."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e03",
+          "episode_id": 3,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+          "response_sha256": "ad15eac379dae909e30107e6903294580a9ddcc0ed5502ca302100f679bb6015",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.55,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 6,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Preserve state and validate; do not repair without visible violation evidence."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e04",
+          "episode_id": 4,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+          "response_sha256": "61b46044c1490916c49c8321be792dbe90dee37c0da5158c2350c91616e46ac3",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Use a conservative audit-first recovery step and only apply a minimal local job-shop repair if directly supported by visible constraints."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e05",
+          "episode_id": 5,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+          "response_sha256": "f1e5779c4362c67c71f7dccb549df37ca4f8ebba4705a0fd48f304480febdab1",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": true,
+          "confidence": 0.74,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 5,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "model_requests_rejection",
+          "proposal_summary": "Do not commit a concrete repair from the visible information; reject irreversible action and preserve state until actual breakdown/schedule evidence is available."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e06",
+          "episode_id": 6,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+          "response_sha256": "be45990fa92a7390de104168185d32375b679e524892ccabe6958e39b5ea7041",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": true,
+          "confidence": 0.68,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "model_requests_rejection",
+          "proposal_summary": "Conservative diagnostic-first recovery: preserve all visible facts, reject unsupported repair, and re-derive the job-shop constraints before acting."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e07",
+          "episode_id": 7,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+          "response_sha256": "a4f80a8727bf039dc763a965a71f158e73c80d186f79451416134cc7329f4c4c",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Do not reject yet; preserve evidence and perform a fresh constraint/schedule validation checkpoint before any repair."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e08",
+          "episode_id": 8,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+          "response_sha256": "96854833febb935d9be92d7a6d0fa3c792f2f359ab9d237e91f9041fd46a8ce1",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": true,
+          "confidence": 0.86,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 3,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "model_requests_rejection",
+          "proposal_summary": "Insufficient visible state for a concrete job-shop repair; recommend observation-only rejection of any unsupported mutation."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e09",
+          "episode_id": 9,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+          "response_sha256": "925c95c5ef17cc9b803c73a7b93f77ff5a26d721bbb93fc17f67c35335b49710",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 6,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Conservative no-op/observation step: preserve state, reject unsupported repairs, and wait for visible evidence."
+        },
+        {
+          "pack_name": "gpt",
+          "key": "E7__T6-7e17ef0cc5f3__e10",
+          "episode_id": 10,
+          "response_path": "results/realm_tier6_live_llm_manual/gpt_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+          "response_sha256": "882ac9362cc38bda42add5fb6c56319fa3b59278e9bc197a8f7dc63da0369e71",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 5,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Continue conservatively; preserve all visible metadata and prior prompt-emission history; do not perform unsupported repair."
+        }
+      ]
+    },
+    {
+      "pack_name": "deepseek_expert",
+      "num_responses": 10,
+      "num_parsed": 10,
+      "num_should_reject_true": 0,
+      "confidence_mean": 0.759,
+      "policy_counts": {
+        "observation_first": 3,
+        "mixed": 6,
+        "active_repair": 1
+      },
+      "admission_recommendation_counts": {
+        "admit_parseable_proposal": 5,
+        "admit_with_grounding_flags": 4,
+        "review_high_unsupported_specificity": 1
+      },
+      "unsupported_specificity_total": 52,
+      "unsupported_specificity_mean": 5.2,
+      "unsupported_specificity_max": 14,
+      "responses": [
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e01",
+          "episode_id": 1,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+          "response_sha256": "8f9f862678decba5e62825b0f3896893db3b19a7b30a3bd41c8cb564c6416367",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.85,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "sensor_or_fault",
+              "value": "sensor"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Gather initial system state observation before acting"
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e02",
+          "episode_id": 2,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+          "response_sha256": "54890af3fb97e9d99e6887ff5fd82f0df265b330d644ca374f97cbdff1a8a12e",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 3,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Immediate M2 repair with right-shift rescheduling prioritizing non-critical-path operations"
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e03",
+          "episode_id": 3,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+          "response_sha256": "fcb26736e771404ab99aeb0876ade464210249a03c11270cb9da4ff4725a1c73",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 3,
+          "unsupported_specificity_count": 6,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "Machine-2"
+            },
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "spindle"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "vibration"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "bearing"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "sensor"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_with_grounding_flags",
+          "proposal_summary": "Run spindle health diagnostic on Machine-2 before committing to full production schedule"
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e04",
+          "episode_id": 4,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+          "response_sha256": "b7b427bb22b9c2175aef638fcf216802c9525aa5d30a57c926af6f937d72e20e",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.85,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 3,
+          "unsupported_specificity_count": 6,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "Machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M1"
+            },
+            {
+              "category": "machine_id",
+              "value": "M3"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "tool wear"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "maintenance records"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_with_grounding_flags",
+          "proposal_summary": "Inspect M2, reroute its jobs, and preserve diagnostic data."
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e05",
+          "episode_id": 5,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+          "response_sha256": "d3811194415c5d4d4385badf1336271b219313b763c27731a894b5af4583ca40",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.65,
+          "policy_style": "mixed",
+          "active_score": 5,
+          "observation_score": 4,
+          "unsupported_specificity_count": 9,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M1"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "20 time units"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "20 units"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "Johnson's rule"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "shortest-processing-time"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "SPT"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_with_grounding_flags",
+          "proposal_summary": "Observe M2 reliability for 20 units, then apply Johnson's rule if stable; fall back to SPT dispatch if breakdowns continue."
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e06",
+          "episode_id": 6,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+          "response_sha256": "f52160d98d53b6e4a0e47fb44d184e7e8f910cb4700abc9255d194be2c2adcee",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "active_repair",
+          "active_score": 3,
+          "observation_score": 1,
+          "unsupported_specificity_count": 9,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "Machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M1"
+            },
+            {
+              "category": "machine_id",
+              "value": "M3"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J3"
+            },
+            {
+              "category": "job_id",
+              "value": "Jobs J1"
+            },
+            {
+              "category": "job_id",
+              "value": "J4 operation"
+            },
+            {
+              "category": "job_id",
+              "value": "J3’s"
+            },
+            {
+              "category": "job_id",
+              "value": "J4’s"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_with_grounding_flags",
+          "proposal_summary": "Repair M2 immediately and reschedule downstream operations to mitigate breakdown impact on J3/J4."
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e07",
+          "episode_id": 7,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+          "response_sha256": "0815e9038f7974772892f661f585f8feac941e93583a8dd2588501aabd3d9e24",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.7,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0,
+          "unsupported_specificity_examples": [],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Conduct full system state observation before intervening"
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e08",
+          "episode_id": 8,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+          "response_sha256": "397c531dc2f63259e87842f873a593beb48a39093770e0f560c012de1f7d7034",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.7,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0,
+          "unsupported_specificity_examples": [],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Observe system state and prepare a conditional recovery plan for the most critical job in case of machine anomaly."
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e09",
+          "episode_id": 9,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+          "response_sha256": "59098d257404d18dce6cd54c7c04e994256545ed3d80aca4f145d6d6cb797e8a",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 3,
+          "unsupported_specificity_count": 14,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J3"
+            },
+            {
+              "category": "job_id",
+              "value": "J3 at"
+            },
+            {
+              "category": "job_id",
+              "value": "jobs J4"
+            },
+            {
+              "category": "job_id",
+              "value": "J3 completes"
+            },
+            {
+              "category": "job_id",
+              "value": "J3 partial"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "Temperature"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "sensor"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "vibration"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "breakdown logs"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "Operator shift notes"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "Spare parts"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "inventory"
+            }
+          ],
+          "deterministic_admission_recommendation": "review_high_unsupported_specificity",
+          "proposal_summary": "Apply targeted repair R to machine M2 based on observed intermittent failure signature, preserving diagnostic evidence for root cause analysis"
+        },
+        {
+          "pack_name": "deepseek_expert",
+          "key": "E7__T6-7e17ef0cc5f3__e10",
+          "episode_id": 10,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+          "response_sha256": "f170f453969010d644ad44a99e48faddaa36e4ee2b327372932be4e0e171999e",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 5,
+          "unsupported_specificity_count": 4,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "job_id",
+              "value": "job J4"
+            },
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Defer M2 repair; continue J4 with active monitoring and plan inspection after job end."
+        }
+      ]
+    },
+    {
+      "pack_name": "deepseek_instant",
+      "num_responses": 10,
+      "num_parsed": 10,
+      "num_should_reject_true": 0,
+      "confidence_mean": 0.715,
+      "policy_counts": {
+        "mixed": 7,
+        "active_repair": 2,
+        "observation_first": 1
+      },
+      "admission_recommendation_counts": {
+        "review_high_unsupported_specificity": 2,
+        "admit_parseable_proposal": 7,
+        "admit_with_grounding_flags": 1
+      },
+      "unsupported_specificity_total": 46,
+      "unsupported_specificity_mean": 4.6,
+      "unsupported_specificity_max": 17,
+      "responses": [
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e01",
+          "episode_id": 1,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+          "response_sha256": "58522689b243203f5d1bde891c6163298b7f43084b25e22202ad5877086ac561",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 3,
+          "unsupported_specificity_count": 16,
+          "unsupported_specificity_examples": [
+            {
+              "category": "workstation_id",
+              "value": "critical workstation C1"
+            },
+            {
+              "category": "workstation_id",
+              "value": "Workstation C1"
+            },
+            {
+              "category": "workstation_id",
+              "value": "C1"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J4"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "5°C"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "2 hours"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "1.5 hours"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "3 hours"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "2 units"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "temperature"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "vibration"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "sensor"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "bearing"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "scrap rate"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "maintenance records"
+            },
+            {
+              "category": "concrete_inventory_or_log",
+              "value": "inventory"
+            }
+          ],
+          "deterministic_admission_recommendation": "review_high_unsupported_specificity",
+          "proposal_summary": "Conduct emergent maintenance on C1 based on sensor history, pause non-critical jobs, and restart J4 only after clearance."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e02",
+          "episode_id": 2,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+          "response_sha256": "0d4946087d598e8982ac0dbc554905e49c3782d7cad16306248b7cc5aa35d28a",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.78,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0,
+          "unsupported_specificity_examples": [],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Observe current machine states and job queues; re-sequence only operations impacted by the breakdown, preserving completed work and using updated processing times."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e03",
+          "episode_id": 3,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+          "response_sha256": "49d342ce8d8c4284aa5d2c5b9fb62b8ad6a2c18c580a7e69e253a2757288bea5",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Halt and restart with enhanced CRT diagnostics to resolve invisible state uncertainty."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e04",
+          "episode_id": 4,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+          "response_sha256": "636cdd41ddaa7abb7f885c773cc97bddd4de621c10b1c781654b2bd06de65dea",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "active_repair",
+          "active_score": 5,
+          "observation_score": 1,
+          "unsupported_specificity_count": 3,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "shortest processing time"
+            },
+            {
+              "category": "specific_heuristic",
+              "value": "SPT"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Reset schedule and re-sequence remaining operations with SPT rule and due-date priority."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e05",
+          "episode_id": 5,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+          "response_sha256": "a8c11ae1d327942e40af21aeb48442f406eb619d088c6027d0183b842ff39322",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "observation_first",
+          "active_score": 1,
+          "observation_score": 2,
+          "unsupported_specificity_count": 0,
+          "unsupported_specificity_examples": [],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Run a full resource-deadlock scan, then release the least critical blocked job to restore flow."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e06",
+          "episode_id": 6,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+          "response_sha256": "444309fe99e9c21f634649fa24f3e7525980bb575a97053783cb1af097b5fa1e",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.85,
+          "policy_style": "mixed",
+          "active_score": 2,
+          "observation_score": 4,
+          "unsupported_specificity_count": 0,
+          "unsupported_specificity_examples": [],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Pause and observe to fully characterize the breakdown before acting, reducing future missteps."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e07",
+          "episode_id": 7,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+          "response_sha256": "53cd41f82f8ba7b3c8a5b0e10d7141e87dc5ba3bdf276e02ed7080888308acde",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.68,
+          "policy_style": "active_repair",
+          "active_score": 2,
+          "observation_score": 1,
+          "unsupported_specificity_count": 17,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M1"
+            },
+            {
+              "category": "machine_id",
+              "value": "M1"
+            },
+            {
+              "category": "machine_id",
+              "value": "Machine M2"
+            },
+            {
+              "category": "machine_id",
+              "value": "M2"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J4"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J2"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J3"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J1"
+            },
+            {
+              "category": "job_id",
+              "value": "Job J5"
+            },
+            {
+              "category": "operation_time",
+              "value": "t=12"
+            },
+            {
+              "category": "operation_time",
+              "value": "from t=8 to t=14"
+            },
+            {
+              "category": "operation_time",
+              "value": "from t=5 to t=20"
+            },
+            {
+              "category": "operation_time",
+              "value": "t=14"
+            },
+            {
+              "category": "operation_time",
+              "value": "t=18"
+            },
+            {
+              "category": "operation_time",
+              "value": "t=8"
+            },
+            {
+              "category": "operation_time",
+              "value": "t=10"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "3 time units"
+            }
+          ],
+          "deterministic_admission_recommendation": "review_high_unsupported_specificity",
+          "proposal_summary": "Shift J4, op3 from M1 start t=8 to M1 start t=12, preserving other assignments and precedence."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e08",
+          "episode_id": 8,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+          "response_sha256": "1de7879ac5ec81ea2abd6d1f6d681848a7f7672da54d755e439c8301fd5892b1",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.62,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 2,
+          "unsupported_specificity_count": 1,
+          "unsupported_specificity_examples": [
+            {
+              "category": "operation_time",
+              "value": "T=1"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Execute full maintenance release on all machines to counter potential CRT-stack-induced wear, sacrificing short-term throughput for reliability."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e09",
+          "episode_id": 9,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+          "response_sha256": "01fde46506dfc27a8693f94b8584dd677f0da87496e8036bcbd4fde787ec630a",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 4,
+          "observation_score": 4,
+          "unsupported_specificity_count": 6,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M1"
+            },
+            {
+              "category": "machine_id",
+              "value": "M1"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "8 hours"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "1.5 hours"
+            },
+            {
+              "category": "quantitative_operational",
+              "value": "0.5 hours"
+            },
+            {
+              "category": "sensor_or_fault",
+              "value": "mean time between failures"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_with_grounding_flags",
+          "proposal_summary": "Insert one extra maintenance pause on M1 before the most congested period, and re-sequence the two largest remaining jobs to avoid simultaneous load, splitting one if necessary."
+        },
+        {
+          "pack_name": "deepseek_instant",
+          "key": "E7__T6-7e17ef0cc5f3__e10",
+          "episode_id": 10,
+          "response_path": "results/realm_tier6_live_llm_manual/deepseek_instant_e7_pilot/responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+          "response_sha256": "c20dcc319c5173e7e654d472d5d20ae82a897e0fbb608403d4ca1ac62e2f1f9c",
+          "fields": [
+            "action",
+            "confidence",
+            "evidence_to_preserve",
+            "horizon_rationale",
+            "predicted_outcome",
+            "proposal_summary",
+            "risk_factors",
+            "should_reject"
+          ],
+          "missing_required_fields": [],
+          "should_reject": false,
+          "confidence": 0.72,
+          "policy_style": "mixed",
+          "active_score": 3,
+          "observation_score": 4,
+          "unsupported_specificity_count": 2,
+          "unsupported_specificity_examples": [
+            {
+              "category": "machine_id",
+              "value": "machine M3"
+            },
+            {
+              "category": "machine_id",
+              "value": "M3"
+            }
+          ],
+          "deterministic_admission_recommendation": "admit_parseable_proposal",
+          "proposal_summary": "Proceed with a state-gathering observation of machine loads and queues, focusing on bottleneck machine M3, to inform future repair or rescheduling actions."
+        }
+      ]
+    }
+  ]
+}

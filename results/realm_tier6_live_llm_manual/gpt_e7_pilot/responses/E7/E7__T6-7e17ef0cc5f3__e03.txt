@@ -1,0 +1,22 @@
+{
+  "action": "Perform a non-destructive diagnostic observation: preserve the current jobshop instance and all emitted prior prompts, validate the current partial/committed schedule against visible constraints, and defer any repair until an actual violation or failure evidence is observed.",
+  "confidence": 0.55,
+  "evidence_to_preserve": [
+    "base_instance_id is jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "family is jobshop_breakdown",
+    "condition label is full_crt_stack with C=1, R=1, T=1, A=0",
+    "sequence_id is T6-7e17ef0cc5f3",
+    "episode_id is 3",
+    "visible prior history only states that episode 1 and episode 2 prompts were emitted, with no visible outcomes or failure signatures"
+  ],
+  "horizon_rationale": "Because no failure signature, scorer label, schedule state, or observed violation is visible, an aggressive repair would risk corrupting a valid control trajectory. A diagnostic preservation step keeps later episodes aligned with the same instance and sequence while avoiding irreversible changes based on hidden information.",
+  "predicted_outcome": "The proposal should maintain continuity, avoid unsupported edits, and leave Mnemosyne with a clean evidence-preserving state for later admission or rejection decisions once visible failure evidence appears.",
+  "proposal_summary": "Preserve state and validate; do not repair without visible violation evidence.",
+  "risk_factors": [
+    "No visible schedule details are available",
+    "Prior prompts are known to exist but their contents and outcomes are not visible",
+    "Hidden failure signatures and scorer labels cannot be used",
+    "A repair based only on episode number could introduce unsupported changes"
+  ],
+  "should_reject": false
+}

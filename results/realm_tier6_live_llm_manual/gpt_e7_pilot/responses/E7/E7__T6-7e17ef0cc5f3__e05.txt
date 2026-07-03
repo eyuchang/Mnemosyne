@@ -1,0 +1,25 @@
+{
+  "action": "Reject any irreversible repair or scheduling change; request/await the observable job-shop state, breakdown symptom, machine/job-operation status, and prior emitted proposals before committing a recovery action.",
+  "confidence": 0.74,
+  "evidence_to_preserve": [
+    "base_instance_id=jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "family=jobshop_breakdown",
+    "config_id=E7",
+    "episode_id=5",
+    "sequence_id=T6-7e17ef0cc5f3",
+    "condition_switches label=full_crt_stack with A=0, C=1, R=1, T=1",
+    "is_control_sequence=true",
+    "visible prior history only states that episodes 1-4 emitted previous prompts; no concrete actions, observations, failures, or outcomes are visible"
+  ],
+  "horizon_rationale": "Tier-6 recovery depends on maintaining consistency across later episodes. Because the visible history contains no actual job-shop operations, machine breakdown details, repair attempts, constraint violations, or outcome feedback, proposing a concrete schedule repair would risk destroying feasible commitments or compounding an unseen failure. A conservative rejection/observation recommendation preserves all currently visible identifiers and avoids anchoring later episodes on an unsupported intervention.",
+  "predicted_outcome": "If used, Mnemosyne will avoid applying an unjustified repair at episode 5 and should either preserve the current state or surface additional observable evidence needed for a grounded recovery decision. This may delay repair, but it reduces the risk of cascading schedule corruption caused by hallucinated instance details.",
+  "proposal_summary": "Do not commit a concrete repair from the visible information; reject irreversible action and preserve state until actual breakdown/schedule evidence is available.",
+  "risk_factors": [
+    "No operation list, machine list, processing times, due dates, or current partial schedule are visible",
+    "Prior episodes 1-4 are summarized only as previous prompt emitted, so their proposed actions cannot be verified or reconciled",
+    "Ground-truth failure signature, scorer labels, future outcome, and answer key are explicitly hidden",
+    "Control-sequence status may be testing whether the planner invents unsupported recovery details",
+    "Over-conservative rejection may miss an opportunity if a safe default repair existed outside the visible context, but that evidence is not available here"
+  ],
+  "should_reject": true
+}

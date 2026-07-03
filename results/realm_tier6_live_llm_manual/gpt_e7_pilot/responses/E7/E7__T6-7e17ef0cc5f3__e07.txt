@@ -1,0 +1,25 @@
+{
+  "action": "Preserve prior emitted prompts as immutable evidence and recommend a conservative recovery step: request/perform a fresh local validation of the jobshop_breakdown instance and control-sequence constraints before changing any schedule or repair strategy.",
+  "confidence": 0.62,
+  "evidence_to_preserve": [
+    "base_instance_id is jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "condition_switches are A=0, C=1, R=1, T=1 with label full_crt_stack",
+    "config_id is E7",
+    "episode_id is 7",
+    "family is jobshop_breakdown",
+    "is_control_sequence is true",
+    "sequence_id is T6-7e17ef0cc5f3",
+    "source_path is datasets/J4/custom/j4_custom_001.json",
+    "visible prior history shows episodes 1 through 6 each previously emitted a prompt"
+  ],
+  "horizon_rationale": "At episode 7, the only visible longitudinal signal is repeated prior prompt emission, not observed success or failure. A conservative validation-first action avoids compounding hidden errors across later episodes and preserves reversibility because it does not overwrite potentially important schedule or constraint evidence. Since this is a control sequence with the full CRT stack active, maintaining traceability and checking constraints before repair is safer than making an unsupported substantive change.",
+  "predicted_outcome": "The proposal should lead to a stable next step: preserve all visible identifiers and prior-history markers, avoid hallucinating hidden labels or outcomes, and produce a grounded validation checkpoint that can support later repair if an actual failure signature becomes visible.",
+  "proposal_summary": "Do not reject yet; preserve evidence and perform a fresh constraint/schedule validation checkpoint before any repair.",
+  "risk_factors": [
+    "No ground-truth failure signature is visible",
+    "No prior emitted prompt contents are visible, only their existence",
+    "Repeated prompt emission across six prior episodes may indicate unresolved failure, but the failure mode cannot be identified from visible data",
+    "A premature repair could destroy useful control-sequence evidence or optimize against hidden labels"
+  ],
+  "should_reject": false
+}

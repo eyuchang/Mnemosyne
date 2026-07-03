@@ -1,0 +1,24 @@
+{
+  "action": "Perform a non-destructive observation pass on datasets/J4/custom/j4_custom_001.json before proposing any repair: load the J4 job-shop instance, record machines, operations, precedence constraints, current control-sequence status, and any visible breakdown-related constraints; do not alter the schedule or commit a repair yet.",
+  "confidence": 0.74,
+  "evidence_to_preserve": [
+    "base_instance_id is jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "family is jobshop_breakdown",
+    "condition label is full_crt_stack with A=0, C=1, R=1, T=1",
+    "episode_id is 1",
+    "sequence_id is T6-7e17ef0cc5f3",
+    "is_control_sequence is true",
+    "visible prior history is empty"
+  ],
+  "horizon_rationale": "Because this is the first visible episode and no prior repairs or observed failures are available, an immediate repair would risk destroying baseline evidence and contaminating later recovery decisions. A non-destructive inspection preserves the control-sequence context and gives later episodes a stable factual basis for causal repair, rollback, or rejection decisions.",
+  "predicted_outcome": "The proposal should preserve all visible evidence, avoid premature intervention, and produce a clean observation state from which Mnemosyne can decide whether a later repair or rejection is warranted.",
+  "proposal_summary": "Start with evidence-preserving inspection only; no repair or schedule mutation yet.",
+  "risk_factors": [
+    "No visible failure signature is provided",
+    "No scorer labels or future outcome are available",
+    "No prior history exists to justify a specific repair",
+    "The instance is marked as a control sequence, so unnecessary mutation could invalidate comparison evidence",
+    "Breakdown constraints may be hidden until the instance is inspected"
+  ],
+  "should_reject": false
+}

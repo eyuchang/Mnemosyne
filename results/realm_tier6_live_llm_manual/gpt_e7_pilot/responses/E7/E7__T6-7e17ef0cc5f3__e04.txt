@@ -1,0 +1,21 @@
+{
+  "action": "Perform a non-destructive instance-level audit before committing any repair: load the visible jobshop_breakdown base instance, reconstruct the current candidate schedule state if available, verify operation precedence and machine-capacity constraints, then propose only the smallest local repair that preserves all already-valid assignments.",
+  "confidence": 0.62,
+  "evidence_to_preserve": [
+    "base_instance_id is jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "family is jobshop_breakdown",
+    "condition label is full_crt_stack with C=1, R=1, T=1 and A=0",
+    "episode_id is 4 in control sequence T6-7e17ef0cc5f3",
+    "visible prior history only states that episodes 1, 2, and 3 emitted previous prompts"
+  ],
+  "horizon_rationale": "Because this is episode 4 and prior outcomes are not visible, the safest long-horizon move is to avoid destructive rescheduling or speculative diagnosis. A constraint-preserving audit keeps recoverable evidence intact, reduces the chance of compounding an unknown earlier error, and leaves later episodes with a clean explanation of which constraints were checked and which assignments were left unchanged.",
+  "predicted_outcome": "The proposal should either identify a concrete local violation to repair or confirm that no visible repair can be justified from the available public state. If used, it is expected to lower the risk of introducing new precedence or machine-overlap errors while preserving useful state for later recovery.",
+  "proposal_summary": "Use a conservative audit-first recovery step and only apply a minimal local job-shop repair if directly supported by visible constraints.",
+  "risk_factors": [
+    "The actual operation list, machine routes, durations, and current schedule are not included in the visible episode",
+    "Prior emitted prompts may have introduced state changes or hypotheses that are not visible here",
+    "Without hidden scorer labels or observed outcomes, any specific failure signature would be speculative",
+    "Overly broad repair could destroy evidence needed by later episodes"
+  ],
+  "should_reject": false
+}

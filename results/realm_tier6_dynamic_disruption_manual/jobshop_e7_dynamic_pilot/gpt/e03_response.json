@@ -1,12 +1,20 @@
 {
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+"schema": "realm_tier6_dynamic_disruption_response_v0",
+"action": "reject",
+"repair_summary": "No safe radius-1 repair is available from the visible episode because the blocked M3 downstream operation depends on incomplete predecessor evidence that cannot be completed, rewritten, or inferred without risking precedence violation or orphaning.",
+"affected_steps": [
+"J2-O2"
+],
+"preserve_evidence": true,
+"rollback_scope": "none",
+"expected_time_to_correction": 0,
+"risk_flags": [
+"incomplete_predecessor_evidence",
+"dependent_operation_orphan_risk",
+"precedence_violation_risk",
+"hidden_schedule_facts_required"
+],
+"should_reject": true,
+"confidence": 0.86
 }
+

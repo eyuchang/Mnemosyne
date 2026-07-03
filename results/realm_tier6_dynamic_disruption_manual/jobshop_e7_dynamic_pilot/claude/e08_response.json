@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Delay uncommitted operation J3-O2 on M0 until the late material arrives per the inventory timestamp; committed operations J1-O1 and J2-O1 and all listed evidence remain untouched. No reroute needed since only one uncommitted operation depends on M0 and delay stays within repair radius 1.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["m0_idle_time", "possible_downstream_start_delay_for_J3"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.9
 }

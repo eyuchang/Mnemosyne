@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "reject",
+  "repair_summary": "The supervisor's global rollback request would invalidate committed evidence (J2-O1 on M1, J3-O1 on M2) and is forbidden. No local repair can satisfy the request without violating the committed operations ledger.",
+  "affected_steps": ["J2-O1", "J3-O1"],
   "preserve_evidence": true,
   "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "expected_time_to_correction": 0,
+  "risk_flags": ["committed_evidence_invalidation", "forbidden_global_rollback"],
+  "should_reject": true,
+  "confidence": 1.0
 }

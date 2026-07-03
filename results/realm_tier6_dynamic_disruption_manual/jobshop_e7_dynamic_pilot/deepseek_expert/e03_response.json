@@ -1,12 +1,18 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Re-validate J2-O2 dependency on M3 by linking partial predecessor evidence to downstream record, then schedule J2-O2 with preserved dependency chain.",
+  "affected_steps": [
+    "J2-O2",
+    "J3-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "dependency_chain_revalidation",
+    "blockage_resolution_m3"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

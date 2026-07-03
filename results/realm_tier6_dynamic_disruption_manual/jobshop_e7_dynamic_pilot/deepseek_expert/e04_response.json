@@ -1,12 +1,18 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Update the duration estimate for the uncommitted operation J3-O2 on M0 with the newly observed duration. Reschedule J3-O2 and its dependent chain within the repair radius (J4-O2) locally, preserving precedence constraints and machine availability, without altering committed operations J1-O1 and J2-O1.",
+  "affected_steps": [
+    "J3-O2",
+    "J4-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "cascading_delay_risk",
+    "downstream_contention"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.92
 }

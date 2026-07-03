@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Delay uncommitted J1-O2 on M1 until after the calibration hold clears; no reassignment, no committed operations touched, calibration-hold notice and pre-hold dispatch record retained as-is.",
+  "affected_steps": ["J1-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["M1_availability_uncertain_until_hold_clears", "possible_downstream_delay_for_J1_successors"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

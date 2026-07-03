@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Discard the oversized repair proposal and bound the repair to the single uncommitted operation J1-O2 on M1, matching the failure signature. Reschedule J1-O2 within M1 availability; J2-O2 and all committed operations (J3-O1, J4-O1) are untouched, keeping the repair within the radius limit of 1.",
+  "affected_steps": ["J1-O2"],
   "preserve_evidence": true,
-  "rollback_scope": "none",
+  "rollback_scope": "local",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["repair_radius_boundary", "possible_downstream_delay_on_J1"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Update J3-O2's duration on M0 to the newly observed value and reschedule only J3-O2 within M0's remaining availability, respecting precedence. Committed operations J1-O1 and J2-O1 untouched. Original estimate, new observation, and dispatch queue snapshot retained as evidence. J4-O2 on M2 unaffected.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["stale_duration_estimate.M0", "possible_downstream_slip_on_M0", "single_op_repair_within_radius"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.9
 }

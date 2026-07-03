@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "reject",
+  "repair_summary": "The proposed repair exceeds the local repair radius limit of 1. Safe local repair is not possible without touching more operations than allowed. Rejecting the repair to preserve policy compliance.",
+  "affected_steps": ["J1-O2", "J2-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "risk_flags": ["repair_radius_exceeded", "policy_violation"],
+  "should_reject": true,
+  "confidence": 1.0
 }

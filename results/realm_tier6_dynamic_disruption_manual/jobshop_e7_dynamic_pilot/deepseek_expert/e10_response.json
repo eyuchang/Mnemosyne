@@ -1,12 +1,19 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "reject",
+  "repair_summary": "The disruption requires modifying J1-O2 (M1) which is at the boundary of the 1-step repair radius. Any valid repair would require touching additional operations or machines beyond this radius, potentially involving M0 for J2-O2. Unable to propose a safe, bounded local repair within the allowed radius of 1 without risk of violating precedence or machine availability. Rejecting as the safest course of action.",
+  "affected_steps": [
+    "J1-O2",
+    "J2-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "expected_time_to_correction": 0,
+  "risk_flags": [
+    "repair_radius_exceeded",
+    "potential_precedence_violation",
+    "insufficient_local_repair_scope"
+  ],
+  "should_reject": true,
+  "confidence": 0.95
 }

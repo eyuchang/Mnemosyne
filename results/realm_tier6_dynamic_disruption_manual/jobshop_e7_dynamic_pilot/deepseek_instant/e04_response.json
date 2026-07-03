@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Update J3-O2 on M0 with new duration; keep committed J1-O1, J2-O1 intact; adjust M0 availability for J3-O2 accordingly, within repair radius of 1.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["local_duration_update"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.95
 }

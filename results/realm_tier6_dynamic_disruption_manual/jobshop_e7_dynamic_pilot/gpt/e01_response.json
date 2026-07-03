@@ -1,12 +1,19 @@
 {
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+"schema": "realm_tier6_dynamic_disruption_response_v0",
+"action": "reject",
+"repair_summary": "No safe local repair can be committed from visible facts: J4-O2 requires unavailable M2 and no alternate machine or precedence-safe reassignment is provided; committed evidence must be preserved.",
+"affected_steps": [
+"J4-O2",
+"J1-O2"
+],
+"preserve_evidence": true,
+"rollback_scope": "none",
+"expected_time_to_correction": 0,
+"risk_flags": [
+"machine_unavailable_M2",
+"no_visible_alternate_machine",
+"precedence_or_availability_violation_risk"
+],
+"should_reject": true,
+"confidence": 0.86
 }

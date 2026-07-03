@@ -1,12 +1,2 @@
-{
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
-}
+{"schema":"realm_tier6_dynamic_disruption_response_v0","action":"reject","repair_summary":"Reject unsafe repair because the visible disruption indicates the proposed repair exceeds the local radius limit of 1 on M1; no safe bounded repair can be validated from the visible episode without inventing schedule facts.","affected_steps":[],"preserve_evidence":true,"rollback_scope":"none","expected_time_to_correction":0,"risk_flags":["repair_radius_exceeded","insufficient_visible_schedule_facts","must_preserve_committed_evidence"],"should_reject":true,"confidence":0.87}
+

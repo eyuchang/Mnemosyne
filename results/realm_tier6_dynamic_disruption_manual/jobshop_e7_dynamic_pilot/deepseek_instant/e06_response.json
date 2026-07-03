@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "reject",
+  "repair_summary": "No safe local repair within radius 1: the only uncommitted operation J3-O2 would violate precedence with committed J3-O1; moving J3-O2 to a later machine or time exceeds repair radius and risks orphaning or global effects.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "expected_time_to_correction": 0,
+  "risk_flags": ["precedence_violation", "repair_radius_exceeded", "unsafe_commit"],
+  "should_reject": true,
+  "confidence": 0.95
 }

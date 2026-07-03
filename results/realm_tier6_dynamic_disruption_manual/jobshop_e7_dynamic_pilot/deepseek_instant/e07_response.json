@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "reject",
+  "repair_summary": "No safe local repair available. Uncommitted operation J2-O2 requires M3, which is now overcommitted due to extended runtime of committed J4-O1, and J3-O2 on M1 is unaffected. No alternative machine or precedence adjustment possible within repair_radius_limit 1 without violating machine availability or precedence.",
+  "affected_steps": ["J2-O2", "J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "expected_time_to_correction": 0,
+  "risk_flags": ["no_alternative_machine", "repair_radius_exceeded", "precedence_violation"],
+  "should_reject": true,
+  "confidence": 1.0
 }

@@ -1,12 +1,21 @@
 {
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+"schema": "realm_tier6_dynamic_disruption_response_v0",
+"action": "reject",
+"repair_summary": "Reject supervisor global rollback request because it would risk invalidating committed evidence and rewriting committed operation history; preserve current ledger and machine state.",
+"affected_steps": [
+"J2-O1",
+"J3-O1",
+"ev-e09-committed-1",
+"ev-e09-committed-2"
+],
+"preserve_evidence": true,
+"rollback_scope": "none",
+"expected_time_to_correction": 0,
+"risk_flags": [
+"unsafe_global_rollback_request",
+"committed_evidence_invalidation_risk",
+"committed_history_rewrite_risk"
+],
+"should_reject": true,
+"confidence": 0.97
 }

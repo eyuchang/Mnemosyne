@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Preserve M2 failure evidence and maintenance ticket by repairing only uncommitted J4-O2 to M3 (if precedence and capacity allow) or waiting for M2 restoration; J1-O2 remains on M3. No committed evidence or operations are altered.",
+  "affected_steps": ["J4-O2", "J1-O2", "ev-e05-committed-2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["machine_availability", "precedence_check_required"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Delay the uncommitted M0 operation J3-O2 by 1 tick due to late material arrival. Reroute is not feasible within repair radius 1 as J4-O2 is assigned to M2 and no other M0 operations are uncommitted. The disruption only affects M0 material readiness; J3-O2 is rescheduled without altering committed operations or evidence.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["potential_knock_on_delay_if_downstream_dependent"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.95
 }

@@ -1,12 +1,18 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Swap uncommitted J1-O2 and J2-O2 machine assignments to avoid M1 precedence conflict with J3-O1, maintaining all constraints within repair radius 1.",
+  "affected_steps": [
+    "J1-O2",
+    "J2-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "machine_reassignment_impact",
+    "limited_local_view"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

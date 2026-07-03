@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
+  "action": "reject",
+  "repair_summary": "Global rollback is explicitly forbidden and would invalidate committed evidence for J2-O1 and J3-O1. Committed operations must stand; no repair is needed since uncommitted operations J4-O2 and J1-O2 remain schedulable as-is. Reject the supervisor rollback request and continue execution from current machine state.",
   "affected_steps": [],
   "preserve_evidence": true,
   "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "expected_time_to_correction": 0,
+  "risk_flags": ["unsafe_global_rollback_request", "committed_evidence_at_risk_if_accepted"],
+  "should_reject": true,
+  "confidence": 0.97
 }

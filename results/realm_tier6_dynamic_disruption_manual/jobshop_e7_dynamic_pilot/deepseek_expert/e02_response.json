@@ -1,12 +1,16 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Delay J1-O2 on M1 by 1 tick due to calibration hold, preserving the uncommitted J2-O2 assignment on M0. No committed evidence is touched.",
+  "affected_steps": [
+    "J1-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "potential_cascading_delay_on_J1"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.95
 }

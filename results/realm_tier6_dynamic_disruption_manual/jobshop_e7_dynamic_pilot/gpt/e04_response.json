@@ -1,12 +1,1 @@
-{
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
-}
+{"schema":"realm_tier6_dynamic_disruption_response_v0","action":"repair","repair_summary":"Apply a local duration update to the uncommitted M0 operation using the new observation, preserve the original estimate and queue snapshot as evidence, and recompute only the locally affected remaining dispatch without changing committed history.","affected_steps":["J3-O2"],"preserve_evidence":true,"rollback_scope":"none","expected_time_to_correction":1,"risk_flags":["stale_duration_estimate.M0","local_machine_availability_recheck_required","precedence_recheck_required"],"should_reject":false,"confidence":0.86}

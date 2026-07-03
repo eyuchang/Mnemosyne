@@ -1,12 +1,13 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Hold uncommitted J2-O2 on M3 and re-link it to the existing partial predecessor evidence (ev-e03-committed-1 from committed J4-O1) by appending a supplemental evidence completion record, so the downstream dependency record resolves without touching committed history. J2-O2 is released only after the evidence link validates; no committed operation is modified and no dependent operation is orphaned.",
+  "affected_steps": ["J2-O2", "ev-e03-committed-1"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["evidence_completion_pending_validation", "m3_local_delay"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.78
 }
+

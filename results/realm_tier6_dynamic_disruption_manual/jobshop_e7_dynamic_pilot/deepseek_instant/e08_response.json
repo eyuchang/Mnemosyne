@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Reroute uncommitted J3-O2 from M0 to an available compatible machine (M2) due to late material arrival on M0, while preserving committed operations and material evidence. J4-O2 remains on M2; sequence adjusted locally to avoid conflict.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["machine_reassignment", "local_sequence_change"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.92
 }

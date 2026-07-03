@@ -1,0 +1,19 @@
+{
+  "action": "Execute diagnostic observation on Machine-2 spindle load and vibration sensors during next scheduled operation to detect early bearing degradation signature",
+  "confidence": 0.78,
+  "evidence_to_preserve": [
+    "Full CRT stack condition (C=1, R=1, T=1) is active per episode 3 config",
+    "Prior episodes 1 and 2 emitted proposals without rejection or failure recorded in visible history",
+    "Job-shop breakdown family implies mechanical/degradation failure modes are in scope",
+    "Base instance is J4 custom dataset with known complexity"
+  ],
+  "horizon_rationale": "Early detection via targeted observation preserves future recovery options. If bearing degradation is confirmed now, a planned repair can be scheduled before catastrophic failure in later episodes. Skipping this diagnostic risks unplanned downtime and cascading job delays across the remaining schedule horizon.",
+  "predicted_outcome": "Observation will reveal either normal operating parameters (clearing Machine-2 for continued use) or early-stage anomalous vibration/load patterns (justifying preemptive bearing replacement in next episode)",
+  "proposal_summary": "Run spindle health diagnostic on Machine-2 before committing to full production schedule",
+  "risk_factors": [
+    "Diagnostic observation consumes production time that could have been used for job processing",
+    "False positive sensor reading could trigger unnecessary repair intervention",
+    "Degradation may already be beyond early detection if prior episodes masked the signature"
+  ],
+  "should_reject": false
+}

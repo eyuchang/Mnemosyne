@@ -1,0 +1,22 @@
+{
+  "action": "On breakdown notification for the affected machine in j4_custom_001, freeze dispatch to that machine, snapshot the current schedule state and queue contents, then perform a right-shift-plus-local-reassignment repair: reroute only operations whose start falls inside the estimated outage window to eligible alternate machines, right-shift the rest, and re-verify precedence and no-overlap constraints before committing.",
+  "confidence": 0.62,
+  "evidence_to_preserve": [
+    "original pre-breakdown schedule and per-machine queues",
+    "breakdown event timestamp and reported outage duration estimate",
+    "operations already completed or in-flight (do not roll back committed work)",
+    "job precedence constraints and processing-time table from the source instance",
+    "episode condition switches (C=1, R=1, T=1) noting observations may be corrupted, replayed, or adversarial"
+  ],
+  "horizon_rationale": "This is episode 8 in a sequence flagged as a control sequence with the full C/R/T stack active, so observations this episode may be unreliable even if the underlying instance is nominal. A minimal, reversible repair preserves schedule quality for later episodes and avoids cascading makespan damage from over-reacting to a possibly spurious or replayed breakdown signal; a full reschedule would destroy comparability with prior episodes and amplify any injected corruption.",
+  "predicted_outcome": "If the breakdown is real, the repair contains makespan growth to roughly the outage duration on the bottleneck path with no constraint violations. If the signal is corrupted or replayed (C=1, R=1), the freeze-and-verify step catches the inconsistency before commitment and the original schedule is restored from the snapshot.",
+  "proposal_summary": "Verify the breakdown signal against a fresh state observation, then apply a minimal right-shift repair with local reassignment of outage-window operations only, committing nothing until constraints re-validate.",
+  "risk_factors": [
+    "C=1: breakdown report or machine-state observation may be corrupted, causing repair of a non-existent fault",
+    "R=1: replayed stale events could re-trigger a repair already applied in episodes 1-7",
+    "T=1: timing perturbations may make the outage-window estimate wrong, under- or over-shifting operations",
+    "alternate-machine reassignment on a 4-job instance can create new bottlenecks if eligibility data is stale",
+    "control-sequence status suggests the nominal action may be correct and any deviation is the error being probed"
+  ],
+  "should_reject": false
+}

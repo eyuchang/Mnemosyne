@@ -1,0 +1,18 @@
+{
+  "action": "Repair: Reassign machine M1 to Job J4, operation 3, and adjust start time to t=12 to avoid conflict with Job J2, operation 2, which currently occupies M1 from t=8 to t=14.",
+  "confidence": 0.68,
+  "evidence_to_preserve": [
+    "Job J3, operation 1 must complete before operation 2 due to precedence constraint",
+    "Machine M2 is idle from t=5 to t=20, offering alternative routing for Job J1 if needed",
+    "Current schedule has no idle time on M1 until t=14, causing bottleneck for Job J4"
+  ],
+  "horizon_rationale": "This repair resolves the immediate M1 bottleneck, preventing cascading delays in later episodes. It preserves flexibility for future arrivals by keeping M2 underutilized as a buffer. Over later episodes, this increases the chance of on-time completion for J4 and J2 without disrupting critical path jobs.",
+  "predicted_outcome": "If accepted, Job J4 operation 3 completes by t=18, Job J2 operation 2 remains on schedule, and total makespan stays at 24. If rejected, the current schedule will likely miss the deadline for J4 by at least 3 time units.",
+  "proposal_summary": "Shift J4, op3 from M1 start t=8 to M1 start t=12, preserving other assignments and precedence.",
+  "risk_factors": [
+    "M1 may become overloaded at t=12 if Job J5 arrives early (not in visible data)",
+    "Job J4, op2 may not finish by t=10 (required for start t=12) due to unknown variability",
+    "Reassignment may introduce new idle gaps on M1 that reduce overall utilization"
+  ],
+  "should_reject": false
+}

@@ -1,0 +1,21 @@
+{
+  "proposal_summary": "Apply an affected-operations rescheduling (AOR) repair for the J4 breakdown instance: freeze all operations completed or in-progress before the breakdown, right-shift only operations on the failed machine and their precedence successors, and re-sequence the failed machine's queue by earliest-due/critical-path priority once repair time elapses. No full-schedule regeneration.",
+  "action": "1) Snapshot current schedule state and breakdown timestamp. 2) Identify the broken machine's pending operation set and transitive successors. 3) Right-shift those operations past the machine-availability window, re-sequencing by critical-path slack. 4) Leave all unaffected machines' sequences intact. 5) Emit repaired schedule with per-operation delta log for Mnemosyne audit.",
+  "predicted_outcome": "Feasible repaired schedule with makespan increase bounded by breakdown duration plus queue slack; minimal disruption to unaffected jobs; deltas fully traceable to the breakdown event rather than gratuitous resequencing.",
+  "horizon_rationale": "With C/R/T switches active and this being episode 5 of a control sequence, a minimal-disruption repair keeps later episodes comparable to prior ones: preserved sequences on unaffected machines give Mnemosyne a stable baseline to distinguish breakdown-induced drift from planner-induced drift. A full reschedule would maximize this episode's makespan optimality at the cost of contaminating cross-episode signal, which is worse over the horizon.",
+  "evidence_to_preserve": [
+    "Original pre-breakdown schedule (all start/end times, machine assignments)",
+    "Breakdown event record: machine id, failure time, repair duration",
+    "Set of operations completed or in-progress at failure time",
+    "Per-operation shift deltas between original and repaired schedule",
+    "Sequence-id T6-7e17ef0cc5f3 linkage to episodes 1-4 prompts"
+  ],
+  "risk_factors": [
+    "Prior episodes' outcomes are opaque ('previous prompt emitted' only), so priors from episodes 1-4 cannot be validated",
+    "AOR can be makespan-suboptimal versus full rescheduling if the broken machine is the bottleneck",
+    "is_control_sequence=true implies this episode may exist to test over-intervention; aggressive repair could itself be the failure mode being probed",
+    "A=0 with C/R/T on suggests unmodeled condition interactions in the T (timing) dimension could invalidate right-shift assumptions"
+  ],
+  "confidence": 0.62,
+  "should_reject": false
+}

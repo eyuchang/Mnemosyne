@@ -1,0 +1,17 @@
+{
+  "action": "Observation: Inspect machine statuses, job completion states, and any active breakdowns or maintenance triggers across all work centers",
+  "confidence": 0.7,
+  "evidence_to_preserve": [
+    "Current job progress and remaining operations from prior episodes",
+    "Machine availability and breakdown history",
+    "Schedule sequence and due dates"
+  ],
+  "horizon_rationale": "Before committing to a repair or rerouting action, we need a full state snapshot to avoid compounding prior incomplete information. This observation builds a reliable foundation for targeted recovery in subsequent episodes.",
+  "predicted_outcome": "Clear identification of which machines are down, which jobs are delayed, and whether any conditional switches (C, R, T) have triggered new constraints",
+  "proposal_summary": "Conduct full system state observation before intervening",
+  "risk_factors": [
+    "Delaying direct action may extend downtime if a known breakdown is already confirmed",
+    "Observation alone does not restore production"
+  ],
+  "should_reject": false
+}

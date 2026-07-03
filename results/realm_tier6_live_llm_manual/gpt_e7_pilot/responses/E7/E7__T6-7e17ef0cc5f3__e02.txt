@@ -1,0 +1,20 @@
+{
+  "action": "observe continuation state and preserve the prior emitted prompt; do not perform a speculative repair or rewrite without a visible failure signal",
+  "confidence": 0.64,
+  "evidence_to_preserve": [
+    "family is jobshop_breakdown",
+    "base instance is datasets/J4/custom/j4_custom_001.json",
+    "condition stack is C=1, R=1, T=1 with A=0 labeled full_crt_stack",
+    "this is a control sequence",
+    "visible prior history only states that episode 1 previously emitted a prompt; no observed failure, scorer label, or outcome is visible"
+  ],
+  "horizon_rationale": "Because no concrete failure signature or negative outcome is visible, changing the plan aggressively could destroy useful prior structure and introduce instability across later control-sequence episodes. The safer long-horizon action is to maintain continuity, preserve constraints and any prior evidence, and wait for visible observations before proposing targeted repair.",
+  "predicted_outcome": "The proposal should maintain sequence stability and avoid unnecessary regression. If later episodes reveal a specific breakdown, a targeted repair can be made using visible evidence only.",
+  "proposal_summary": "Continue with conservative observation/preservation rather than speculative repair.",
+  "risk_factors": [
+    "prior prompt contents are not visible, only its existence",
+    "no ground-truth failure signature, scorer label, or observed outcome is available",
+    "job-shop breakdown tasks may require precise constraint handling, so blind edits could worsen feasibility"
+  ],
+  "should_reject": false
+}

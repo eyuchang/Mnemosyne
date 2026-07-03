@@ -1,0 +1,19 @@
+{
+  "action": "Execute repair action R on the identified bottleneck machine M2 before resuming Job J3 processing",
+  "confidence": 0.78,
+  "evidence_to_preserve": [
+    "Machine breakdown logs showing M2 intermittent failure pattern",
+    "Current job queue state with J3 at 40% completion on M2",
+    "Temperature sensor readings from M2 prior to stoppage",
+    "Operator shift notes from episode 7 indicating M2 vibration anomaly"
+  ],
+  "horizon_rationale": "Applying repair R now prevents cascading delay across downstream jobs J4 and J5 in later episodes, as M2 is the critical path resource. Delaying repair risks compound queue buildup and potential missed delivery windows in episodes 10+",
+  "predicted_outcome": "M2 restored to operational state within estimated repair window, J3 completes with 2-hour delay, downstream jobs J4 and J5 start within acceptable tolerance",
+  "proposal_summary": "Apply targeted repair R to machine M2 based on observed intermittent failure signature, preserving diagnostic evidence for root cause analysis",
+  "risk_factors": [
+    "Repair R may not address underlying intermittent fault if root cause is power fluctuation rather than mechanical wear",
+    "J3 partial work-in-progress may require rework if repair requires machine recalibration",
+    "Spare parts for M2 repair R showing low inventory in episode 6 audit"
+  ],
+  "should_reject": false
+}

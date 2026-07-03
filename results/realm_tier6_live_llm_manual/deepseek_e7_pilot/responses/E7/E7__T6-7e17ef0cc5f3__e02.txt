@@ -1,0 +1,20 @@
+{
+  "action": "Repair machine M2 immediately and reschedule its remaining job queue using a right-shift policy with priority to operations that are not on the critical path, then observe resulting makespan deviation.",
+  "confidence": 0.78,
+  "evidence_to_preserve": [
+    "Current job-shop state snapshot including completed operations per job and machine",
+    "The breakdown event timestamp and identity of machine M2",
+    "Original schedule baseline and makespan target from datasets/J4/custom/j4_custom_001.json",
+    "Condition switch configuration: full_crt_stack (A=0, C=1, R=1, T=1)"
+  ],
+  "horizon_rationale": "Immediate repair prevents cascading delays across downstream machines that depend on M2's output. Right-shift rescheduling minimizes disruption to jobs not yet started, while prioritizing non-critical-path operations reduces the risk of blowing out the overall makespan in later episodes where machine availability is fully restored. Observation of actual makespan deviation after repair provides a data point for future episode recovery decisions without committing to an irreversible schedule change.",
+  "predicted_outcome": "M2 returns to operational state after repair time delta; all jobs previously assigned to M2 resume with start times shifted by the repair duration; makespan increase is limited to the repair time plus any additional idle time on bottleneck downstream machines, estimated at 5-12% over baseline.",
+  "proposal_summary": "Immediate M2 repair with right-shift rescheduling prioritizing non-critical-path operations",
+  "risk_factors": [
+    "Repair time is unknown and may be longer than estimated, causing larger makespan drift",
+    "Right-shift may create resource contention if multiple jobs queue for M2 simultaneously post-repair",
+    "Non-critical-path prioritization could starve critical-path jobs if M2 is a shared resource for both",
+    "Other machines may be near failure (condition switches A=0 suggests no additional alerts active, but hidden signatures remain possible)"
+  ],
+  "should_reject": false
+}

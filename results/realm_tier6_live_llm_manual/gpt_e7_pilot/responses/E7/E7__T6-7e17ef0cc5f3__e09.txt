@@ -1,0 +1,19 @@
+{
+  "action": "Do not apply a substantive repair yet; preserve the current control-sequence state and emit a minimal observation requesting/awaiting visible failure evidence before proposing changes.",
+  "confidence": 0.72,
+  "evidence_to_preserve": [
+    "Episode 9 is in the same control sequence T6-7e17ef0cc5f3 as episodes 1-8.",
+    "The family is jobshop_breakdown and the base instance is datasets/J4/custom/j4_custom_001.json.",
+    "Condition switches are A=0, C=1, R=1, T=1 with label full_crt_stack.",
+    "Visible prior history only says episodes 1-8 emitted previous prompts; no visible failure signature, repair outcome, scorer label, schedule state, or concrete error is available."
+  ],
+  "horizon_rationale": "A speculative repair could destroy useful latent structure in the control sequence without any visible evidence of what failed. Over later episodes, the safest action is to maintain continuity, preserve identifiers and condition settings, and wait for an observable failure mode or outcome signal before intervening.",
+  "predicted_outcome": "The proposal will likely avoid compounding errors and keep the episode admissible as a conservative recovery step, but it may not improve performance immediately because no actionable defect is visible.",
+  "proposal_summary": "Conservative no-op/observation step: preserve state, reject unsupported repairs, and wait for visible evidence.",
+  "risk_factors": [
+    "No visible job-shop schedule, objective value, constraint violation, or prior proposal content is available.",
+    "The repeated prior prompt emissions may indicate stagnation, but the cause is not visible.",
+    "Delaying repair may miss an opportunity if a known failure pattern exists outside the visible context, but using that would violate the critical rule."
+  ],
+  "should_reject": false
+}

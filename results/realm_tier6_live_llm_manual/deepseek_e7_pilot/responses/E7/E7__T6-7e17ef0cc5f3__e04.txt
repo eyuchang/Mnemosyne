@@ -1,0 +1,19 @@
+{
+  "action": "Dispatch maintenance to inspect Machine M2 for mechanical failure and simultaneously re-route M2's pending jobs to alternate machines M1 or M3 where feasible, while preserving all job completion timestamps and tool wear data for root cause analysis.",
+  "confidence": 0.85,
+  "evidence_to_preserve": [
+    "all job completion timestamps from episodes 1-3",
+    "tool wear logs and maintenance records",
+    "job-to-machine assignment history",
+    "breakdown event timestamps and machine state logs"
+  ],
+  "horizon_rationale": "Preserving completion timestamps and tool wear data allows correlation of breakdown timing with cumulative stress, enabling prediction of future failures. Rerouting jobs maintains schedule adherence and prevents cascading delays in later episodes.",
+  "predicted_outcome": "M2 downtime minimized, jobs reassigned without violating precedence constraints, and sufficient forensic data retained to identify failure signature in later episodes.",
+  "proposal_summary": "Inspect M2, reroute its jobs, and preserve diagnostic data.",
+  "risk_factors": [
+    "alternate machines may lack capacity or tooling compatibility",
+    "rerouting may introduce new precedence conflicts",
+    "root cause may remain hidden without destructive teardown"
+  ],
+  "should_reject": false
+}

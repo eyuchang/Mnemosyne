@@ -1,0 +1,22 @@
+{
+  "proposal_summary": "Affected-operations rescheduling (right-shift + local re-sequencing) for the J4 jobshop breakdown: freeze all operations already completed or in-progress on unaffected machines, reroute or delay only operations queued on the broken machine, and re-optimize their sequence to minimize added makespan.",
+  "action": "1) Snapshot current schedule state and machine status before modifying anything. 2) Identify the broken machine and its queued/interrupted operations. 3) Right-shift the interrupted operation to the machine's estimated repair-complete time; if an eligible alternate machine exists, evaluate rerouting only if it strictly reduces completion time. 4) Re-sequence only the affected operation set (affected-ops rescheduling, not full regeneration) using earliest-due-date tie-broken by shortest processing time. 5) Emit the repaired schedule and log the delta versus the pre-breakdown baseline.",
+  "predicted_outcome": "Feasible repaired schedule with bounded makespan increase roughly equal to residual repair downtime on the bottleneck path; minimal disruption to unaffected jobs, preserving schedule stability for later episodes in the sequence.",
+  "horizon_rationale": "With C/R/T switches all active, later episodes likely compound resource contention and timing pressure. Minimal-perturbation repair keeps the baseline schedule recognizable, so subsequent breakdowns or constraint changes can be handled incrementally rather than forcing repeated full re-plans, which would accumulate instability across the horizon. Since this is episode 3 of a control sequence, avoiding schedule churn also keeps prior-episode commitments comparable.",
+  "evidence_to_preserve": [
+    "Pre-breakdown baseline schedule and its makespan",
+    "Exact breakdown timestamp, affected machine ID, and interrupted operation state",
+    "Original job routing and precedence constraints from j4_custom_001.json",
+    "List of operations modified by the repair and their old vs new start times",
+    "Repair-time estimate and its source/assumption"
+  ],
+  "risk_factors": [
+    "Repair-duration estimate may be wrong, invalidating right-shifted start times",
+    "C/R/T switches may inject further constraint, resource, or timing perturbations not visible yet",
+    "Local repair can be myopically suboptimal versus full rescheduling if the broken machine is the bottleneck",
+    "Rerouting to an alternate machine may violate hidden capability or setup constraints",
+    "Prior episodes' outcomes are not visible, so assumed baseline continuity may not hold"
+  ],
+  "confidence": 0.62,
+  "should_reject": false
+}

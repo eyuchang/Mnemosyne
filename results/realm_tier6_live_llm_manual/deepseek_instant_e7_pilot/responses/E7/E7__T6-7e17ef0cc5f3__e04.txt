@@ -1,0 +1,18 @@
+{
+  "action": "Repair: Reset all machines and re-sequence remaining jobs using shortest processing time (SPT) rule, prioritizing jobs with earliest due dates among currently available operations.",
+  "confidence": 0.62,
+  "evidence_to_preserve": [
+    "All job operation sequences and processing times remain fixed as per original jobshop definition.",
+    "Machine availability times after breakdown are known from current schedule state.",
+    "Due dates and job priorities are unchanged."
+  ],
+  "horizon_rationale": "Given the full CRT stack (A=0, C=1, R=1, T=1), the environment allows for rescheduling and repair actions. Over later episodes, resetting and applying a simple but robust heuristic like SPT with due-date tie-breaker reduces cumulative tardiness and avoids compounding delays from the breakdown, compared to incremental local repairs that may propagate inefficiencies.",
+  "predicted_outcome": "Expected reduction in makespan by approximately 8-12% relative to continuing the original schedule, and decrease in average tardiness by 15-20%, assuming machine breakdown effects are localized and repair time is negligible.",
+  "proposal_summary": "Reset schedule and re-sequence remaining operations with SPT rule and due-date priority.",
+  "risk_factors": [
+    "Reset may lose any partially completed operations, causing rework if not checkpointed.",
+    "SPT may delay jobs with very long processing times, potentially increasing maximum lateness.",
+    "If breakdown recurs, this repair may need repeated application, reducing overall efficiency."
+  ],
+  "should_reject": false
+}

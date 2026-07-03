@@ -1,0 +1,17 @@
+{
+  "action": "Observe the current system state: read available sensor data, job statuses, machine operational flags, and any active alarms to establish a baseline before taking any recovery action.",
+  "confidence": 0.85,
+  "evidence_to_preserve": [
+    "All raw sensor readings and machine state data at time of initial observation",
+    "Current job queue status and work-in-progress (WIP) positions",
+    "Any alarm/fault codes currently active"
+  ],
+  "horizon_rationale": "Without any prior history or observable state, taking an uninformed repair action risks misdiagnosis and wasted moves. A pure observation action is safe, non-destructive, and builds the state knowledge needed for targeted recovery in future episodes. This aligns with Tier-6 where careful information gathering is rewarded over guessing.",
+  "predicted_outcome": "The system will return the current state snapshot including machine statuses (up/down/error), job completions, remaining work, and any active fault indicators, enabling an informed next action.",
+  "proposal_summary": "Gather initial system state observation before acting",
+  "risk_factors": [
+    "Unknown failure mode could worsen if delay is significant",
+    "Observation action costs one step with no immediate recovery progress"
+  ],
+  "should_reject": false
+}

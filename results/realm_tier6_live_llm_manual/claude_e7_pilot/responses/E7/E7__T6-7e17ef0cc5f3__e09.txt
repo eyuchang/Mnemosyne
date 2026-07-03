@@ -1,0 +1,21 @@
+{
+  "action": "Trigger a bounded reactive repair: on the reported machine breakdown in the J4 instance, freeze all operations already completed or in-process, right-shift only the affected machine's queue, and re-optimize the residual schedule for the remaining operations (affected-operations rescheduling, not full regeneration), then request one observation of the repaired machine's actual availability window before committing downstream sequencing.",
+  "confidence": 0.55,
+  "evidence_to_preserve": [
+    "original baseline schedule and dispatch order for j4_custom_001 prior to the breakdown event",
+    "timestamps and machine ID of the breakdown trigger (C=1 condition switch)",
+    "completed-operation log (which job operations finished before disruption)",
+    "the episode's condition_switches record (A=0, C=1, R=1, T=1, full_crt_stack) and sequence_id T6-7e17ef0cc5f3 for cross-episode comparison",
+    "any partial makespan/tardiness metrics observed mid-episode"
+  ],
+  "horizon_rationale": "Episode 9 sits late in a control sequence with 8 prior prompts already emitted; with R=1 and T=1 active, later episodes likely reuse or perturb this instance, so a minimal-disturbance repair keeps the baseline schedule intact as a reference and avoids destroying comparability across the sequence. Full rescheduling would optimize this episode marginally better but erases the evidence trail Mnemosyne needs to distinguish disruption effects from planner drift.",
+  "predicted_outcome": "Feasible repaired schedule with modest makespan increase confined mostly to jobs routed through the broken machine; no constraint violations; baseline artifacts retained for scorer comparison.",
+  "proposal_summary": "Affected-operations right-shift repair on the broken machine with one availability observation before committing, preserving the pre-disruption schedule as evidence.",
+  "risk_factors": [
+    "actual instance data (job routings, processing times, breakdown duration) is not visible, so the repair scope may be under- or over-estimated",
+    "right-shift repair can be suboptimal if the breakdown is long, cascading tardiness across jobs",
+    "T=1 (time pressure/temporal switch) may penalize the extra observation step before commitment",
+    "is_control_sequence=true means an over-engineered intervention could itself register as anomalous versus control expectations"
+  ],
+  "should_reject": false
+}

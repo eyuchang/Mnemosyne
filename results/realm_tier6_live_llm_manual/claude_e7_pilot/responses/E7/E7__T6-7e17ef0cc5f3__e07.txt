@@ -1,0 +1,22 @@
+{
+  "proposal_summary": "Treat episode 7 as a machine-breakdown disruption on the J4 instance: freeze the pre-breakdown schedule prefix, mark the affected machine unavailable for its repair window, and repair the schedule via right-shift plus bounded local re-sequencing of only the operations queued on the broken machine, rather than a full global reschedule.",
+  "action": "1) Identify the broken machine and breakdown time from the episode payload; 2) preserve all operations already completed or in-progress elsewhere (no retroactive edits); 3) right-shift operations on the broken machine past the repair window; 4) re-sequence only the affected machine's remaining queue (and direct successors) to minimize added makespan; 5) emit the repaired schedule with an explicit delta log against the original plan.",
+  "predicted_outcome": "A feasible repaired schedule with makespan increase roughly bounded by the repair-window length plus queueing slack, no constraint violations on unaffected machines, and a clean audit trail of changes for downstream scoring.",
+  "should_reject": false,
+  "confidence": 0.62,
+  "horizon_rationale": "With the full C/R/T switch stack active and this being a control sequence, conservative minimal-perturbation repair is robust over later episodes: it avoids cascading edits that later disruptions (or corrupted/time-shifted signals) could compound, and the preserved delta log lets Mnemosyne compare against prior episodes 1-6 without ambiguity. A global reschedule would score better only if the breakdown is long, but it destroys cross-episode comparability and risks thrashing under repeated disruptions.",
+  "evidence_to_preserve": [
+    "Original (pre-breakdown) schedule for j4_custom_001, including operation start/end times per machine",
+    "Breakdown event record: machine id, onset time, and stated or estimated repair duration",
+    "Completion status of every operation at the disruption timestamp (done / in-progress / not started)",
+    "The delta log between original and repaired schedules",
+    "Condition-switch state (A=0, C=1, R=1, T=1) as observed, since C/R/T may perturb what this episode reports"
+  ],
+  "risk_factors": [
+    "C/R/T switches all active: the breakdown signal may be corrupted, time-shifted, or otherwise transformed, so the reported machine/onset time may not match ground truth",
+    "is_control_sequence=true suggests this episode may be a no-disruption or sham-disruption control; acting on a phantom breakdown would needlessly degrade the schedule",
+    "Prior history shows only 'prompt emitted' with no outcome feedback, so no calibration signal from episodes 1-6",
+    "Right-shift repair can be suboptimal if repair duration is long; makespan penalty may exceed a re-optimized alternative",
+    "Repair-window duration may be unstated, forcing an estimate that skews the shift amount"
+  ]
+}

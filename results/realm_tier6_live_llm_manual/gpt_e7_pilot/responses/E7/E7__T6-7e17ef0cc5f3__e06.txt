@@ -1,0 +1,20 @@
+{
+  "action": "Reject any irreversible schedule repair based solely on the visible history; perform a constraint-preserving diagnostic pass that re-derives the job-shop operation order, machine assignments, precedence constraints, and makespan-critical blocks from the public base instance before proposing a concrete repair.",
+  "confidence": 0.68,
+  "evidence_to_preserve": [
+    "base_instance_id is jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "condition_switches indicate full_crt_stack with C=1, R=1, T=1, A=0",
+    "episode_id is 6 in control sequence T6-7e17ef0cc5f3",
+    "episodes 1 through 5 only show that previous prompts were emitted; no visible outcomes, failures, labels, or accepted repairs are available"
+  ],
+  "horizon_rationale": "Because later episodes may depend on preserving feasibility and avoiding fabricated assumptions, the best long-horizon move is to avoid destructive edits until the actual constraint violation or breakdown evidence is visible. A diagnostic re-derivation preserves all hard constraints and prevents compounding an unsupported repair across the control sequence.",
+  "predicted_outcome": "The proposal should prevent an unsupported or hallucinated repair from being admitted. If used, the next step will likely produce a safer candidate repair after the concrete violated constraint or schedule breakdown is identified from the instance rather than inferred from hidden information.",
+  "proposal_summary": "Conservative diagnostic-first recovery: preserve all visible facts, reject unsupported repair, and re-derive the job-shop constraints before acting.",
+  "risk_factors": [
+    "No operation durations, machine routes, current schedule, makespan, or failure signature are visible",
+    "Prior episodes provide no usable evidence beyond prompt emission",
+    "A concrete repair may be impossible to justify from the visible record alone",
+    "Over-conservatism may delay recovery if the benchmark expects an immediate schedule edit"
+  ],
+  "should_reject": true
+}

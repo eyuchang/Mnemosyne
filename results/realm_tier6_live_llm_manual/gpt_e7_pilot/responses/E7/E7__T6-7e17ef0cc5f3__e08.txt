@@ -1,0 +1,24 @@
+{
+  "action": "Reject any state-mutating repair or scheduling change and instead emit an observation-only audit: the visible episode provides only dataset identity, condition switches, and seven prior prompt-emission markers, but no current job-shop schedule, failed operation, machine assignment, constraint violation, makespan, or repair target.",
+  "confidence": 0.86,
+  "evidence_to_preserve": [
+    "base_instance_id=jobshop_breakdown:datasets/J4/custom/j4_custom_001.json",
+    "family=jobshop_breakdown",
+    "config_id=E7",
+    "episode_id=8",
+    "sequence_id=T6-7e17ef0cc5f3",
+    "condition label=full_crt_stack with A=0,C=1,R=1,T=1",
+    "is_control_sequence=true",
+    "visible prior history contains episodes 1 through 7 marked only as previous prompt emitted"
+  ],
+  "horizon_rationale": "Over later episodes, preserving uncertainty is safer than inventing a repair. A fabricated job-shop action could destroy valid ordering, machine-capacity, or precedence evidence that is not visible here. An observation-only rejection keeps the control sequence consistent and avoids contaminating future recovery with unsupported assumptions.",
+  "predicted_outcome": "Mnemosyne should treat this as a conservative insufficient-information proposal. No schedule facts are altered, and future episodes retain the ability to use actual observed failures or state once exposed.",
+  "proposal_summary": "Insufficient visible state for a concrete job-shop repair; recommend observation-only rejection of any unsupported mutation.",
+  "risk_factors": [
+    "No visible schedule state or operation-level data",
+    "No visible failure signature or scorer label",
+    "Prior history gives no substantive repair evidence",
+    "Any concrete machine/order/makespan change would be hallucinated"
+  ],
+  "should_reject": true
+}

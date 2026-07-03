@@ -1,0 +1,25 @@
+{
+  "adapter_id": "tier6-mnemosyne-runtime-adapter-v0",
+  "canonical_sentence": "This implements and validates the Mnemosyne REALM-Bench Tier-6 adapter; pilot and confirmatory runs follow under the registered protocol.",
+  "claim_status": "not_chapter_result",
+  "condition_switches": {
+    "A": 0,
+    "C": 0,
+    "R": 0,
+    "T": 0,
+    "label": "engine_only"
+  },
+  "config_id": "E0",
+  "families": [
+    "jobshop_breakdown",
+    "ride_or_routing_disruption",
+    "wedding_recovery"
+  ],
+  "num_episodes": 150,
+  "num_events": 78,
+  "num_sequences": 15,
+  "phase": "runtime_proposal_admission_adapter_validation",
+  "realm_root": "/Users/edward.chang/REALM-Bench",
+  "run_id": "mnemosyne_tier6_E0_runtime_adapter_v0",
+  "system_id": "mnemosyne"
+}

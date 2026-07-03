@@ -1,12 +1,19 @@
 {
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+"schema": "realm_tier6_dynamic_disruption_response_v0",
+"action": "repair",
+"repair_summary": "Preserve M2 disruption evidence and locally detach uncommitted J4-O2 from the unavailable M2 slot for validator-guided requeue; leave committed history and J1-O2 unchanged.",
+"affected_steps": [
+"J4-O2",
+"ev-e05-committed-2"
+],
+"preserve_evidence": true,
+"rollback_scope": "none",
+"expected_time_to_correction": 1,
+"risk_flags": [
+"m2_unavailable",
+"requires_machine_availability_validation",
+"evidence_preservation_required"
+],
+"should_reject": false,
+"confidence": 0.78
 }

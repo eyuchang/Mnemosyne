@@ -1,12 +1,16 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Reassign uncommitted operation J4-O2 off failed machine M2 to an alternative available machine (subject to Mnemosyne capability/availability validation). Committed operations J2-O1, J3-O1, and J1-O1 completion record untouched. J1-O2 on M3 unaffected. Repair radius = 1 (only J4-O2 modified).",
+  "affected_steps": ["J4-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "alternative_machine_capability_unverified",
+    "possible_queue_delay_on_target_machine",
+    "reject_if_no_capable_alternative_machine_exists"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.78
 }

@@ -1,12 +1,1 @@
-{
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
-}
+{"schema":"realm_tier6_dynamic_disruption_response_v0","action":"repair","repair_summary":"Delay uncommitted M0 operation J3-O2 until late material is available; preserve committed operations and material evidence without rollback or reroute.","affected_steps":["J3-O2"],"preserve_evidence":true,"rollback_scope":"none","expected_time_to_correction":1,"risk_flags":["late_material_M0","local_delay_only","precedence_preservation_required"],"should_reject":false,"confidence":0.82}

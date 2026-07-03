@@ -4,9 +4,9 @@
   "num_expected": 40,
   "num_parsed": 40,
   "num_missing": 0,
-  "num_placeholders": 40,
-  "num_errors": 120,
-  "all_valid": false,
+  "num_placeholders": 0,
+  "num_errors": 0,
+  "all_valid": true,
   "results": [
     {
       "pack_name": "claude",
@@ -14,12 +14,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e01_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -27,12 +23,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e02_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -40,12 +32,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e03_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -53,12 +41,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e04_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -66,12 +50,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e05_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -79,12 +59,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e06_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -92,12 +68,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e07_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -105,12 +77,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e08_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -118,12 +86,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e09_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "claude",
@@ -131,12 +95,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/claude/e10_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -144,12 +104,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e01_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -157,12 +113,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e02_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -170,12 +122,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e03_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -183,12 +131,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e04_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -196,12 +140,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e05_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -209,12 +149,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e06_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -222,12 +158,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e07_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -235,12 +167,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e08_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -248,12 +176,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e09_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "gpt",
@@ -261,12 +185,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/gpt/e10_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -274,12 +194,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e01_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -287,12 +203,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e02_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -300,12 +212,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e03_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -313,12 +221,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e04_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -326,12 +230,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e05_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -339,12 +239,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e06_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -352,12 +248,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e07_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -365,12 +257,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e08_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -378,12 +266,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e09_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_expert",
@@ -391,12 +275,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_expert/e10_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -404,12 +284,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e01_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -417,12 +293,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e02_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -430,12 +302,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e03_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -443,12 +311,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e04_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -456,12 +320,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e05_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -469,12 +329,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e06_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -482,12 +338,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e07_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -495,12 +347,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e08_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -508,12 +356,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e09_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     },
     {
       "pack_name": "deepseek_instant",
@@ -521,12 +365,8 @@
       "path": "results/realm_tier6_dynamic_disruption_manual/jobshop_e7_dynamic_pilot/deepseek_instant/e10_response.json",
       "parsed": true,
       "missing": false,
-      "placeholder": true,
-      "errors": [
-        "invalid action",
-        "repair_summary must be nonempty string",
-        "placeholder response not replaced"
-      ]
+      "placeholder": false,
+      "errors": []
     }
   ]
 }

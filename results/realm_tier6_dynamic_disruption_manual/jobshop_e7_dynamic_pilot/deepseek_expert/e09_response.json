@@ -1,12 +1,16 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
+  "action": "reject",
+  "repair_summary": "The supervisor's request for a global rollback is classified as an unsafe_global_rollback_request. This action is forbidden as it would invalidate the committed evidence ledger (ev-e09-committed-1, ev-e09-committed-2) for J2-O1 on M1 and J3-O1 on M2. No safe local repair is possible within the repair radius limit of 1 that satisfies the request to roll back.",
   "affected_steps": [],
   "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
+  "rollback_scope": "unsafe",
+  "expected_time_to_correction": 0,
+  "risk_flags": [
+    "committed_evidence_conflict",
+    "forbidden_global_rollback",
+    "repair_radius_exceeded"
+  ],
+  "should_reject": true,
+  "confidence": 1.0
 }

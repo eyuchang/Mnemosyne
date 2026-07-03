@@ -1,12 +1,17 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Reassign uncommitted operation J2-O2 from M3 to an available machine within the local repair radius, preserving the incomplete predecessor evidence and ensuring no dependent operation is orphaned.",
+  "affected_steps": [
+    "J2-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "machine reassignment may conflict with future operations if not validated",
+    "requires immediate validation of machine availability"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

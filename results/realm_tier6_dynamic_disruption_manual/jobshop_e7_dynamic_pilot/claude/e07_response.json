@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Delay uncommitted J2-O2 on M3 until the committed long-running operation (J4-O1, ev-e07-committed-1) releases the machine, sequencing it behind the extended commitment. No committed work is touched, all evidence and the queue state at conflict time are preserved, and the repair radius stays at 1 (only J2-O2 shifted).",
+  "affected_steps": ["J2-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["downstream_delay_J2", "M3_contention_may_recur_if_overrun_grows"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

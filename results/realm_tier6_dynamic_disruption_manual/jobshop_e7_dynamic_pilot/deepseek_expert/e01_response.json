@@ -1,12 +1,17 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Reschedule uncommitted J4-O2 from unavailable M2 to an alternate machine while preserving all committed evidence and J1-O1 completion. J1-O2 remains on M3 unaffected.",
+  "affected_steps": [
+    "J4-O2"
+  ],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "alternate_machine_capacity_unknown",
+    "precedence_chain_assumed_intact"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Detect resource conflict on M3 between uncommitted J2-O2 and committed operation. Identify J2-O2's uncommitted status allows repair. Reassign J2-O2 from M3 to next available machine M2 (inferred from jobshop_breakdown family constraints) to resolve conflict without touching committed J4-O1 evidence. J3-O2 remains on M1, unaffected.",
+  "affected_steps": ["J2-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["machine_reassignment_without_full_schedule_visibility", "assumes_M2_eligibility"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.85
 }

@@ -1,12 +1,1 @@
-{
-  "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
-  "preserve_evidence": true,
-  "rollback_scope": "none",
-  "expected_time_to_correction": 1,
-  "risk_flags": [],
-  "should_reject": false,
-  "confidence": 0.0
-}
+{"schema":"realm_tier6_dynamic_disruption_response_v0","action":"repair","repair_summary":"Delay only uncommitted J1-O2 on M1 until after the calibration hold and setup window are valid again; preserve committed evidence and leave J2-O2 unchanged unless validator later finds a direct dependency conflict.","affected_steps":["J1-O2"],"preserve_evidence":true,"rollback_scope":"local","expected_time_to_correction":1,"risk_flags":["m1_setup_window_invalidated","precedence_recheck_required","machine_availability_recheck_required"],"should_reject":false,"confidence":0.78}

@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Reschedule uncommitted J4-O2 off unavailable M2 (defer until M2 restored or reassign per availability), retaining failure notice, maintenance ticket, and affected-operation audit trail intact. Committed J2-O1 and J3-O1 untouched; J1-O2 on M3 unaffected.",
+  "affected_steps": ["J4-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["machine_unavailability.M2", "evidence_destroying_reschedule_risk_mitigated"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.9
 }

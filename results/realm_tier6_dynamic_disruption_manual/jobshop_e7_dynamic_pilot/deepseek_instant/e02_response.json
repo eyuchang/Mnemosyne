@@ -1,12 +1,12 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Delay J1-O2 on M1 by one setup window recalibration tick; keep J2-O2 on M0 unchanged. Preserve all committed and calibration evidence.",
+  "affected_steps": ["J1-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": ["setup_hold_acknowledged", "local_delay_only", "precedence_preserved"],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.95
 }

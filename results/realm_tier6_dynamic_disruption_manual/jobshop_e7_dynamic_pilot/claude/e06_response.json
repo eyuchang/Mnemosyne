@@ -1,12 +1,17 @@
 {
   "schema": "realm_tier6_dynamic_disruption_response_v0",
-  "action": "",
-  "repair_summary": "",
-  "affected_steps": [],
+  "action": "repair",
+  "repair_summary": "Reject the rushed proposal to start J3-O2 early. Instead, constrain J3-O2 (uncommitted) to start only after J3-O1 (committed on M2) reaches completion, preserving the J3 precedence chain. No committed operations (J3-O1, J4-O1) are touched; committed evidence ev-e06-committed-1 and ev-e06-committed-2 are preserved, along with the precedence constraint record and the repair-attempt warning. Repair radius = 1 (single operation: J3-O2). No rollback required.",
+  "affected_steps": ["J3-O2"],
   "preserve_evidence": true,
   "rollback_scope": "none",
   "expected_time_to_correction": 1,
-  "risk_flags": [],
+  "risk_flags": [
+    "precedence_violation_risk_averted",
+    "rushed_repair_rejected",
+    "local_delay_on_M1"
+  ],
   "should_reject": false,
-  "confidence": 0.0
+  "confidence": 0.9
 }
+

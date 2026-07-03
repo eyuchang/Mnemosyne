@@ -1,0 +1,24 @@
+{
+  "proposal_summary": "Reactive partial reschedule for the J4 breakdown instance: freeze operations already completed or in-process on unaffected machines, right-shift operations queued on the broken machine to its estimated repair-complete time, then locally re-optimize only the affected downstream operation chain under the active C/R/T disturbance stack.",
+  "action": "1) Snapshot current schedule state and machine status before mutating anything. 2) Identify the broken machine and the set of operations directly or transitively delayed by it. 3) Apply affected-operations rescheduling (AOR): keep sequence on unaffected machines, re-time affected operations at earliest feasible slots after repair, respecting job precedence and any release/cancellation/time-window constraints implied by C=1, R=1, T=1. 4) Only if AOR violates a hard constraint (e.g., a T-imposed deadline), escalate to a bounded full reschedule of remaining operations. 5) Emit the repaired schedule with per-operation new start times and a delta report against the pre-breakdown schedule.",
+  "predicted_outcome": "Feasible repaired schedule with makespan increase roughly bounded by the breakdown downtime on the critical machine; minimal schedule churn (small deviation from episode-1 plan), preserving stability for later episodes in the sequence.",
+  "horizon_rationale": "This is episode 2 of a control sequence with the full C/R/T stack active; later episodes will likely layer further disturbances on this instance. A minimal-perturbation repair (AOR before full reschedule) keeps the baseline plan recognizable, so future repairs compose instead of compounding, and it avoids overfitting to a single disturbance at the cost of downstream flexibility. Full rescheduling now would maximize immediate optimality but destroy schedule stability that later episodes depend on.",
+  "evidence_to_preserve": [
+    "Pre-breakdown schedule (episode 1 output) with original start/end times per operation",
+    "Identity of the broken machine, breakdown onset time, and estimated repair duration",
+    "Which operations were in-process vs queued at breakdown time",
+    "The condition-switch stack (A=0, C=1, R=1, T=1) as applied to this instance",
+    "The unmodified source instance datasets/J4/custom/j4_custom_001.json",
+    "Delta log between pre- and post-repair schedules"
+  ],
+  "risk_factors": [
+    "Repair duration is uncertain; right-shift anchored to a wrong estimate cascades into T (deadline/time-window) violations",
+    "C=1 may cancel jobs mid-repair, stranding reserved capacity if the repair is not re-validated after each disturbance event",
+    "AOR can be myopic: local repair may be feasible but leave a bottleneck that a later episode's disturbance turns infeasible",
+    "Only one prior episode is visible ('previous prompt emitted' with no outcome), so there is no confirmation the episode-1 plan was accepted or executed",
+    "is_control_sequence=true means unusual dynamics are possible; the proposal assumes standard breakdown semantics"
+  ],
+  "confidence": 0.62,
+  "should_reject": false,
+  "horizon_rationale_note": null
+}

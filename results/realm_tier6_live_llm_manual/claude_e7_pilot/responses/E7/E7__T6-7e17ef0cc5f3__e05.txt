@@ -1,0 +1,22 @@
+{
+  "action": "Pause dispatch on the affected machine, verify the breakdown scope against the J4 instance's machine-operation map, then apply a right-shift repair: reschedule only operations assigned to the broken machine onto its repair-completion window (or migrate to a compatible idle machine if routing flexibility exists), keeping all unaffected job sequences intact.",
+  "confidence": 0.62,
+  "evidence_to_preserve": [
+    "Original J4 instance schedule and job-operation-machine assignments from datasets/J4/custom/j4_custom_001.json",
+    "Timestamp and identity of the breakdown event (which machine, which operation was in-flight)",
+    "Partial completion state of any interrupted operation",
+    "Condition-switch configuration (A=0, C=1, R=1, T=1) for episode 4 of sequence T6-7e17ef0cc5f3",
+    "Prompts/proposals emitted in episodes 1-3, since this is a control sequence and cross-episode consistency may be scored"
+  ],
+  "horizon_rationale": "A minimal, localized right-shift repair preserves schedule stability for later episodes: it avoids cascading reassignments that would invalidate commitments future episodes may depend on. With C, R, and T switches all active, resource contention and temporal drift compound across the horizon, so a full reschedule now would maximize disruption surface; a conservative repair keeps slack available for later perturbations while remaining reversible.",
+  "predicted_outcome": "Makespan increases by roughly the repair duration plus queuing delay on the affected machine only; all precedence and resource constraints remain satisfied; unaffected jobs complete on their original timeline, leaving a consistent state for episode 5.",
+  "risk_factors": [
+    "Ground-truth failure signature is hidden — the breakdown may be longer or broader than the visible episode implies, making right-shift insufficient",
+    "With R=1, alternative machines may already be contended, so migration could create secondary conflicts",
+    "With T=1, deadline tightening may make pure right-shift infeasible for due-date-critical jobs",
+    "Visible history shows only that prior prompts were emitted, not their outcomes, so I cannot condition on whether earlier repairs succeeded",
+    "As a control sequence, over-intervention itself may be the failure mode being probed"
+  ],
+  "proposal_summary": "Localized right-shift repair of the broken machine's queue with optional migration of feasible operations, minimal disturbance to unaffected jobs, full state logging for Mnemosyne's admission decision.",
+  "should_reject": false
+}

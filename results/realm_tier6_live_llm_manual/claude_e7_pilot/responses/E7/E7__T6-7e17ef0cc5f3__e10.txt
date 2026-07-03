@@ -1,0 +1,22 @@
+{
+  "proposal_summary": "Reactive right-shift repair for the J4 breakdown: freeze completed/in-progress operations, reroute or delay only operations assigned to the broken machine, and re-sequence downstream jobs by critical-ratio priority rather than full reschedule.",
+  "action": "Apply a minimal-perturbation repair: (1) preserve the executed prefix of the schedule as immutable; (2) mark the broken machine unavailable for its estimated repair window; (3) right-shift affected operations, allowing swaps to an idle compatible machine only when it strictly reduces makespan; (4) re-dispatch remaining operations with critical-ratio ordering; (5) log pre/post makespan delta before commit.",
+  "predicted_outcome": "Feasible repaired schedule with bounded makespan degradation (small delta over the pre-breakdown plan), no constraint violations, and schedule stability preserved for unaffected jobs.",
+  "should_reject": false,
+  "confidence": 0.62,
+  "horizon_rationale": "With C/R/T switches active, disruptions likely recur across later episodes; a minimal-perturbation repair policy preserves schedule stability, keeps the executed prefix as a reliable baseline, and avoids compounding drift that full rescheduling would introduce. Episode 10 in a control sequence with 9 prior emitted prompts suggests consistency of policy matters more than one-shot optimality.",
+  "evidence_to_preserve": [
+    "Original instance data at datasets/J4/custom/j4_custom_001.json (do not mutate source)",
+    "Executed operation prefix and their actual start/end times",
+    "Breakdown event timestamp and affected machine ID",
+    "Pre-repair schedule and its makespan for delta comparison",
+    "Condition-switch configuration (A=0, C=1, R=1, T=1) and sequence_id T6-7e17ef0cc5f3"
+  ],
+  "risk_factors": [
+    "Repair-window estimate for the broken machine is unobserved; right-shift may be too short or too long",
+    "A=0 may disable an adaptation channel, limiting machine-reassignment options",
+    "Visible history shows only 'prompt emitted' statuses, not outcomes, so no feedback signal to calibrate against",
+    "Control-sequence flag means this episode may be scored against a no-intervention baseline; over-repair could penalize",
+    "Local right-shift can be myopic versus global reschedule if the breakdown lies on the critical path"
+  ]
+}

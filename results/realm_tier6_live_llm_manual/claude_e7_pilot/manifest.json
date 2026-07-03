@@ -1,0 +1,109 @@
+{
+  "adapter_id": "tier6-live-llm-manual-adapter-v0",
+  "claim_status": "manual_live_llm_proposal_behavior_not_confirmatory",
+  "config_ids": [
+    "E7"
+  ],
+  "entries": [
+    {
+      "config_id": "E7",
+      "episode_id": 1,
+      "key": "E7__T6-7e17ef0cc5f3__e01",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e01.md",
+      "prompt_sha256": "8fb009cf9cd776dbaa89843ae13bf99b90940f6f65383a0a0aa997c06ef9225d",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e01.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 2,
+      "key": "E7__T6-7e17ef0cc5f3__e02",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e02.md",
+      "prompt_sha256": "f970347ebcc31e1a50be2dc40a63ed64dd8535b28738aa0076bd2b543db7cf27",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e02.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 3,
+      "key": "E7__T6-7e17ef0cc5f3__e03",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e03.md",
+      "prompt_sha256": "b24d2404a0496bc1413b1dccc31f21709380985f4a3ff757fa646725e454e39e",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e03.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 4,
+      "key": "E7__T6-7e17ef0cc5f3__e04",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e04.md",
+      "prompt_sha256": "8ca68568cea53b946006283da5e01015473d0aaba6fc58551c62d110c236087d",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e04.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 5,
+      "key": "E7__T6-7e17ef0cc5f3__e05",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e05.md",
+      "prompt_sha256": "3956f3fc1d2e6e3c36cee9f1e16f47876e784debb4f1bf5ec5bde394b8341816",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e05.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 6,
+      "key": "E7__T6-7e17ef0cc5f3__e06",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e06.md",
+      "prompt_sha256": "f5a964611e1a2c7fef78b5a29ce2dafcccefdf2d77e6bd85650f8e764596bdec",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e06.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 7,
+      "key": "E7__T6-7e17ef0cc5f3__e07",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e07.md",
+      "prompt_sha256": "2e568e33978be233d62b20f26ca0a3f931ce99a0572afe39d7a247be68cf01cd",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e07.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 8,
+      "key": "E7__T6-7e17ef0cc5f3__e08",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e08.md",
+      "prompt_sha256": "4c8de5ee442c71d7120928c67e92b1f793617c5a4766519b0bc3183341e18cde",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e08.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 9,
+      "key": "E7__T6-7e17ef0cc5f3__e09",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e09.md",
+      "prompt_sha256": "4d363262fab4c7244286a21b9a3b0e80feec99a7cfe163e40a7b9c28b2ab3d57",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e09.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    },
+    {
+      "config_id": "E7",
+      "episode_id": 10,
+      "key": "E7__T6-7e17ef0cc5f3__e10",
+      "prompt_path": "prompts/E7/E7__T6-7e17ef0cc5f3__e10.md",
+      "prompt_sha256": "ecdda0540559a5e23be43f2130eb14df6f252244ea04ae1a5e253542e6f2817b",
+      "response_path": "responses/E7/E7__T6-7e17ef0cc5f3__e10.txt",
+      "sequence_id": "T6-7e17ef0cc5f3"
+    }
+  ],
+  "max_sequences": 1,
+  "mode": "manual_live_llm_proposal_injection",
+  "num_prompts": 10,
+  "num_sequences": 1,
+  "pack_version": "tier6-live-llm-manual-pack-v0",
+  "realm_root": "/Users/edward.chang/REALM-Bench",
+  "sequence_ids": [
+    "T6-7e17ef0cc5f3"
+  ],
+  "subset": "pilot"
+}

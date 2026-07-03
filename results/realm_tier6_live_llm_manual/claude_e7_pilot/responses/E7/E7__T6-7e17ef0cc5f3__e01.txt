@@ -1,0 +1,22 @@
+{
+  "action": "Observe first: query current machine status and job progress on the J4 instance to confirm which machine broke down and which operations are stranded. Then apply a right-shift-plus-reassignment repair: keep completed operations fixed, reassign the interrupted operation and its successors to feasible alternate machines where routing allows, otherwise right-shift them past the estimated repair window, re-sequencing only the affected tail of the schedule.",
+  "confidence": 0.55,
+  "evidence_to_preserve": [
+    "Original baseline schedule and dispatch order for all 4 jobs",
+    "Timestamps and identity of the breakdown event (machine id, operation in progress, elapsed processing time)",
+    "Completed-operation records (which operations finished before the disruption)",
+    "Machine-eligibility/routing constraints from the instance file",
+    "Any partial processing progress on the interrupted operation (to decide resume vs restart semantics)"
+  ],
+  "horizon_rationale": "With C, R, and T switches active, disruptions and timing pressure likely recur in later episodes. A minimal-perturbation repair preserves schedule stability, keeping later episodes comparable and avoiding cascading rescheduling costs. Full reschedule-from-scratch could score marginally better on makespan now but destroys the baseline evidence needed to diagnose future failure signatures, and with no visible history (episode 1 of a control sequence) conservative repair establishes a clean reference behavior.",
+  "predicted_outcome": "Affected operations are shifted or reassigned with bounded makespan increase (roughly the repair duration on the critical path, less if alternate machines absorb the load); unaffected jobs complete as originally scheduled; all precedence and capacity constraints remain satisfied.",
+  "risk_factors": [
+    "No visible history: breakdown duration and affected machine are inferred, not confirmed",
+    "A=0 suggests some capability (possibly adaptivity or alternate assignment) is disabled, which could invalidate the reassignment branch of the repair",
+    "Repair-time estimate may be wrong, making right-shift either too aggressive or too loose",
+    "Interrupted operation may be non-resumable, requiring restart and a larger delay than predicted",
+    "Control-sequence flag means this episode may intentionally contain no real fault; acting on an assumed breakdown could inject unnecessary schedule churn"
+  ],
+  "should_reject": false,
+  "proposal_summary": "Verify breakdown state, then repair the existing schedule via minimal right-shift with optional machine reassignment for the affected operation tail, preserving all pre-disruption evidence; fall back to no-op if observation shows no actual fault."
+}

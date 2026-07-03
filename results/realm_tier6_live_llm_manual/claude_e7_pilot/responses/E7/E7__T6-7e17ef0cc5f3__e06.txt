@@ -1,0 +1,22 @@
+{
+  "action": "On the machine-breakdown signal, freeze dispatch to the failed machine, right-shift only the operations queued on it, and run a bounded local reschedule (affected-operations rescheduling, not full regeneration): reroute breakdown-blocked operations to feasible alternate machines where routing permits, otherwise delay them by the estimated repair window while keeping all unaffected job sequences intact.",
+  "confidence": 0.62,
+  "evidence_to_preserve": [
+    "original J4 baseline schedule and per-operation machine assignments from j4_custom_001.json",
+    "timestamp and identity of the broken machine plus the in-progress operation state at breakdown",
+    "the C/R/T switch settings (A=0, C=1, R=1, T=1) active for this episode",
+    "queue contents and job completion status at the moment of disruption",
+    "episode 1-5 proposal history for cross-episode drift comparison"
+  ],
+  "horizon_rationale": "A minimal-perturbation repair keeps later episodes comparable: full reschedules destroy the baseline reference, making it impossible to attribute future deviations to the breakdown versus the repair itself. Since this is a control sequence, conservative local repair also minimizes contamination of downstream episodes. Risk over the horizon is that repeated local right-shifts compound into makespan drift if further C/R/T disruptions land on the same bottleneck; that argues for logging bottleneck utilization now so a fuller reschedule can be justified later if drift exceeds a threshold.",
+  "predicted_outcome": "Makespan increases roughly by the repair duration minus absorbed slack on non-critical operations; no constraint violations; unaffected jobs complete per baseline; schedule stability preserved for subsequent episodes.",
+  "proposal_summary": "Affected-operations local reschedule after breakdown: freeze failed machine, reroute or right-shift only blocked operations, preserve baseline sequencing elsewhere.",
+  "risk_factors": [
+    "A=0 means no new arrivals to absorb slack, so delay propagates directly to the critical path",
+    "with C, R, and T all active, cancellation/rework/time-perturbation interactions may invalidate the local repair mid-episode",
+    "repair duration is unobserved; underestimating it forces a second reschedule",
+    "alternate-machine routing may not exist in this J4 instance, collapsing the reroute option to pure delay",
+    "visible history carries no outcome labels, so confidence in prior-episode consistency is unverifiable"
+  ],
+  "should_reject": false
+}

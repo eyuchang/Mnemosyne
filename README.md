@@ -27,6 +27,12 @@ Admission gate = only authority boundary
 
 ---
 
+## Paper
+
+**Mnemosyne: Agentic Transaction Processing for Validating and Repairing AI-generated Workflows**  
+Edward Y. Chang, Longling Geng, Emily J. Chang  
+arXiv: [2607.00269](https://arxiv.org/abs/2607.00269)
+
 ## Current milestone
 
 Current verified milestone:

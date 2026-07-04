@@ -48,6 +48,12 @@ from mnemosyne.runtime.sqlite_repository import SQLiteRuntimeRepository  # noqa:
 from mnemosyne.store.sqlite import SQLiteStore  # noqa: E402
 
 
+CONFIGS.setdefault(
+    "E1",
+    {"A": 0, "C": 1, "R": 0, "T": 0, "label": "contextual_only"},
+)
+
+
 @dataclass
 class ControlledKernelCommitter:
     results_by_proposal_id: dict[str, KernelCommitResult] = field(default_factory=dict)
@@ -385,14 +391,14 @@ def _emit_kernel_events_with_harness(
                 accepted=True,
                 reason="kernel admitted control observation",
                 horizon_reward=0.0 if config_id in {"E0", "E2"} else 0.75,
-                grounded_admission=True if config_id == "E7" else None,
+                grounded_admission=True if config_id in {"E1", "E7"} else None,
             ))
         return events
 
     primary = sequence["hazard_signatures"][0]
     secondary = sequence["hazard_signatures"][1] if len(sequence["hazard_signatures"]) > 1 else primary
 
-    if config_id in {"E0", "E3"}:
+    if config_id in {"E0", "E1", "E3"}:
         reward = 0.0 if config_id == "E0" else 0.75
         return [
             _kernel_event(
@@ -671,7 +677,7 @@ def emit_all_kernel_config_runs(
     *,
     realm_root: Path,
     output_base: Path,
-    config_ids: Iterable[str] = ("E0", "E2", "E3", "E7"),
+    config_ids: Iterable[str] = ("E0", "E1", "E2", "E3", "E7"),
 ) -> Dict[str, Any]:
     results = {}
     for config_id in config_ids:

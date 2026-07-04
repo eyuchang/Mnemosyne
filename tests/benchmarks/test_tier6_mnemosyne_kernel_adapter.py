@@ -95,7 +95,7 @@ def test_integration_emit_all_kernel_config_runs(tmp_path):
     realm_root = adapter.resolve_realm_root()
     results = adapter.emit_all_kernel_config_runs(realm_root=realm_root, output_base=tmp_path)
 
-    assert set(results) == {"E0", "E2", "E3", "E7"}
+    assert set(results) == {"E0", "E1", "E2", "E3", "E7"}
     assert results["E0"]["safety_passed"] is True
     assert results["E2"]["safety_passed"] is True
     assert results["E7"]["safety_passed"] is True

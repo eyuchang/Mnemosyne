@@ -664,3 +664,12 @@ The public artifact tag for the arXiv/VLDB preparation version is:
 ```text
 arxiv-atp-rq1-rq9b-r8-v1
 ```
+
+## Backing Store and Reproducibility
+
+Mnemosyne supports two storage backends:
+
+- PostgreSQL: the backing store used for the experiments reported in the paper, supplement, and tagged reproducibility snapshot.
+- SQLite: a lightweight fallback for local smoke tests, development, and environments where PostgreSQL is unavailable.
+
+Unless explicitly stated otherwise, the reported experiment results, replay traces, and artifact tag use the PostgreSQL-backed execution path. SQLite is not the backing store for the paper's reported results.

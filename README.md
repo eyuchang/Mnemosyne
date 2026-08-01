@@ -52,7 +52,7 @@ arxiv-atp-rq1-rq9b-r8-v1
 Public artifact URL:
 
 ```text
-https://github.com/eyuchang/Mnemosyne/tree/arxiv-atp-rq1-rq9b-r8-v1
+https://github.com/eyuchang/Mnemosyne/tree/arxiv-atp-rq1-rq9b-r8-v2
 ```
 
 The R8 branch was merged through PR #34:

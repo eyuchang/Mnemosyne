@@ -458,7 +458,7 @@ scripts/r8_smoke.sh
 The tagged artifact version is:
 
 ```bash
-git checkout arxiv-atp-rq1-rq9b-r8-v1
+git checkout arxiv-atp-rq1-rq9b-r8-v2
 ```
 
 Run core service tests:
@@ -662,7 +662,7 @@ Decoupling Committed-State Correctness from the Intelligence Layer
 The public artifact tag for the arXiv/VLDB preparation version is:
 
 ```text
-arxiv-atp-rq1-rq9b-r8-v1
+arxiv-atp-rq1-rq9b-r8-v2
 ```
 
 ## Backing Store and Reproducibility

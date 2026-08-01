@@ -46,7 +46,7 @@ The project has completed the implementation path from the early correctness ker
 Current artifact tag:
 
 ```text
-arxiv-atp-rq1-rq9b-r8-v1
+arxiv-atp-rq1-rq9b-r8-v2
 ```
 
 Public artifact URL:
